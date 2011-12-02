@@ -1,0 +1,241 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<?php     	$this->load->view('header/blueprint_css.php');  ?>
+<?php     	$this->load->view('header/common_css.php');  ?>
+<?php     	$this->load->view('header/top_header_css.php');  ?>
+<?php     	$this->load->view('header/mypayment_info_css.php');  ?>
+<?php     	$this->load->view('footer/footer_section_css.php');  ?>
+
+<script type="text/javascript" language="Javascript" src = "<?php echo  base_url();   ?>js/creditcard/creditcard_validation.js"></script>
+<script type="text/javascript" language="Javascript" src = "<?php echo  base_url();   ?>js/jquery.js"></script>
+</head>
+
+<html>
+
+<body>
+
+
+<div id='top_body'  class='  clearfix' >
+	<div id='sunrise'  class=' container' >
+
+<?php     	$this->load->view('header/top_header.php');  ?>
+							
+
+						<form id='form0' name='form0'
+							 action='<?php	echo base_url().'index.php/home/update_payment'; ?>' method='post'>
+
+							<div  class=' container' >
+								
+								<div id='buy_box_other_deals_container'  class=' container_inside   margin_top' >
+									
+										<div id='buy_box_section'  class='margin_top float_left' >
+											
+											
+	
+												
+												
+												
+												
+										<div class=' error_box clear_fix' >
+											<div id='exclamation_point'  class='float_left  ' >
+											</div>
+											<div  class='float_left message' >
+											</div>
+										</div>
+
+													<div  id='user_information_section'   class='clear_fix rounded_bg' >
+														<div class="top">
+															<div class="sub_top">&nbsp;</div>
+														</div>
+													  <div class="middle">
+															     	  
+																<div id='pay_portion'>
+																	<?php  $this->load->view('home/buy_inside_payment.php');   ?>																     	  
+																</div>
+
+
+																<div  id='buynow_container' class='clearfix ' >
+																	<div id='buynow_image'>Update
+																	</div>
+																</div>
+
+
+
+														</div>
+														<div class="bottom"><div class="sub_bottom">&nbsp;</div></div>
+													</div>							
+													
+												</div>						
+												
+												
+			
+									
+									
+										</div>
+										
+										<div  class=' one_third_column float_left margin_left margin_top'>
+											<?php  $this->load->view('home/facebook_likebox.php');;   ?>
+										</div>	
+										
+
+										
+								</div>
+								
+						</form >									
+								
+							
+							</div>
+				
+				</div>
+
+
+
+	</div>
+
+
+<?php     	$this->load->view('footer/footer_section.php');  ?>
+
+</body>
+	
+
+</html>
+
+
+<script type="text/javascript" language="Javascript">
+$(document).ready(function() {
+	
+				<?php   
+				
+				$testing = FALSE;
+				//$testing = TRUE;
+
+				
+				if( $testing == TRUE ){  
+							$pairs = array(
+							'first_name'=>'Joseph',
+							'last_name'=>'Singer',
+							'form0 input#email'=>'jose@loverpoint.com',
+							'form0 input#password_signup'=>'12345',
+							'confirm'=>'12345',
+							'zipcode_signup'=>'900036',
+							'zipcode_payment'=>'10003',
+							'cc_first_name'=>'Joseph',
+							'cc_last_name'=>'Singer',
+							'cc_address'=>'2341 Treetop Street',
+							'cc_state'=>'CA',
+							'cc_city'=>'Daly City',
+							'cc_code'=>'323',
+							'month_exp'=>'11',
+							'year_exp'=>'2015'
+							);
+							
+
+							$pairs['cc_num'] = '370000000000002';
+							$pairs['cardtype'] = 'AmEx';							
+//							
+//							$pairs['cc_num'] = '4007000000027';
+//							$pairs['cardtype'] = 'Visa';
+
+						
+							foreach($pairs as $key => $value){ ?>
+								
+								$('#<?php echo $key    ?>').val('<?php echo $value    ?>');
+								
+							<?php
+							}					
+				};
+				?>
+				
+				$('form#form0 input[type=text]')
+
+					.click(function(event) {				
+						
+							$(this).css({background:'white'}).val('')
+
+							.parent().parent().children('div.error_message').html("&nbsp;");
+
+					});
+					
+	
+
+				<?php 
+				
+				foreach($payment_info_pairs as $key => $value){ ?>
+					
+					$('#<?php echo $key    ?>').val('<?php echo $value    ?>');
+					
+				<?php
+				}?>
+
+				$('#logo').click(function(event) {
+					<?php if( $_SERVER['HTTP_HOST'] == 'zekeszoo.com' ){?>	
+												document.location.href='http://zekeszoo.com/index.php/home';
+
+					<?php }else{?>
+												document.location.href='<?php echo  base_url();   ?>index.php/home';
+
+					<?php } ?>
+				});	
+
+				$('form#form0 select')
+
+					.change(function(event) {				
+						
+							$(this).css({background:'white'})
+							
+							.parent().parent().children('div.error_message_select').html("&nbsp;");
+							
+
+					});		
+					
+					
+				$('#buynow_image').click(function(event) {
+					
+						var ok = 1;
+
+						// ** SELECTION MUST BE CHOOSEN
+						$('form#form0 select, form#form0 input:not(#gift)')
+						
+						.css({background:'white'})
+						
+						.each(function(){
+		
+								if( $(this).val() == '' ){
+
+									$(this).css({background:'pink'}).parent().parent().children('div.error_message_select, div.error_message').html("Can't be blank.");
+
+
+									ok = 0;
+									
+				
+								};
+						        
+						});	
+			
+						// ** ZIPCODE FOR PAYMENT MUST BE INT AND GREATER THAN 5 CHARACTERS
+						if(  $('form#form0 input#zipcode_payment').val()  != parseInt( $('form#form0 input#zipcode_payment').val() ) 
+									||  $('form#form0 input#zipcode_payment').val().length  < 5
+						) {
+							
+							$('form#form0 input#zipcode_payment').css({background:'pink'}).parent().parent().children('div.error_message').html("Invalid Zipcode.");
+
+
+							ok = 0;
+
+						}else{
+						
+							$('form#form0 input#zipcode_payment').css({background:'white'}).parent().parent().children('div.error_message').html("&nbsp;");	
+							
+						};						
+						
+						if(ok == 1){
+							
+							// 	alert('submitting');
+							$('form#form0').submit();
+						};
+
+				});
+
+});
+</script>

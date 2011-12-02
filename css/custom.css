@@ -1,0 +1,70 @@
+
+form li{
+//list-style:none;
+margin-bottom:30px;
+}
+
+.rounded_border, .rounded_top_left{
+	border-top-left-radius: 8px;
+	-moz-border-radius-topleft: 8px;
+	-webkit-border-top-left-radius: 8px;
+}
+.rounded_border, .rounded_top_right{
+	border-top-right-radius: 8px;
+	-moz-border-radius-topright: 8px;
+	-webkit-border-top-right-radius: 8px;
+}
+.rounded_border, .rounded_bottom_left{
+	border-bottom-left-radius: 8px;
+	-moz-border-radius-bottomleft: 8px;
+	-webkit-border-bottom-left-radius: 8px;
+}
+.rounded_border, .rounded_bottom_right{
+	border-bottom-right-radius: 8px;
+	-moz-border-radius-bottomright: 8px;
+	-webkit-border-bottom-right-radius: 8px;
+}
+
+
+.cursor_pointer{
+	cursor:pointer;
+}
+
+.input_field, .input_field:focus{
+border:1px solid darkorange;
+color:darkgray;
+font-size:27px;
+padding-left:10px;
+border-top-left-radius: 6px;
+border-top-right-radius: 6px;
+-moz-border-radius-topleft: 6px;
+-moz-border-radius-topright: 6px;
+-webkit-border-top-right-radius: 6px;
+-webkit-border-top-left-radius: 6px;
+border-bottom-left-radius: 6px;
+border-bottom-right-radius: 6px;
+-moz-border-radius-bottomleft: 6px;
+-moz-border-radius-bottomright: 6px;
+-webkit-border-bottom-right-radius: 6px;
+-webkit-border-bottom-left-radius: 6px;
+}
+.input_field:focus{
+//border:0px;
+}
+
+.opaque_ie {
+	border:1px solid red;
+	-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=50)"; 
+	filter: alpha(opacity=70);					
+}
+
+
+.transparent_class {
+	background:white;
+	filter:alpha(opacity=75);    /* ie  */
+	-moz-opacity:0.75;    /* old mozilla browser like netscape  */
+	-khtml-opacity: 0.75;    /* for really really old safari */
+	opacity: 0.75;    /* css standard, currently it works in most modern browsers like firefox,  */
+}
+
+
