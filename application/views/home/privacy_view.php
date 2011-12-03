@@ -45,7 +45,7 @@
 													  	
 													  	
 																<div    id='box_inside'  class="clearfix ">
-														  		<div  table='website'    href='#wysiwyg_div' id='privacy'  class="wysiwyg_div_link clearfix elements_to_hide_when_adding_deal" >
+														  		<div  table='website'    href='#wysiwyg_div' id='privacy'  class="wysiwyg_div_link_disable clearfix elements_to_hide_when_adding_deal" >
 																																<?php     
 																																
 																																		if( isset( $website[0]->privacy  ) ){

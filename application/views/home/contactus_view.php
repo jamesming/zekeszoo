@@ -42,28 +42,24 @@
 																<div id='box_inside_header' class=' header_style' >
 																	Contact Us
 																</div>
-<style>					  	
-#box_inside.clearfix p{
-font-size:13px;
-margin:0px 0px 0px 0px;
-}
-</style>
-																<div    id='box_inside'  class="clearfix ">
-														  		<p>
-																	We currently offer the following ways to contact us
-<br /><br />
-																	<b>E-mail</b><br />customerservice@zekeszoo.com<br /><br />
+
+														  		<div  table='website'    href='#wysiwyg_div' id='contactus'  class="wysiwyg_div_link clearfix elements_to_hide_when_adding_deal" >
+																																<?php     
+																																
+																																		if( isset( $website[0]->contactus  ) ){
+																																			echo $website[0]->contactus;
+																																		}else{     ?>
+																																			
+																																			
 																	
-																	<b>Phone</b><br />
-																	For all inquiries regarding your zekeszoo.com order,<br />please call us at 1-800-247-6575 Mon-Fri, 8am-10pm ET, Sat/Sun, 9am-8pm ET.<br />
-																	For all other inquiries please call us at 1-800-617-2239.<br />
-																	<br />
-																	<b>Mail</b><br />
-																	SperryTopSider.com Customer Service<br />
-																	4200 South A Street<br />
-																	Richmond, IN 47374<br />
-																	</p>
-																</div>
+
+																																			
+																																			<?php
+																																		};
+																																
+																																?>
+														  		</div>
+
 															
 															
 														</div>

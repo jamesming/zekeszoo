@@ -4869,9 +4869,19 @@ function echo_vouchers_list(){
  **/ 
 
 function contactus(){
+	
+		$select_what =  '*';
+		
+				$where_array = array(
+		  	'id' => 1
+				);
+		 
+		$website = $this->my_database_model->select_from_table( $table = 'website', $select_what, $where_array, $use_order = TRUE, $order_field = 'id', $order_direction = 'desc', $limit = 1, $use_join = FALSE, $join_array= array() );
 
+				 
 		$this->load->view('home/contactus_view', 
 		array(
+		'website' => $website, 
 		'site_id' => $this->site_id, 
 		'deal_id' => $this->deal_id,
 		'from_logout' => $this->from_logout
