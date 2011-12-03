@@ -667,7 +667,7 @@ Join our Pet & Deal Loving Community on <a target='_blank' href='https://faceboo
 
 		$this->email->initialize($config);
 		
-		$this->email->from("admin@zekeszoo.com", "Zeke's Zoo");
+		$this->email->from("confirmation@zekeszoo.com", "Zeke's Zoo");
 		$this->email->to(
 		$this->users[0]->email.', 
 		benbundy@gmail.com,
@@ -4854,6 +4854,30 @@ function echo_vouchers_list(){
 	$this->custom->echo_vouchers_list(  $vouchers  );	
 	
 }
+
+
+
+
+/**
+ * contactus
+ *
+ * {@source }
+ * @package BackEnd
+ * @author James Ming <jamesming@gmail.com>
+ * @path /index.php/home/contactus
+ * @access public
+ **/ 
+
+function contactus(){
+
+		$this->load->view('home/contactus_view', 
+		array(
+		'site_id' => $this->site_id, 
+		'deal_id' => $this->deal_id,
+		'from_logout' => $this->from_logout
+		));
+}
+
 
 /**
  * create_table
