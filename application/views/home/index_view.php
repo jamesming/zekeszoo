@@ -24,10 +24,10 @@
 <link rel="shortcut icon" href="<?php echo base_url()    ?>images/favicon.ico">
 
 
-<meta property="og:title" content="<?php echo strip_tags($deals[0]->deal_headline)    ?>" />
+<meta property="og:title" content="<?php echo strip_tags(  ( isset( $deals[0]->deal_headline) ? $deals[0]->deal_headline:'' ))    ?>" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="<?php  echo base_url().'index.php/home/deal/'.$deal_url   ?>?v=2" />
-<meta property="og:image" content="<?php echo base_url(); ?>uploads/1/<?php echo  $deals[0]->id   ?>/image_tiny.png" />
+<meta property="og:image" content="<?php echo base_url(); ?>uploads/1/<?php echo  ( isset( $deals[0]->id) ? $deals[0]->id:'' )   ?>/image_tiny.png" />
 <meta property="og:site_name" content="Zekeszoo.com" />
 <meta property="fb:app_id" content="245890495426188" />
 <meta property="og:description"
@@ -85,7 +85,7 @@
 																	if( isset( $deals[0]->deal_headline  ) ){
 																		echo $deals[0]->deal_headline;
 																	}else{?>
-																		Click here to enter a headline for "<?php  echo $deals[0]->deal_name;  ?>" in this line.  It should encompass two lines.
+																		Click here to enter a headline for "<?php  echo ( isset( $deals[0]->deal_name) ? $deals[0]->deal_name:'' );  ?>" in this line.  It should encompass two lines.
 																	<?php
 																	};
 														     ?>
@@ -105,7 +105,7 @@
 															<div id='value_compare'>
 																
 																
-																<div id='value_div' >Value<br />$<span id='orig_price_on_website'  class=' elements_to_hide_when_adding_deal' ><?php  echo  $deals[0]->orig_price;   ?></span>
+																<div id='value_div' >Value<br />$<span id='orig_price_on_website'  class=' elements_to_hide_when_adding_deal' ><?php  echo  ( isset( $deals[0]->orig_price) ? $deals[0]->orig_price:'' );   ?></span>
 																</div>
 																<div id='discount_div' >Discount<br /><span id='discount'  class=' elements_to_hide_when_adding_deal' ><?php  echo $discount;   ?></span>%
 																</div>
@@ -121,7 +121,7 @@
 																
 																<div id='buynow_image_dollar_sign' class=' float_left'>$
 																</div>
-																<div id='deal_price_on_website' class='elements_to_hide_when_adding_deal float_left'><?php  echo  $deals[0]->deal_price;   ?>
+																<div id='deal_price_on_website' class='elements_to_hide_when_adding_deal float_left'><?php  echo  ( isset( $deals[0]->deal_price) ? $deals[0]->deal_price:'' );   ?>
 																</div>
 																<div id='buynow_text' class=' float_left'>
 																	
@@ -174,7 +174,7 @@
 																								Tipped on 
 																								<span><?php echo  date("F j,", strtotime($tipped_time) ) . ' at ' . date("g:i a", strtotime($tipped_time) );  ?></span> 
 																								with 
-																								<span id='bought_tipping_point'><?php echo $deals[0]->minimum_quantity    ?></span> bought
+																								<span id='bought_tipping_point'><?php echo ( isset( $deals[0]->minimum_quantity) ? $deals[0]->minimum_quantity:'' )    ?></span> bought
 																							</div>																							
 																							
 																																									
@@ -317,16 +317,14 @@
 													  			</div>
 														  		<div   id='company'  class="clearfix elements_to_hide_when_adding_deal" >
 																		<?php     
-																		echo $deals[0]->company_name."<br />";
-																		echo $deals[0]->address."<br />";
-																		if( $deals[0]->address2 !=''){
-																				echo $deals[0]->address2."<br />";
-																		};
-																		echo $deals[0]->city.", ";
-																		echo $deals[0]->state."&nbsp;&nbsp;";
-																		echo $deals[0]->zipcode."<br />";
-																		echo $deals[0]->telephone."<br />";
-																		echo "<a target='_blank' href='http://" . $deals[0]->vendor_website .  "'>http://" . $deals[0]->vendor_website ."</a><br />";
+																		echo ( isset( $deals[0]->company_name) ? $deals[0]->company_name:'' )."<br />";
+																		echo ( isset( $deals[0]->address) ? $deals[0]->address:'' )."<br />";
+																		echo ( isset( $deals[0]->address2) ? $deals[0]->address2:'' )."<br />";
+																		echo ( isset( $deals[0]->city) ? $deals[0]->city:'' ).", ";
+																		echo ( isset( $deals[0]->state) ? $deals[0]->state:'' )."&nbsp;&nbsp;";
+																		echo ( isset( $deals[0]->zipcode) ? $deals[0]->zipcode:'' )."<br />";
+																		echo ( isset( $deals[0]->telephone) ? $deals[0]->telephone:'' )."<br />";
+																		echo "<a target='_blank' href='http://" . ( isset( $deals[0]->vendor_website) ? $deals[0]->vendor_website:'' ) .  "'>http://" . ( isset( $deals[0]->vendor_website) ? $deals[0]->vendor_website:'' ) ."</a><br />";
 																		?>			
 																																
 														  		</div>

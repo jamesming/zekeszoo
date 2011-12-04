@@ -79,7 +79,7 @@ $(document).ready(function() {
 				  	$('.all_the_deals, .arrow_buttons').click(function(event) {	
 				  		
 				  			if( parseInt($(this).attr('deal_id')) > 0){
-										document.location.href='<?php echo  base_url();   ?>index.php/home/index/' + $(this).attr('deal_id');
+										document.location.href='<?php echo  base_url();   ?>index.php/home/index/' + $(this).attr('deal_id') + '?priority=<?php echo $priority    ?>';
 				  			};
 				  		
 						});					
@@ -218,7 +218,8 @@ $(document).ready(function() {
 									minimum_quantity:$('#minimum_quantity').val(),
 									deal_short_description:$('#deal_short_description').val(),
 									each_can_buy:$('#each_can_buy').val(),
-									deal_will_expire:$('#deal_will_expire').val()
+									deal_will_expire:$('#deal_will_expire').val(),
+									priority:<?php  echo $priority   ?>
 									},function(data) {
 
 								    if( $('#method').val() == 'add_deal'){

@@ -89,50 +89,50 @@
 							<div  class=' update_deal_form_div_label' >
 								Deal Name
 							</div>
-							<input  class='update_inputs '  name="deal_name" id="deal_name" type="" value="<?php  echo  $deals[0]->deal_name;   ?>" store="<?php  echo  $deals[0]->deal_name;   ?>">
+							<input  class='update_inputs '  name="deal_name" id="deal_name" type="" value="<?php  echo  ( isset( $deals[0]->deal_name) ? $deals[0]->deal_name:'' );   ?>" store="<?php  echo  $deals[0]->deal_name;   ?>">
 						</div>
 						<div>
 							<div  class=' update_deal_form_div_label' >
 								Original Price
 							</div>
-							<input  class='update_inputs ' name="orig_price" id="orig_price" type="" value="<?php  echo  $deals[0]->orig_price;   ?>" store="<?php  echo  $deals[0]->orig_price;   ?>">
+							<input  class='update_inputs ' name="orig_price" id="orig_price" type="" value="<?php  echo  ( isset( $deals[0]->orig_price) ? $deals[0]->orig_price:'' );   ?>" store="<?php  echo  ( isset( $deals[0]->orig_price) ? $deals[0]->orig_price:'' );   ?>">
 						</div>	
 						<div>
 							<div  class=' update_deal_form_div_label' >
 								Deal Price
 							</div>
-							<input  class='update_inputs ' name="deal_price" id="deal_price" type="" value="<?php  echo  $deals[0]->deal_price;   ?>" store="<?php  echo  $deals[0]->deal_price;   ?>">
+							<input  class='update_inputs ' name="deal_price" id="deal_price" type="" value="<?php  echo  ( isset( $deals[0]->deal_price) ? $deals[0]->deal_price:'' );   ?>" store="<?php  echo  ( isset( $deals[0]->deal_price) ? $deals[0]->deal_price:'' );   ?>">
 						</div>		
 						<div>
 							<div  class=' update_deal_form_div_label' >
 								Minimum Quantity
 							</div>
-							<input  class='update_inputs ' name="minimum_quantity" id="minimum_quantity" type="" value="<?php  echo  $deals[0]->minimum_quantity;   ?>" store="<?php  echo  $deals[0]->minimum_quantity;   ?>">
+							<input  class='update_inputs ' name="minimum_quantity" id="minimum_quantity" type="" value="<?php  echo  ( isset( $deals[0]->minimum_quantity) ? $deals[0]->minimum_quantity:'' );   ?>" store="<?php  echo  ( isset( $deals[0]->minimum_quantity) ? $deals[0]->minimum_quantity:'' );   ?>">
 						</div>
 						<div>
 							<div  class=' update_deal_form_div_label' >
 								Maximum Quantity
 							</div>
-							<input  class='update_inputs ' name="maximum_quantity" id="maximum_quantity" type="" value="<?php  echo  $deals[0]->maximum_quantity;   ?>" store="<?php  echo  $deals[0]->maximum_quantity;   ?>">
+							<input  class='update_inputs ' name="maximum_quantity" id="maximum_quantity" type="" value="<?php  echo  ( isset( $deals[0]->maximum_quantity) ? $deals[0]->maximum_quantity:'' );   ?>" store="<?php  echo  ( isset( $deals[0]->maximum_quantity) ? $deals[0]->maximum_quantity:'' );   ?>">
 						</div>
 						
 						<div>
 							<div  class=' update_deal_form_div_label' >
 								Deal Expires
 							</div>
-							<input  class='update_inputs ' name="deal_will_expire" id="deal_will_expire" type="" value="<?php  echo  $deals[0]->deal_will_expire;   ?>" store="<?php  echo  $deals[0]->deal_will_expire;   ?>">
+							<input  class='update_inputs ' name="deal_will_expire" id="deal_will_expire" type="" value="<?php  echo  ( isset( $deals[0]->deal_will_expire) ? $deals[0]->deal_will_expire:'' );   ?>" store="<?php   echo ( isset( $deals[0]->deal_will_expire) ? $deals[0]->deal_will_expire:'' )  ?>">
 						</div>					
 						<div>
 							<div  class=' update_deal_form_div_label' >
 								Each Can Buy
 							</div>
-							<input  class='update_inputs ' name="each_can_buy" id="each_can_buy" type="" value="<?php  echo  $deals[0]->each_can_buy;   ?>" store="<?php  echo  $deals[0]->each_can_buy;   ?>">
+							<input  class='update_inputs ' name="each_can_buy" id="each_can_buy" type="" value="<?php  echo  ( isset( $deals[0]->each_can_buy) ? $deals[0]->each_can_buy:'' );   ?>" store="<?php  echo  ( isset( $deals[0]->each_can_buy) ? $deals[0]->each_can_buy:'' );   ?>">
 						</div>						
 						<div>
 							<div  class=' update_deal_form_div_label' >
 								Label for CC Receipt
 							</div>
-							<input  class='update_inputs ' name="deal_short_description" id="deal_short_description" type="" value="<?php  echo  $deals[0]->deal_short_description;   ?>" store="<?php  echo  $deals[0]->deal_short_description;   ?>">
+							<input  class='update_inputs ' name="deal_short_description" id="deal_short_description" type="" value="<?php  echo  $deals[0]->deal_short_description;   ?>" store="<?php  echo  ( isset( $deals[0]->deal_short_description) ? $deals[0]->deal_short_description:'' );   ?>">
 						</div>							
 						<div>
 							<div class=' update_deal_form_div_label'   style='margin-top:0px;'  >
@@ -180,7 +180,7 @@
 			
 			<div id='calendar'  class=' other_divs' >
 				
-				<iframe id="iframe_src_for_calendar" frameborder="0" scrolling=no src="<?php  echo base_url()   ?>index.php/home/calendar/<?php echo $deal_id    ?>"  
+				<iframe id="iframe_src_for_calendar" frameborder="0" scrolling=no src="<?php  echo base_url()   ?>index.php/home/calendar/<?php echo $deal_id    ?>?priority=<?php echo $priority    ?>"  
 					
 				    <p>Your browser does not support iframes.</p>
 				    

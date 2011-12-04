@@ -19,7 +19,10 @@ class Home extends CI_Controller {
 				//$this->error_check_mode = TRUE;
 				$this->error_check_mode = FALSE;
 				
-				
+
+
+        $this->priority = ( $this->input->get('priority')  ? $this->input->get('priority') :'1' );
+	
 					        
         if( $this->input->get('logout') ){
         	
@@ -140,19 +143,39 @@ class Home extends CI_Controller {
 			
 		}elseif(   $this->deal_id ==''  ){  // ** COMING FROM /home/index
 
-				// ** Make this deal_id to associate with the current date
-				$where_array = array(
-		  	'year' => date('Y'),
-				'day_of_year' . ' <= ' =>  date('z',time())
-				);
-		
-				$deal_prepared = $this->query->prepare_for_index($where_array);
-
-				$calendars = $deal_prepared['calendars'];
-				$next_deal = $deal_prepared['next_deal'];
-				$tipped_time = $deal_prepared['tipped_time'];
-				$this->deal_id = $deal_prepared['deal_id'];
-				$deal_url =  $deal_prepared['deal_url'];
+				$today_deal = $this->query->get_today_deal(  $this->priority  );
+				
+				if( count($today_deal)==0 ){
+					
+					$insert_what = array(
+									'vendor_id' => 3,
+									'deal_name' => 'first deal for'. $this->priority,
+									'orig_price' => 100,
+									'deal_price' => 50,
+									'maximum_quantity' => 100,
+									'minimum_quantity' => 0,
+									'deal_will_expire' => '2012-12-31',
+									'deal_short_description' => 'first deal for'. $this->priority,
+									'each_can_buy' => 10,
+									'priority' => $this->input->post('priority')
+									);		
+					
+					$inserted_id = $this->my_database_model->insert_table(
+													$table = 'deals', 
+													$insert_what
+													); 
+													
+													
+					echo $inserted_id;				
+					
+				};
+				
+				
+				$calendars = $today_deal;
+				$next_deal =  $this->query->get_next_deal(  $this->priority   );
+				$tipped_time = ( isset( $today_deal[0]->tipped_time) ? $today_deal[0]->tipped_time:'' );
+				$this->deal_id = ( isset( $today_deal[0]->id) ? $today_deal[0]->id:'' );
+				$deal_url = ( isset( $today_deal[0]->deal_url) ? $today_deal[0]->deal_url:'' );
 
 		}else{	
 				$tipped_time = '';	
@@ -165,7 +188,7 @@ class Home extends CI_Controller {
 			
 			$next_deal = array();
 	
-			$all_the_deals = $this->query->get_all_deals();
+			$all_the_deals = $this->query->get_all_deals($this->priority);
 
 			 for( $i= 0; $i <= count($all_the_deals); $i++ ){
 			 	
@@ -191,18 +214,20 @@ class Home extends CI_Controller {
 			
 			
 			
-			$all_the_deals = array();$previous_deal_id='';$next_deal_id='';
+			$all_the_deals = array();
+//			$previous_deal_id='';
+//			$next_deal_id='';
 
 			$vendors = array();		
 		
 		};
 
 	
-		$raw_percentage_discount_value  = 100 - ( $deals[0]->deal_price  /   $deals[0]->orig_price    * 100 );
+		$raw_percentage_discount_value  = 100 - ( ( isset( $deals[0]->deal_price) ? $deals[0]->deal_price:'1' )  /   ( isset( $deals[0]->orig_price) ? $deals[0]->orig_price:'1' )    * 100 );
 
 		$discount = round($raw_percentage_discount_value,0);
 
-		$savings = $deals[0]->orig_price - $deals[0]->deal_price;
+		$savings = ( isset( $deals[0]->orig_price) ? $deals[0]->orig_price:'0' ) - ( isset( $deals[0]->deal_price) ? $deals[0]->deal_price:'0' );
 		
 
 		if( $this->uri->segment(3) == 'bad_account' ){
@@ -212,14 +237,14 @@ class Home extends CI_Controller {
 		};
 
 		if( isset($calendars)  ){
-					$bought_so_far = (int)$this->query->how_many_bought_during_one_booked_segment($calendar_id = $calendars[0]->id);
+					$bought_so_far = (int)$this->query->how_many_bought_during_one_booked_segment($calendar_id = ( isset( $calendars[0]->id) ? $calendars[0]->id:'0' ));
 		}else{
 					$bought_so_far = (int)$this->how_many_bought($this->deal_id);
 		};
 
-		$howmany_left =   ( (int)$deals[0]->maximum_quantity -  $bought_so_far) ;
+		$howmany_left =   ( (int)( isset( $deals[0]->maximum_quantity) ? $deals[0]->maximum_quantity:'0' ) -  $bought_so_far) ;
 
-		if( $bought_so_far >= $deals[0]->minimum_quantity ){
+		if( $bought_so_far >= ( isset( $deals[0]->minimum_quantity) ? $deals[0]->minimum_quantity:'' ) ){
 			$deal_is_on = TRUE;
 			$count_of_buyers_needed_to_tip_deal = 0;
 		}else{
@@ -230,6 +255,7 @@ class Home extends CI_Controller {
 		
 		$this->load->view('home/index_view', 
 		array(
+		'priority' => $this->priority,
 		'website' => $this->my_database_model->select_from_table( $table = 'website', $select_what = '*', $where_array = array(), $use_order = TRUE, $order_field = 'id', $order_direction = 'desc', $limit = 1, $use_join = FALSE, $join_array= array() ),  
 		'deal_url' => $deal_url,
 		'from_logout' => $this->from_logout,
@@ -242,8 +268,8 @@ class Home extends CI_Controller {
 		'vendors' => $vendors, 
 		'isBadAccount' => $isBadAccount, 
 		'next_deal' => $next_deal,  
-		'previous_deal_id' => $previous_deal_id, 
-		'next_deal_id' => $next_deal_id,
+		'previous_deal_id' => ( isset( $previous_deal_id) ? $previous_deal_id:0), 
+		'next_deal_id' => ( isset( $next_deal_id) ? $next_deal_id:'' ),
 		'all_the_deals' => $all_the_deals, 
 		'discount'=> $discount, 
 		'savings'=>$savings, 
@@ -1365,7 +1391,7 @@ Join our Pet & Deal Loving Community on <a target='_blank' href='https://faceboo
 		$this->load->model('my_payment_model');
 
 		if(   $this->deal_id == ''  ){
-			$deals = $this->query->get_today_deal();
+			$deals = $this->query->get_today_deal(  $this->priority );
 		};
 		
 		if(  isset( $this->session->userdata['user_id'] )  ){
@@ -1988,7 +2014,7 @@ Join our Pet & Deal Loving Community on <a target='_blank' href='https://faceboo
 				if( $this->uri->segment(4) !=''){
 					$deals = $this->get_deal_by_calendar_id($this->uri->segment(4));
 				}else{
-					$deals = $this->query->get_today_deal();
+					$deals = $this->query->get_today_deal(   $this->priority );
 				};
 
 				$deal_id = $deals[0]->id;
@@ -3330,7 +3356,9 @@ Join our Pet & Deal Loving Community on <a target='_blank' href='https://faceboo
 									'minimum_quantity' => $this->input->post('minimum_quantity'),
 									'deal_will_expire' => $this->input->post('deal_will_expire'),
 									'deal_short_description' => $this->input->post('deal_short_description'),
-									'each_can_buy' => $this->input->post('each_can_buy')
+									'each_can_buy' => $this->input->post('each_can_buy'),
+									// 'priority' => 2
+									'priority' => $this->input->post('priority')
 									);		
 					
 					$inserted_id = $this->my_database_model->insert_table(
@@ -4623,19 +4651,29 @@ function add_to_calendar(){
 function calendar(){
 	
 		$this->load->library('calendar');
-	
-		if( $this->input->post('goto_month') != ''){
-			$month = $this->input->post('goto_month');
-		}else{
-			$month = date("m");
-		};
 		
-		if( $this->input->post('year') != ''){
-			$year = $this->input->post('year');
+		
+		if( $this->input->get('year') != ''){
+			$year = $this->input->get('year');
 		}else{
 			$year = date("Y");
 		};	
 
+
+		if( $this->input->get('goto_month') != ''){
+			if( $this->input->get('goto_month') == 13){
+				$month = $goto_month =  1;
+				$year = date("Y") + 1;
+			}elseif($this->input->get('goto_month') == 0){
+				$month = $goto_month =  12;
+				$year = $this->input->get('year') - 1;
+			}else{
+				$month = $goto_month = $this->input->get('goto_month');
+			};
+			
+		}else{
+			$month = date("m");
+		};
 
 		if( !isset($daysInMonthBooked) ){
 			$daysInMonthBooked = array();
@@ -4652,7 +4690,8 @@ function calendar(){
 		$where_array = array(
 
 		 'month' =>  $month,
-		 'year' =>  $year
+		 'year' =>  $year,
+		 'priority' => $this->priority
 		 );
 		 
 		 
@@ -4694,14 +4733,18 @@ function calendar(){
 			$prebooked = array();
 		};
 
+
+
 		$data= array(
-		'year' => $this->input->post('year'),
-		'month' => $this->input->post('month'),
-		'day' => $this->input->post('day'),
-		'goto_month' => $this->input->post('goto_month'),
+		'year' => $year,
+		'month' => $month,
+		'day' => $this->input->get('day'),
+		'goto_month' => ( isset( $goto_month) ? $goto_month:'' ),
 		'deal_id' => $this->uri->segment(3),
-		'booked' => $prebooked
+		'booked' => $prebooked,
+		'priority' => $this->priority
 		);
+		
 		
 
 		$this->load->view('home/calendar_view', $data);

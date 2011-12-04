@@ -193,11 +193,12 @@ if( $last == -1){
 $time = time();
 
 ?>
-<form   style='display:none'   id='form0'  name="form0" action="<?php echo base_url();   ?>index.php/home/calendar/<?php echo $deal_id;    ?>" method="post"   >
+<form   style='display:none'   id='form0'  name="form0" action="<?php echo base_url();   ?>index.php/home/calendar/<?php echo $deal_id;    ?>" method="get"   >
 	last	<input id="last" name="last" type="text" value="<?php  echo $last  ?>"><br>
 	next	<input id="next" name="next" type="text" value="<?php  echo $next  ?>"><br>
 	year	<input id="year" name="year" type="text" value="<?php  echo $year  ?>"><br>
 	goto	<input id="goto_month" name="goto_month" type="text" value="<?php echo $goto_month;    ?>">
+	goto	<input name="priority" type="text" value="<?php echo $priority;    ?>">
 </form>
 
 <?php     

@@ -52,6 +52,8 @@ function query(){
 					$limit = 1
 				);
 				
+				
+				
 
 				$deals = $this->get_today_deal();
 				
@@ -64,12 +66,11 @@ function query(){
 				};
 
 
+
+
 		return  array(
-							'deal_id' => $calendars[0]->deal_id,
 							'calendars' => $calendars,
-							'next_deal' => $next_deal,
-							'tipped_time' => $calendars[0]->tipped_time,
-							'deal_url' => $calendars[0]->deal_url
+							'next_deal' => $next_deal
 							);
 		
 	}
@@ -85,7 +86,7 @@ function query(){
 	 */	
 	
 	
-	function get_today_deal(){
+	function get_today_deal( $priority = 1 ){
 		
 		$select_what =  'deals.deal_name, 
 										 deals.deal_headline,
@@ -114,7 +115,8 @@ function query(){
 		
 				$where_array = array(
 		  	'year' => date('Y'),
-				'day_of_year' . ' <= ' =>  date('z',time())
+				'day_of_year' . ' <= ' =>  date('z',time()),
+				'priority' => $priority				
 				);
 		 
 		 
@@ -122,9 +124,21 @@ function query(){
 									'deals' => 'deals.id = calendar.deal_id',
 									'vendors' => 'vendors.id = deals.vendor_id'
 									);
-									
 		
-		return $this->CI->my_database_model->select_from_table( $table = 'calendar', $select_what, $where_array, $use_order = TRUE, $order_field = 'day_of_year', $order_direction = 'desc', $limit = 1, $use_join = TRUE, $join_array );
+		$deals = $this->CI->my_database_model->select_from_table( 
+			$table = 'calendar', 
+			$select_what, 
+			$where_array, 
+			$use_order = TRUE, 
+			$order_field = 'day_of_year', 
+			$order_direction = 'desc', 
+			$limit = 1, 
+			$use_join = TRUE, 
+			$join_array 
+		);
+			
+	
+		return $deals;
 
 	}
 
@@ -197,11 +211,13 @@ function query(){
 	 */	
 	
 	
-	function get_all_deals(   ){
+	function get_all_deals(   $priority ){
 		
 			$select_what =  'id, deal_name';
 			
-			$where_array = array();
+			$where_array = array(
+				'priority' => $priority
+			);
 	
 			return $this->CI->my_database_model->select_from_table( 
 				$table = 'deals', 
@@ -229,7 +245,7 @@ function query(){
 	 * @access public
 	 */	
 		
-	function get_next_deal(){
+	function get_next_deal( $priority = 1 ){
 		
 		// GET THE NEXT DEAL
 		$select_what =  'deal_id, day_of_year, year, month, day';
