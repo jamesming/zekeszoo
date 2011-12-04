@@ -96,7 +96,20 @@
 														
 														
 														<div id='deal_image'   class='float_left elements_to_hide_when_adding_deal'   >
-																	<img id='img_deal' src='<?php echo base_url()    ?>uploads/<?php echo $site_id;    ?>/<?php echo $deal_id;    ?>/image.png?random=<?php echo  rand(5,123341);   ?>' />					
+															
+															<?php 
+															$filename = 'uploads/'.$site_id.'/'.$deal_id.'/image.png';
+															
+															if (file_exists($filename)) {?>
+															   <img id='img_deal' src='<?php echo base_url()    ?>uploads/<?php echo $site_id;    ?>/<?php echo $deal_id;    ?>/image.png?random=<?php echo  rand(5,123341);   ?>' />
+															   <?php     					
+															} else {?>
+																<div   style='padding-top:100px;text-align:center;font-size:30px;color:gray;font-weight:bold'  > click to upload file
+																</div>
+															   
+															<?php
+															 }    
+															?>
 														</div>
 														
 

@@ -89,7 +89,7 @@
 							<div  class=' update_deal_form_div_label' >
 								Deal Name
 							</div>
-							<input  class='update_inputs '  name="deal_name" id="deal_name" type="" value="<?php  echo  ( isset( $deals[0]->deal_name) ? $deals[0]->deal_name:'' );   ?>" store="<?php  echo  $deals[0]->deal_name;   ?>">
+							<input  class='update_inputs '  name="deal_name" id="deal_name" type="" value="<?php  echo  ( isset( $deals[0]->deal_name) ? $deals[0]->deal_name:'' );   ?>" store="<?php  echo  ( isset($deals[0]->deal_name ) ? $deals[0]->deal_name:'' );   ?>">
 						</div>
 						<div>
 							<div  class=' update_deal_form_div_label' >
@@ -132,7 +132,7 @@
 							<div  class=' update_deal_form_div_label' >
 								Label for CC Receipt
 							</div>
-							<input  class='update_inputs ' name="deal_short_description" id="deal_short_description" type="" value="<?php  echo  $deals[0]->deal_short_description;   ?>" store="<?php  echo  ( isset( $deals[0]->deal_short_description) ? $deals[0]->deal_short_description:'' );   ?>">
+							<input  class='update_inputs ' name="deal_short_description" id="deal_short_description" type="" value="<?php  echo  ( isset( $deals[0]->deal_short_description) ? $deals[0]->deal_short_description:'' );   ?>" store="<?php  echo  ( isset( $deals[0]->deal_short_description) ? $deals[0]->deal_short_description:'' );   ?>">
 						</div>							
 						<div>
 							<div class=' update_deal_form_div_label'   style='margin-top:0px;'  >

@@ -86,7 +86,7 @@ $(document).ready(function() {
 						
 						
 						
-						$('#vendor_id').val('<?php echo $deals[0]->vendor_id;    ?>');		
+						$('#vendor_id').val('<?php echo ( isset( $deals[0]->vendor_id) ? $deals[0]->vendor_id:'' );    ?>');		
 						
 						
 						/** Update Deal Form  **/

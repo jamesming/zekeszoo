@@ -143,34 +143,12 @@ class Home extends CI_Controller {
 			
 		}elseif(   $this->deal_id ==''  ){  // ** COMING FROM /home/index
 
-				$today_deal = $this->query->get_today_deal(  $this->priority  );
-				
-				if( count($today_deal)==0 ){
-					
-					$insert_what = array(
-									'vendor_id' => 3,
-									'deal_name' => 'first deal for'. $this->priority,
-									'orig_price' => 100,
-									'deal_price' => 50,
-									'maximum_quantity' => 100,
-									'minimum_quantity' => 0,
-									'deal_will_expire' => '2012-12-31',
-									'deal_short_description' => 'first deal for'. $this->priority,
-									'each_can_buy' => 10,
-									'priority' => $this->input->post('priority')
-									);		
-					
-					$inserted_id = $this->my_database_model->insert_table(
-													$table = 'deals', 
-													$insert_what
-													); 
-													
-													
-					echo $inserted_id;				
-					
-				};
-				
-				
+				$today_deal = (
+											 count( $this->query->get_today_deal(  $this->priority  ) ) > 0 ?  
+															$this->query->get_today_deal(  $this->priority  ) :
+															$this->query->insert_first_deal_for_priority (	$this->priority ) 
+											);
+
 				$calendars = $today_deal;
 				$next_deal =  $this->query->get_next_deal(  $this->priority   );
 				$tipped_time = ( isset( $today_deal[0]->tipped_time) ? $today_deal[0]->tipped_time:'' );

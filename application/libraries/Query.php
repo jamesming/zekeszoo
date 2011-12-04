@@ -1077,6 +1077,61 @@ function query(){
 		);
 
 	}	
+	
+	
+	
+	
+	/**
+	 * insert_first_deal_for_priority
+	 * @package BackEnd
+	 * @author James Ming <jamesming@gmail.com>
+	 * @access public
+	 */
+	 
+	 
+	public function insert_first_deal_for_priority (	$priority ){
+	
+					$insert_what = array(
+									'vendor_id' => 3,
+									'deal_name' => 'first deal for priority : '. $priority,
+									'orig_price' => 100,
+									'deal_price' => 50,
+									'maximum_quantity' => 100,
+									'minimum_quantity' => 0,
+									'deal_will_expire' => '2012-12-31',
+									'deal_short_description' => 'first deal for priority : '. $priority,
+									'each_can_buy' => 10,
+									'priority' => $priority
+									);		
+					
+					$inserted_id = $this->CI->my_database_model->insert_table(
+													$table = 'deals', 
+													$insert_what
+													); 
+					
+					$month = date('m');
+					$day = date('d');
+					$year = date('Y');
+					
+	  			$insert_what =	 array(
+					  	'deal_id' => $inserted_id,
+					  	'month' => $month,
+					  	'day' => $day,
+					  	'year' => $year,
+							'day_of_year'=> date('z',strtotime($year.'-'.$month.'-'.$day)),
+							'deal_url'=> $year.'-'.$month.'-'.$day.'-' .  'first-deal-for-priority-'. $priority
+					  	);
+	  	
+					$primary_key = $this->CI->my_database_model->insert_table(
+													$table = 'calendar', 
+													$insert_what
+													); 
+													
+
+					return $this->get_today_deal(  $priority  );
+					
+					
+	}
 }
 
 
