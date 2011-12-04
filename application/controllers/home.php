@@ -19,11 +19,23 @@ class Home extends CI_Controller {
 				//$this->error_check_mode = TRUE;
 				$this->error_check_mode = FALSE;
 				
+				
+				
+				if( $this->input->get('priority')){
+					
+        	$this->priority = 	$this->input->get('priority');
+					
+				}elseif( defined ($this->input->post('priority')) ){
+					
+        	$this->priority = $this->input->post('priority');	
+					
+				}else{
+					
+        	$this->priority = 1;
+					
+				};
 
-
-        $this->priority = ( $this->input->get('priority')  ? $this->input->get('priority') :'1' );
-	
-					        
+		        
         if( $this->input->get('logout') ){
         	
 							if( $_COOKIE ) {
@@ -1371,6 +1383,7 @@ Join our Pet & Deal Loving Community on <a target='_blank' href='https://faceboo
 		if(   $this->deal_id == ''  ){
 			$deals = $this->query->get_today_deal(  $this->priority );
 		};
+
 		
 		if(  isset( $this->session->userdata['user_id'] )  ){
 			$quantity_available_to_user =  (int)$deals[0]->each_can_buy - (int)$this->how_many_user_bought($calendar_id = $deals[0]->calendar_id, $user_id = $this->users[0]->id);
@@ -1958,7 +1971,8 @@ Join our Pet & Deal Loving Community on <a target='_blank' href='https://faceboo
 	
 	private function show_buy_view($server_response, $deals, $quantity_available_to_user, $payment_info_pairs, $options1=0, $options2=0){
 		
-				$this->load->view('home/buy_view',array(
+		
+				$data =array(
 					'server_response'=> $server_response,
 					'users' => $this->users,
 					'deals' => $deals,  
@@ -1969,8 +1983,13 @@ Join our Pet & Deal Loving Community on <a target='_blank' href='https://faceboo
 					'public_gallery' => $this->get_public_gallery($limit = 5),
 					'from_logout' => $this->from_logout,
 					'options1' => $options1,
-					'options2' => $options2
-					));
+					'options2' => $options2,
+					'priority' => $this->priority
+					);
+					
+//				echo '<pre>';print_r(  $data  );echo '</pre>';  exit;
+		
+				$this->load->view('home/buy_view',$data);
 					
 					
 	}

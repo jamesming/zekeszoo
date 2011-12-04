@@ -28,6 +28,7 @@
 						
 							 echo base_url().	'index.php/home/buy';
 							 	?>' method='post'>
+							 	<input name="priority" type="hidden" value="<?php echo $priority    ?>">
 
 							<div  class=' container' >
 								
