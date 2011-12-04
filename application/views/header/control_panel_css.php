@@ -4,7 +4,7 @@
     border-bottom: 1px solid #2E9AFE;
     border-right: 1px solid #2E9AFE;
     border-top: 1px solid #2E9AFE;
-    height: 234px;
+    height: 261px;
     left: 0;
     position: fixed;
     top: 122px;
@@ -28,6 +28,11 @@
 						    width: 22px;
 								cursor:pointer;
 						}
+						
+								#control_panel ul li div#choose_priority{	
+								    background-position: -36px -48px;
+								}
+						
 								#control_panel ul li div#open_vendor{	
 								    background-position: -10px -48px;
 								}						

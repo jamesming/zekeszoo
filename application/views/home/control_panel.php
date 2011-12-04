@@ -27,6 +27,11 @@
 	<ul>
 		
 		<li>
+				<div id='choose_priority'  >
+				</div>
+		</li>
+		
+		<li>
 				<div id='open_vendor'  >
 				</div>
 		</li>
@@ -72,6 +77,28 @@
 	
 	<div   style='width:1000px'  >
 		<div class='float_left control_panel_form_div_inside_left_div'>
+	
+	<style>
+	#choose_priority_div{
+		padding:10px;
+		font-size:18px;
+	}
+	#choose_priority_div{
+		margin-top:10px;
+	}
+	</style>
+			<div id='choose_priority_div'  class=' other_divs'  >
+
+
+				<?php for( $i=1; $i<=5; $i++){?>
+				
+					<a href='<?php  echo base_url()   ?>index.php/home/index?priority=<?php  echo $i   ?>'>Priority <?php  echo $i   ?></a><br />
+
+				<?php } ?>
+				
+				
+		
+			</div>
 			
 			<div id='update_form'  class=' other_divs'  >
 						<div>

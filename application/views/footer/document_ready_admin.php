@@ -169,14 +169,26 @@ $(document).ready(function() {
 						
 						
 						
+				  	$('#choose_priority').click(function(event) {
+				  		
+							open_small_control_panel();
+				  		$(".other_divs").hide();	
+				  		$("#choose_priority_div").show();
+				  		
+							launch_control_panel_div_box();	
+				  								
+						});							
+						
+						
+						
 				
 						/** Add Deal Form  **/
+
 						
 				  	$('#add_deal').click(function(event) {
 				  		
 							open_small_control_panel();	
 				  		
-				  		$(".other_divs").hide();
 				  		$("#update_form").show();
 
 							launch_control_panel_div_box();					
