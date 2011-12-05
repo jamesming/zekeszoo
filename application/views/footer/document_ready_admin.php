@@ -66,10 +66,10 @@ $(document).ready(function() {
 						/** Choose Deal Form  **/
 						
 				  	$('#choose_deal').click(function(event) {	
-				  		
+				  		$(".other_divs").hide();				  		
 							open_small_control_panel();		
 										  		
-				  		$(".other_divs").hide();
+
 				  		$("#choose_deal_div").show();
 							launch_control_panel_div_box();	
 				  		
@@ -93,10 +93,10 @@ $(document).ready(function() {
 						
 						
 				  	$('#edit_deal').click(function(event) {
-				  		
+				  		$(".other_divs").hide();				  		
 							open_small_control_panel();			  		
 			
-				  		$(".other_divs").hide();
+
 				  		$("#update_form").show();
 
 				  		
@@ -186,7 +186,9 @@ $(document).ready(function() {
 
 						
 				  	$('#add_deal').click(function(event) {
-				  		
+				  	
+				  		$(".other_divs").hide();	
+				  						  		
 							open_small_control_panel();	
 				  		
 				  		$("#update_form").show();
