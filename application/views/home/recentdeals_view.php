@@ -53,9 +53,9 @@
 													  
 														  <div  class='deal_container clearfix ' >
 														  	<div    class='image_div float_left' >
-														  		<!-- <a target='_blank' href="<?php echo base_url().'index.php/home/deal/' . $past_deal['deal_url'];    ?>"> -->
+														  		<a target='_blank' href="<?php echo base_url().'index.php/home/deal/' . $past_deal['deal_url'];    ?>">
 														  			<img src='<?php  echo base_url()   ?>uploads/1/<?php echo $past_deal['deal_id']    ?>/image_medium.png'>
-														  		<!-- </a> -->
+														  		</a>
 														  	</div>
 														  	<div  class='deal_info float_left'>
 														  		<div  class=' deal_date' >

@@ -35,44 +35,91 @@ function query(){
 	 
 	function  prepare_for_index($where_array){	
 		
-				$select_what =   'id,
-													deal_id, 
-													day_of_year,
-													tipped_time,
-													deal_url
-												';
+//				$select_what =   'id,
+//													deal_id, 
+//													day_of_year,
+//													tipped_time,
+//													deal_url
+//												';
+//
+//				$calendars = $this->CI->my_database_model->select_from_table( 
+//					$table = 'calendar', 
+//					$select_what, 
+//					$where_array, 
+//					$use_order = TRUE, 
+//					$order_field = 'day_of_year', 
+//					$order_direction = 'desc', 
+//					$limit = 1
+//				);
+//				
+//				
+//				
+//
+//				$deals = $this->get_today_deal();
+//				
+//				if( count($calendars) == 0 ) redirect('/home/', 'refresh');;
+//
+//				if($calendars[0]->deal_id  ==  $deals[0]->id){
+//							$next_deal = $this->get_next_deal();
+//				}else{
+//					$next_deal = '';
+//				};
 
-				$calendars = $this->CI->my_database_model->select_from_table( 
+
+		$select_what =  'deals.deal_name, 
+										 deals.deal_headline,
+										 deals.orig_price,
+										 deals.id as deal_id,
+										 deals.deal_price,
+										 deals.deal_description,
+										 minimum_quantity,
+										 maximum_quantity,
+										 deals.deal_short_description,
+										 deals.each_can_buy,
+										 calendar.id as calendar_id,
+										 calendar.day,
+										 calendar.month,
+										 calendar.year,
+										 calendar.tipped_time,
+										 calendar.id as calendar_id,
+										 calendar.deal_url,
+										 vendors.company_name as company_name,
+										 vendors.address,
+										 vendors.city,
+										 vendors.state,
+										 vendors.zipcode,
+										 vendors.vendor_website,
+										 vendor_short_description';
+										 
+		$join_array = array(
+									'deals' => 'deals.id = calendar.deal_id',
+									'vendors' => 'vendors.id = deals.vendor_id'
+									);
+										 
+
+
+							
+		$calendars = $this->CI->my_database_model->select_from_table( 
 					$table = 'calendar', 
 					$select_what, 
 					$where_array, 
 					$use_order = TRUE, 
 					$order_field = 'day_of_year', 
 					$order_direction = 'desc', 
-					$limit = 1
+					$limit = 1, 
+					$use_join = TRUE, 
+					$join_array 
 				);
-				
-				
-				
 
-				$deals = $this->get_today_deal();
-				
-				if( count($calendars) == 0 ) redirect('/home/', 'refresh');;
-
-				if($calendars[0]->deal_id  ==  $deals[0]->id){
-							$next_deal = $this->get_next_deal();
-				}else{
-					$next_deal = '';
-				};
-
-
-
+		$next_deal = $this->get_next_deal();
+	
 
 		return  array(
 							'calendars' => $calendars,
 							'next_deal' => $next_deal
 							);
-		
+
+
 	}
 
 
@@ -91,7 +138,7 @@ function query(){
 		$select_what =  'deals.deal_name, 
 										 deals.deal_headline,
 										 deals.orig_price,
-										 deals.id,
+										 deals.id as deal_id,
 										 deals.deal_price,
 										 deals.deal_description,
 										 minimum_quantity,
@@ -618,7 +665,6 @@ function query(){
 
 			
 		$deals['deal_is_over'] = $next_deal[0]->month .'/'. $next_deal[0]->day .'/'.$next_deal[0]->year;
-
 		return $deals;
 	}
 	

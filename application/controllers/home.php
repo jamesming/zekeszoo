@@ -149,9 +149,9 @@ class Home extends CI_Controller {
 			
 				$calendars = $this->deal_in_words['calendars'];
 				$next_deal = $this->deal_in_words['next_deal'];
-				$tipped_time = $this->deal_in_words['tipped_time'];
-				$this->deal_id = $this->deal_in_words['deal_id'];
-				$deal_url =  $this->deal_in_words['deal_url'];
+				$tipped_time = $this->deal_in_words['calendars'][0]->tipped_time;
+				$this->deal_id = $this->deal_in_words['calendars'][0]->deal_id;
+				$deal_url =  $this->deal_in_words['calendars'][0]->deal_url;
 			
 		}elseif(   $this->deal_id ==''  ){  // ** COMING FROM /home/index
 
@@ -164,7 +164,7 @@ class Home extends CI_Controller {
 				$calendars = $today_deal;
 				$next_deal =  $this->query->get_next_deal(  $this->priority   );
 				$tipped_time = ( isset( $today_deal[0]->tipped_time) ? $today_deal[0]->tipped_time:'' );
-				$this->deal_id = ( isset( $today_deal[0]->id) ? $today_deal[0]->id:'' );
+				$this->deal_id = ( isset( $today_deal[0]->deal_id) ? $today_deal[0]->deal_id:'' );
 				$deal_url = ( isset( $today_deal[0]->deal_url) ? $today_deal[0]->deal_url:'' );
 
 		}else{	
@@ -1416,8 +1416,8 @@ Join our Pet & Deal Loving Community on <a target='_blank' href='https://faceboo
 														$deals, 
 														$quantity_available_to_user, 
 														$payment_info_pairs = $this->input->post(),
-												$options1 = $this->tools->object_to_array(  $this->query->get_options( array('table'=>'options1','deal_id' => $deals[0]->id) ) ),
-												$options2 = $this->tools->object_to_array(  $this->query->get_options( array('table'=>'options2','deal_id' => $deals[0]->id) ) )
+												$options1 = $this->tools->object_to_array(  $this->query->get_options( array('table'=>'options1','deal_id' => $deals[0]->deal_id) ) ),
+												$options2 = $this->tools->object_to_array(  $this->query->get_options( array('table'=>'options2','deal_id' => $deals[0]->deal_id) ) )
 														);
 									
 								}elseif(  !$this->input->post('use_card_on_file') && $has_errors['outcome'] == 'BAD CREDIT CARD' ){	
@@ -1431,8 +1431,8 @@ Join our Pet & Deal Loving Community on <a target='_blank' href='https://faceboo
 														$deals, 
 														$quantity_available_to_user, 
 														$payment_info_pairs = $this->input->post(),
-												$options1 = $this->tools->object_to_array(  $this->query->get_options( array('table'=>'options1','deal_id' => $deals[0]->id) ) ),
-												$options2 = $this->tools->object_to_array(  $this->query->get_options( array('table'=>'options2','deal_id' => $deals[0]->id) ) )
+												$options1 = $this->tools->object_to_array(  $this->query->get_options( array('table'=>'options1','deal_id' => $deals[0]->deal_id) ) ),
+												$options2 = $this->tools->object_to_array(  $this->query->get_options( array('table'=>'options2','deal_id' => $deals[0]->deal_id) ) )
 														);
 									
 								}else{
@@ -1468,8 +1468,8 @@ Join our Pet & Deal Loving Community on <a target='_blank' href='https://faceboo
 														$deals, 
 														$quantity_available_to_user, 
 														$payment_info_pairs =  $this->input->post(),
-												$options1 = $this->tools->object_to_array(  $this->query->get_options( array('table'=>'options1','deal_id' => $deals[0]->id) ) ),
-												$options2 = $this->tools->object_to_array(  $this->query->get_options( array('table'=>'options2','deal_id' => $deals[0]->id) ) ));
+												$options1 = $this->tools->object_to_array(  $this->query->get_options( array('table'=>'options1','deal_id' => $deals[0]->deal_id) ) ),
+												$options2 = $this->tools->object_to_array(  $this->query->get_options( array('table'=>'options2','deal_id' => $deals[0]->deal_id) ) ));
 			
 											};									
 								};
@@ -1511,8 +1511,8 @@ Join our Pet & Deal Loving Community on <a target='_blank' href='https://faceboo
 												$deals, 
 												$quantity_available_to_user, 
 												$payment_info_pairs,
-												$options1 = $this->tools->object_to_array(  $this->query->get_options( array('table'=>'options1','deal_id' => $deals[0]->id) ) ),
-												$options2 = $this->tools->object_to_array(  $this->query->get_options( array('table'=>'options2','deal_id' => $deals[0]->id) ) )
+												$options1 = $this->tools->object_to_array(  $this->query->get_options( array('table'=>'options1','deal_id' => $deals[0]->deal_id) ) ),
+												$options2 = $this->tools->object_to_array(  $this->query->get_options( array('table'=>'options2','deal_id' => $deals[0]->deal_id) ) )
 											);
 		
 									};			
@@ -2014,7 +2014,7 @@ Join our Pet & Deal Loving Community on <a target='_blank' href='https://faceboo
 					$deals = $this->query->get_today_deal(   $this->priority );
 				};
 
-				$deal_id = $deals[0]->id;
+				$deal_id = $deals[0]->deal_id;
 				
 				$where_array = array(
 				'status' => $status,
@@ -2125,7 +2125,7 @@ Join our Pet & Deal Loving Community on <a target='_blank' href='https://faceboo
 				
 				echo "Total Deals of '" . $deals[0]->deal_short_description . "' Sold: ". count($users_deals)."<br />";
 				echo "Calendar_id: ". $deals[0]->calendar_id."<br />";
-				echo "deal_id: ". $deals[0]->id."<br />";
+				echo "deal_id: ". $deals[0]->deal_id."<br />";
 				echo "Maximum that can be sold: ". $deals[0]->maximum_quantity."<br />";
 				echo "Quantities Left for Sale: ". ($deals[0]->maximum_quantity - count($users_deals));
 				
@@ -2390,7 +2390,7 @@ Join our Pet & Deal Loving Community on <a target='_blank' href='https://faceboo
 				$cc_transaction_description = $quantity . ' item(s) of ' . $deals[0]->deal_short_description;
 
 				$response = $this->my_payment_model->authorize_only_transaction(
-				   		$order_number = $user_id.'-'.$deals[0]->id,
+				   		$order_number = $user_id.'-'.$deals[0]->deal_id,
 				   		$order_description = $cc_transaction_description,
 							$total_transaction_value,
 					   	$authorize_customerProfileId,
@@ -2410,7 +2410,7 @@ Join our Pet & Deal Loving Community on <a target='_blank' href='https://faceboo
 												'option1_id' => (int)$this->input->post('option1_id'),
 												'option2_id' => (int)$this->input->post('option2_id'),
 												'calendar_id' => $deals[0]->calendar_id,
-												'deal_id' => $deals[0]->id,
+												'deal_id' => $deals[0]->deal_id,
 												'user_id' => $user_id,
 												'authorize_transactionId' => $transactionId,
 												'status' => $status
@@ -2424,9 +2424,9 @@ Join our Pet & Deal Loving Community on <a target='_blank' href='https://faceboo
 																
 								
 								
-								if( $this->query->deal_has_voucher( $deals[0]->id ) ){
+								if( $this->query->deal_has_voucher( $deals[0]->deal_id ) ){
 								
-										$vouchers = $this->query->get_unassigned_voucher( $deals[0]->id  );
+										$vouchers = $this->query->get_unassigned_voucher( $deals[0]->deal_id  );
 								
 										if( count($vouchers ) > 0 ){
 											

@@ -282,7 +282,7 @@ private $CI;
 				<div    style='clear:both;'  >
 					<div style='float:left' >
 					<a target='_blank' href='".base_url()."index.php/home/deal/".$deals['deal_url']."'>
-						<img src='".base_url()."uploads/1/".$deals['id']."/image.png'
+						<img src='".base_url()."uploads/1/".$deals['deal_id']."/image.png'
 						  style='padding:5px;
 						  			 border:1px solid gray;
 						  			 margin-left:10px'  
@@ -293,8 +293,9 @@ private $CI;
 					</div>
 
 				</div>
+				<a target='_blank' href='".base_url()."index.php/home/deal/".$deals['deal_url']."'>
 					<div   style='
-					background-image: url(http://zekeszoo.com/images/seedetails.png);
+					background-image: url(".base_url()."/images/seedetails.png);
 					background-position: 0px center;
 					background-repeat: no-repeat;	
 					position:relative;
@@ -303,17 +304,20 @@ private $CI;
 					width:152px; 
 					'  >
 					</div>	
+				</a>	
 				<div style='clear:both;padding:10px 15px 0px;'>".$deals['deal_description']."
-				</div>	
-				<div   style='
-					background-image: url(http://zekeszoo.com/images/buy_now_button_aqua_glass.gif);
-					background-position: 0px center;
-					background-repeat: no-repeat;
-					height:52px;
-					width:152px;
-					margin:20px auto 20px auto;	
-				'  >
 				</div>
+				<a target='_blank' href='".base_url()."index.php/home/buy/".$deals['deal_id']."'>	
+					<div   style='
+						background-image: url(http://zekeszoo.com/images/buy_now_button_aqua_glass.gif);
+						background-position: 0px center;
+						background-repeat: no-repeat;
+						height:52px;
+						width:152px;
+						margin:20px auto 20px auto;	
+					'  >
+					</div>
+				</a>
 		</div>
 
 	</div>
