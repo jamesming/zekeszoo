@@ -619,7 +619,6 @@ function query(){
 			
 		$deals['deal_is_over'] = $next_deal[0]->month .'/'. $next_deal[0]->day .'/'.$next_deal[0]->year;
 
-		
 		return $deals;
 	}
 	

@@ -113,7 +113,15 @@
 																	</div>																			
 		
 
+																	<div id='promo_code'   class="clearfix "   style='display:block;margin-top:20px;'  >
+																		
+																		
+																		<div  class='float_left ' >Use promo code:&nbsp;&nbsp;<input name="" id="" type="" value=""   style='width:90px'  ><input name="" id="" type="button" value="apply">
+																		</div>
 
+																		
+																	</div>																			
+		
 
 
 

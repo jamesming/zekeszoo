@@ -4372,7 +4372,7 @@ Join our Pet & Deal Loving Community on <a target='_blank' href='https://faceboo
 	
 		$this->tools->crop_and_name_it( $new_name = 'image.png', $dir_path.'transition.png', $dir_path, $width, $height, $x_origin, $y_origin );
 	
-		$new_width  = '127';
+		$new_width  = '526';
 		$new_height = $this->tools->get_new_size_of ($what = 'height', $based_on_new = $new_width, $orig_width = $width, $orig_height = $height );
 		
 		$this->tools->resize_this(  $full_path = $dir_path . '/' . 'image.png' , $width = $new_width, $height = $new_height);
