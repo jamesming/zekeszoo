@@ -5,7 +5,7 @@
 																
 																
 																
-																<div class='clearfix user_info_outerbox' >
+																<div class='clearfix user_info_outerbox payment_box'   >
 																	<div class='user_info_inner_box float_left' >
 																		
 <!--																		
@@ -47,34 +47,85 @@
 																		
 																		
 																		<div  class=' outer_input_label' >
-																			<div  class='float_left halfies' >
-																				<div class=' input_label' >Credit Card Number
-																				</div>
-																				<div class=' input_div' >
-																					<input name="cc_num" id="cc_num" type="text" value=""  class='small_input '>
-																				</div>
-																				<div  class=' error_message' >&nbsp;
-																				</div>	
-																			</div>
-																			<div  class='float_left halfies' >
-																				<div class=' input_label' >Card Type
-																				</div>
-																				<div class=' input_div' >
-																					<select  class='select_large payment'  name='cardtype' id='cardtype'>
-																						<option value=''></option>
-																						<option value='AmEx'>American Express</option>
-																						<option value='Visa'>Visa</option>
-																						<option value='MasterCard'>Master Card</option>
-																						<option value='Discover'>Discover</option>
-																					</select>
-																				</div>	
-																				<div  class=' error_message_select' >&nbsp;
-																				</div>																				
-																			</div>																			
+																					<div class=' input_label' >Billing Address
+																					</div>
+																					<div class=' input_div' >
+																					<input name="cc_address" id="cc_address" type="text" value=""   class='large_input '>
+																					</div>
+																					<div  class=' error_message' >&nbsp;
+																					</div>	
 																		</div>		
 																		
 																		
 																		<div  class=' outer_input_label' >
+																			<div class=' input_label' >City
+																			</div>
+																			<div class=' input_div' >
+																				<input name="cc_city" id="cc_city" type="text" value=""   class='large_input '>
+																			</div>
+																			<div  class=' error_message' >&nbsp;
+																			</div>																			
+																		</div>		
+																		<div  class=' outer_input_label' >
+																			<div  class='float_left halfies' >
+																				<div class=' input_label' >State
+																				</div>
+																				<div class=' input_div' >
+																					<input name="cc_state" id="cc_state" type="text" value=""  class='small_input '>
+																				</div>
+																				<div  class=' error_message' >&nbsp;
+																				</div>																				
+																			</div>
+																			<div  class='float_left halfies' >
+																				<div class=' input_label' >Zip Code
+																				</div>
+																				<div class=' input_div' >
+																					<input name="zipcode_payment" id="zipcode_payment" type="text" value=""  class='small_input '>
+																				</div>
+																				<div  class=' error_message' >&nbsp;
+																				</div>																					
+																			</div>																			
+																		</div>																				
+																		
+																	</div>
+																	<div class='user_info_inner_box  float_left' >
+																		
+																		<div  class=' outer_input_label' >
+
+																			
+																			
+																						<div  class='float_left halfies' >
+																							<div class=' input_label' >Credit Card Number
+																							</div>
+																							<div class=' input_div' >
+																								<input name="cc_num" id="cc_num" type="text" value=""  class='small_input '>
+																							</div>
+																							<div  class=' error_message' >&nbsp;
+																							</div>	
+																						</div>
+																						<div  class='float_left halfies' >
+																							<div class=' input_label' >Card Type
+																							</div>
+																							<div class=' input_div' >
+																								<select  class='select_large payment'  name='cardtype' id='cardtype'>
+																									<option value=''></option>
+																									<option value='AmEx'>American Express</option>
+																									<option value='Visa'>Visa</option>
+																									<option value='MasterCard'>Master Card</option>
+																									<option value='Discover'>Discover</option>
+																								</select>
+																							</div>	
+																							<div  class=' error_message_select' >&nbsp;
+																							</div>																				
+																						</div>												
+																			
+																		</div>	
+																			
+																		<div  class=' outer_input_label' >	
+																			
+																			
+																			
+																			
 																			<div  class='float_left halfies' >
 																				<div class=' input_label' >Security Code
 																				</div>
@@ -126,41 +177,85 @@
 																				</div>
 																				<div  class=' error_message_select' >&nbsp;
 																				</div>																				
-																			</div>																			
-																		</div>		
-																		
-																		
-																	</div>
-																	<div class='user_info_inner_box  float_left' >
-																		
-																		<div  class=' outer_input_label' >
-																			<div class=' input_label' >Billing Address
 																			</div>
-																			<div class=' input_div' >
-																				<input name="cc_address" id="cc_address" type="text" value=""   class='large_input '>
-																			</div>
-																			<div  class=' error_message' >&nbsp;
-																			</div>	
-																		</div>	
 																			
-																		<div  class=' outer_input_label' >	
-																			<div class=' input_label' >City
-																			</div>
-																			<div class=' input_div' >
-																				<input name="cc_city" id="cc_city" type="text" value=""   class='large_input '>
-																			</div>
-																			<div  class=' error_message' >&nbsp;
-																			</div>	
+																			
+																			
+
 																		</div>
 																		
 																		
 																		
 																		<div  class=' outer_input_label' >
+																							&nbsp;																		
+																		</div>		
+																		
+																		
+																	</div>
+																</div>
+																
+
+																<div id='shipping_info' class='clearfix  header_style'>
+																	Shipping Information
+																</div>
+																
+																<div class='clearfix user_info_outerbox shipping_box'   >
+																	<div class='user_info_inner_box float_left' >
+																		
+
+																		
+																		<div  class=' outer_input_label' >
+																			<div  class='float_left halfies' >
+																				<div class=' input_label' >First Name
+																				</div>
+																				<div class=' input_div' >
+																					<input name="shipping_first_name" id="shipping_first_name" type="text" value=""  class=' small_input '>
+																				</div>
+																				<div  class=' error_message' >&nbsp;
+																				</div>																			
+																			</div>
+																			<div  class='float_left halfies' >
+																				<div class=' input_label' >Last Name
+																				</div>
+																				<div class=' input_div' >
+																					<input name="shipping_last_name" id="shipping_last_name" type="text" value=""  class='small_input '>
+																				</div>
+																				<div  class=' error_message' >&nbsp;
+																				</div>																						
+																			</div>																			
+																		</div>
+	
+																		
+																		
+																		
+																		
+																		
+																		<div  class=' outer_input_label' >
+																					<div class=' input_label' >Billing Address
+																					</div>
+																					<div class=' input_div' >
+																					<input name="shipping_address" id="shipping_address" type="text" value=""   class='large_input '>
+																					</div>
+																					<div  class=' error_message' >&nbsp;
+																					</div>	
+																		</div>		
+																		
+																		
+																		<div  class=' outer_input_label' >
+																			<div class=' input_label' >City
+																			</div>
+																			<div class=' input_div' >
+																				<input name="shipping_city" id="shipping_city" type="text" value=""   class='large_input '>
+																			</div>
+																			<div  class=' error_message' >&nbsp;
+																			</div>																			
+																		</div>		
+																		<div  class=' outer_input_label' >
 																			<div  class='float_left halfies' >
 																				<div class=' input_label' >State
 																				</div>
 																				<div class=' input_div' >
-																					<input name="cc_state" id="cc_state" type="text" value=""  class='small_input '>
+																					<input name="shipping_state" id="shipping_state" type="text" value=""  class='small_input '>
 																				</div>
 																				<div  class=' error_message' >&nbsp;
 																				</div>																				
@@ -174,9 +269,31 @@
 																				<div  class=' error_message' >&nbsp;
 																				</div>																					
 																			</div>																			
+																		</div>																				
+																		
+																	</div>
+																	<div class='user_info_inner_box  float_left' >
+																		
+																		<div  class=' outer_input_label' >
+
+																			&nbsp;
+																		</div>	
+																			
+																		<div  class=' outer_input_label' >	
+																			
+																			
+																			&nbsp;
+
+																		</div>
+																		
+																		
+																		
+																		<div  class=' outer_input_label' >
+																				&nbsp;																	
 																		</div>		
 																		
 																		
 																	</div>
 																</div>
+																
 																

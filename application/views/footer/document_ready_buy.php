@@ -4,13 +4,34 @@ $(document).ready(function() {
 
 				<?php   
 				
-				$testing = FALSE;
-				//$testing = TRUE;
+				//$testing = FALSE;
+				$testing = TRUE;
 
 				
 				if( $testing == TRUE ){	
 										
-							
+							$pairs = array(
+														'first_name'=>'Raymond',
+														'last_name'=>'Osterbye',
+														'form0 input#email'=>'rayofnine@gmail.com',
+														'form0 input#password_signup'=>'123',
+														'confirm'=>'123',
+														'zipcode_signup'=>'10003',
+														'zipcode_payment'=>'10003',
+														'cc_first_name'=>'Raymond',
+														'cc_last_name'=>'Osterbye',
+														'cc_address'=>'2000 Santa Claus Drive',
+														'cc_city'=>'North Pole',
+														'cc_state'=>'AL',
+														'cc_code'=>'721',
+														'month_exp'=>'11',
+														'year_exp'=>'2017'
+														);
+
+							$pairs['cc_num'] = '4264520026812776';
+							$pairs['cardtype'] = 'Visa';
+
+
 							foreach($pairs as $key => $value){ ?>
 								
 								$('#<?php echo $key    ?>').val('<?php echo $value    ?>');
@@ -147,7 +168,7 @@ $(document).ready(function() {
 
 				$('#logo').click(function(event) {
 	
-												document.location.href='http://zekeszoo.com/index.php/home';
+												document.location.href='<?php echo base_url()    ?>index.php/home';
 
 				});	
 				

@@ -22,7 +22,7 @@ class My_payment_model extends CI_Model  {
 				/*
 				https://test.authorize.net/
 				username: scenecredit2011
-				password: QWEqwe123
+				password: Ourlady1234
 				
 				*/
 				
@@ -35,8 +35,8 @@ class My_payment_model extends CI_Model  {
 
 				$this->load->helper('authorizenet2');
 
-//				$live = FALSE;
-				$live = TRUE;
+$live = FALSE;
+//								$live = TRUE;
 				
 				if( $live ){
 					
