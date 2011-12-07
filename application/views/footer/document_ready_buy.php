@@ -25,8 +25,14 @@ $(document).ready(function() {
 														'cc_state'=>'AL',
 														'cc_code'=>'721',
 														'month_exp'=>'11',
-														'year_exp'=>'2017'
-														);
+														'year_exp'=>'2017',
+												    'shipping_first_name' => 'Ray',
+												    'shipping_last_name' => 'Ost',
+												    'shipping_address' => '1234 Maiden Lane',
+												    'shipping_city' => 'Mary Lane',
+												    'shipping_state' => 'KY',
+												    'shipping_zipcode' => '45234'
+												    );
 
 							$pairs['cc_num'] = '4264520026812776';
 							$pairs['cardtype'] = 'Visa';
@@ -172,7 +178,14 @@ $(document).ready(function() {
 
 				});	
 				
-
+				
+				$('#ship_to_other').click(function(event) {
+							if($(this).is(":checked") ){
+								$('#user_information_section .middle div.user_info_outerbox.shipping_box, #user_information_section  .middle div#shipping_info').show();
+							}else{
+								$('#user_information_section .middle div.user_info_outerbox.shipping_box, #user_information_section  .middle div#shipping_info').hide();
+							};
+				});	
 				
 				$('form#form0 input[type=text], form#form0 input[type=password]')
 
@@ -245,7 +258,7 @@ $(document).ready(function() {
 							$('form#form0 input#cc_num, form#form0 select#cardtype').css({background:'white'}).parent().parent().children('div.error_message').html("&nbsp;");	
 
 						};
-						
+
 						
 						// ONLY VALIDATE FIELDS IF THIS IS BRAND NEW USER					
 						<?php if( !isset( $this->session->userdata['user_id'] ) ){?>

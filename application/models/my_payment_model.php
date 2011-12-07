@@ -89,7 +89,13 @@ $live = FALSE;
 			$cc_city,
 			$cc_state,
 			$cc_zipcode,
-			$cc_phonenumber = ''
+			$cc_phonenumber = '',
+	    $shipping_first_name = '',
+	    $shipping_last_name = '',
+	    $shipping_address = '',
+	    $shipping_city = '',
+	    $shipping_state = '',
+	    $shipping_zipcode = ''
 	 ){
 	 	
 

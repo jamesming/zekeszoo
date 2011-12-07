@@ -1375,8 +1375,8 @@ Join our Pet & Deal Loving Community on <a target='_blank' href='https://faceboo
 	 
 	public function buy(){
 		
-		
-//		echo '<pre>';print_r( $this->session->userdata  );echo '</pre>';exit;
+		//brk
+		//echo '<pre>';print_r( $this->input->post()  );echo '</pre>';exit;
 		
 		$this->load->model('my_payment_model');
 
@@ -1568,7 +1568,7 @@ Join our Pet & Deal Loving Community on <a target='_blank' href='https://faceboo
 													$users['status'] = 'old account';
 													
 									
-												
+													//brk
 													// CREATE PAYMENT PROFILE AT AUTHORIZE.NET
 													$response = $this->my_payment_model->create_payment_profile(
 														$firstname = $this->input->post('cc_first_name'),
@@ -1580,7 +1580,13 @@ Join our Pet & Deal Loving Community on <a target='_blank' href='https://faceboo
 														$cc_address = $this->input->post('cc_address'),
 														$cc_city = $this->input->post('cc_city'),
 														$cc_state = $this->input->post('cc_state'),
-														$cc_zipcode = $this->input->post('zipcode_payment')
+														$cc_zipcode = $this->input->post('zipcode_payment'),
+												    $shipping_first_name = $this->input->post('shipping_first_name'),
+												    $shipping_last_name = $this->input->post('shipping_last_name'),
+												    $shipping_address = $this->input->post('shipping_address'),
+												    $shipping_city = $this->input->post('shipping_city'),
+												    $shipping_state = $this->input->post('shipping_state'),
+												    $shipping_zipcode = $this->input->post('shipping_zipcode')
 												 );
 												 
 
