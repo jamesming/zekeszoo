@@ -334,12 +334,15 @@ margin-top: 13px;
     margin-left: 10px
 }
 #authorize_logo{
-    background-image: url("<?php echo base_url()    ?>images/authorize_logo.gif");
+    background-image: url("<?php echo base_url()    ?>images/authorize_net_badge.png");
     background-position: 0 0;
     background-repeat: no-repeat;
-    height: 47px;
+    height: 103px;
+    margin: 6px 37px;
     width: 200px;
-    margin: 22px 55px;
 }
-
+.authorize_div{
+padding-top:25px;
+padding-left:60px;	
+}
 </style>

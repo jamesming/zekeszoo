@@ -1,6 +1,7 @@
 
 																<div id='payment_info' class='clearfix  header_style' >
-																	Payment Information&nbsp;&nbsp;&nbsp;<img src='<?php echo base_url()    ?>images/lock.gif' />&nbsp;&nbsp;&nbsp;<img id='accepted_cards' src='<?php echo base_url()    ?>images/cards.gif' />
+																	Payment Information&nbsp;&nbsp;&nbsp;<img src='<?php echo base_url()    ?>images/lock.gif' />&nbsp;&nbsp;&nbsp;
+																	<img id='accepted_cards' src='<?php echo base_url()    ?>images/cards.gif'     style='display:none'  />
 																</div>
 																
 																
@@ -186,8 +187,8 @@
 																		
 																		
 																		
-																		<div  class=' outer_input_label' >
-																							&nbsp;																		
+																		<div  class=' outer_input_label authorize_div' >
+																					<img src='<?php echo base_url()     ?>images/authorize_logo.gif' />																		
 																		</div>		
 																		
 																		

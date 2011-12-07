@@ -88,7 +88,7 @@
 																	
 																	
 																	
-																	<div id='social_media_connect_div_container' class='user_info_inner_box  float_left'   style='width: 268px;'  >
+																	<div id='social_media_connect_div_container' class='user_info_inner_box  float_left'   style='margin-top:20px;width: 268px;height:147px'  >
 																		
 																		<div id='social_media_connect_header'>Have An Account Already?
 																		</div>
