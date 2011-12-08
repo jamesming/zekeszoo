@@ -52,50 +52,64 @@
 																	Your Deal
 																</div>
 													  	
-													  	
-																<div    id='deal_buy_box'  class="clearfix ">
-																	
-																	
-																	
-																	<div id='items_header'   class="clearfix ">
-																		
-																		<div  class='float_left description_col ' >
-																			Description
-																		</div>
-																		<div  class='float_left  quantity_col' >
-																			Quantity
-																		</div>
-																		<div  class='float_left  price_col' >
-																			Price
-																		</div>
-																		<div  class='float_left  total_col' >
-																			Total
-																		</div>																		
-																		
-																	</div>
-																	<div id='items_middle'   class="clearfix ">
-																		
-																		<div  class='float_left description_col ' >
-																			<?php echo $deals[0]->deal_short_description    ?>
-																		</div>
-																		<div  class='float_left  quantity_col' >
-																			<select name='quantity' id='quantity'>
-																				
-																					<?php
-																					for($i=1;$i<=$quantity_available_to_user;$i++){?>
-																						<option value='<?php echo $i    ?>'><?php echo $i    ?></option>
-																					<?php } ?>
+													  		<style>
 
-																			</select>
-																		</div>
-																		<div  id='unit_price' class='float_left  price_col' >
-																			$<?php echo $deals[0]->deal_price    ?>
-																		</div>
-																		<div id='total_price' class='float_left  total_col' >
-																			$<?php echo $deals[0]->deal_price    ?>
-																		</div>																		
-																		
-																	</div>		
+													  		#deal_buy_box table tr td{
+													  			width:50px;		
+																	border:0px solid red;
+																	text-align:center;							  			
+													  		}	
+													  		#deal_buy_box table td.item_td{
+																	width:270px;
+																	text-align:left;								  			
+													  		}													  		
+													  		#deal_buy_box table tr.head_tr td{
+													  			font-size:11px;
+													  			font-weight:bold;								  			
+													  		}
+													  		.promo_code_function{
+													  		display:none;	
+													  		}
+													  		div.promo_code_div{
+													  			font-size:12px;
+													  		}													  		
+													  														  		
+													  		</style>
+
+																<div    id='deal_buy_box'  class="clearfix ">
+																	<table>				
+																		<tr  class='head_tr ' >
+																			<td  class='item_td ' >Item
+																			</td>
+																			<td>Price
+																			</td>
+																			<td>Quantity
+																			</td>
+																			<td  class='total_div '>Total&nbsp;
+																			</td>
+																		</tr>
+																		<tr>
+																			<td class='item_td ' >
+																				<?php echo $deals[0]->deal_short_description    ?>
+																			</td>
+																			<td  id='unit_price' >
+																				$<?php echo $deals[0]->deal_price    ?>
+																			</td>
+																			<td>
+																				<select name='quantity' id='quantity'>
+																					
+																						<?php
+																						for($i=1;$i<=$quantity_available_to_user;$i++){?>
+																							<option value='<?php echo $i    ?>'><?php echo $i    ?></option>
+																						<?php } ?>
+	
+																				</select>
+																			</td>
+																			<td  id='total_price'  class='total_div ' >
+																				$<?php echo $deals[0]->deal_price    ?>
+																			</td>
+																		</tr>
+																	</table>
 																	
 <?php
      	$this->load->view('home/buy_view_options.php');  
@@ -112,11 +126,25 @@
 																		
 																	</div>																			
 		
-
+																	<script type="text/javascript" language="Javascript">
+																	$(document).ready(function() { 
+																		$('#promo_code_checkbox').click(function(event) {
+																				if($(this).is(":checked") ){
+																					$('.promo_code_function').show()
+																				}else{
+																					$('.promo_code_function').hide()
+																				};
+																		});	
+																	});
+																	</script>
 																	<div id='promo_code'   class="clearfix "   style='display:block;margin-top:20px;'  >
 																		
 																		
-																		<div  class='float_left ' >Use promo code:&nbsp;&nbsp;<input name="" id="" type="" value=""   style='width:90px'  ><input name="" id="" type="button" value="apply">
+																		<div  class='float_left promo_code_div' >
+																			<input id="promo_code_checkbox" type="checkbox" value="">
+																			Use promo code:&nbsp;&nbsp;
+																			<input  class='promo_code_function ' name="promo_code" id="" type="" value=""   style='width:90px'  >
+																			<input  class='promo_code_function ' id="apply" type="button" value="apply">
 																		</div>
 
 																		

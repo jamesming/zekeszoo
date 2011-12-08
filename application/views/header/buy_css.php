@@ -76,7 +76,7 @@ Min-height:198px;
 							}
 									#items_middle div {
 									    margin-right: 1px;
-									    width: 113px;
+									    width: 83px;
 									}
 									
 									
@@ -88,7 +88,7 @@ Min-height:198px;
 									    text-align: center;
 									}
 									.price_col {
-									    width: 47px !important;
+									    /*width: 47px !important;*/
 									    text-align: center;
 									}
 									.total_col {
