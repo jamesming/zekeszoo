@@ -7,7 +7,6 @@
 <?php     	$this->load->view('header/mypayment_info_css.php');  ?>
 <?php     	$this->load->view('footer/footer_section_css.php');  ?>
 
-<script type="text/javascript" language="Javascript" src = "<?php echo  base_url();   ?>js/creditcard/creditcard_validation.js"></script>
 <script type="text/javascript" language="Javascript" src = "<?php echo  base_url();   ?>js/jquery.js"></script>
 </head>
 
@@ -105,7 +104,19 @@
 <script type="text/javascript" language="Javascript">
 $(document).ready(function() {
 	
+	
+				$('.ship_to_other_div').hide();	
+				
+				$('.payment_box').css({'margin-bottom':'20px'})
+				
+				$('#shipping_info, .shipping_box').show();
+				
+				
 				<?php   
+				
+				
+
+				
 				
 				$testing = FALSE;
 				//$testing = TRUE;
@@ -153,7 +164,7 @@ $(document).ready(function() {
 						
 							$(this).css({background:'white'}).val('')
 
-							.parent().parent().children('div.error_message').html("&nbsp;");
+							.parent().parent().children('div.error_message').show().html("&nbsp;");
 
 					});
 					
@@ -184,10 +195,20 @@ $(document).ready(function() {
 						
 							$(this).css({background:'white'})
 							
-							.parent().parent().children('div.error_message_select').html("&nbsp;");
+							.parent().parent().children('div.error_message_select').show().html("&nbsp;");
 							
 
 					});		
+					
+					
+					
+				$('#ship_to_other').click(function(event) {
+							if($(this).is(":checked") ){
+								$('#user_information_section .middle div.user_info_outerbox.shipping_box, #user_information_section  .middle div#shipping_info').show();
+							}else{
+								$('#user_information_section .middle div.user_info_outerbox.shipping_box, #user_information_section  .middle div#shipping_info').hide();
+							};
+				});						
 					
 					
 				$('#buynow_image').click(function(event) {
@@ -203,31 +224,30 @@ $(document).ready(function() {
 		
 								if( $(this).val() == '' ){
 
-									$(this).css({background:'pink'}).parent().parent().children('div.error_message_select, div.error_message').html("Can't be blank.");
+									$(this).css({background:'pink'}).parent().parent().children('div.error_message_select, div.error_message').show().html("Can't be blank.");
 
 
 									ok = 0;
-									
-				
+
 								};
 						        
 						});	
 			
 						// ** ZIPCODE FOR PAYMENT MUST BE INT AND GREATER THAN 5 CHARACTERS
-						if(  $('form#form0 input#zipcode_payment').val()  != parseInt( $('form#form0 input#zipcode_payment').val() ) 
-									||  $('form#form0 input#zipcode_payment').val().length  < 5
+						if(  $('form#form0 input#cc_zipcode').val()  != parseInt( $('form#form0 input#cc_zipcode').val() ) 
+									||  $('form#form0 input#cc_zipcode').val().length  < 5
 						) {
 							
-							$('form#form0 input#zipcode_payment').css({background:'pink'}).parent().parent().children('div.error_message').html("Invalid Zipcode.");
-
+							$('form#form0 input#zipcode_payment').css({background:'pink'}).parent().parent().children('div.error_message').show().html("Invalid Zipcode.");
 
 							ok = 0;
 
 						}else{
 						
-							$('form#form0 input#zipcode_payment').css({background:'white'}).parent().parent().children('div.error_message').html("&nbsp;");	
+							$('form#form0 input#zipcode_payment').css({background:'white'}).parent().parent().children('div.error_message').show().html("&nbsp;");	
 							
 						};						
+						
 						
 						if(ok == 1){
 							

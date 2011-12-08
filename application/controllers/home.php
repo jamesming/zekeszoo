@@ -1861,6 +1861,8 @@ Join our Pet & Deal Loving Community on <a target='_blank' href='https://faceboo
 			$payment_info_pairs = array();
 		};
 		
+		
+
 		$data = array(
 									'payment_info_pairs'=> $payment_info_pairs,
 									'site_id' => $this->site_id, 
@@ -1885,6 +1887,8 @@ Join our Pet & Deal Loving Community on <a target='_blank' href='https://faceboo
 	
 	public function update_payment(){
 		
+
+		
 			$users = $this->users;
 			
 			$this->load->model('my_payment_model');
@@ -1893,8 +1897,12 @@ Join our Pet & Deal Loving Community on <a target='_blank' href='https://faceboo
 
 			$users['id'] = $users[0]->id;
 		
-		
-			$shipping_info = $this->get_shipping_info();
+	    $shipping_info['first_name'] = $this->input->post('shipping_first_name');
+	    $shipping_info['last_name'] = $this->input->post('shipping_last_name');
+	    $shipping_info['address'] = $this->input->post('shipping_address');
+	    $shipping_info['city'] = $this->input->post('shipping_city');
+	    $shipping_info['state'] = $this->input->post('shipping_state');
+	    $shipping_info['zipcode'] = $this->input->post('shipping_zipcode');	
 
 			//brk 3
 			// CREATE PAYMENT PROFILE AT AUTHORIZE.NET
@@ -2363,7 +2371,14 @@ Join our Pet & Deal Loving Community on <a target='_blank' href='https://faceboo
 				'cc_address'=>$response->xml->profile->paymentProfiles->billTo->address,
 				'cc_city'=>$response->xml->profile->paymentProfiles->billTo->city,
 				'cc_state'=>$response->xml->profile->paymentProfiles->billTo->state,
-				'cc_zipcode'=>$response->xml->profile->paymentProfiles->billTo->zip
+				'cc_zipcode'=>$response->xml->profile->paymentProfiles->billTo->zip,
+				'cc_phone'=>$response->xml->profile->paymentProfiles->billTo->phoneNumber,
+				'shipping_first_name'=>$response->xml->profile->shipToList->firstName,
+				'shipping_last_name'=>$response->xml->profile->shipToList->lastName,
+				'shipping_address'=>$response->xml->profile->shipToList->address,
+				'shipping_city'=>$response->xml->profile->shipToList->city,
+				'shipping_state'=>$response->xml->profile->shipToList->state,
+				'shipping_zipcode'=>$response->xml->profile->shipToList->zip				
 				);
 		}else{
 				return array();
@@ -3293,7 +3308,8 @@ Join our Pet & Deal Loving Community on <a target='_blank' href='https://faceboo
 				$cc_address,
 				$cc_city,
 				$cc_state,
-				$cc_zipcode
+				$cc_zipcode,
+				$cc_phone
 				){
 					
 					
@@ -3339,7 +3355,7 @@ Join our Pet & Deal Loving Community on <a target='_blank' href='https://faceboo
 									$cc_city,
 									$cc_state,
 									$cc_zipcode,
-									$phonenumber = ''
+									$cc_phone
 								);
 								
 								$new_authorize_ids['authorize_paymentProfileId']  = $response->getPaymentProfileId();

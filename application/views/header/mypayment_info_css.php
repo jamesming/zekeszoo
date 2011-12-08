@@ -46,7 +46,8 @@
 
 
 						#user_information_section  .middle div#personal_info,
-						#user_information_section  .middle div#payment_info{
+						#user_information_section  .middle div#payment_info,
+						#user_information_section  .middle div#shipping_info{
 						    background-image: url(<?php  echo base_url()   ?>images/sites/zekeszoo/star.png);
 						    background-position: 21px 13px;
 						    background-repeat: no-repeat;
@@ -58,6 +59,23 @@
 								    /*background: none repeat scroll 0 0 red;*/
 								    padding: 18px 0px 18px 25px;
 								}
+								
+								#user_information_section .middle div.user_info_outerbox.payment_box{
+								    height:225px;
+								}		
+								#user_information_section .middle div.user_info_outerbox.shipping_box {
+								    height:245px;
+								}						
+								#user_information_section .middle div.user_info_outerbox.ship_to_other_div{
+								font-size:15px;	
+								}
+								
+												
+								#user_information_section  .middle div#shipping_info,
+								#user_information_section .middle div.user_info_outerbox.shipping_box {
+								    display:none;
+								}		
+																						
 								#user_information_section .middle div.user_info_inner_box {
 								    /*background: none repeat scroll 0 0 blue;*/
 								    height: 180px;

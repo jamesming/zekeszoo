@@ -457,7 +457,7 @@ $live = FALSE;
 	 function get_customer_profile($customerProfileId){
 	 	
 		$response = $this->request->getCustomerProfile($customerProfileId);
-		
+
 		 return  $response;
 	 	
 	 }
