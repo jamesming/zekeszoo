@@ -5048,32 +5048,21 @@ private function get_shipping_info(){
  **/ 
 
 	
-private function create_table(){
+function create_table(){
 
-$table = 'users';
-// $this->my_database_model->	create_generic_table($table );
+$table = 'promo_codes';
+
+$this->my_database_model->	create_generic_table($table );
 
 $fields_array = array(
-                      'shipping_first_name' => array(
+                      'name' => array(
+                                               'type' => 'varchar(255)',
+                                    ),
+                      'code' => array(
                                                'type' => 'varchar(255)'
                                     ),
-                      'shipping_last_name' => array(
-                                               'type' => 'varchar(255)'
-                                    ),
-                      'shipping_address1' => array(
-                                               'type' => 'varchar(1024)'
-                                    ),
-                      'shipping_address2' => array(
-                                               'type' => 'varchar(1024)'
-                                    ),
-                      'shipping_city' => array(
-                                               'type' => 'varchar(512)'
-                                    ),
-                      'shipping_state' => array(
-                                               'type' => 'varchar(255)'
-                                    ),
-                      'shipping_zipcode' => array(
-                                               'type' => 'varchar(255)'
+                      'value' => array(
+                                               'type' => 'decimal(10.2)'
                                     )
               ); 
               
