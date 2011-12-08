@@ -330,17 +330,7 @@ margin-top: 13px;
 							  		text-align:center;	
 							  		}			
 
-#right_col_section{
-    margin-left: 10px
-}
-#authorize_logo{
-    background-image: url("<?php echo base_url()    ?>images/authorize_net_badge.png");
-    background-position: 0 0;
-    background-repeat: no-repeat;
-    height: 103px;
-    margin: 6px 37px;
-    width: 200px;
-}
+
 /*.authorize_div{
 padding-top:25px;
 padding-left:60px;	

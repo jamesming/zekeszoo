@@ -162,8 +162,8 @@ $(document).ready(function() {
 
 					.click(function(event) {				
 						
-							$(this).css({background:'white'}).val('')
-
+							$(this)
+							//.css({background:'white'}).val('')
 							.parent().parent().children('div.error_message').show().html("&nbsp;");
 
 					});

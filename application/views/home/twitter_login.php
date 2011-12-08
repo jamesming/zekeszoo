@@ -71,7 +71,7 @@ a.signin.menu-open span {
 	display:none;
 	background-color:#D5E8B4;
 	position:absolute;
-	width:149px;
+	width:150px;
 	z-index:100;
 	border:1px transparent;
 	text-align:left;
@@ -105,7 +105,7 @@ a.signin.menu-open span {
 	font-weight:normal;
 }
 #signin_menu p.remember {
-	padding:10px 0;
+	padding-top:10px;
 }
 #signin_menu p.forgot, #signin_menu p.complete {
 	clear:both;
@@ -143,11 +143,12 @@ a#signup:hover{
 	
 }
 #facebook{
-    margin-top: 10px;
-    margin-bottom: 37px;
+    margin-top: 5px;
+    margin-bottom: 10px;
 }
 #facebook div.oruse {
 	 padding-top: 3px;
+	 margin-left:5px;
 }
 
 #facebook div.icon {
@@ -215,24 +216,23 @@ cursor:pointer;
         <input id="password" name="password" value="" title="password" tabindex="5" type="password">
       </p>
       <p class="remember">
-        <span  id="signin_submit" >Sign in</span>
-        <input id="remember" name="remember_me" value="1" tabindex="7" type="checkbox">
-        <label for="remember">Remember me</label>
+        <span  id="signin_submit"  class='float_left '>Sign in</span>
+	      <div id='facebook'  class='float_left ' >
+		      	<div  class='oruse float_left' >or  
+		      	</div>
+						<div  class='icon facebook_connect' >
+						</div>
+						<div   class='word facebook_connect'  >
+							Connect
+						</div>
+				</div>
       </p>
       
-      <div id='facebook'>
-	      	<div  class='oruse float_left' >Or use: 
-	      	</div>
-					<div  class='icon facebook_connect' >
-					</div>
-					<div   class='word facebook_connect'  >
-						Connect
-					</div>
-			</div>
+
+<!-- <div  class='twitter_icon'>
+			</div> -->			
 			
 			
-			<div  class='twitter_icon'>
-			</div>
       <p class="forgot clearfix"> <a href="#" id="resend_password_link">Forgot your password?</a> </p>
 
       <p class="forgot-username"> <A id=forgot_username_link 
