@@ -161,11 +161,24 @@
 																					$('#promo_code_container').hide();
 																					$('.promo_rows').show();
 																					
-																					$('#discount_div').html('-6');
+//																					$('#discount_div').html('-6');
+//																					$('#final_price').html('$'+'100');
+																						
+																						var quantityIs = $('#quantity').val();
+																						var discountIs = parseInt($('#discount_div').text());
+																						var unitpriceIs = parseInt($('#unit_price').text().replace('$', ''));
+																						var total_priceIs = parseInt($('#total_price').text().replace('$', ''));
+																						
+
 																					
-																					$('#final_price').html('$'+'100');
+																						$('#final_price').text(  '$' + (total_priceIs - discountIs));
 																					
 																					
+																					
+//																					$.post("<?php echo base_url(). 'index.php/home/get_vendors';    ?>",{
+//																					},function(data) {
+//																					$('#vendor_list').html(data);
+//																					});
 																		});	
 																	});
 																	</script>
