@@ -62,12 +62,15 @@
 													  		#deal_buy_box table td.item_td{
 																	width:270px;
 																	text-align:left;								  			
-													  		}													  		
+													  		}
+													  		#deal_buy_box table td.total_div{
+																	text-align:right;								  			
+													  		}															  															  		
 													  		#deal_buy_box table tr.head_tr td{
 													  			font-size:11px;
 													  			font-weight:bold;								  			
 													  		}
-													  		.promo_code_function{
+													  		.promo_rows, .promo_code_function{
 													  		display:none;	
 													  		}
 													  		div.promo_code_div{
@@ -109,6 +112,22 @@
 																				$<?php echo $deals[0]->deal_price    ?>
 																			</td>
 																		</tr>
+																		<tr  class='promo_rows ' >
+																			<td colspan=3 class='item_td '   style='text-align:right'  >
+																				Promotional Discount:&nbsp;&nbsp;
+																			</td>
+																			<td  class='total_div ' >
+																				-5
+																			</td>
+																		</tr>
+																		<tr  class='promo_rows ' >
+																			<td colspan=3 class='item_td '   style='text-align:right'  >
+																				Final Price:&nbsp;&nbsp;
+																			</td>
+																			<td  id='final_price' class='total_div ' >
+																				$5
+																			</td>
+																		</tr>																		
 																	</table>
 																	
 <?php
@@ -135,9 +154,13 @@
 																					$('.promo_code_function').hide()
 																				};
 																		});	
+																		$('#apply').click(function(event) {
+																					$('#promo_code_container').hide();
+																					$('.promo_rows').show();
+																		});	
 																	});
 																	</script>
-																	<div id='promo_code'   class="clearfix "   style='display:block;margin-top:20px;'  >
+																	<div id='promo_code_container'   class="clearfix "   style='display:block;margin-top:20px;'  >
 																		
 																		
 																		<div  class='float_left promo_code_div' >
