@@ -5035,7 +5035,24 @@ private function get_shipping_info(){
 	
 }
 
+/**
+ * get_promo_code
+ *
+ * {@source }
+ * @package BackEnd
+ * @author James Ming <jamesming@gmail.com>
+ * @path /index.php/home/get_promo_code
+ * @access public
+ **/ 
 
+	
+function get_promo_code(){
+	if( $this->input->post('promo_code')=='12345'){
+		echo "10";
+	}else{
+		echo "error";
+	};  	
+}
 
 /**
  * create_table

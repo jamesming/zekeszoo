@@ -52,35 +52,7 @@
 																	Your Deal
 																</div>
 													  	
-													  		<style>
 
-													  		#deal_buy_box table tr td{
-													  			width:50px;		
-																	border:0px solid red;
-																	text-align:center;							  			
-													  		}	
-													  		#deal_buy_box table td.item_td{
-																	width:270px;
-																	text-align:left;								  			
-													  		}
-													  		#deal_buy_box table td.total_div,
-													  		#deal_buy_box table td#discount_div,
-													  		#deal_buy_box table td#final_price
-													  		{
-																	text-align:right;					  			
-													  		}															  															  		
-													  		#deal_buy_box table tr.head_tr td{
-													  			font-size:11px;
-													  			font-weight:bold;								  			
-													  		}
-													  		.promo_rows, .promo_code_function{
-													  		display:none;	
-													  		}
-													  		div.promo_code_div{
-													  			font-size:12px;
-													  		}													  		
-													  														  		
-													  		</style>
 
 																<div    id='deal_buy_box'  class="clearfix ">
 																	<table>				
@@ -128,7 +100,7 @@
 																				Final Price:&nbsp;&nbsp;
 																			</td>
 																			<td  id='final_price'  >
-																				$5
+																				
 																			</td>
 																		</tr>																		
 																	</table>
@@ -148,55 +120,100 @@
 																		
 																	</div>																			
 		
-																	<script type="text/javascript" language="Javascript">
-																	$(document).ready(function() { 
-																		$('#promo_code_checkbox').click(function(event) {
-																				if($(this).is(":checked") ){
-																					$('.promo_code_function').show()
-																				}else{
-																					$('.promo_code_function').hide()
-																				};
-																		});	
-																		$('#apply').click(function(event) {
-																					$('#promo_code_container').hide();
-																					$('.promo_rows').show();
-																					
-//																					$('#discount_div').html('-6');
-//																					$('#final_price').html('$'+'100');
-																						
-																						var quantityIs = $('#quantity').val();
-																						var discountIs = parseInt($('#discount_div').text());
-																						var unitpriceIs = parseInt($('#unit_price').text().replace('$', ''));
-																						var total_priceIs = parseInt($('#total_price').text().replace('$', ''));
-																						
+													  		<style>
 
-																					
-																						$('#final_price').text(  '$' + (total_priceIs - discountIs));
-																					
-																					
-																					
-//																					$.post("<?php echo base_url(). 'index.php/home/get_vendors';    ?>",{
-//																					},function(data) {
-//																					$('#vendor_list').html(data);
-//																					});
-																		});	
-																	});
-																	</script>
+													  		#deal_buy_box table tr td{
+													  			width:50px;		
+																	border:0px solid red;
+																	text-align:center;							  			
+													  		}	
+													  		#deal_buy_box table td.item_td{
+																	width:270px;
+																	text-align:left;								  			
+													  		}
+													  		#deal_buy_box table td.total_div,
+													  		#deal_buy_box table td#discount_div,
+													  		#deal_buy_box table td#final_price
+													  		{
+																	text-align:right;					  			
+													  		}															  															  		
+													  		#deal_buy_box table tr.head_tr td{
+													  			font-size:11px;
+													  			font-weight:bold;								  			
+													  		}
+													  		.promo_code_div{
+													  		width:500px;
+													  		height:40px;	
+													  		}
+													  		.promo_rows, .promo_code_function{
+													  		display:none;	
+													  		}
+													  		div.promo_code_div{
+													  			font-size:12px;
+													  		}													  		
+													  		div.code_not_valid{
+													  		padding-left:10px;
+													  		color:red;
+													  		font-size:13px;
+													  		display:none;	
+													  		}												  		
+													  		</style>
 																	<div id='promo_code_container'   class="clearfix "   style='display:block;margin-top:20px;'  >
 																		
 																		
 																		<div  class='float_left promo_code_div' >
-																			<input id="promo_code_checkbox" type="checkbox" value="">
-																			Use promo code:&nbsp;&nbsp;
-																			<input  class='promo_code_function ' name="promo_code" id="" type="" value=""   style='width:90px'  >
-																			<input  class='promo_code_function ' id="apply" type="button" value="apply">
+																			<input  class='float_left '  id="promo_code_checkbox" type="checkbox" value="">
+																			<div  class='float_left ' >Use promo code:&nbsp;&nbsp</div>
+																			<input  class='float_left promo_code_function ' name="promo_code" id="promo_code" type="" value=""   style='width:90px'  >
+																			<input  class='float_left promo_code_function ' id="apply" type="button" value="apply">
+																			<div  class='float_left code_not_valid' >
+																				Code is not valid
+																			</div>
 																		</div>
 
 																		
 																	</div>																			
 		
 
+																	<script type="text/javascript" language="Javascript">
+																	$(document).ready(function() { 
+																		$('#promo_code_checkbox').click(function(event) {
+																				if($(this).is(":checked") ){
+																					$('.promo_code_function').show()
+																				}else{
+																					$('.promo_code_function, .code_not_valid').hide()
+																				};
+																		});	
+																		$('#apply').click(function(event) {
 
+
+
+																						$.post("<?php echo base_url(). 'index.php/home/get_promo_code';    ?>",{
+																							promo_code: $('#promo_code').val()
+																						},function(data) {
+																							
+																								if( data == 'error'){
+																									$('.code_not_valid').show();
+																								}else{
+																									$('#promo_code_container').hide();
+																									$('.promo_rows').show();
+																									$('#discount_div').text('$'+data);
+																									total_priceIs = parseInt($('#total_price').text().replace('$', ''));
+																								};
+																							
+																								$('#final_price').text(  '$' + (total_priceIs - data));
+																							
+																					
+																																													
+																								
+																						});
+
+																						
+
+
+																		});	
+																	});
+																	</script>
 
 																				<?php
 																				if( isset( $users[0]->authorize_customerProfileId ) 
