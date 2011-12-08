@@ -195,7 +195,7 @@
 																								if( data == 'error'){
 																									$('.code_not_valid').show();
 																								}else{
-																									$('#promo_code_container').hide();
+																									$('#promo_code_container').css({visibility:'hidden'}) 
 																									$('.promo_rows').show();
 																									$('#discount_div').text('$'+data);
 																									total_priceIs = parseInt($('#total_price').text().replace('$', ''));
