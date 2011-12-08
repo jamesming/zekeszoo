@@ -23,6 +23,7 @@ $(document).ready(function() {
 														'cc_address'=>'2000 Santa Claus Drive',
 														'cc_city'=>'North Pole',
 														'cc_state'=>'AL',
+														'cc_phone'=>'201-234-1244',
 														'cc_code'=>'721',
 														'month_exp'=>'11',
 														'year_exp'=>'2017',
@@ -143,14 +144,14 @@ $(document).ready(function() {
 							
 							window.setTimeout(function(){
 								$('.error_box').slideDown('slow', function() {
-									$(this).children('div.message').html('<?php if(isset($server_response['message']))echo $server_response['message'];    ?>');
+									$(this).children('div.message').show().html('<?php if(isset($server_response['message']))echo $server_response['message'];    ?>');
 		
 									$('#user_information_section').show();	
 									$('#use_card_on_file').attr('checked', false);	
 									
 									<?php foreach($server_response['bad_fields'] as $bad_field ){?>
 										
-										$('form#form0 #<?php echo $bad_field    ?>').css({background:'pink'}).parent().parent().children('div.error_message_select, div.error_message').html("");
+										$('form#form0 #<?php echo $bad_field    ?>').css({background:'pink'}).parent().parent().children('div.error_message_select, div.error_message').show().html("");
 										
 									<?php } ?>
 									
@@ -197,7 +198,7 @@ $(document).ready(function() {
 							
 							// .val('')
 
-							.parent().parent().children('div.error_message').html("&nbsp;");
+							.parent().parent().children('div.error_message').show().html("&nbsp;");
 
 					});
 					
@@ -208,7 +209,7 @@ $(document).ready(function() {
 						
 							$(this).css({background:'white'})
 							
-							.parent().parent().children('div.error_message_select').html("&nbsp;");
+							.parent().parent().children('div.error_message_select').show().html("&nbsp;");
 							
 
 					});					
@@ -224,40 +225,6 @@ $(document).ready(function() {
 					
 						var ok = 1;
 
-						// ** SELECTION MUST BE CHOOSEN
-						$('form#form0 select, form#form0 input:not(#gift)')
-						
-						.css({background:'white'})
-						
-						.each(function(){
-		
-								if( $(this).val() == '' ){
-
-									$(this).css({background:'pink'}).parent().parent().children('div.error_message_select, div.error_message').html("Can't be blank.");
-
-
-									ok = 0;
-									
-				
-								};
-						        
-						});	
-						
-						
-						
-						// ** Credit Card Validation.  Refer to creditcard.js
-											
-						if (!checkCreditCard ($('#cc_num').val(),$('#cardtype').val() )){
-						 
-						 	$('form#form0 input#cc_num, form#form0 select#cardtype').css({background:'pink'}).parent().parent().children('div.error_message').html("Invalid Credit Card.");
-						 
-							ok = 0;			 
-						 
-						}else{
-							
-							$('form#form0 input#cc_num, form#form0 select#cardtype').css({background:'white'}).parent().parent().children('div.error_message').html("&nbsp;");	
-
-						};
 
 						
 						// ONLY VALIDATE FIELDS IF THIS IS BRAND NEW USER					
@@ -271,10 +238,10 @@ $(document).ready(function() {
 												.css({background:'white'})
 												
 												.each(function(){
-								
-														if( $(this).val() == '' ){
+
+														if(  $(this).val() == '' ){
 						
-															$(this).css({background:'pink'}).parent().parent().children('div.error_message').html("Can't be blank.");
+															$(this).css({background:'pink'}).parent().parent().children('div.error_message').show().html("Can't be blank.");
 															
 															ok = 0;
 															
@@ -288,13 +255,13 @@ $(document).ready(function() {
 															||  $('form#form0 input#zipcode_signup').val().length  < 5
 												) {
 													
-													$('form#form0 input#zipcode_signup').css({background:'pink'}).parent().parent().children('div.error_message').html("Invalid Zipcode.");
+													$('form#form0 input#zipcode_signup').css({background:'pink'}).parent().parent().children('div.error_message').show().html("Invalid Zipcode.");
 													
 													ok = 0;
 															
 												}else{
 												
-													$('form#form0 input#zipcode_signup').css({background:'white'}).parent().parent().children('div.error_message').html("&nbsp;");	
+													$('form#form0 input#zipcode_signup').css({background:'white'}).parent().parent().children('div.error_message').show().html("&nbsp;");	
 													
 												};
 												
@@ -304,7 +271,7 @@ $(document).ready(function() {
 															||  $('form#form0 input#cc_zipcode').val().length  < 5
 												) {
 													
-													$('form#form0 input#cc_zipcode').css({background:'pink'}).parent().parent().children('div.error_message').html("Invalid Zipcode.");
+													$('form#form0 input#cc_zipcode').css({background:'pink'}).parent().parent().children('div.error_message').show().html("Invalid Zipcode.");
 						
 						
 													ok = 0;
@@ -313,7 +280,7 @@ $(document).ready(function() {
 						
 												}else{
 												
-													$('form#form0 input#cc_zipcode').css({background:'white'}).parent().parent().children('div.error_message').html("&nbsp;");	
+													$('form#form0 input#cc_zipcode').css({background:'white'}).parent().parent().children('div.error_message').show().html("&nbsp;");	
 													
 												};						
 												
@@ -321,7 +288,7 @@ $(document).ready(function() {
 												// ** EMAIL
 												if( isBadEmail(  $('form#form0 input#email').val() )  ){
 													
-													$('form#form0 input#email').css({background:'pink'}).parent().parent().children('div.error_message').html("Invalid email.");
+													$('form#form0 input#email').css({background:'pink'}).parent().parent().children('div.error_message').show().html("Invalid email.");
 													
 						
 													ok = 0;
@@ -330,7 +297,7 @@ $(document).ready(function() {
 								
 												}else{
 													
-													$('form#form0 input#email').css({background:'white'}).parent().parent().children('div.error_message').html("&nbsp;");
+													$('form#form0 input#email').css({background:'white'}).parent().parent().children('div.error_message').show().html("&nbsp;");
 													
 												};
 						
@@ -340,7 +307,9 @@ $(document).ready(function() {
 												if( $('form#form0 input#password_signup').val().length  < 5  ){
 								
 													
-													$('form#form0 input#password_signup, form#form0 input#confirm').css({background:'pink'}).parent().parent().children('div.error_message').html("5 characters or more.");
+													$('form#form0 input#password_signup')
+													.css({background:'pink'});
+													$('form#form0 input#password_signup').parent().parent().children('div.error_message').show().show().html("Need 5 characters or more.");
 						
 													ok = 0;
 															
@@ -355,17 +324,17 @@ $(document).ready(function() {
 																	ok = 0;
 															
 							
-																		$('form#form0 input#password_signup, form#form0 input#confirm').css({background:'pink'}).parent().parent().children('div.error_message').html("Passwords must match.");
+																		$('form#form0 input#password_signup, form#form0 input#confirm').css({background:'pink'}).parent().parent().children('div.error_message').show().html("Passwords must match.");
 													
 																	}else{
-																		$('form#form0 input[type=password], form#form0 input#confirm').css({background:'white'}).parent().parent().children('div.error_message').html("&nbsp;");	
+																		$('form#form0 input[type=password], form#form0 input#confirm').css({background:'white'}).parent().parent().children('div.error_message').show().html("&nbsp;");	
 																	};					
 								
 												};
 						
 						<?php } ?>
 						
-ok = 1;
+
 						if( 
 							ok == 1
 							|| $('#use_card_on_file').is(':checked') 

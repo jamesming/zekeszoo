@@ -1,7 +1,7 @@
 
 																<div id='payment_info' class='clearfix  header_style' >
 																	Payment Information&nbsp;&nbsp;&nbsp;<img src='<?php echo base_url()    ?>images/lock.gif' />&nbsp;&nbsp;&nbsp;
-																	<img id='accepted_cards' src='<?php echo base_url()    ?>images/cards.gif'     style='display:none'  />
+																	<img id='accepted_cards' src='<?php echo base_url()    ?>images/cards.gif'    />
 																</div>
 																
 																
@@ -187,15 +187,19 @@
 																		
 																		
 																		
-																		<div  class=' outer_input_label authorize_div' >
-																					<img src='<?php echo base_url()     ?>images/authorize_logo.gif' />																		
+																		<div  class=' outer_input_label' >
+																				<div class=' input_label' >Home Telephone
+																				</div>
+																				<input name="cc_phone" id="cc_phone" type="text" value=""    style='width:255px'  >
+																				<div  class=' error_message' >&nbsp;
+																				</div>	
 																		</div>		
 																		
 																		
 																	</div>
 																</div>
 																<div class='clearfix user_info_outerbox ship_to_other_div' >
-																	<input name="ship_to_other" id="ship_to_other" type="checkbox" value="0">&nbsp;&nbsp;
+																	<input name="ship_to_other" id="ship_to_other" type="checkbox" value="1">&nbsp;&nbsp;
 																	Ship to alternate address.
 																</div>
 

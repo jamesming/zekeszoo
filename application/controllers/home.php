@@ -1568,28 +1568,9 @@ Join our Pet & Deal Loving Community on <a target='_blank' href='https://faceboo
 													$users['id'] = $users[0]->id;
 													$users['status'] = 'old account';
 													
-													if( !$this->input->post('ship_to_other')){ // SHIPPING AND BILLING ADDRESS SAME
-														
-												    $shipping_first_name = $this->input->post('cc_first_name');
-												    $shipping_last_name = $this->input->post('cc_last_name');
-												    $shipping_address = $this->input->post('cc_address');
-												    $shipping_city = $this->input->post('cc_city');
-												    $shipping_state = $this->input->post('cc_state');
-												    $shipping_zipcode = $this->input->post('cc_zipcode');
-														
-													}else{
-														
-												    $shipping_first_name = $this->input->post('shipping_first_name');
-												    $shipping_last_name = $this->input->post('shipping_last_name');
-												    $shipping_address = $this->input->post('shipping_address');
-												    $shipping_city = $this->input->post('shipping_city');
-												    $shipping_state = $this->input->post('shipping_state');
-												    $shipping_zipcode = $this->input->post('shipping_zipcode');	
-												    													
-													};
-												
-									
-													//brk
+													$shipping_info = $this->get_shipping_info();
+
+													//brk 1
 													// CREATE PAYMENT PROFILE AT AUTHORIZE.NET
 													$response = $this->my_payment_model->create_payment_profile(
 														$firstname = $this->input->post('cc_first_name'),
@@ -1602,12 +1583,13 @@ Join our Pet & Deal Loving Community on <a target='_blank' href='https://faceboo
 														$cc_city = $this->input->post('cc_city'),
 														$cc_state = $this->input->post('cc_state'),
 														$cc_zipcode = $this->input->post('cc_zipcode'),
-												    $shipping_first_name,
-												    $shipping_last_name,
-												    $shipping_address,
-												    $shipping_city,
-												    $shipping_state,
-												    $shipping_zipcode
+														$cc_phonenumber = $this->input->post('cc_phone'),
+												    $shipping_info['first_name'],
+												    $shipping_info['last_name'],
+												    $shipping_info['address'],
+												    $shipping_info['city'],
+												    $shipping_info['state'],
+												    $shipping_info['zipcode']
 												 );
 												 
 
@@ -1622,10 +1604,16 @@ Join our Pet & Deal Loving Community on <a target='_blank' href='https://faceboo
 																if($this->error_check_mode == TRUE) echo "CREATE NEW CUSTOMER ACCOUNT AT AUTHORIZE"."<hr />";			
 																if($this->error_check_mode == TRUE) echo'<pre> ';
 																if($this->error_check_mode == TRUE) print_r(  $response   );
-																if($this->error_check_mode == TRUE) echo'</pre> ';  
-												
+
+
 																// UPDATE EXISTING ACCOUNT WITH NEW AUTHORIZE.NET ACCOUNT INFO
 																$set_what_array = array(
+																						'shipping_first_name' => $shipping_info['first_name'],		 	 	 	 	 	 	 
+																						'shipping_last_name'	 => $shipping_info['last_name'],	 	 	 	 	 	 	 
+																						'shipping_address' 	 => $shipping_info['address'],	 	 	 	 
+																						'shipping_city'	 	  => $shipping_info['city'],	 	 	 
+																						'shipping_state'	 => $shipping_info['state'],	 	 
+																						'shipping_zipcode'  => $shipping_info['zipcode'],
 																						'authorize_customerProfileId' => $users['authorize_customerProfileId'],
 																						'authorize_paymentProfileId' => $users['authorize_paymentProfileId'],
 																						'authorize_customerAddressId' => $users['authorize_customerAddressId'],
@@ -1905,6 +1893,10 @@ Join our Pet & Deal Loving Community on <a target='_blank' href='https://faceboo
 
 			$users['id'] = $users[0]->id;
 		
+		
+			$shipping_info = $this->get_shipping_info();
+
+			//brk 3
 			// CREATE PAYMENT PROFILE AT AUTHORIZE.NET
 			$response = $this->my_payment_model->create_payment_profile(
 				$firstname = $this->input->post('cc_first_name'),
@@ -1916,7 +1908,14 @@ Join our Pet & Deal Loving Community on <a target='_blank' href='https://faceboo
 				$cc_address = $this->input->post('cc_address'),
 				$cc_city = $this->input->post('cc_city'),
 				$cc_state = $this->input->post('cc_state'),
-				$cc_zipcode = $this->input->post('cc_zipcode')
+				$cc_zipcode = $this->input->post('cc_zipcode'),
+				$cc_phonenumber = $this->input->post('cc_phone'),
+		    $shipping_info['first_name'],
+		    $shipping_info['last_name'],
+		    $shipping_info['address'],
+		    $shipping_info['city'],
+		    $shipping_info['state'],
+		    $shipping_info['zipcode']
 		 );
 		 
 		 if( $response->isOk() ){
@@ -2641,26 +2640,44 @@ Join our Pet & Deal Loving Community on <a target='_blank' href='https://faceboo
 								// DELETE EXISTING CUSTOMER ACCOUNT AT AUTHORIZE.NET
 								$this->my_payment_model->delete_customer($users[0]->authorize_customerProfileId);
 
+
+								$shipping_info = $this->get_shipping_info();
+
+								//brk 3
 								// CREATE PAYMENT PROFILE AT AUTHORIZE.NET
 								$response = $this->my_payment_model->create_payment_profile(
 									$firstname = $this->input->post('cc_first_name'),
 									$lastname = $this->input->post('cc_last_name'),
-									$email,
+									$email = $users[0]->email,
 									$cc_num = $this->input->post('cc_num'),
 									$month_exp = $this->input->post('month_exp'),
 									$year_exp = $this->input->post('year_exp'),
 									$cc_address = $this->input->post('cc_address'),
 									$cc_city = $this->input->post('cc_city'),
 									$cc_state = $this->input->post('cc_state'),
-									$cc_zipcode = $this->input->post('cc_zipcode')
+									$cc_zipcode = $this->input->post('cc_zipcode'),
+									$cc_phonenumber = $this->input->post('cc_phone'),
+							    $shipping_info['first_name'],
+							    $shipping_info['last_name'],
+							    $shipping_info['address'],
+							    $shipping_info['city'],
+							    $shipping_info['state'],
+							    $shipping_info['zipcode']
 							 );
 							 
 								$users_array['authorize_customerProfileId'] = $response->getCustomerProfileId();
 								$users_array['authorize_paymentProfileId'] =  $response->getCustomerPaymentProfileIds();
 								$users_array['authorize_customerAddressId'] =  $response->getCustomerShippingAddressIds();
 
+
 								// UPDATE EXISTING ACCOUNT WITH NEW AUTHORIZE.NET ACCOUNT INFO
 								$set_what_array = array(
+														'shipping_first_name' => $shipping_info['first_name'],		 	 	 	 	 	 	 
+														'shipping_last_name'	 => $shipping_info['last_name'],	 	 	 	 	 	 	 
+														'shipping_address' 	 => $shipping_info['address'],	 	 	 	 
+														'shipping_city'	 	  => $shipping_info['city'],	 	 	 
+														'shipping_state'	 => $shipping_info['state'],	 	 
+														'shipping_zipcode'  => $shipping_info['zipcode'],
 														'authorize_customerProfileId' => $users_array['authorize_customerProfileId'],
 														'authorize_paymentProfileId' => $users_array['authorize_paymentProfileId'],
 														'authorize_customerAddressId' => $users_array['authorize_customerAddressId'],
@@ -2668,7 +2685,6 @@ Join our Pet & Deal Loving Community on <a target='_blank' href='https://faceboo
 														);			
 												
 								$this->my_database_model->update_table( $table = 'users', $primary_key = $users[0]->id, $set_what_array );
-
 
 								$users_array['id'] = $users[0]->id;
 								$users_array['status'] = 'old account';	
@@ -2695,23 +2711,31 @@ Join our Pet & Deal Loving Community on <a target='_blank' href='https://faceboo
 
 	  }else{
 
-
+					$shipping_info = $this->get_shipping_info();
+					
+					//brk 4
 					// CREATE PAYMENT PROFILE AT AUTHORIZE.NET
 					$response = $this->my_payment_model->create_payment_profile(
 						$firstname = $this->input->post('cc_first_name'),
 						$lastname = $this->input->post('cc_last_name'),
-						$email,
+						$email = $this->input->post('email'),
 						$cc_num = $this->input->post('cc_num'),
 						$month_exp = $this->input->post('month_exp'),
 						$year_exp = $this->input->post('year_exp'),
 						$cc_address = $this->input->post('cc_address'),
 						$cc_city = $this->input->post('cc_city'),
 						$cc_state = $this->input->post('cc_state'),
-						$cc_zipcode = $this->input->post('cc_zipcode')
-				 );
-				 
-				 	//echo '<pre>';print_r( $response  );echo '</pre>';  exit;
-				 
+						$cc_zipcode = $this->input->post('cc_zipcode'),
+						$cc_phonenumber = $this->input->post('cc_phone'),
+					  $shipping_info['first_name'],
+					  $shipping_info['last_name'],
+					  $shipping_info['address'],
+					  $shipping_info['city'],
+					  $shipping_info['state'],
+					  $shipping_info['zipcode']
+					);
+
+
 					$users_array['authorize_customerProfileId'] = $authorize_customerProfileId = $response->getCustomerProfileId();
 					$users_array['authorize_paymentProfileId'] = $authorize_paymentProfileId = $response->getCustomerPaymentProfileIds();
 					$users_array['authorize_customerAddressId'] = $authorize_customerAddressId = $response->getCustomerShippingAddressIds();
@@ -2728,7 +2752,13 @@ Join our Pet & Deal Loving Community on <a target='_blank' href='https://faceboo
 					                        'authorize_customerProfileId' =>   $authorize_customerProfileId,
 					                        'authorize_paymentProfileId' =>   $authorize_paymentProfileId,
 					                        'authorize_customerAddressId' =>   $authorize_customerAddressId,
-																	'last_three' => substr(   $this->input->post('cc_num')  , -3)
+																	'last_three' => substr(   $this->input->post('cc_num')  , -3),
+																	'shipping_first_name' => $shipping_info['first_name'],		 	 	 	 	 	 	 
+																	'shipping_last_name'	 => $shipping_info['last_name'],	 	 	 	 	 	 	 
+																	'shipping_address' 	 => $shipping_info['address'],	 	 	 	 
+																	'shipping_city'	 	  => $shipping_info['city'],	 	 	 
+																	'shipping_state'	 => $shipping_info['state'],	 	 
+																	'shipping_zipcode'  => $shipping_info['zipcode']																	
 					                );
 					
 					$user_id = $this->my_database_model->insert_table(
@@ -4956,6 +4986,35 @@ function contactus(){
 }
 
 
+
+private function get_shipping_info(){
+	
+			if( $this->input->post('ship_to_other') && $this->input->post('ship_to_other') == 1){
+				
+			    $shipping_info['first_name'] = $this->input->post('shipping_first_name');
+			    $shipping_info['last_name'] = $this->input->post('shipping_last_name');
+			    $shipping_info['address'] = $this->input->post('shipping_address');
+			    $shipping_info['city'] = $this->input->post('shipping_city');
+			    $shipping_info['state'] = $this->input->post('shipping_state');
+			    $shipping_info['zipcode'] = $this->input->post('shipping_zipcode');	
+		    													
+			}else{
+				
+					$shipping_info['first_name'] = $this->input->post('cc_first_name');
+					$shipping_info['last_name'] = $this->input->post('cc_last_name');
+					$shipping_info['address'] = $this->input->post('cc_address');
+					$shipping_info['city'] = $this->input->post('cc_city');
+					$shipping_info['state'] = $this->input->post('cc_state');
+					$shipping_info['zipcode']= $this->input->post('cc_zipcode');
+				
+			};
+		
+		return $shipping_info;		
+	
+}
+
+
+
 /**
  * create_table
  *
@@ -4967,7 +5026,7 @@ function contactus(){
  **/ 
 
 	
-function create_table(){
+private function create_table(){
 
 $table = 'users';
 // $this->my_database_model->	create_generic_table($table );

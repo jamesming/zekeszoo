@@ -7,7 +7,7 @@
 <?php     	$this->load->view('header/buy_css.php');  ?>
 <?php     	$this->load->view('footer/footer_section_css.php');  ?>
 
-<script type="text/javascript" language="Javascript" src = "<?php echo  base_url();   ?>js/creditcard/creditcard_validation.js"></script>
+
 <script type="text/javascript" language="Javascript" src = "<?php echo  base_url();   ?>js/jquery.js"></script>
 <script type="text/javascript" src="<?php echo  base_url();   ?>js/jquery.scrollTo-min.js"></script>
 </head>

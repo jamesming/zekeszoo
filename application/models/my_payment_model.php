@@ -124,16 +124,16 @@ $live = FALSE;
 	    
 	    $customerProfile->paymentProfiles[] = $paymentProfile;
 
-	    
+
 	    // Add shipping address.
 	    $address = new AuthorizeNetAddress;
-	    $address->firstName = $first_name;
-	    $address->lastName = $last_name;
+	    $address->firstName = $shipping_first_name;
+	    $address->lastName = $shipping_last_name;
 	    $address->company = " ";
-	    $address->address = $cc_address;
-	    $address->city = $cc_city;
-	    $address->state = $cc_state;
-	    $address->zip = $cc_zipcode;
+	    $address->address = $shipping_address;
+	    $address->city = $shipping_city;
+	    $address->state = $shipping_state;
+	    $address->zip = $shipping_zipcode;
 	    $address->country = "USA";
 	    $address->phoneNumber = "";
 	    $address->faxNumber = "";

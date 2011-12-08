@@ -341,8 +341,8 @@ margin-top: 13px;
     margin: 6px 37px;
     width: 200px;
 }
-.authorize_div{
+/*.authorize_div{
 padding-top:25px;
 padding-left:60px;	
-}
+}*/
 </style>

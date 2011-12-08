@@ -69,7 +69,7 @@
 																				<div class=' input_div' >
 																					<input name="password_signup" id="password_signup" type="password" value=""  class='small_input '>
 																				</div>
-																				<div  class=' error_message' >&nbsp;
+																				<div  class=' error_message'   >&nbsp;test
 																				</div>																							
 																			</div>
 																			<div  class='float_left halfies' >
