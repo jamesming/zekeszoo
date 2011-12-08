@@ -174,7 +174,7 @@ $(document).ready(function() {
 				
 				foreach($payment_info_pairs as $key => $value){ ?>
 					
-					$('#<?php echo $key    ?>').val('<?php echo $value    ?>');
+					$('#<?php echo $key    ?>').val('<?php echo $value    ?>');	
 					
 				<?php
 				}?>
@@ -201,15 +201,7 @@ $(document).ready(function() {
 					});		
 					
 					
-					
-				$('#ship_to_other').click(function(event) {
-							if($(this).is(":checked") ){
-								$('#user_information_section .middle div.user_info_outerbox.shipping_box, #user_information_section  .middle div#shipping_info').show();
-							}else{
-								$('#user_information_section .middle div.user_info_outerbox.shipping_box, #user_information_section  .middle div#shipping_info').hide();
-							};
-				});						
-					
+
 					
 				$('#buynow_image').click(function(event) {
 					
@@ -224,7 +216,11 @@ $(document).ready(function() {
 		
 								if( $(this).val() == '' ){
 
-									$(this).css({background:'pink'}).parent().parent().children('div.error_message_select, div.error_message').show().html("Can't be blank.");
+									$(this).css({background:'pink'}).parent().parent().children('div.error_message_select, div.error_message').show().html("Can't be blank.")
+									
+									$(this).click(function(event) {
+											$(this).css({background:'white'})
+									});	
 
 
 									ok = 0;

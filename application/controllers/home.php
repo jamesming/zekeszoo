@@ -1943,7 +1943,13 @@ Join our Pet & Deal Loving Community on <a target='_blank' href='https://faceboo
 												'authorize_customerProfileId' => $users['authorize_customerProfileId'],
 												'authorize_paymentProfileId' => $users['authorize_paymentProfileId'],
 												'authorize_customerAddressId' => $users['authorize_customerAddressId'],
-												'last_three' => substr(   $this->input->post('cc_num')  , -3)
+												'last_three' => substr(   $this->input->post('cc_num')  , -3),
+												'shipping_first_name' => $shipping_info['first_name'],		 	 	 	 	 	 	 
+												'shipping_last_name'	 => $shipping_info['last_name'],	 	 	 	 	 	 	 
+												'shipping_address' 	 => $shipping_info['address'],	 	 	 	 
+												'shipping_city'	 	  => $shipping_info['city'],	 	 	 
+												'shipping_state'	 => $shipping_info['state'],	 	 
+												'shipping_zipcode'  => $shipping_info['zipcode']									
 												);			
 										
 						$this->my_database_model->update_table( $table = 'users', $primary_key = $users[0]->id, $set_what_array );

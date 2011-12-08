@@ -215,6 +215,9 @@ cursor:pointer;
 
         <input id="password" name="password" value="" title="password" tabindex="5" type="password">
       </p>
+      <div  class=' error_message' >
+      	or Password
+      </div>
       <p class="remember">
         <span  id="signin_submit"  class='float_left '>Sign in</span>
 	      <div id='facebook'  class='float_left ' >
@@ -267,16 +270,10 @@ cursor:pointer;
             
 						$('.facebook_connect').click(function(event) {
 							
-						//	document.getElementsByTagName('iframe')[3].contentWindow.facebook_connection();
-						
-						// $('iframe #iframe_facebook').contentWindow.facebook_connection();
-						
-						
-						$('iframe').each(function(index) { 
-							try { this.contentWindow.facebook_connection(); } 
-							catch (e) { } 
-						});
-						
+							$('iframe').each(function(index) { 
+								try { this.contentWindow.facebook_connection(); } 
+								catch (e) { } 
+							});
 						
 						});	
 						

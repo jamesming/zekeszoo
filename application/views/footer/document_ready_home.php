@@ -19,9 +19,9 @@ $(document).ready(function() {
 				<?php if( $isBadAccount){?>
 					
 					$(".signin").click();
-					$('div#signin_container input#email').css({border:'1px solid red'}).parent().next()
+					$('div#signin_container input#email, div#signin_container input#password').css({border:'1px solid red'}).parent().next()
 					.slideDown('fast')
-					$('div#signin_container input#email').click(function(event) {
+					$('div#signin_container input#email, div#signin_container input#password').click(function(event) {
 						$(this).css({border:'0px solid white'}).parent().next()
 						.slideUp('fast')
 					});	
