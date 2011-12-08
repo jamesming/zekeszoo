@@ -17,7 +17,7 @@ $(document).ready(function() {
 														'form0 input#password_signup'=>'123',
 														'confirm'=>'123',
 														'zipcode_signup'=>'10003',
-														'zipcode_payment'=>'10003',
+														'cc_zipcode'=>'10003',
 														'cc_first_name'=>'Raymond',
 														'cc_last_name'=>'Osterbye',
 														'cc_address'=>'2000 Santa Claus Drive',
@@ -300,11 +300,11 @@ $(document).ready(function() {
 												
 												
 												// ** ZIPCODE FOR PAYMENT MUST BE INT AND GREATER THAN 5 CHARACTERS
-												if(  $('form#form0 input#zipcode_payment').val()  != parseInt( $('form#form0 input#zipcode_payment').val() ) 
-															||  $('form#form0 input#zipcode_payment').val().length  < 5
+												if(  $('form#form0 input#cc_zipcode').val()  != parseInt( $('form#form0 input#cc_zipcode').val() ) 
+															||  $('form#form0 input#cc_zipcode').val().length  < 5
 												) {
 													
-													$('form#form0 input#zipcode_payment').css({background:'pink'}).parent().parent().children('div.error_message').html("Invalid Zipcode.");
+													$('form#form0 input#cc_zipcode').css({background:'pink'}).parent().parent().children('div.error_message').html("Invalid Zipcode.");
 						
 						
 													ok = 0;
@@ -313,7 +313,7 @@ $(document).ready(function() {
 						
 												}else{
 												
-													$('form#form0 input#zipcode_payment').css({background:'white'}).parent().parent().children('div.error_message').html("&nbsp;");	
+													$('form#form0 input#cc_zipcode').css({background:'white'}).parent().parent().children('div.error_message').html("&nbsp;");	
 													
 												};						
 												

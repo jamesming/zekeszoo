@@ -81,7 +81,7 @@
 																				<div class=' input_label' >Zip Code
 																				</div>
 																				<div class=' input_div' >
-																					<input name="zipcode_payment" id="zipcode_payment" type="text" value=""  class='small_input '>
+																					<input name="cc_zipcode" id="cc_zipcode" type="text" value=""  class='small_input '>
 																				</div>
 																				<div  class=' error_message' >&nbsp;
 																				</div>																					
@@ -196,7 +196,7 @@
 																</div>
 																<div class='clearfix user_info_outerbox ship_to_other_div' >
 																	<input name="ship_to_other" id="ship_to_other" type="checkbox" value="0">&nbsp;&nbsp;
-																	Ship to alternative address.
+																	Ship to alternate address.
 																</div>
 
 																<div id='shipping_info' class='clearfix  header_style'>

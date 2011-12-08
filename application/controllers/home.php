@@ -1376,7 +1376,8 @@ Join our Pet & Deal Loving Community on <a target='_blank' href='https://faceboo
 	public function buy(){
 		
 		//brk
-		//echo '<pre>';print_r( $this->input->post()  );echo '</pre>';exit;
+
+		// echo '<pre>';print_r( $this->input->post()  );echo '</pre>';exit;
 		
 		$this->load->model('my_payment_model');
 
@@ -1567,6 +1568,26 @@ Join our Pet & Deal Loving Community on <a target='_blank' href='https://faceboo
 													$users['id'] = $users[0]->id;
 													$users['status'] = 'old account';
 													
+													if( !$this->input->post('ship_to_other')){ // SHIPPING AND BILLING ADDRESS SAME
+														
+												    $shipping_first_name = $this->input->post('cc_first_name');
+												    $shipping_last_name = $this->input->post('cc_last_name');
+												    $shipping_address = $this->input->post('cc_address');
+												    $shipping_city = $this->input->post('cc_city');
+												    $shipping_state = $this->input->post('cc_state');
+												    $shipping_zipcode = $this->input->post('cc_zipcode');
+														
+													}else{
+														
+												    $shipping_first_name = $this->input->post('shipping_first_name');
+												    $shipping_last_name = $this->input->post('shipping_last_name');
+												    $shipping_address = $this->input->post('shipping_address');
+												    $shipping_city = $this->input->post('shipping_city');
+												    $shipping_state = $this->input->post('shipping_state');
+												    $shipping_zipcode = $this->input->post('shipping_zipcode');	
+												    													
+													};
+												
 									
 													//brk
 													// CREATE PAYMENT PROFILE AT AUTHORIZE.NET
@@ -1580,13 +1601,13 @@ Join our Pet & Deal Loving Community on <a target='_blank' href='https://faceboo
 														$cc_address = $this->input->post('cc_address'),
 														$cc_city = $this->input->post('cc_city'),
 														$cc_state = $this->input->post('cc_state'),
-														$cc_zipcode = $this->input->post('zipcode_payment'),
-												    $shipping_first_name = $this->input->post('shipping_first_name'),
-												    $shipping_last_name = $this->input->post('shipping_last_name'),
-												    $shipping_address = $this->input->post('shipping_address'),
-												    $shipping_city = $this->input->post('shipping_city'),
-												    $shipping_state = $this->input->post('shipping_state'),
-												    $shipping_zipcode = $this->input->post('shipping_zipcode')
+														$cc_zipcode = $this->input->post('cc_zipcode'),
+												    $shipping_first_name,
+												    $shipping_last_name,
+												    $shipping_address,
+												    $shipping_city,
+												    $shipping_state,
+												    $shipping_zipcode
 												 );
 												 
 
@@ -1711,7 +1732,7 @@ Join our Pet & Deal Loving Community on <a target='_blank' href='https://faceboo
 						'cc_address'=>$response->xml->profile->paymentProfiles->billTo->address,
 						'cc_city'=>$response->xml->profile->paymentProfiles->billTo->city,
 						'cc_state'=>$response->xml->profile->paymentProfiles->billTo->state,
-						'zipcode_payment'=>$response->xml->profile->paymentProfiles->billTo->zip
+						'cc_zipcode'=>$response->xml->profile->paymentProfiles->billTo->zip
 						);					
 				};
 				
@@ -1895,7 +1916,7 @@ Join our Pet & Deal Loving Community on <a target='_blank' href='https://faceboo
 				$cc_address = $this->input->post('cc_address'),
 				$cc_city = $this->input->post('cc_city'),
 				$cc_state = $this->input->post('cc_state'),
-				$cc_zipcode = $this->input->post('zipcode_payment')
+				$cc_zipcode = $this->input->post('cc_zipcode')
 		 );
 		 
 		 if( $response->isOk() ){
@@ -2343,7 +2364,7 @@ Join our Pet & Deal Loving Community on <a target='_blank' href='https://faceboo
 				'cc_address'=>$response->xml->profile->paymentProfiles->billTo->address,
 				'cc_city'=>$response->xml->profile->paymentProfiles->billTo->city,
 				'cc_state'=>$response->xml->profile->paymentProfiles->billTo->state,
-				'zipcode_payment'=>$response->xml->profile->paymentProfiles->billTo->zip
+				'cc_zipcode'=>$response->xml->profile->paymentProfiles->billTo->zip
 				);
 		}else{
 				return array();
@@ -2527,7 +2548,7 @@ Join our Pet & Deal Loving Community on <a target='_blank' href='https://faceboo
 					'cc_address',
 					'cc_city',
 					'cc_state',
-					'zipcode_payment',
+					'cc_zipcode',
 					'cc_num',
 					'cardtype',
 					'cc_code',
@@ -2631,7 +2652,7 @@ Join our Pet & Deal Loving Community on <a target='_blank' href='https://faceboo
 									$cc_address = $this->input->post('cc_address'),
 									$cc_city = $this->input->post('cc_city'),
 									$cc_state = $this->input->post('cc_state'),
-									$cc_zipcode = $this->input->post('zipcode_payment')
+									$cc_zipcode = $this->input->post('cc_zipcode')
 							 );
 							 
 								$users_array['authorize_customerProfileId'] = $response->getCustomerProfileId();
@@ -2686,7 +2707,7 @@ Join our Pet & Deal Loving Community on <a target='_blank' href='https://faceboo
 						$cc_address = $this->input->post('cc_address'),
 						$cc_city = $this->input->post('cc_city'),
 						$cc_state = $this->input->post('cc_state'),
-						$cc_zipcode = $this->input->post('zipcode_payment')
+						$cc_zipcode = $this->input->post('cc_zipcode')
 				 );
 				 
 				 	//echo '<pre>';print_r( $response  );echo '</pre>';  exit;
@@ -2703,7 +2724,7 @@ Join our Pet & Deal Loving Community on <a target='_blank' href='https://faceboo
 					                        'last_name' =>  $this->input->post('last_name'),
 					                        'email' =>  $email,
 					                        'password' =>   do_hash(  $this->input->post('password_signup'), 'md5' ),
-					                        'zipcode' =>   $this->input->post('zipcode_payment'),
+					                        'zipcode' =>   $this->input->post('cc_zipcode'),
 					                        'authorize_customerProfileId' =>   $authorize_customerProfileId,
 					                        'authorize_paymentProfileId' =>   $authorize_paymentProfileId,
 					                        'authorize_customerAddressId' =>   $authorize_customerAddressId,
@@ -3261,7 +3282,7 @@ Join our Pet & Deal Loving Community on <a target='_blank' href='https://faceboo
 										$cc_address = $this->input->post('cc_address'),
 										$cc_city = $this->input->post('cc_city'),
 										$cc_state = $this->input->post('cc_state'),
-										$cc_zipcode = $this->input->post('zipcode_payment')
+										$cc_zipcode = $this->input->post('cc_zipcode')
 									);
 					*/
 					
@@ -4946,17 +4967,32 @@ function contactus(){
  **/ 
 
 	
-private function create_table(){
+function create_table(){
 
-$table = 'credits';
-$this->my_database_model->	create_generic_table($table );
+$table = 'users';
+// $this->my_database_model->	create_generic_table($table );
 
 $fields_array = array(
-                      'user_id' => array(
-                                               'type' => 'int(11)'
+                      'shipping_first_name' => array(
+                                               'type' => 'varchar(255)'
                                     ),
-                      'amount' => array(
-                                               'type' => 'float(11)'
+                      'shipping_last_name' => array(
+                                               'type' => 'varchar(255)'
+                                    ),
+                      'shipping_address1' => array(
+                                               'type' => 'varchar(1024)'
+                                    ),
+                      'shipping_address2' => array(
+                                               'type' => 'varchar(1024)'
+                                    ),
+                      'shipping_city' => array(
+                                               'type' => 'varchar(512)'
+                                    ),
+                      'shipping_state' => array(
+                                               'type' => 'varchar(255)'
+                                    ),
+                      'shipping_zipcode' => array(
+                                               'type' => 'varchar(255)'
                                     )
               ); 
               
