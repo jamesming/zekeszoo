@@ -63,8 +63,11 @@
 																	width:270px;
 																	text-align:left;								  			
 													  		}
-													  		#deal_buy_box table td.total_div{
-																	text-align:right;								  			
+													  		#deal_buy_box table td.total_div,
+													  		#deal_buy_box table td#discount_div,
+													  		#deal_buy_box table td#final_price
+													  		{
+																	text-align:right;					  			
 													  		}															  															  		
 													  		#deal_buy_box table tr.head_tr td{
 													  			font-size:11px;
@@ -116,7 +119,7 @@
 																			<td colspan=3 class='item_td '   style='text-align:right'  >
 																				Promotional Discount:&nbsp;&nbsp;
 																			</td>
-																			<td  class='total_div ' >
+																			<td  id='discount_div' >
 																				-5
 																			</td>
 																		</tr>
@@ -124,7 +127,7 @@
 																			<td colspan=3 class='item_td '   style='text-align:right'  >
 																				Final Price:&nbsp;&nbsp;
 																			</td>
-																			<td  id='final_price' class='total_div ' >
+																			<td  id='final_price'  >
 																				$5
 																			</td>
 																		</tr>																		
@@ -157,6 +160,12 @@
 																		$('#apply').click(function(event) {
 																					$('#promo_code_container').hide();
 																					$('.promo_rows').show();
+																					
+																					$('#discount_div').html('-6');
+																					
+																					$('#final_price').html('$'+'100');
+																					
+																					
 																		});	
 																	});
 																	</script>
