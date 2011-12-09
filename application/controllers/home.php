@@ -5076,6 +5076,38 @@ function get_promo_code(){
 
 
 /**
+ * forgot_password
+ *
+ * {@source }
+ * @package BackEnd
+ * @author James Ming <jamesming@gmail.com>
+ * @path /index.php/home/orgot_password
+ * @access public
+ **/
+
+
+function forgot_password(){
+	
+		$password_change_code = rand(5, 123123);
+
+		$this->my_database_model->update_table_where( 
+			$table='users', 
+			$where_array = array(
+				'email' => $this->input->post('email')
+			), 
+			$set_what_array = array(
+				'password_change_code' => $password_change_code
+				)
+		);
+		
+		echo $password_change_code;
+
+}
+
+
+
+
+/**
  * create_table
  *
  * {@source }
