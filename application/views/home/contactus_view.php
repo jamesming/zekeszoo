@@ -43,7 +43,7 @@
 																	Contact Us
 																</div>
 
-														  		<div  table='website'    href='#wysiwyg_div' id='contactus'  class="wysiwyg_div_link clearfix elements_to_hide_when_adding_deal" >
+														  		<div  table='website'    href='#wysiwyg_div' id='contactus'  class="clearfix elements_to_hide_when_adding_deal" >
 																																<?php     
 																																
 																																		if( isset( $website[0]->contactus  ) ){

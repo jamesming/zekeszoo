@@ -8,7 +8,9 @@ margin-top: 20px;
 		min-height:198px;
 		}
 		
-		
+		#box_section  .middle,  #right_col_section  .middle.left_middle{
+		min-height:302px;
+		}		
 								#box_section  .middle div#box_inside_header {
 								    background-image: url(<?php  echo base_url()   ?>images/sites/zekeszoo/star.png);
 								    background-position: 21px 13px;

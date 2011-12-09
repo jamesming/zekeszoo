@@ -225,6 +225,45 @@ $(document).ready(function() {
 						
 					});	
 								
+								
+	
+					$('#promo_code_checkbox').click(function(event) {
+							if($(this).is(":checked") ){
+								$('.promo_code_function').show()
+							}else{
+								$('.promo_code_function, .code_not_valid').hide()
+							};
+					});	
+					$('#apply').click(function(event) {
+	
+	
+	
+									$.post("<?php echo base_url(). 'index.php/home/get_promo_code';    ?>",{
+										promo_code: $('#promo_code').val()
+									},function(data) {
+										
+											if( data == 0){
+												$('.code_not_valid').show();
+											}else{
+												$('#promo_code_container').hide();
+												$('.promo_rows').show();
+												$('#discount_div').html('&nbsp;&nbsp;-'+data).css({'text-decoration':'underline'});
+												total_priceIs = parseInt($('#total_price').text().replace('$', ''));
+											};
+										
+											$('#final_price').text(  '$' + (total_priceIs - data));
+										
+								
+																																
+											
+									});
+	
+									
+	
+	
+					});	
+	
+								
 				$('#buynow_image').click(function(event) {
 					
 						var ok = 1;

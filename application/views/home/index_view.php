@@ -161,9 +161,9 @@
 															</div>
 																										
 															
-															<div id='bought_container'>
+															<div id='bought_container' >
 																
-																<div id='bought_div' class=' clearfix'     >
+																<div id='bought_div' class=' clearfix'     style='display:none'    >
 																	<span id='bought'><?php echo $bought_so_far    ?></span> bought / 
 																	<?php echo $howmany_left    ?> left
 																</div>
@@ -171,7 +171,7 @@
 																
 																		<?php if( $deal_is_on ){?>
 																		
-																							<div id='bought_container_middle' class=' clearfix' >
+																							<div id='bought_container_middle' class=' clearfix'    style='display:none' >
 																								<div id='checkbox_container' class=' float_left'>
 																									<img src='<?php echo base_url()    ?>images/checkbox.jpg'/>
 																									

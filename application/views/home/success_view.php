@@ -35,7 +35,7 @@
 														<div class="top">
 															<div class="sub_top">&nbsp;</div>
 														</div>
-													  <div class="middle">
+													  <div class="middle left_middle"   style='min-height:302px'  >
 													  	
 													  	
 													  	
@@ -110,10 +110,7 @@
 														<div class="bottom"><div class="sub_bottom">&nbsp;</div></div>
 													</div>
 													
-													<br />							
-											<?php
-											  $this->load->view('home/pledge.php');   
-											?>	
+
 													
 												</div>
 												

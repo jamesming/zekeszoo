@@ -1125,7 +1125,6 @@ function query(){
 	
 	
 	
-	
 	/**
 	 * insert_first_deal_for_priority
 	 * @package BackEnd
@@ -1177,6 +1176,82 @@ function query(){
 					
 					
 	}
+		
+	
+	
+	/**
+	 * get_promo_code_value_by_code
+	 * @package BackEnd
+	 * @author James Ming <jamesming@gmail.com>
+	 * @access public
+	 */
+	 
+	 
+	public function get_promo_codes_by_code( $promo_code ){
+	
+		$table = 'promo_codes';
+		
+		$where_array = array('code' => $promo_code);
+
+
+	  if( $this->CI->my_database_model->check_if_exist($where_array, $table)){
+	   	
+			$select_what =  'id, value';
+		
+			$promo_codes = $this->CI->my_database_model->select_from_table( 
+			$table,
+			$select_what, 
+			$where_array);
+			
+			return $promo_codes;
+
+
+		}else{
+	   	
+				return '0';	
+		}
+	
+}
+	
+	
+	
+		
+	/**
+	 * get_promo_code_value_by_code
+	 * @package BackEnd
+	 * @author James Ming <jamesming@gmail.com>
+	 * @access public
+	 */
+	 
+	 
+	public function get_promo_code_value_by_id( $promo_code_id ){
+	
+		$table = 'promo_codes';
+		
+		$where_array = array('id' => $promo_code_id);
+
+
+	  if( $this->CI->my_database_model->check_if_exist($where_array, $table)){
+	   	
+			$select_what =  'value';
+		
+			$promo_codes = $this->CI->my_database_model->select_from_table( 
+			$table,
+			$select_what, 
+			$where_array);
+			
+			return $promo_codes[0]->value;
+
+
+		}else{
+	   	
+				return '0';	
+		}
+	
+}
+	
+	
+	
 }
 
 

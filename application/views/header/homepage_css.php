@@ -230,14 +230,12 @@ color: gray;
 										    padding-top: 14px;
 										    text-align:center;
 										    width:100%;
-										    display:none;
 										}						
 						
 						
 						
 										#buynow div#bought_container div#bought_container_middle{
 											text-align:center;
-											display:none;
 										}	
 						
 													#buynow div#bought_container div#bought_container_middle div {

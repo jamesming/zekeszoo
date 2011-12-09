@@ -241,7 +241,7 @@
 													
 													<br />							
 											<?php
-											  $this->load->view('home/pledge.php');   
+											  //$this->load->view('home/pledge.php');   
 											?>	
 													
 												</div>

@@ -331,6 +331,44 @@ margin-top: 13px;
 							  		}			
 
 
+													  		#deal_buy_box table tr td{
+													  			width:50px;		
+																	border:0px solid red;
+																	text-align:center;							  			
+													  		}	
+													  		#deal_buy_box table td.item_td{
+																	width:270px;
+																	text-align:left;								  			
+													  		}
+													  		#deal_buy_box table td.total_div,
+													  		#deal_buy_box table td#discount_div,
+													  		#deal_buy_box table td#final_price
+													  		{
+																	text-align:right;					  			
+													  		}															  															  		
+													  		#deal_buy_box table tr.head_tr td{
+													  			font-size:11px;
+													  			font-weight:bold;								  			
+													  		}
+													  		.promo_code_div{
+													  		width:500px;
+													  		height:40px;	
+													  		}
+													  		#promo_code_checkbox{
+													  		margin-right:10px;	
+													  		}
+													  		.promo_rows, .promo_code_function{
+													  		display:none;	
+													  		}
+													  		div.promo_code_div div{
+													  			font-size:14px;
+													  		}													  		
+													  		div.code_not_valid{
+													  		padding-left:10px;
+													  		color:red;
+													  		font-size:13px;
+													  		display:none;	
+													  		}	
 /*.authorize_div{
 padding-top:25px;
 padding-left:60px;	

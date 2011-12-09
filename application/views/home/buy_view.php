@@ -119,48 +119,7 @@
 
 																		
 																	</div>																			
-		
-													  		<style>
 
-													  		#deal_buy_box table tr td{
-													  			width:50px;		
-																	border:0px solid red;
-																	text-align:center;							  			
-													  		}	
-													  		#deal_buy_box table td.item_td{
-																	width:270px;
-																	text-align:left;								  			
-													  		}
-													  		#deal_buy_box table td.total_div,
-													  		#deal_buy_box table td#discount_div,
-													  		#deal_buy_box table td#final_price
-													  		{
-																	text-align:right;					  			
-													  		}															  															  		
-													  		#deal_buy_box table tr.head_tr td{
-													  			font-size:11px;
-													  			font-weight:bold;								  			
-													  		}
-													  		.promo_code_div{
-													  		width:500px;
-													  		height:40px;	
-													  		}
-													  		#promo_code_checkbox{
-													  		margin-right:10px;	
-													  		}
-													  		.promo_rows, .promo_code_function{
-													  		display:none;	
-													  		}
-													  		div.promo_code_div div{
-													  			font-size:14px;
-													  		}													  		
-													  		div.code_not_valid{
-													  		padding-left:10px;
-													  		color:red;
-													  		font-size:13px;
-													  		display:none;	
-													  		}												  		
-													  		</style>
 																	<div id='promo_code_container'   class="clearfix "   style='display:block;margin-top:20px;'  >
 																		
 																		
@@ -176,47 +135,6 @@
 
 																		
 																	</div>																			
-		
-
-																	<script type="text/javascript" language="Javascript">
-																	$(document).ready(function() { 
-																		$('#promo_code_checkbox').click(function(event) {
-																				if($(this).is(":checked") ){
-																					$('.promo_code_function').show()
-																				}else{
-																					$('.promo_code_function, .code_not_valid').hide()
-																				};
-																		});	
-																		$('#apply').click(function(event) {
-
-
-
-																						$.post("<?php echo base_url(). 'index.php/home/get_promo_code';    ?>",{
-																							promo_code: $('#promo_code').val()
-																						},function(data) {
-																							
-																								if( data == 'error'){
-																									$('.code_not_valid').show();
-																								}else{
-																									$('#promo_code_container').hide();
-																									$('.promo_rows').show();
-																									$('#discount_div').html('&nbsp;&nbsp;-'+data).css({'text-decoration':'underline'});
-																									total_priceIs = parseInt($('#total_price').text().replace('$', ''));
-																								};
-																							
-																								$('#final_price').text(  '$' + (total_priceIs - data));
-																							
-																					
-																																													
-																								
-																						});
-
-																						
-
-
-																		});	
-																	});
-																	</script>
 
 																				<?php
 																				if( isset( $users[0]->authorize_customerProfileId ) 
