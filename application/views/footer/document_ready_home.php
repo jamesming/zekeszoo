@@ -56,7 +56,7 @@ $(document).ready(function() {
 
     		<?php }else{?>
     			
-    			$('#buynow_text').html('Deal Over');
+    			$('#buynow_text').html('Sold Out');
 
 					
 				<?php } ?>

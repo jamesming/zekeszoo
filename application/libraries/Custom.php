@@ -166,8 +166,7 @@ private $CI;
  
  
 		public function email_template( $deals ){
-			
-		
+
 		return $message = "
 
 
@@ -178,7 +177,7 @@ private $CI;
 
 
 	<div   style='font-size:10px;font-weight:bold;clear:both;text-align:center;width:560px'  >
-			Click here if you are trouble viewing this email.
+			<a target='_blank' href='".base_url()."index.php/home/deal/" . $deals['deal_url']. "'>Click here if you are trouble viewing this email.</a>
 	</div>
 
 

@@ -2531,7 +2531,7 @@ Join our Pet & Deal Loving Community on <a target='_blank' href='https://faceboo
 
 										if( $response->isOk() ){
 											$server_response['type'] = 'success';
-											$server_response['message'] = 'Your deal has been processed';
+											$server_response['message'] = 'Your order has been processed.<br /><br />You will be receiving an email confirmation shortly.<br /><br />Enjoy and visit soon!';
 										}else{
 											$server_response['type'] = 'error in capture';
 										};
