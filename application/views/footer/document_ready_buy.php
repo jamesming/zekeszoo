@@ -4,36 +4,13 @@ $(document).ready(function() {
 
 				<?php   
 				
-				//$testing = FALSE;
-				$testing = TRUE;
+				$testing = FALSE;
+				//$testing = TRUE;
 
 				
 				if( $testing == TRUE ){	
 										
-							$pairs = array(
-														'first_name'=>'Raymond',
-														'last_name'=>'Osterbye',
-														'form0 input#email'=>'rayofnine@gmail.com',
-														'form0 input#password_signup'=>'123',
-														'confirm'=>'123',
-														'zipcode_signup'=>'10003',
-														'cc_zipcode'=>'10003',
-														'cc_first_name'=>'Raymond',
-														'cc_last_name'=>'Osterbye',
-														'cc_address'=>'2000 Santa Claus Drive',
-														'cc_city'=>'North Pole',
-														'cc_state'=>'AL',
-														'cc_phone'=>'201-234-1244',
-														'cc_code'=>'721',
-														'month_exp'=>'11',
-														'year_exp'=>'2017',
-												    'shipping_first_name' => 'Ray',
-												    'shipping_last_name' => 'Ost',
-												    'shipping_address' => '1234 Maiden Lane',
-												    'shipping_city' => 'Mary Lane',
-												    'shipping_state' => 'KY',
-												    'shipping_zipcode' => '45234'
-												    );
+						
 
 							$pairs['cc_num'] = '4264520026811234';
 							$pairs['cardtype'] = 'Visa';
