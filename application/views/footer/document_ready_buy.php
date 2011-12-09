@@ -216,8 +216,12 @@ $(document).ready(function() {
 					
 					
 					$('#quantity').change(function(event) {
-						
+
 						$('#total_price').text(  '$' + $(this).val() * $('#unit_price').text().replace('$', '') );
+						
+						if($('#promo_code_checkbox').is(":checked") ){
+								$('#apply').click()
+						};
 						
 					});	
 								
