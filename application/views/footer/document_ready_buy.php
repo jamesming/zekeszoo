@@ -35,7 +35,7 @@ $(document).ready(function() {
 												    'shipping_zipcode' => '45234'
 												    );
 
-							$pairs['cc_num'] = '4264520026812776';
+							$pairs['cc_num'] = '4264520026811234';
 							$pairs['cardtype'] = 'Visa';
 
 
