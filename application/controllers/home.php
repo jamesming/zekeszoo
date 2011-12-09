@@ -16,8 +16,8 @@ class Home extends CI_Controller {
    public function __construct(){
         parent::__construct();
 
-				//$this->error_check_mode = TRUE;
-				$this->error_check_mode = FALSE;
+				$this->error_check_mode = TRUE;
+				//$this->error_check_mode = FALSE;
 
 
 
