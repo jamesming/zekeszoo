@@ -145,11 +145,14 @@
 													  		width:500px;
 													  		height:40px;	
 													  		}
+													  		#promo_code_checkbox{
+													  		margin-right:10px;	
+													  		}
 													  		.promo_rows, .promo_code_function{
 													  		display:none;	
 													  		}
-													  		div.promo_code_div{
-													  			font-size:12px;
+													  		div.promo_code_div div{
+													  			font-size:14px;
 													  		}													  		
 													  		div.code_not_valid{
 													  		padding-left:10px;
@@ -195,9 +198,9 @@
 																								if( data == 'error'){
 																									$('.code_not_valid').show();
 																								}else{
-																									$('#promo_code_container').css({visibility:'hidden'}) 
+																									$('#promo_code_container').hide();
 																									$('.promo_rows').show();
-																									$('#discount_div').text('$'+data);
+																									$('#discount_div').html('&nbsp;&nbsp;-'+data).css({'text-decoration':'underline'});
 																									total_priceIs = parseInt($('#total_price').text().replace('$', ''));
 																								};
 																							

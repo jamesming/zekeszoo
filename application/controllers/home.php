@@ -1377,7 +1377,7 @@ Join our Pet & Deal Loving Community on <a target='_blank' href='https://faceboo
 		
 		//brk
 
-		// echo '<pre>';print_r( $this->input->post()  );echo '</pre>';exit;
+		//echo '<pre>';print_r( $this->input->post()  );echo '</pre>';exit;
 		
 		$this->load->model('my_payment_model');
 

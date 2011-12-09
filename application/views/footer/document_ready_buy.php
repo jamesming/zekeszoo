@@ -4,8 +4,8 @@ $(document).ready(function() {
 
 				<?php   
 				
-				$testing = FALSE;
-				//$testing = TRUE;
+				//$testing = FALSE;
+				$testing = TRUE;
 
 				
 				if( $testing == TRUE ){	
@@ -241,7 +241,8 @@ $(document).ready(function() {
 
 														if(  $(this).val() == '' ){
 						
-															$(this).css({background:'pink'}).parent().parent().children('div.error_message').show().html("Can't be blank.");
+															$(this).css({background:'pink'}).parent().parent().children('div.error_message').show().html("Can't be blank.")
+																
 															
 															ok = 0;
 															
