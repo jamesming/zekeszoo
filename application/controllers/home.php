@@ -2590,7 +2590,7 @@ Join our Pet & Deal Loving Community on <a target='_blank' href='https://faceboo
 																								);				
 					}
 					elseif( $response->xml->messages->message->text == 'This transaction has been declined.'){
-						$server_response['type'] = 'Invalid Credit Card.';
+						$server_response['type'] = 'This transaction has been declined.';
 						$server_response['message'] = 'Invalid Credit Card.';
 						$server_response['payment_info_pairs'] = array();
 						$server_response['bad_fields'] = array(
