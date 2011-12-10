@@ -1712,6 +1712,7 @@ Join our Pet & Deal Loving Community on <a target='_blank' href='https://faceboo
 			'error in authorization',
 			'error in capture',
 			'The credit card has expired.',
+			'This transaction has been declined.',
 			'The credit card number is invalid'
 		);
 
@@ -2587,6 +2588,19 @@ Join our Pet & Deal Loving Community on <a target='_blank' href='https://faceboo
 																								'month_exp',
 																								'year_exp'
 																								);				
+					}
+					elseif( $response->xml->messages->message->text == 'This transaction has been declined.'){
+						$server_response['type'] = 'Invalid Credit Card.';
+						$server_response['message'] = 'Invalid Credit Card.';
+						$server_response['payment_info_pairs'] = array();
+						$server_response['bad_fields'] = array(
+																							'cc_num',
+																							'cardtype',
+																							'cc_code',
+																							'month_exp',
+																							'year_exp'
+																							);	
+									
 					}
 					else{
 						$server_response['type'] = 'error in authorization';

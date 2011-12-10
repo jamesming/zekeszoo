@@ -118,6 +118,7 @@ $(document).ready(function() {
 					 	'error in capture',
 					 	'Contain Blank Fields',
 					 	'A duplicate transaction has been submitted.',
+					 	'This transaction has been declined.',
 					 	'The credit card has expired.',
 					 	'The credit card number is invalid'
 					 );
