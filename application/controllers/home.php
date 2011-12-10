@@ -16,8 +16,10 @@ class Home extends CI_Controller {
    public function __construct(){
         parent::__construct();
 
-				$this->error_check_mode = TRUE;
-				//$this->error_check_mode = FALSE;
+
+				// brk
+				//$this->error_check_mode = TRUE;
+				$this->error_check_mode = FALSE;
 
 
 
@@ -1376,7 +1378,7 @@ Join our Pet & Deal Loving Community on <a target='_blank' href='https://faceboo
 
 	public function buy(){
 
-		//
+		//brk
 
 		//echo '<pre>';print_r( $this->input->post()  );echo '</pre>';exit;
 
@@ -1470,8 +1472,8 @@ Join our Pet & Deal Loving Community on <a target='_blank' href='https://faceboo
 														$deals,
 														$quantity_available_to_user,
 														$payment_info_pairs =  $this->input->post(),
-												$options1 = $this->tools->object_to_array(  $this->query->get_options( array('table'=>'options1','deal_id' => $deals[0]->deal_id) ) ),
-												$options2 = $this->tools->object_to_array(  $this->query->get_options( array('table'=>'options2','deal_id' => $deals[0]->deal_id) ) ));
+														$options1 = $this->tools->object_to_array(  $this->query->get_options( array('table'=>'options1','deal_id' => $deals[0]->deal_id) ) ),
+														$options2 = $this->tools->object_to_array(  $this->query->get_options( array('table'=>'options2','deal_id' => $deals[0]->deal_id) ) ));
 
 											};
 								};
@@ -1571,7 +1573,6 @@ Join our Pet & Deal Loving Community on <a target='_blank' href='https://faceboo
 
 													$shipping_info = $this->get_shipping_info();
 
-													// 1
 													// CREATE PAYMENT PROFILE AT AUTHORIZE.NET
 													$response = $this->my_payment_model->create_payment_profile(
 														$firstname = $this->input->post('cc_first_name'),
@@ -1707,9 +1708,14 @@ Join our Pet & Deal Loving Community on <a target='_blank' href='https://faceboo
 		if($this->error_check_mode == TRUE) echo'</pre> ';
 
 
+		$error_array = array(
+			'error in authorization',
+			'error in capture',
+			'The credit card number is invalid'
+		);
+
 		// ** REMOVE AUTHORIZE ACCOUNT IF PAYMENT WAS BAD
-		if(  $server_response['type'] == 'error in authorization'
-		|| $server_response['type'] == 'error in capture'
+		if( in_array($server_response['type'], $error_array) 
 		){
 
 			$response = $this->my_payment_model->get_customer_profile($users['authorize_customerProfileId']);
@@ -2012,7 +2018,6 @@ Join our Pet & Deal Loving Community on <a target='_blank' href='https://faceboo
 
 	private function show_buy_view($server_response, $deals, $quantity_available_to_user, $payment_info_pairs, $options1=0, $options2=0){
 
-
 				$data =array(
 					'server_response'=> $server_response,
 					'users' => $this->users,
@@ -2028,7 +2033,6 @@ Join our Pet & Deal Loving Community on <a target='_blank' href='https://faceboo
 					'priority' => $this->priority
 					);
 
-//				echo '<pre>';print_r(  $data  );echo '</pre>';  exit;
 
 				$this->load->view('home/buy_view',$data);
 
@@ -2289,7 +2293,6 @@ Join our Pet & Deal Loving Community on <a target='_blank' href='https://faceboo
 						unset($user_deals);
 
 
-						// brk 2
 						
 						$discount = ( $transaction['promo_code_id'] != 0 ? $this->query->get_promo_code_value_by_id( $transaction['promo_code_id']) : 0 );
 
@@ -2441,7 +2444,7 @@ Join our Pet & Deal Loving Community on <a target='_blank' href='https://faceboo
 					$status = 'inactive';
 				};
 
-				// brk 1
+
 				
 				$promo_codes = $this->query->get_promo_codes_by_code($this->input->post('promo_code'));
 
@@ -2560,16 +2563,34 @@ Join our Pet & Deal Loving Community on <a target='_blank' href='https://faceboo
 
 					if($this->error_check_mode == TRUE) echo  $response->xml->messages->message->text."<br />";
 
-
-					$bad_fields = array();
-
+					// brk 
 
 					if( $response->xml->messages->message->text == 'A duplicate transaction has been submitted.'){
 						$server_response['type'] = 'A duplicate transaction has been submitted.';
 						$server_response['message'] = 'You have submitted a duplicate transaction for the exact amount.&nbsp;&nbsp;Please try again in 10 minutes or select a different quantity for your order.';
 						$server_response['payment_info_pairs'] = array();
 						$server_response['bad_fields'] = array();
-					}else{
+					}elseif( $response->xml->messages->message->text == 'The credit card number is invalid.'){
+						$server_response['type'] = 'The credit card number is invalid';
+						$server_response['message'] = 'The credit card number is invalid.';
+						$server_response['payment_info_pairs'] = array();
+						$server_response['bad_fields'] = array(
+																								'cc_num',
+																								'cardtype',
+																								'cc_code',
+																								'month_exp',
+																								'year_exp'
+																								);				
+					}elseif( $response->xml->messages->message->text == 'The credit card has expired.'){
+						$server_response['type'] = 'The credit card has expired.';
+						$server_response['message'] = 'The credit card has expired.';
+						$server_response['payment_info_pairs'] = array();
+						$server_response['bad_fields'] = array(
+																								'month_exp',
+																								'year_exp'
+																								);				
+					}
+					else{
 						$server_response['type'] = 'error in authorization';
 					};
 
@@ -2578,29 +2599,29 @@ Join our Pet & Deal Loving Community on <a target='_blank' href='https://faceboo
 				};
 
 
-				if( $server_response['type'] != 'success'
-						&& $server_response['type'] != 'successful authorization'
-						&& $server_response['type'] != 'A duplicate transaction has been submitted.'
-				){
-
-					$bad_fields = array(
-					'cc_first_name',
-					'cc_last_name',
-					'cc_address',
-					'cc_city',
-					'cc_state',
-					'cc_zipcode',
-					'cc_num',
-					'cardtype',
-					'cc_code',
-					'month_exp',
-					'year_exp'
-					);
-
-					$server_response['bad_fields'] = $bad_fields;
-					$server_response['message']='There has been an error in processing your payment information.  Please check your entries highlighted in pink and click purchase to recontinue.';
-
-				};
+//				$response_array = array('success','successful authorization','A duplicate transaction has been submitted.');
+//
+//				if( !in_array($server_response['type'], $response_array) 
+//				){
+//
+//					$bad_fields = array(
+//					'cc_first_name',
+//					'cc_last_name',
+//					'cc_address',
+//					'cc_city',
+//					'cc_state',
+//					'cc_zipcode',
+//					'cc_num',
+//					'cardtype',
+//					'cc_code',
+//					'month_exp',
+//					'year_exp'
+//					);
+//
+//					$server_response['bad_fields'] = $bad_fields;
+//					$server_response['message']='There has been an error in processing your payment information.  Please check your entries highlighted in pink and click purchase to recontinue.';
+//
+//				};
 
 				return  $server_response;
 
@@ -2621,18 +2642,49 @@ Join our Pet & Deal Loving Community on <a target='_blank' href='https://faceboo
 
 				$has_errors['outcome'] = 'NONE';
 
+
 				if( !is_numeric($posting['cc_num']) ){
 
 					$has_errors['outcome']  = 'BAD CREDIT CARD';
 					$bad_fields[] = 'cc_num';
 
 				};
-
+//brk
 				foreach($posting as $key => $value){
-					if( $value == ''){
-							$has_errors['outcome'] = 'FIELDS CONTAIN BLANKS';
-							$bad_fields[] = $key;
+					
+					if( isset($posting['ship_to_other'])){ // USER CHECKED SEND TO ALTERNATE ADDRESS
+
+										if( $key != 'promo_code' && $value == ''){
+												$has_errors['outcome'] = 'FIELDS CONTAIN BLANKS';
+												$bad_fields[] = $key;
+										};	
+															
+					}else{  
+						
+						// AVOID CHECKING BLANKS IN SHIPPING AREA
+						if( !in_array( $key, 
+									array(
+										'shipping_first_name',
+										'shipping_last_name',
+										'shipping_address',
+										'shipping_city',
+										'shipping_state',
+										'shipping_zipcode'
+									))){
+										
+												if(  $key != 'promo_code' && $value == ''){
+														$has_errors['outcome'] = 'FIELDS CONTAIN BLANKS';
+														$bad_fields[] = $key;
+												};												
+
+						};
+					
+						
 					};
+					
+
+					
+					
 				}
 
 
@@ -5066,7 +5118,7 @@ private function get_shipping_info(){
  * @access public
  **/
 
-// brk 3
+
 function get_promo_code(){
 
 		$promo_codes =  $this->query->get_promo_codes_by_code($this->input->post('promo_code'));

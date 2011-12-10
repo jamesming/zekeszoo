@@ -109,12 +109,20 @@ $(document).ready(function() {
 				
 				
 				
-				<?php if( $server_response['type'] == 'error in authorization' 
-									|| $server_response['type'] == 'BAD CREDIT CARD' 
-									|| $server_response['type'] == 'error in capture' 
-									|| $server_response['type'] == 'Contain Blank Fields' 
-									|| $server_response['type'] == 'A duplicate transaction has been submitted.'
-									){?>
+				<?php
+				
+				
+					 $server_response_type_array = array(
+					 	'error in authorization',
+					 	'BAD CREDIT CARD',
+					 	'error in capture',
+					 	'Contain Blank Fields',
+					 	'A duplicate transaction has been submitted.',
+					 	'The credit card has expired.',
+					 	'The credit card number is invalid'
+					 );
+		
+					 if( in_array( $server_response['type'], $server_response_type_array) ){ ?>
 
 							$('#user_information_section  div.middle').append($('#buynow_container'));
 							$('#change_credit_card').hide();
