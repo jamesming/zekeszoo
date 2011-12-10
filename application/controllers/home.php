@@ -18,8 +18,8 @@ class Home extends CI_Controller {
 
 
 				// brk
-				//$this->error_check_mode = TRUE;
-				$this->error_check_mode = FALSE;
+				$this->error_check_mode = TRUE;
+				//$this->error_check_mode = FALSE;
 
 
 
@@ -1711,6 +1711,7 @@ Join our Pet & Deal Loving Community on <a target='_blank' href='https://faceboo
 		$error_array = array(
 			'error in authorization',
 			'error in capture',
+			'The credit card has expired.',
 			'The credit card number is invalid'
 		);
 
@@ -2576,10 +2577,7 @@ Join our Pet & Deal Loving Community on <a target='_blank' href='https://faceboo
 						$server_response['payment_info_pairs'] = array();
 						$server_response['bad_fields'] = array(
 																								'cc_num',
-																								'cardtype',
-																								'cc_code',
-																								'month_exp',
-																								'year_exp'
+																								'cardtype'
 																								);				
 					}elseif( $response->xml->messages->message->text == 'The credit card has expired.'){
 						$server_response['type'] = 'The credit card has expired.';
