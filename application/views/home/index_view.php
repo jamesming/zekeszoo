@@ -196,7 +196,7 @@
 																		<?php }else{?>
 																		
 																							
-																							<div id='bought_container_middle' class=' clearfix' >
+																							<div id='bought_container_middle' class=' clearfix'   style='display:none' >
 																								<div id='checkbox_container' class=' float_left'>
 																									<img src='<?php echo base_url()    ?>images/checkbox.jpg'/>
 																									

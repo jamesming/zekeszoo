@@ -111,7 +111,8 @@ $(document).ready(function() {
 				
 				<?php
 				
-				
+						// brk
+						
 					 $server_response_type_array = array(
 					 	'error in authorization',
 					 	'BAD CREDIT CARD',
