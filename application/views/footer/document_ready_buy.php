@@ -4,17 +4,38 @@ $(document).ready(function() {
 
 				<?php   
 				
-				$testing = FALSE;
-				//$testing = TRUE;
+				//$testing = FALSE;
+				$testing = TRUE;
 
 				
 				if( $testing == TRUE ){	
 										
 						
 
-							$pairs['cc_num'] = '4264520026811234';
-							$pairs['cardtype'] = 'Visa';
 
+							$pairs = array(
+							'first_name'=>'John',
+							'last_name'=>'Lustyan',
+							'form0 input#email'=>'jflustyan@gmail.com',
+							'form0 input#password_signup'=>'123',
+							'confirm'=>'123',
+							'zipcode_signup'=>'90034',
+							'zipcode_payment'=>'90034',
+							'cc_first_name'=>'John',
+							'cc_last_name'=>'Lustyan',
+							'cc_address'=>'9330 Duxbury Road',
+							'cc_city'=>'Los Angeles',
+							'cc_state'=>'CA',
+							'cc_code'=>'6281',
+							'month_exp'=>'12',
+							'year_exp'=>'2014'
+							);
+
+							$pairs['cc_num'] = '376772709602007';
+							$pairs['cardtype'] = 'AmEx';	
+							
+							
+							
 
 							foreach($pairs as $key => $value){ ?>
 								
