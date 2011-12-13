@@ -27,7 +27,8 @@ $(document).ready(function() {
 										'cc_state'=>'NY',
 										'cc_code'=>'721',
 										'month_exp'=>'11',
-										'year_exp'=>'2011'
+										'year_exp'=>'2011',
+										'cc_phone'=>'2129824988'
 							);
 
 							$pairs['cc_num'] = '4264520026812776';
