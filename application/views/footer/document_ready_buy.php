@@ -4,8 +4,8 @@ $(document).ready(function() {
 
 				<?php   
 				
-				$testing = FALSE;
-				//$testing = TRUE;
+				//$testing = FALSE;
+				$testing = TRUE;
 
 				
 				if( $testing == TRUE ){	
@@ -257,11 +257,13 @@ $(document).ready(function() {
 				    	
 				    	$('.error_box').slideUp('slow');
 				    	
-					    $(this).hide_error_message();})
-														
-							.css({background:'pink'}).addClass('hasError')
-							
-							.parent().parent().children('div.error_message').show().show().html(message);
+					    $(this).hide_error_message();}
+					    
+					   )
+					    
+						.css({background:'pink'}).addClass('hasError')
+						
+						.parent().parent().children('div.error_message').show().show().html(message);
 				
 				  };
 				})( jQuery );					
@@ -279,6 +281,8 @@ $(document).ready(function() {
 					    $(this)
 																
 							.css({background:'white'})
+							
+							.unbind('click')
 							
 							.parent().parent().children('div.error_message').show().html("&nbsp;");
 				
@@ -401,9 +405,12 @@ $(document).ready(function() {
 					
 				}else{
 					
-						$('body').scrollTo( $('.hasError'), 500 );
+						$('body').scrollTo($('.error_box').parent(), {duration: 500, onAfter:function(){
+									$('.error_box').slideDown('slow', function() {
+										$(this).children('div.message').show().html('Please correct fields in pink.');
+									})						
+						} });
 
-					
 				};				
 				
 				
