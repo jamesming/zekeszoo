@@ -2618,6 +2618,16 @@ Join our Pet & Deal Loving Community on <a target='_blank' href='https://faceboo
 					}
 					else{
 						$server_response['type'] = 'error in authorization';
+						
+						$server_response['message'] = 'Error in authorizing this credit card.';
+						$server_response['payment_info_pairs'] = array();
+						$server_response['bad_fields'] = array(
+																							'cc_num',
+																							'cardtype',
+																							'cc_code',
+																							'month_exp',
+																							'year_exp'
+																							);	
 					};
 
 
