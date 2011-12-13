@@ -4,36 +4,15 @@ $(document).ready(function() {
 
 				<?php   
 				
-				//$testing = FALSE;
-				$testing = TRUE;
+				$testing = FALSE;
+				//$testing = TRUE;
 
 				
 				if( $testing == TRUE ){	
 										
 							/* PUTTING TEST HERE */
 							
-								$pairs = array(
-										'first_name'=>'James',
-										'last_name'=>'Ming',
-										'form0 input#email'=>'jamesming@gmail.com',
-										'form0 input#password_signup'=>'123',
-										'confirm'=>'12345',
-										'zipcode_signup'=>'900036',
-										'cc_zipcode'=>'10003',
-										'cc_first_name'=>'James',
-										'cc_last_name'=>'Ming',
-										'cc_address'=>'1 Irving Place U28D',
-										'cc_city'=>'New York',
-										'cc_state'=>'NY',
-										'cc_code'=>'721',
-										'month_exp'=>'11',
-										'year_exp'=>'2011',
-										'cc_phone'=>'2129824988'
-							);
-
-							$pairs['cc_num'] = '4264520026812776';
-							$pairs['cardtype'] = 'Visa';
-
+				
 							
 							
 							
