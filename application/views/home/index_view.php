@@ -225,7 +225,7 @@
 				<iframe src="http://www.facebook.com/plugins/like.php?href=http%3A%2F%2Fzekeszoo.com/index.php/home/deal/<?php  echo $deal_url   ?>&amp;send=false&amp;layout=box_count&amp;width=150&amp;show_faces=true&amp;action=like&amp;colorscheme=light&amp;font&amp;height=90" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:50px; height:90px;" allowTransparency="true"></iframe>
 
 		</td>		
-		<td  id='facebook_td'     >
+		<td  id='facebook_td'    style='padding-top:44px;'   >
 			<script>
 				function fbs_click() {
 					u=location.href;
@@ -240,7 +240,7 @@
 						background:url(<?php echo base_url()    ?>images/fb.gif) no-repeat top left;
 					}
 				</style>
-				<a   style='padding-top:20px'  rel="nofollow" href="http://www.facebook.com/share.php?u=<;url>" onclick="return fbs_click()" target="_blank" class="fb_share_link">
+				<a   style='height:40px;padding-top:40px;padding-left:0px'  rel="nofollow" href="http://www.facebook.com/share.php?u=<;url>" onclick="return fbs_click()" target="_blank" class="fb_share_link">
 					Share
 				</a>
 		</td>
