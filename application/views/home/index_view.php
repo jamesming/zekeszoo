@@ -225,6 +225,9 @@
 				<iframe src="http://www.facebook.com/plugins/like.php?href=http%3A%2F%2Fzekeszoo.com/index.php/home/deal/<?php  echo $deal_url   ?>&amp;send=false&amp;layout=box_count&amp;width=150&amp;show_faces=true&amp;action=like&amp;colorscheme=light&amp;font&amp;height=90" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:50px; height:90px;" allowTransparency="true"></iframe>
 
 		</td>		
+		<td>
+			<script>function fbs_click() {u=location.href;t=document.title;window.open('http://www.facebook.com/sharer.php?u='+encodeURIComponent(u)+'&t='+encodeURIComponent(t),'sharer','toolbar=0,status=0,width=626,height=436');return false;}</script><style> html .fb_share_link { padding:2px 0 0 20px; height:16px; background:url(http://static.ak.facebook.com/images/share/facebook_share_icon.gif?6:26981) no-repeat top left; }</style><a rel="nofollow" href="http://www.facebook.com/share.php?u=<;url>" onclick="return fbs_click()" target="_blank" class="fb_share_link">Share on Facebook</a>
+		</td>
 		<td  id='twitter_td'>
 			
 			<a href="http://twitter.com/share" class="twitter-share-button" data-count="vertical">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
@@ -441,11 +444,11 @@
 												</div>						
 												
 												
-				<!--								
-												<div id='other_deals'  class=' margin_top' >
+										
+												<div id='other_deals'  class=' margin_top'   style='display:none'  >
 													
 													
-															<div  class=' one_third_column float_left' >
+															<div  class=' one_third_column float_left margin_left' >
 																		<div  class=' rounded_bg' >
 																			<div class="top">
 																				<div class="sub_top">&nbsp;</div>
@@ -473,7 +476,7 @@
 															
 												</div>
 							
-									-->
+									
 									
 									
 										</div>
