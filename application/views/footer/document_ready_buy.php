@@ -143,6 +143,7 @@ $(document).ready(function() {
 					 	'Contain Blank Fields',
 					 	'A duplicate transaction has been submitted.',
 					 	'This transaction has been declined.',
+					 	'The transaction has been declined because of an AVS mismatch. The address provided does not match billing address of cardholder.',
 					 	'The credit card has expired.',
 					 	'The credit card number is invalid'
 					 );

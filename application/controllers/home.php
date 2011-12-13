@@ -1714,6 +1714,7 @@ Join our Pet & Deal Loving Community on <a target='_blank' href='https://faceboo
 			'error in capture',
 			'The credit card has expired.',
 			'This transaction has been declined.',
+			'The transaction has been declined because of an AVS mismatch. The address provided does not match billing address of cardholder.',
 			'The credit card number is invalid'
 		);
 
@@ -2589,6 +2590,18 @@ Join our Pet & Deal Loving Community on <a target='_blank' href='https://faceboo
 																								'month_exp',
 																								'year_exp'
 																								);				
+					}
+					elseif( $response->xml->messages->message->text == 'The transaction has been declined because of an AVS mismatch. The address provided does not match billing address of cardholder.'){
+						$server_response['type'] = 'The transaction has been declined because of an AVS mismatch. The address provided does not match billing address of cardholder.';
+						$server_response['message'] = 'The address provided does not match billing address of cardholder.';
+						$server_response['payment_info_pairs'] = array();
+						$server_response['bad_fields'] = array(
+																							'cc_address',
+																							'cc_city',
+																							'cc_state',
+																							'cc_zipcode'
+																							);	
+									
 					}
 					elseif( $response->xml->messages->message->text == 'This transaction has been declined.'){
 						$server_response['type'] = 'This transaction has been declined.';
