@@ -73,9 +73,51 @@
 									
 										</div>
 										
-										<div  class=' one_third_column float_left margin_left margin_top'>
-											<?php  $this->load->view('home/facebook_likebox.php');;   ?>
+										<div  id='right_col_section' class=' one_third_column float_left margin_left margin_top'>
+											
+											
+
+											
+											
+
+
+													
+													<div  class=' rounded_bg'   style='margin:0px 0px 10px 0px;'  >
+														<div class="top">
+															<div class="sub_top">&nbsp;</div>
+														</div>
+													  <div class="middle">
+													  	
+													  	
+													  	
+																<div id='box_inside_header' class=' header_style' >
+																	Trusted Source
+																</div>
+													  	
+																<div  id='box_inside'  class="clearfix ">
+																	<div><font class="Apple-style-span" size="2">
+																	The privacy and security of your information is of the utmost importance to us. That’s why we partner with Authorize.net to protect your credit card information. Additionally, we never sell your personal information to third parties.
+																	</font>
+																	</div>
+																	<div  id='authorize_logo'>&nbsp;
+																	</div>
+		
+																	
+																</div>
+															
+															
+														</div>
+														<div class="bottom"><div class="sub_bottom">&nbsp;</div></div>
+													</div>													
+											
+											<?php
+											  $this->load->view('home/pledge.php');   
+											?>	
+													
+
+											
 										</div>	
+									
 										
 
 										
