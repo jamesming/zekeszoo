@@ -5,6 +5,14 @@
 $(document).ready(function() {
 	
 	
+				<?php if( $this->input->get('share') == 'facebook'){?>
+					$('#facebook_share_link').click();	
+				<?php } ?>
+				
+				<?php if( $this->input->get('share') == 'twitter'){?>
+					$('#twitter_share_link').click();	
+				<?php } ?>				
+	
 				$('#go_button').click(function(event) {
 							$.post("<?php echo base_url() ?>index.php/home/insert_email_subscriber",{
 								email: $('#email').val(),

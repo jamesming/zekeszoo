@@ -240,13 +240,13 @@
 						background:url(<?php echo base_url()    ?>images/fb.gif) no-repeat top left;
 					}
 				</style>
-				<a   style='height:40px;padding-top:40px;padding-left:0px; font-size:12px;font-weight:bold'  rel="nofollow" href="http://www.facebook.com/share.php?u=<;url>" onclick="return fbs_click()" target="_blank" class="fb_share_link">
+				<a  id='facebook_share_link' style='height:40px;padding-top:40px;padding-left:0px; font-size:12px;font-weight:bold'  rel="nofollow" href="http://www.facebook.com/share.php?u=<;url>" onclick="return fbs_click()" target="_blank" class="fb_share_link">
 				&nbsp;Share&nbsp;&nbsp;&nbsp;
 				</a>
 		</td>
 		<td  id='twitter_td'>
 			
-			<a href="http://twitter.com/share" class="twitter-share-button" data-count="vertical">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+			<a id='twitter_share_link' href="http://twitter.com/share" class="twitter-share-button" data-count="vertical">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
 			
 		</td>
 		

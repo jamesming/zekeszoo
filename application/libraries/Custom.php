@@ -209,7 +209,7 @@ private $CI;
 					<div   style='
 					float:right;
 					margin:20px 35px 0px 0px;
-					width:170px;
+					width:180px;
 					height:40px;
 					text-align:center;
 					padding:8px 0px 8px 0px;
@@ -221,20 +221,18 @@ private $CI;
 							
 
 								
-								<div   style='clear:both;margin-left:40px'  >
+								<div   style='clear:both;'  >
 								
 											
-											<div    style='font-size:16px;float:left;margin:4px 10px 0px 0px;' >Share
+											<div    style='font-size:16px;float:left;margin:10px 20px 0px 0px;vertical-align:top' >
+											Share
+	
 											</div>
+<a target='_blank' href='".base_url()."index.php/home/deal/" . $deals['deal_url']. "?share=facebook' style='float:left;'    ><img  src='http://zekeszoo.com/images/fb.gif'  style='width:40px'  /></a>								
+<a target='_blank' href='".base_url()."index.php/home/deal/" . $deals['deal_url']. "?share=twitter'  style='float:left;'      ><img src='http://zekeszoo.com/images/twitter_newbird_blue.png'     style='position:relative;top:-17px;width:70px;'  /></a>
 											
-<a target='_blank' href='http://www.facebook.com/zekeszoo'>
-<img src='http://zekeszoo.com/images/facebook.png'   />
-</a>								
-<a target='_blank' href='http://twitter.com/zekeszoo'>
-<img src='http://zekeszoo.com/images/twitter.png'   />
-</a>
-											
-								</div>
+																							
+						</div>
 
 					</div>
 
