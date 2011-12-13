@@ -44,7 +44,7 @@
 																</div>
 													  	
 													  	
-																<div    id='box_inside'  class="clearfix "  style='min-height:500px' >
+																<div    id='box_inside'  class="clearfix "   >
 																	
 																	
 																	<?php  echo $server_response['message']   ?>
