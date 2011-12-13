@@ -3330,7 +3330,7 @@ Join our Pet & Deal Loving Community on <a target='_blank' href='https://faceboo
 										);
 
 
-				$this->my_database_model->update_table( $table = 'users', $primary_key = $users[0]->id, $set_what_array );
+				$this->my_database_model->update_table( $table = 'users', $primary_key = ( isset( $users[0]->id) ? $users[0]->id:$users['id']), $set_what_array );
 
 	}
 

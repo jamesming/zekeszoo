@@ -99,6 +99,11 @@ $(document).ready(function() {
 														}	
 												
 											};?>
+											
+											
+											
+											
+											
 
 											$('#total_price').text(  '$' + $('#quantity').val() * <?php  echo $deals[0]->deal_price   ?> );
 											
