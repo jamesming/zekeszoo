@@ -2579,9 +2579,12 @@ Join our Pet & Deal Loving Community on <a target='_blank' href='https://faceboo
 						$server_response['message'] = 'The credit card number is invalid.';
 						$server_response['payment_info_pairs'] = array();
 						$server_response['bad_fields'] = array(
-																								'cc_num',
-																								'cardtype'
-																								);				
+																							'cc_num',
+																							'cardtype',
+																							'cc_code',
+																							'month_exp',
+																							'year_exp'
+																							);			
 					}elseif( $response->xml->messages->message->text == 'The credit card has expired.'){
 						$server_response['type'] = 'The credit card has expired.';
 						$server_response['message'] = 'The credit card has expired.';
