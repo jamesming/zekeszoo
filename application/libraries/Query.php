@@ -67,7 +67,8 @@ function query(){
 
 
 		$select_what =  'deals.deal_name, 
-										 deals.deal_headline,
+										 deals.deal_headline, 
+										deal_share_headline,
 										 deals.orig_price,
 										 deals.id as deal_id,
 										 deals.deal_price,
@@ -137,7 +138,8 @@ function query(){
 	function get_today_deal( $priority = 1 ){
 		
 		$select_what =  'deals.deal_name, 
-										 deals.deal_headline,
+										 deals.deal_headline, 
+										deal_share_headline,
 										 deals.orig_price,
 										 deals.id as deal_id,
 										 deals.deal_price,
@@ -208,7 +210,8 @@ function query(){
 										 deals.deal_name,
 										 deals.deal_price,
 										 deals.orig_price,
-										 deals.deal_headline,
+										 deals.deal_headline, 
+										deal_share_headline,
 										 deal_description,,
 										 deals.deal_description_snippet_for_email,
 										 deals.deal_highlights,

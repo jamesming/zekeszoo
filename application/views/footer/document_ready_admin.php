@@ -4,7 +4,7 @@
 $(document).ready(function() {
 
 
-						$('#deal_description_snippet_for_email').show();
+						$('#deal_description_snippet_for_email, #deal_share_headline').show();
 
 						$('#submit').click(function(event) {  // THIS IS FOR SUBMITTING JCROP
 							document.getElementsByTagName('iframe')[7].contentWindow.submitCropForm();

@@ -12,7 +12,7 @@
 
 
 <META NAME="KEYWORDS" CONTENT="zekeszoo, zekes zoo, pet deals, pet savings, pet discounts, cat deals, dog deals, cat discounts, dog discounts, dog toy deals, dog food deals, dog deal discounts, dog toy discounts, organic pet products, pet tips, best pet food deals, coupon codes for pet food, coupon codes for pet products">
-<META NAME="DESCRIPTION" CONTENT="discounted deals for pet products">
+<META NAME="DESCRIPTION" CONTENT="<?php echo strip_tags(  ( isset( $deals[0]->deal_share_headline) ? $deals[0]->deal_share_headline:'' ))    ?>">
 <TITLE>www.zekeszoo.com</TITLE>
 <META HTTP-EQUIV="CONTENT-LANGUAGE" CONTENT="EN">
 <META NAME="revisit-after" CONTENT="14 days">
@@ -24,13 +24,13 @@
 <link rel="shortcut icon" href="<?php echo base_url()    ?>images/favicon.ico">
 
 
-<meta property="og:title"  content="This is a great deal to buy<?php echo rand(5, 1231) ?>"/>
+<meta property="og:title"  content="<?php echo strip_tags(  ( isset( $deals[0]->deal_share_headline) ? $deals[0]->deal_share_headline:'' ))    ?>"/>
 <meta property="og:type" content="website" />
 <meta property="og:url" content="<?php  echo base_url().'index.php/home/deal/'.$deal_url   ?>?v=2" />
 <meta property="og:image" content="<?php echo base_url(); ?>uploads/1/<?php echo  ( isset( $deals[0]->id) ? $deals[0]->id:'' )   ?>/image_tiny.png" />
 <meta property="og:site_name" content="Zekeszoo.com" />
 <meta property="fb:app_id" content="245890495426188" />
-<meta property="og:description" content="<?php echo strip_tags(  ( isset( $deals[0]->deal_headline) ? $deals[0]->deal_headline:'' ))    ?>"
+<meta property="og:description" content="<?php echo strip_tags(  ( isset( $deals[0]->deal_share_headline) ? $deals[0]->deal_headline:'' ))    ?>"
       />
 
 <script type="text/javascript" language="Javascript" src = "<?php echo  base_url();   ?>js/jquery.js"></script>
@@ -253,6 +253,27 @@
 
 
 	</tr>
+	
+	
+	<tr>
+		<td colspan=2>
+				<div   table='deals'    href='#wysiwyg_div' id='deal_share_headline'  class="wysiwyg_div_link clearfix elements_to_hide_when_adding_deal"   style='background:yellow;display:none'  >
+					
+																			<?php     
+																			
+																					if( isset( $deals[0]->deal_share_headline  ) && $deals[0]->deal_share_headline!=''){
+																						echo $deals[0]->deal_share_headline;
+																					}else{
+																						echo 'Lorem ipsum dolor sit amet.';
+																					};
+																			
+																			?>
+
+					
+				</div>
+		</td>
+	</tr>
+	
 </table>
 
 
