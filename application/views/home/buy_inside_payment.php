@@ -108,7 +108,7 @@
 																							<div class=' input_label' >Card Type
 																							</div>
 																							<div class=' input_div' >
-																								<select  class='select_large payment'  name='cardtype' id='cardtype'>
+																								<select  class='select_large payment select'  name='cardtype' id='cardtype'>
 																									<option value=''></option>
 																									<option value='AmEx'>American Express</option>
 																									<option value='Visa'>Visa</option>
@@ -116,7 +116,7 @@
 																									<option value='Discover'>Discover</option>
 																								</select>
 																							</div>	
-																							<div  class=' error_message_select' >&nbsp;
+																							<div  class=' error_message' >&nbsp;
 																							</div>																				
 																						</div>												
 																			
@@ -143,7 +143,7 @@
 
 
 
-																					<select  class='float_left select_small payment' name='month_exp' id='month_exp'>
+																					<select  class='float_left select_small payment select' name='month_exp' id='month_exp'>
 																						<option value=''></option>
 																						<option value='01'>01</option>
 																						<option value='02'>02</option>
@@ -159,7 +159,7 @@
 																						<option value='12'>12</option>
 																					</select>
 																					
-																					<select  class='float_left select_small payment' name='year_exp' id='year_exp'>
+																					<select  class='float_left select_small payment select' name='year_exp' id='year_exp'>
 																						<option value=''></option>
 																						<option value='2011'>2011</option>
 																						<option value='2012'>2012</option>
@@ -176,7 +176,7 @@
 
 
 																				</div>
-																				<div  class=' error_message_select' >&nbsp;
+																				<div  class=' error_message' >&nbsp;
 																				</div>																				
 																			</div>
 																			

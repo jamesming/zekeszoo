@@ -267,6 +267,8 @@ $(document).ready(function() {
 				(function( $ ) {
 					
 				  $.fn.display_error_message = function( message ) {
+				  	
+
 				  
 				    $(this).click(function(event) {	
 				    	
@@ -283,15 +285,17 @@ $(document).ready(function() {
 				(function( $ ) {
 				  $.fn.hide_error_message = function() {
 				  	
-
-				  
-				    $(this)
-															
-						.css({background:'white'})
-						
-						.val('')
-
-						.parent().parent().children('div.error_message').show().html("&nbsp;");
+							if( !$(this).hasClass('select')){
+							
+									$(this).val('')
+									
+							};
+					  
+					    $(this)
+																
+							.css({background:'white'})
+							
+							.parent().parent().children('div.error_message').show().html("&nbsp;");
 				
 				  };
 				})( jQuery );
@@ -308,7 +312,7 @@ $(document).ready(function() {
 
 												// ** NO BLANK TEXT OR PASSWORD 
 						
-												$('form#form0 .payment_box input[type=text], form#form0 .signup_box input[type=text],form#form0 .payment_box input[type=password]')
+												$('form#form0 .payment_box input[type=text], form#form0 .payment_box select,form#form0 .signup_box input[type=text],form#form0 .payment_box input[type=password]')
 												
 												.css({background:'white'})
 												
