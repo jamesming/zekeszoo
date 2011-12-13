@@ -240,8 +240,8 @@
 						background:url(<?php echo base_url()    ?>images/fb.gif) no-repeat top left;
 					}
 				</style>
-				<a   style='height:40px;padding-top:40px;padding-left:0px'  rel="nofollow" href="http://www.facebook.com/share.php?u=<;url>" onclick="return fbs_click()" target="_blank" class="fb_share_link">
-					Share
+				<a   style='height:40px;padding-top:40px;padding-left:0px;'  rel="nofollow" href="http://www.facebook.com/share.php?u=<;url>" onclick="return fbs_click()" target="_blank" class="fb_share_link">
+					<small><small>Share</small></small>
 				</a>
 		</td>
 		<td  id='twitter_td'>
