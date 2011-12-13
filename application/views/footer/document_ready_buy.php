@@ -203,6 +203,7 @@ $(document).ready(function() {
 							if($(this).is(":checked") ){
 								$('#user_information_section .middle div.user_info_outerbox.shipping_box, #user_information_section  .middle div#shipping_info').show();
 							}else{
+								$('.error_box').slideUp('slow');
 								$('#user_information_section .middle div.user_info_outerbox.shipping_box, #user_information_section  .middle div#shipping_info').hide();
 							};
 				});	
