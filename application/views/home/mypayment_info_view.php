@@ -102,6 +102,27 @@
 
 
 <script type="text/javascript" language="Javascript">
+	
+(function( $ ) {
+  $.fn.hide_error_message = function() {
+
+			if( !$(this).hasClass('select')){
+			
+					$(this).val('')
+					
+			};
+	  
+	    $(this)
+												
+			.css({background:'white'})
+			
+			.unbind('click')
+			
+			.parent().parent().children('div.error_message').show().html("&nbsp;");
+
+  };
+})( jQuery );
+					
 $(document).ready(function() {
 	
 	
@@ -177,7 +198,33 @@ $(document).ready(function() {
 					$('#<?php echo $key    ?>').val('<?php echo $value    ?>');	
 					
 				<?php
-				}?>
+				}
+				
+				
+
+				$yellow_fields = array(
+											'cc_num',
+											'cardtype',
+											'cc_code',
+											'month_exp',
+											'year_exp'
+											);  
+				
+				foreach($yellow_fields as $value){ ?>
+					
+					$('#<?php echo $value    ?>').css({background:'yellow'})
+					
+						.click(function(event) {	
+
+						    $(this).hide_error_message();
+						    
+						})
+						
+						.parent().parent().children('div.error_message').show().show().html('required')
+					
+				<?php
+				}	
+				
 
 				$('#logo').click(function(event) {
 					<?php if( $_SERVER['HTTP_HOST'] == 'zekeszoo.com' ){?>	
