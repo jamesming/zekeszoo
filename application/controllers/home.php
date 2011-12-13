@@ -38,7 +38,7 @@ class Home extends CI_Controller {
 
 				};
 
-
+//echo  $_SERVER['REQUEST_URI'];  exit;
         if( $this->input->get('logout') ){
 
 							if( $_COOKIE ) {

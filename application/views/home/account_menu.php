@@ -147,7 +147,8 @@ a.myaccount.menu-open span {
 									<?php if( $_SERVER['HTTP_HOST'] == 'localhost' ){?>
 											document.location.href='http://localhost/zekeszoo/index.php/home/index?logout=1';	
 									<?php }else{?>
-											document.location.href='<?php echo  base_url().$_SERVER['REQUEST_URI'];   ?>?logout=1';									
+											// document.location.href='<?php echo  base_url().$_SERVER['REQUEST_URI'];   ?>?logout=1';									
+											document.location.href='<?php echo  base_url().'/home/index?logout=1';									
 									<?php } ?>
 
 								}else{
