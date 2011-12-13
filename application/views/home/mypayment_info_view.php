@@ -223,7 +223,7 @@ $(document).ready(function() {
 						.parent().parent().children('div.error_message').show().show().html('required')
 					
 				<?php
-				}	
+				}	?>
 				
 
 				$('#logo').click(function(event) {
