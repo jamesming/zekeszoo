@@ -92,6 +92,8 @@ $(document).ready(function() {
 																    $(this).hide_error_message();
 																    
 																})
+																
+																.parent().parent().children('div.error_message').show().show().html('required')
 															
 														<?php
 														}	
