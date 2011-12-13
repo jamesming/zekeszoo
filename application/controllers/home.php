@@ -2574,7 +2574,7 @@ Join our Pet & Deal Loving Community on <a target='_blank' href='https://faceboo
 						$server_response['message'] = 'You have submitted a duplicate transaction for the exact amount.&nbsp;&nbsp;Please try again in 10 minutes or select a different quantity for your order.';
 						$server_response['payment_info_pairs'] = array();
 						$server_response['bad_fields'] = array();
-					}elseif( $response->xml->messages->message->text == 'The credit card number is invalid.&nbsp;&nbsp;Please double-check the information provided.'){
+					}elseif( $response->xml->messages->message->text == 'The credit card number is invalid.&nbsp;&nbsp;Please check the information provided.'){
 						$server_response['type'] = 'The credit card number is invalid';
 						$server_response['message'] = 'The credit card number is invalid.';
 						$server_response['payment_info_pairs'] = array();
@@ -2585,7 +2585,7 @@ Join our Pet & Deal Loving Community on <a target='_blank' href='https://faceboo
 																							'month_exp',
 																							'year_exp'
 																							);			
-					}elseif( $response->xml->messages->message->text == 'The credit card has expired.&nbsp;&nbsp;Please double-check the information provided.'){
+					}elseif( $response->xml->messages->message->text == 'The credit card has expired.&nbsp;&nbsp;Please check the information provided.'){
 						$server_response['type'] = 'The credit card has expired.';
 						$server_response['message'] = 'The credit card has expired.';
 						$server_response['payment_info_pairs'] = array();
@@ -2596,7 +2596,7 @@ Join our Pet & Deal Loving Community on <a target='_blank' href='https://faceboo
 					}
 					elseif( $response->xml->messages->message->text == 'The transaction has been declined because of an AVS mismatch. The address provided does not match billing address of cardholder.'){
 						$server_response['type'] = 'The transaction has been declined because of an AVS mismatch. The address provided does not match billing address of cardholder.';
-						$server_response['message'] = 'The address provided does not match billing address of cardholder.&nbsp;&nbsp;Please double-check the information provided.';
+						$server_response['message'] = 'The address provided does not match billing address of cardholder.&nbsp;&nbsp;Please check the information provided.';
 						$server_response['payment_info_pairs'] = array();
 						$server_response['bad_fields'] = array(
 																							'cc_address',
@@ -2608,7 +2608,7 @@ Join our Pet & Deal Loving Community on <a target='_blank' href='https://faceboo
 					}
 					elseif( $response->xml->messages->message->text == 'This transaction has been declined.'){
 						$server_response['type'] = 'This transaction has been declined.';
-						$server_response['message'] = 'This transaction has been declined.&nbsp;&nbsp;Please double-check the information provided.';
+						$server_response['message'] = 'This transaction has been declined.&nbsp;&nbsp;Please check the information provided.';
 						$server_response['payment_info_pairs'] = array();
 						$server_response['bad_fields'] = array(
 																							'cc_num',
@@ -2622,7 +2622,7 @@ Join our Pet & Deal Loving Community on <a target='_blank' href='https://faceboo
 					else{
 						$server_response['type'] = 'error in authorization';
 						
-						$server_response['message'] = 'Error in authorizing this credit card.&nbsp;&nbsp;Please double-check the information provided.';
+						$server_response['message'] = 'Error in authorizing this credit card.&nbsp;&nbsp;Please check the information provided.';
 						$server_response['payment_info_pairs'] = array();
 						$server_response['bad_fields'] = array(
 																							'cc_num',
