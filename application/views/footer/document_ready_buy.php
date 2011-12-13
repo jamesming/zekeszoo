@@ -327,6 +327,27 @@ $(document).ready(function() {
 														};
 												        
 												});
+												
+												if( $('#ship_to_other').is(':checked') ){
+
+													
+															$('form#form0 .shipping_box input[type=text]')
+															
+															.css({background:'white'})
+															
+															.each(function(){
+			
+																	if(  $(this).val() == '' ){
+									
+																		$(this).display_error_message('Can not be blank.');
+																		
+																		ok = 0;
+																		
+																	};
+															        
+															});
+													
+												};
 													
 												
 												// ** ZIPCODE FOR SIGNUP MUST BE INT AND GREATER THAN 5 CHARACTERS
@@ -390,7 +411,7 @@ $(document).ready(function() {
 								$('form#form0').submit();
 							
 						}else{
-								$('body').scrollTo( $('.hasError').parent().parent().parent().parent().parent(), 500 );
+								$('body').scrollTo( $('.hasError'), 500 );
 
 							
 						};
