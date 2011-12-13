@@ -24,14 +24,14 @@
 <link rel="shortcut icon" href="<?php echo base_url()    ?>images/favicon.ico">
 
 
-<meta property="og:title" content="<?php echo strip_tags(  ( isset( $deals[0]->deal_headline) ? $deals[0]->deal_headline:'' ))    ?>" />
+<meta property="og:title"  content="This is a great deal to buy<?php echo rand(5, 1231) ?>"/>
 <meta property="og:type" content="website" />
 <meta property="og:url" content="<?php  echo base_url().'index.php/home/deal/'.$deal_url   ?>?v=2" />
 <meta property="og:image" content="<?php echo base_url(); ?>uploads/1/<?php echo  ( isset( $deals[0]->id) ? $deals[0]->id:'' )   ?>/image_tiny.png" />
 <meta property="og:site_name" content="Zekeszoo.com" />
 <meta property="fb:app_id" content="245890495426188" />
-<meta property="og:description"
-      content="This is a great deal to buy<?php echo rand(5, 1231) ?>"/>
+<meta property="og:description" content="<?php echo strip_tags(  ( isset( $deals[0]->deal_headline) ? $deals[0]->deal_headline:'' ))    ?>"
+      />
 
 <script type="text/javascript" language="Javascript" src = "<?php echo  base_url();   ?>js/jquery.js"></script>
 <script type="text/javascript" language="Javascript" src = "<?php echo  base_url();   ?>js/jquery_countdown.js"></script>
