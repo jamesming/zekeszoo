@@ -73,7 +73,9 @@ $(document).ready(function() {
 											
 											
 											if( isset( $this->session->userdata['user_id'] ) 
-											&& $this->users[0]->authorize_customerProfileId != ''){
+											&& $this->users[0]->authorize_customerProfileId != ''
+											&& $payment_info_pairs['cc_num'] == ''
+											){
 												
 														$yellow_fields = array(
 																					'cc_num',
