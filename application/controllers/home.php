@@ -19,8 +19,8 @@ class Home extends CI_Controller {
 
 				// brk
 				
-				//$this->error_check_mode = TRUE;
-				$this->error_check_mode = FALSE;
+				$this->error_check_mode = TRUE;
+				//$this->error_check_mode = FALSE;
 
 
 
