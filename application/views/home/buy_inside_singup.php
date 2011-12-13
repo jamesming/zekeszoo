@@ -4,7 +4,7 @@
 																</div>
 																
 																
-																<div class='clearfix user_info_outerbox' >
+																<div class='clearfix user_info_outerbox  signup_box' >
 																	<div class='user_info_inner_box float_left' >
 																		
 																<!--		

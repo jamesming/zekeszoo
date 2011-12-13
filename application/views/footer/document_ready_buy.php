@@ -200,19 +200,7 @@ $(document).ready(function() {
 							};
 				});	
 				
-				$('form#form0 input[type=text], form#form0 input[type=password]')
 
-					.click(function(event) {				
-						
-							$(this)
-							
-							.css({background:'white'})
-							
-							// .val('')
-
-							.parent().parent().children('div.error_message').show().html("&nbsp;");
-
-					});
 					
 					
 				$('form#form0 select')
@@ -274,7 +262,40 @@ $(document).ready(function() {
 	
 	
 					});	
-	
+					
+					
+				(function( $ ) {
+					
+				  $.fn.display_error_message = function( message ) {
+				  
+				    $(this).click(function(event) {	
+				    	
+					    $(this).hide_error_message();})
+														
+							.css({background:'pink'}).addClass('hasError')
+							
+							.parent().parent().children('div.error_message').show().show().html(message);
+				
+				  };
+				})( jQuery );					
+					
+
+				(function( $ ) {
+				  $.fn.hide_error_message = function() {
+				  	
+
+				  
+				    $(this)
+															
+						.css({background:'white'})
+						
+						.val('')
+
+						.parent().parent().children('div.error_message').show().html("&nbsp;");
+				
+				  };
+				})( jQuery );
+
 								
 				$('#buynow_image').click(function(event) {
 					
@@ -284,11 +305,10 @@ $(document).ready(function() {
 						
 						// ONLY VALIDATE FIELDS IF THIS IS BRAND NEW USER					
 						<?php if( !isset( $this->session->userdata['user_id'] ) ){?>
-						
-								
+
 												// ** NO BLANK TEXT OR PASSWORD 
 						
-												$('form#form0 input[type=text], form#form0 input[type=password]')
+												$('form#form0 .payment_box input[type=text], form#form0 .signup_box input[type=text],form#form0 .payment_box input[type=password]')
 												
 												.css({background:'white'})
 												
@@ -296,12 +316,7 @@ $(document).ready(function() {
 
 														if(  $(this).val() == '' ){
 						
-															$(this).css({background:'pink'}).parent().parent().children('div.error_message').show().html("Can not be blank.")
-															
-															.click(function(event) {
-																	alert('');			
-															});	
-																
+															$(this).display_error_message('Can not be blank.');
 															
 															ok = 0;
 															
@@ -315,14 +330,10 @@ $(document).ready(function() {
 															||  $('form#form0 input#zipcode_signup').val().length  < 5
 												) {
 													
-													$('form#form0 input#zipcode_signup').css({background:'pink'}).parent().parent().children('div.error_message').show().html("Invalid Zipcode.");
+													$('form#form0 input#zipcode_signup').display_error_message('Invalid zipcode.');
 													
 													ok = 0;
 															
-												}else{
-												
-													$('form#form0 input#zipcode_signup').css({background:'white'}).parent().parent().children('div.error_message').show().html("&nbsp;");	
-													
 												};
 												
 												
@@ -330,64 +341,36 @@ $(document).ready(function() {
 												if(  $('form#form0 input#cc_zipcode').val()  != parseInt( $('form#form0 input#cc_zipcode').val() ) 
 															||  $('form#form0 input#cc_zipcode').val().length  < 5
 												) {
-													
-													$('form#form0 input#cc_zipcode').css({background:'pink'}).parent().parent().children('div.error_message').show().html("Invalid Zipcode.");
-						
-						
+													$('form#form0 input#cc_zipcode').display_error_message('Invalid zipcode.');
 													ok = 0;
-															
-						
-						
-												}else{
-												
-													$('form#form0 input#cc_zipcode').css({background:'white'}).parent().parent().children('div.error_message').show().html("&nbsp;");	
-													
 												};						
 												
 												
 												// ** EMAIL
 												if( isBadEmail(  $('form#form0 input#email').val() )  ){
-													
-													$('form#form0 input#email').css({background:'pink'}).parent().parent().children('div.error_message').show().html("Invalid email.");
-													
-						
+													$('form#form0 input#email').display_error_message('Invalid email.');
 													ok = 0;
-															
-						
-								
-												}else{
-													
-													$('form#form0 input#email').css({background:'white'}).parent().parent().children('div.error_message').show().html("&nbsp;");
-													
+
 												};
 						
 										
 												// PASSWORD GREATER THAN 5
 												
 												if( $('form#form0 input#password_signup').val().length  < 5  ){
-								
-													
-													$('form#form0 input#password_signup')
-													.css({background:'pink'});
-													$('form#form0 input#password_signup').parent().parent().children('div.error_message').show().show().html("Need 5 characters or more.");
-						
+													$('form#form0 input#password_signup').display_error_message('Need 5 characters or more.');
 													ok = 0;
-															
 						
 												}else{
 													
 																	// ** PASSWORD MUST MATCH
 																	
 																	if( $('form#form0 input#password_signup').val()  !=  $('form#form0 input#confirm').val() ){
-																		
-						
-																	ok = 0;
-															
 							
-																		$('form#form0 input#password_signup, form#form0 input#confirm').css({background:'pink'}).parent().parent().children('div.error_message').show().html("Passwords must match.");
+																		$('form#form0 input#password_signup, form#form0 input#confirm').display_error_message('Passwords must match.');
+																		
+																		ok = 0;													
 													
-																	}else{
-																		$('form#form0 input[type=password], form#form0 input#confirm').css({background:'white'}).parent().parent().children('div.error_message').show().html("&nbsp;");	
+													
 																	};					
 								
 												};
@@ -401,6 +384,10 @@ $(document).ready(function() {
 						){
 							
 								$('form#form0').submit();
+							
+						}else{
+								$('body').scrollTo( $('.hasError').parent().parent().parent().parent().parent(), 500 );
+
 							
 						};
 

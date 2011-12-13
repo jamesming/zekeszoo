@@ -190,7 +190,9 @@
 																		<div  class=' outer_input_label' >
 																				<div class=' input_label' >Home Telephone
 																				</div>
+																				<div class=' input_div' >
 																				<input name="cc_phone" id="cc_phone" type="text" value=""    style='width:255px'  >
+																				</div>
 																				<div  class=' error_message' >&nbsp;
 																				</div>	
 																		</div>		
