@@ -19,7 +19,7 @@ $(document).ready(function() {
 										'form0 input#password_signup'=>'123',
 										'confirm'=>'12345',
 										'zipcode_signup'=>'900036',
-										'zipcode_payment'=>'10003',
+										'cc_zipcode'=>'10003',
 										'cc_first_name'=>'James',
 										'cc_last_name'=>'Ming',
 										'cc_address'=>'1 Irving Place U28D',
