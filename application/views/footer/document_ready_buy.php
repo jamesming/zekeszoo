@@ -296,7 +296,11 @@ $(document).ready(function() {
 
 														if(  $(this).val() == '' ){
 						
-															$(this).css({background:'pink'}).parent().parent().children('div.error_message').show().html("Can't be blank.")
+															$(this).css({background:'pink'}).parent().parent().children('div.error_message').show().html("Can not be blank.")
+															
+															.click(function(event) {
+																	alert('');			
+															});	
 																
 															
 															ok = 0;
