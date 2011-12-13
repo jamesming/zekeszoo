@@ -4,8 +4,8 @@ $(document).ready(function() {
 
 				<?php   
 				
-				//$testing = FALSE;
-				$testing = TRUE;
+				$testing = FALSE;
+				//$testing = TRUE;
 
 				
 				if( $testing == TRUE ){	
