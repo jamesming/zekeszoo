@@ -236,7 +236,8 @@
 					html .fb_share_link { 
 						padding:2px 0 0 20px; 
 						height:16px; 
-						background:url(http://static.ak.facebook.com/images/share/facebook_share_icon.gif?6:26981) no-repeat top left;
+						/*background:url(http://static.ak.facebook.com/images/share/facebook_share_icon.gif?6:26981) no-repeat top left;*/
+						background:url(<?php echo base_url()    ?>images/fb.gif) no-repeat top left;
 					}
 				</style>
 				<a rel="nofollow" href="http://www.facebook.com/share.php?u=<;url>" onclick="return fbs_click()" target="_blank" class="fb_share_link">
