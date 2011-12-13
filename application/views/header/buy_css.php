@@ -8,7 +8,7 @@
 .error_box{
     background: none repeat scroll 0 0 pink;
     border: 1px solid red;
-    height: 73px;
+    height: 43px;
     margin-top: 15px;
     padding: 0px;
     width: 620px;
@@ -17,11 +17,11 @@
 }
 		.error_box div#exclamation_point{
 				background-color:pink;
-		    background-image: url(<?php  echo base_url()   ?>images/exclamation_point.png);
-		    background-position: 7px 13px;
+		    background-image: url(<?php  echo base_url()   ?>images/alert_icon.png);
+		    background-position: 7px 7px;
 		  	background-repeat: no-repeat;
 		    width: 64px;
-		    height: 60px;
+		    height: 40px;
 		}
 		.error_box div.message{
     font-size: 15px;

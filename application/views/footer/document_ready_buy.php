@@ -4,8 +4,8 @@ $(document).ready(function() {
 
 				<?php   
 				
-				//$testing = FALSE;
-				$testing = TRUE;
+				$testing = FALSE;
+				//$testing = TRUE;
 
 				
 				if( $testing == TRUE ){	
@@ -84,7 +84,13 @@ $(document).ready(function() {
 														
 														foreach($yellow_fields as $value){ ?>
 															
-															$('#<?php echo $value    ?>').css({background:'yellow'});
+															$('#<?php echo $value    ?>').css({background:'yellow'})
+															
+																.click(function(event) {	
+					    	
+																    $(this).hide_error_message();
+																    
+																})
 															
 														<?php
 														}	
@@ -94,7 +100,7 @@ $(document).ready(function() {
 											$('#total_price').text(  '$' + $('#quantity').val() * <?php  echo $deals[0]->deal_price   ?> );
 											
 					<?php						
-				 }?>
+				}?>
 				
 
 				
@@ -163,7 +169,7 @@ $(document).ready(function() {
 									
 									<?php foreach($server_response['bad_fields'] as $bad_field ){?>
 										
-										$('form#form0 #<?php echo $bad_field    ?>').css({background:'pink'}).parent().parent().children('div.error_message_select, div.error_message').show().html("");
+										$('form#form0 #<?php echo $bad_field    ?>').display_error_message('Invalid');
 										
 									<?php } ?>
 									
@@ -268,9 +274,9 @@ $(document).ready(function() {
 					
 				  $.fn.display_error_message = function( message ) {
 				  	
-
-				  
-				    $(this).click(function(event) {	
+				    $(this).click(function(event) {
+				    	
+				    	$('.error_box').slideUp('slow');
 				    	
 					    $(this).hide_error_message();})
 														
@@ -284,7 +290,7 @@ $(document).ready(function() {
 
 				(function( $ ) {
 				  $.fn.hide_error_message = function() {
-				  	
+
 							if( !$(this).hasClass('select')){
 							
 									$(this).val('')
@@ -301,14 +307,12 @@ $(document).ready(function() {
 				})( jQuery );
 
 								
-				$('#buynow_image').click(function(event) {
+			$('#buynow_image').click(function(event) {
 					
-						var ok = 1;
+				var ok = 1;
 
+				if ( !$('#use_card_on_file').length || !$('#use_card_on_file').is(':checked') ) {
 
-						
-						// ONLY VALIDATE FIELDS IF THIS IS BRAND NEW USER					
-						<?php if( !isset( $this->session->userdata['user_id'] ) ){?>
 
 												// ** NO BLANK TEXT OR PASSWORD 
 						
@@ -327,7 +331,7 @@ $(document).ready(function() {
 														};
 												        
 												});
-												
+
 												if( $('#ship_to_other').is(':checked') ){
 
 													
@@ -348,20 +352,8 @@ $(document).ready(function() {
 															});
 													
 												};
-													
-												
-												// ** ZIPCODE FOR SIGNUP MUST BE INT AND GREATER THAN 5 CHARACTERS
-												if(  $('form#form0 input#zipcode_signup').val()  != parseInt( $('form#form0 input#zipcode_signup').val() ) 
-															||  $('form#form0 input#zipcode_signup').val().length  < 5
-												) {
-													
-													$('form#form0 input#zipcode_signup').display_error_message('Invalid zipcode.');
-													
-													ok = 0;
-															
-												};
-												
-												
+
+																																						
 												// ** ZIPCODE FOR PAYMENT MUST BE INT AND GREATER THAN 5 CHARACTERS
 												if(  $('form#form0 input#cc_zipcode').val()  != parseInt( $('form#form0 input#cc_zipcode').val() ) 
 															||  $('form#form0 input#cc_zipcode').val().length  < 5
@@ -369,54 +361,75 @@ $(document).ready(function() {
 													$('form#form0 input#cc_zipcode').display_error_message('Invalid zipcode.');
 													ok = 0;
 												};						
-												
-												
-												// ** EMAIL
-												if( isBadEmail(  $('form#form0 input#email').val() )  ){
-													$('form#form0 input#email').display_error_message('Invalid email.');
-													ok = 0;
 
-												};
-						
-										
-												// PASSWORD GREATER THAN 5
+												// ONLY VALIDATE FIELDS IF THIS IS BRAND NEW USER					
+												<?php if( !isset( $this->session->userdata['user_id'] ) ){?>
 												
-												if( $('form#form0 input#password_signup').val().length  < 5  ){
-													$('form#form0 input#password_signup').display_error_message('Need 5 characters or more.');
-													ok = 0;
-						
-												}else{
-													
-																	// ** PASSWORD MUST MATCH
-																	
-																	if( $('form#form0 input#password_signup').val()  !=  $('form#form0 input#confirm').val() ){
-							
-																		$('form#form0 input#password_signup, form#form0 input#confirm').display_error_message('Passwords must match.');
+												
+															// ** EMAIL
+															if( isBadEmail(  $('form#form0 input#email').val() )  ){
+																$('form#form0 input#email').display_error_message('Invalid email.');
+																ok = 0;
+			
+															};
+
+
+															// ** ZIPCODE FOR SIGNUP MUST BE INT AND GREATER THAN 5 CHARACTERS
+															if(  $('form#form0 input#zipcode_signup').val()  != parseInt( $('form#form0 input#zipcode_signup').val() ) 
+																		||  $('form#form0 input#zipcode_signup').val().length  < 5
+															) {
+																
+																$('form#form0 input#zipcode_signup').display_error_message('Invalid zipcode.');
+																
+																ok = 0;
 																		
-																		ok = 0;													
-													
-													
-																	};					
-								
-												};
+															};
+												
+																
+															// PASSWORD GREATER THAN 5
+															
+															if( $('form#form0 input#password_signup').val().length  < 5  ){
+																$('form#form0 input#password_signup').display_error_message('Need 5 characters or more.');
+																ok = 0;
+									
+															}else{
+																
+																				// ** PASSWORD MUST MATCH
+																				
+																				if( $('form#form0 input#password_signup').val()  !=  $('form#form0 input#confirm').val() ){
+										
+																					$('form#form0 input#password_signup, form#form0 input#confirm').display_error_message('Passwords must match.');
+																					
+																					ok = 0;													
+																
+																
+																				};					
+											
+															};
 						
-						<?php } ?>
-						
+												<?php }    ?>
 
-						if( 
-							ok == 1
-							|| $('#use_card_on_file').is(':checked') 
-						){
-							
-								$('form#form0').submit();
-							
-						}else{
-								$('body').scrollTo( $('.hasError'), 500 );
 
-							
-						};
+				}
+				
+				
+				if( 
+					ok == 1
+					|| $('#use_card_on_file').is(':checked') 
+				){
+					
+						$('form#form0').submit();
+					
+				}else{
+					
+						$('body').scrollTo( $('.hasError'), 500 );
 
-				});
+					
+				};				
+				
+				
+				
+		});
 });		
 
 

@@ -10,7 +10,7 @@
 }
 #error_message {
 		background-color:pink;
-    background-image: url(<?php  echo base_url()   ?>images/exclamation_point.png);
+    background-image: url(<?php  echo base_url()   ?>images/alert_icon.png);
     background-position: 7px 13px;
   	background-repeat: no-repeat;
     border: 1px solid red
