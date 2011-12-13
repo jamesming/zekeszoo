@@ -72,7 +72,7 @@ THE ZEKESZOO SITE.<o:p></o:p></font></span></p>
 																	
 																	<div>More
 																	</div>
-														  		<div   style=''    table='website'   href='#wysiwyg_div' id='terms'  class="wysiwyg_div_link_disable clearfix elements_to_hide_when_adding_deal" >
+														  		<div   style='display:none'    table='website'   href='#wysiwyg_div' id='terms'  class="wysiwyg_div_link_disable clearfix elements_to_hide_when_adding_deal" >
 																																<?php     
 																																
 																																		if( isset( $website[0]->terms  ) ){
