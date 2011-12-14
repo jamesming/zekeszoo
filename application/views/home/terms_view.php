@@ -14,7 +14,7 @@
 
 <body>
 
-
+<?php     	$this->load->view('header/email_subscribe.php');  ?>
 	
 <div id='top_body'  class='  clearfix' >
 	<div id='sunrise'  class=' container' >

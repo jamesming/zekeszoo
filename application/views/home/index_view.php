@@ -40,26 +40,7 @@
 <html>
 
 <body>
-
-<div  id='subscribe_container'>
-	
-		<div  class='container '    >
-			
-				<div id='paw_image' class='float_left ' >
-				</div>
-				<div  class='content float_left '   style='font-weight:normal'  >Get great deals for your pet today!
-				</div>
-				<div  class='input_form float_left '   >
-					<input  class='short ' id="email"  type="text" name="email" onblur="if(this.value==''){this.value='Enter your email address'}" onfocus="if(this.value=='Enter your email address'){this.value=''}" value="Enter your email address">
-					<input  class='shorter ' id="zip"  type="text" name="zip" onblur="if(this.value==''){this.value='and zip'}" onfocus="if(this.value=='and zip'){this.value=''}" value="and zip">
-				</div>
-
-				<img id='go_button'  class=' cursor_pointer float_left' src='<?php echo base_url()    ?>images/go.png'/>
-				<div  class=' cursor_pointer float_left'  id='close_subcribe'>close[x]
-				</div>
-		</div>	
-	
-</div>
+<?php     	$this->load->view('header/email_subscribe.php');  ?>
 	
 	
 <div id='top_body'  class='  clearfix' >

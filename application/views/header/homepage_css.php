@@ -36,71 +36,7 @@
 					    padding-top: 9px;
 					}
 
-#subscribe_container{
-	height:52px;
-/*//background:#175C8D;*/	
-	background-image:url(<?php  echo base_url()   ?>images/top_grad.png);
-	background-repeat:repeat-x;
-	background-position:center center;
-}
 
-		#subscribe_container div#paw_image{
-/*			background-image:url(<?php  echo base_url()   ?>images/sites/zekeszoo/paw.png);
-			background-repeat:no-repeat;
-			background-position:right 6px;*/
-			height:52px;
-			width:148px;
-			margin-left: 140px;
-		}
-
-		#subscribe_container div.content{
-	    font-size: 20px;
-	    color: #FFFFFF;
-	    font-weight: bold;
-	    padding-top: 8px;
-    	padding-left: 18px;
-		}
-		
-		
-		#subscribe_container div.input_form {
-	    padding-top: 8px;
-    	padding-left: 21px;
-		}				
-		
-				#subscribe_container div.input_form  input{
-							border:medium none;
-							color:#888888;
-							font-size:93%;
-							margin: 0px 0px 0px 0px;
-							padding: 10px;
-				}		
-		
-		
-						#subscribe_container div.input_form  input.short{
-									background:url(<?php  echo base_url()   ?>images/signup_short.png) no-repeat scroll left center transparent;
-									width: 140px;
-						}		
-		
-		
-						#subscribe_container div.input_form  input.shorter{
-									background:url(<?php  echo base_url()   ?>images/signup_shorter.png) no-repeat scroll left center transparent;
-									width: 50px;
-						}		
-				
-				#subscribe_container img#go_button{
-					    padding-top: 8px;
-					    margin:0px 0px 0px 2px;
-				}			
-				
-				#subscribe_container div#close_subcribe{
-			    width: 44px;
-			    padding-top: 14px;
-			    text-align: right;
-			    font-size: 10px;
-			    color: white;
-				}
-		
-		
 #main_section .middle{
 min-height:300px;
 }

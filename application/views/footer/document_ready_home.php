@@ -13,25 +13,16 @@ $(document).ready(function() {
 					$('#twitter_share_link').click();	
 				<?php } ?>				
 	
-				$('#go_button').click(function(event) {
-							$.post("<?php echo base_url() ?>index.php/home/insert_email_subscriber",{
-								email: $('#email').val(),
-								zip:$('#zip').val()
-								},function(data) {
-								
-									alert(data);
-							
-							});	
-				});	
+
 	
 				<?php if( $isBadAccount){?>
 					
 					$(".signin").click();
 					$('div#signin_container input#email, div#signin_container input#password').css({border:'1px solid red'}).parent().next()
-					.slideDown('fast')
+					.slideDown('slow')
 					$('div#signin_container input#email, div#signin_container input#password').click(function(event) {
 						$(this).css({border:'0px solid white'}).parent().next()
-						.slideUp('fast')
+						.slideUp('slow')
 					});	
 					
 				<?php }else{?>
@@ -73,20 +64,17 @@ $(document).ready(function() {
 	
 				$('#logo').click(function(event) {
 					<?php if( $_SERVER['HTTP_HOST'] == 'zekeszoo.com' ){?>	
-												document.location.href='http://zekeszoo.com/index.php/home';
+												document.location.href='<?php  echo base_url().'index.php/home/deal/'.$deal_url   ?>?v=2';
 
 					<?php }else{?>
-												document.location.href='<?php echo  base_url();   ?>index.php/home';
+												document.location.href='<?php  echo base_url().'index.php/home/deal/'.$deal_url   ?>?v=2';
 
 					<?php } ?>
 				});	
 				
 
 
-				$('#close_subcribe').click(function(event) {
-						$('#subscribe_container').slideUp('slow');
-				});	
-				
+
 				
 				greatest_height_of_onepart = 0;				
 				$('#threeparts div.onepart')
