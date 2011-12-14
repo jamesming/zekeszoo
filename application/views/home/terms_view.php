@@ -70,7 +70,7 @@ TIME, YOU DO NOT AGREE TO THESE TERMS, PLEASE IMMEDIATELY TERMINATE YOUR USE OF
 THE ZEKESZOO SITE.<o:p></o:p></font></span></p>
 																	</div>
 																	
-																	<div>More
+																	<div onclick='$(this).prev().hide();$(this).hide().next().slideDown("slow")'   style='cursor:pointer;color:blue;font-size:11px;font-weight:bold'  >more ...
 																	</div>
 														  		<div   style='display:none'    table='website'   href='#wysiwyg_div' id='terms'  class="wysiwyg_div_link_disable clearfix elements_to_hide_when_adding_deal" >
 																																<?php     
