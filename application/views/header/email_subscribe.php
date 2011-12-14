@@ -77,7 +77,7 @@ $(document).ready(function() {
 				$('#go_button').click(function(event) {
 							$.post("<?php echo base_url() ?>index.php/home/insert_email_subscriber",{
 								email: $('#email').val(),
-								zip:$('#zip').val()
+								zipcode:$('#zip').val()
 								},function(data) {
 								
 									$('#close_subcribe').click();

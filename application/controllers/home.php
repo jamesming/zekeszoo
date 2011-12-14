@@ -5062,7 +5062,20 @@ function delete_voucher(){
  **/
 
 function insert_email_subscriber(){
-		?>inserted<?php
+
+
+					$insert_what = array(
+					                        'email' => $this->input->post('email'),
+					                        'zipcode' => $this->input->post('zipcode')
+					                );
+					                
+					                
+					
+					
+					$user_id = $this->my_database_model->my_database_model->insert_table(
+													$table = 'email_subscribers', 
+													$insert_what
+													); 
 
 }
 
@@ -5211,19 +5224,16 @@ function forgot_password(){
 
 function create_table(){
 
-$table = 'promo_codes';
+$table = 'email_subscribers';
 
 $this->my_database_model->	create_generic_table($table );
 
 $fields_array = array(
-                      'name' => array(
+                      'email' => array(
                                                'type' => 'varchar(255)',
                                     ),
-                      'code' => array(
-                                               'type' => 'varchar(255)'
-                                    ),
-                      'value' => array(
-                                               'type' => 'decimal(10.2)'
+                      'zipcode' => array(
+                                               'type' => 'varchar(35)'
                                     )
               );
 
