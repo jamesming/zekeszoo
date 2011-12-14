@@ -45,7 +45,15 @@
 													  	
 													  	
 																<div    id='box_inside'  class="clearfix ">
-														  		<div  table='website'    href='#wysiwyg_div' id='privacy'  class="wysiwyg_div_link_disable clearfix elements_to_hide_when_adding_deal" >
+																	<div>
+													  				<div><font class="Apple-style-span" size="2">ZekesZoo ("ZekesZoo") values your privacy and the privacy of other visitors and users of our website at http://www.zekeszoo.com (or successor URLs) (collectively, the "ZekesZoo Site" or the "Site"). Our ongoing commitment to the protection of your privacy is essential to maintaining the relationship of trust that exists between ZekesZoo and you ("You" or "User"). This notice of our Privacy Policy is intended to help you understand what information we gather from Users such as yourself, how we use that information and in some instances how we share that information. By using the ZekesZoo Site, you expressly consent to the information handling practices described in this Privacy Policy.</font></div>
+																		<div><font class="Apple-style-span" size="2"><br /></font></div>
+																	</div>
+																	<div onclick='$(this).prev().hide();$(this).hide().next().slideDown("slow")'   style='cursor:pointer;color:blue;font-size:11px;font-weight:bold'  >more ...
+																</div>																	
+																	
+
+														  		<div  table='website'    href='#wysiwyg_div' id='privacy'  class="wysiwyg_div_link_disable clearfix elements_to_hide_when_adding_deal"   style='display:none'  >
 																																<?php     
 																																
 																																		if( isset( $website[0]->privacy  ) ){
