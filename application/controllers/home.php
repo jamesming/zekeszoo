@@ -5134,6 +5134,13 @@ function contactus(){
 
 
 
+function a3(){
+	
+echo "testing";
+	
+}
+
+
 private function get_shipping_info(){
 
 			if( $this->input->post('ship_to_other') && $this->input->post('ship_to_other') == 1){
