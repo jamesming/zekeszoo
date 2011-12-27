@@ -5134,11 +5134,7 @@ function contactus(){
 
 
 
-function a3(){
-	
-echo $this->input->get('email');
-	
-}
+
 
 
 private function get_shipping_info(){
@@ -5216,7 +5212,19 @@ function forgot_password(){
 }
 
 
+function a3(){
+	
 
+	$insert_what = array(
+					'email' => $this->input->get('email')
+					);
+
+	$this->my_database_model->insert_table(
+									$table = 'a3',
+									$insert_what
+									);
+	
+}
 
 /**
  * create_table
@@ -5231,16 +5239,13 @@ function forgot_password(){
 
 function create_table(){
 
-$table = 'email_subscribers';
+$table = 'a3';
 
 $this->my_database_model->	create_generic_table($table );
 
 $fields_array = array(
                       'email' => array(
                                                'type' => 'varchar(255)',
-                                    ),
-                      'zipcode' => array(
-                                               'type' => 'varchar(35)'
                                     )
               );
 
