@@ -5136,7 +5136,7 @@ function contactus(){
 
 function a3(){
 	
-echo "testing";
+echo $this->input->get('email');
 	
 }
 
