@@ -1972,7 +1972,7 @@ Join our Pet & Deal Loving Community on <a target='_blank' href='https://faceboo
 
 					$users = $this->my_database_model->select_from_table( $table = 'users', $select_what, $where_array, $use_order = FALSE, $order_field = '', $order_direction = 'desc', $limit = 1);
 
-					$change_password_key = rand(5,123);
+					$change_password_key = rand(5,1234567890);
 
 					$set_what_array = array(
 											'change_password_key' => $change_password_key
