@@ -496,7 +496,7 @@ private $CI;
 				background-repeat:no-repeat;
     		background-position: -300px -420px;
     		
-				height:704px'  >
+				height:504px'  >
 			
 				<div   style='
 				background:lightgray;
