@@ -38,7 +38,11 @@ margin-top: 20px;
 								    overflow:none;
 								}
 								
-								
+								div#box_inside input{
+														border: 1px solid darkgray;
+												    height: 25px;
+										    		padding-left: 5px;	
+								}
 
 																	
 								#right_col_section .one_third_column .middle div#box_inside

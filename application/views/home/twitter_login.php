@@ -234,13 +234,11 @@ cursor:pointer;
 
 <!-- <div  class='twitter_icon'>
 			</div> -->			
+			<div>&nbsp;
+			</div>
 			
-			
-      <p class="forgot clearfix"> <a href="#" id="resend_password_link">Forgot your password?</a> </p>
+      <p class="forgot clearfix"> <a href="<?php echo base_url()    ?>index.php/home/forgot_mypassword" id="resend_password_link">Forgot your password?</a> </p>
 
-      <p class="forgot-username"> <A id=forgot_username_link 
-					title="If you remember your password, try logging in with your email" 
-					href="#">Forgot your username?</A> </p>
     </form>
   </fieldset>	
 </div>

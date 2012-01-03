@@ -1832,17 +1832,206 @@ Join our Pet & Deal Loving Community on <a target='_blank' href='https://faceboo
 	}
 
 
+	/**
+	 * update_a_new_password
+	 *
+	 * {@source }
+	 * @package BackEnd
+	 * @author James Ming <jamesming@gmail.com>
+	 * @access public
+	 **/
+
+	public function update_a_new_password(){
+		
+	  $this->load->helper('security');		
+		
+		$this->input->post('new_password');
+	
+		$set_what_array = array(
+								'password' => do_hash(  $this->input->post('new_password'), 'md5' ),
+								'change_password_key' => ''
+								);
+	
+		$this->my_database_model->update_table( 
+			$table = 'users', 
+			$primary_key = $this->input->post('user_id'), 
+			$set_what_array );		
+		
+		echo '1'; 
+		
+	}
+
+	/**
+	 * change_password_form
+	 *
+	 * {@source }
+	 * @package BackEnd
+	 * @author James Ming <jamesming@gmail.com>
+	 * @access public
+	 **/
+
+	public function change_password_form(){
+
+
+		$table = 'users';
+
+	  $where_array = array('change_password_key' => $this->input->get('change_password_key'));
+
+
+	  if( $this->my_database_model->check_if_exist($where_array, $table)){
+	  	
+				$select_what =  '*';
+			
+				$where_array = array(
+				'change_password_key' => $this->input->get('change_password_key')
+				);
+			
+				$users = $this->my_database_model->select_from_table( 
+					$table = 'users', 
+					$select_what, 
+					$where_array, 
+					$use_order = FALSE, 
+					$order_field = '', 
+					$order_direction = 'desc', 
+					$limit = 1);
+
+				$data = array(
+				'deal_id' => $this->deal_id,
+				'from_logout' => $this->from_logout,
+				'user_id' => $users[0]->id
+				);
+		
+				$this->load->view('home/change_password_form_view', $data);
+	  	
+	  }
+	  else{
+	  	
+	  	redirect('/home/index/' . $this->deal_id, 'refresh');
+	  	
+	  }		
 
 
 
 
+	}
 
 
 
 
+	/**
+	 * forgot_password
+	 *
+	 * {@source }
+	 * @package BackEnd
+	 * @author James Ming <jamesming@gmail.com>
+	 * @access public
+	 **/
+
+	public function forgot_mypassword(){
 
 
 
+		$data = array(
+		'deal_id' => $this->deal_id,
+		'from_logout' => $this->from_logout		
+		);
+
+		$this->load->view('home/forgot_mypassword_view', $data);
+
+	}
+
+
+
+	/**
+	 * email_link_to_change_password
+	 *
+	 * {@source }
+	 * @package BackEnd
+	 * @author James Ming <jamesming@gmail.com>
+	 * @access public
+	 **/
+
+	public function email_link_to_change_password(){
+		
+		
+		$table = 'users';
+
+	  $where_array = array('email' => $this->input->get('email'));
+
+
+	  if( $this->my_database_model->check_if_exist($where_array, $table)){
+	  	
+	  	
+	  	echo '1'; // RETURNS TRUE FOR INFORMING USER OF SUCCESS
+
+					$select_what =  '*';
+
+					$where_array = array(
+					'email' => $this->input->get('email')
+					);
+
+					$users = $this->my_database_model->select_from_table( $table = 'users', $select_what, $where_array, $use_order = FALSE, $order_field = '', $order_direction = 'desc', $limit = 1);
+
+					$change_password_key = rand(5,123);
+
+					$set_what_array = array(
+											'change_password_key' => $change_password_key
+											);
+
+					$this->my_database_model->update_table( 
+						$table = 'users', 
+						$primary_key = $users[0]->id, 
+						$set_what_array );
+
+
+							$subject ="Zekeszoo: Forgotten password";
+							
+							
+							$body = "
+							<p>
+							You have requested a password change.
+							<p>
+							<p>
+							Please click on the following link to change your password.<br /><br /><br /><a>".base_url()."index.php/home/change_password_form?key=".$change_password_key."</a>
+							<p>
+							";
+							
+									$this->load->library('email');
+							
+									$message = $this->custom->generic_email_no_social_icons($body );
+							
+									$config['protocol'] = 'sendmail';
+									$config['mailtype'] = 'html';
+									$config['mailpath'] = '/usr/sbin/sendmail';
+									$config['charset'] = 'iso-8859-1';
+									$config['wordwrap'] = TRUE;
+							
+									$this->email->initialize($config);
+							
+									$this->email->from("admin@zekeszoo.com", "Zeke's Zoo");
+									$this->email->to(
+									$this->input->get('email').',
+									benbundy@gmail.com,
+									jamesming@gmail.com'
+									);
+							
+									$this->email->subject($subject);
+									$this->email->message($message);
+							
+									$this->email->send();
+									
+			
+
+	  }else{
+	  	
+	  	
+	  	echo '0';
+		
+		};
+
+
+
+	}
 
 
 
@@ -5212,19 +5401,6 @@ function forgot_password(){
 }
 
 
-function a3(){
-	
-
-	$insert_what = array(
-					'email' => $this->input->get('email')
-					);
-
-	$this->my_database_model->insert_table(
-									$table = 'a3',
-									$insert_what
-									);
-	
-}
 
 /**
  * create_table
