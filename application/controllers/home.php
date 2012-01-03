@@ -1989,11 +1989,17 @@ Join our Pet & Deal Loving Community on <a target='_blank' href='https://faceboo
 							
 							$body = "
 							<p>
+							<a href='http://www.cnn.com'>CNN</a>
+							</p>
+							<p>
 							You have requested a password change.
+							</p>
 							<p>
-							<p>
-							Please click on the following link to change your password.<br /><br /><br /><a>".base_url()."index.php/home/change_password_form?key=".$change_password_key."</a>
-							<p>
+							Please click on the following link to change your password.<br /><br /><br />
+							<a href='".base_url()."index.php/home/change_password_form?key=".$change_password_key."'>Change Password</a>
+							</p>
+							
+							
 							";
 							
 									$this->load->library('email');
