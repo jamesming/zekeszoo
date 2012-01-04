@@ -1853,12 +1853,12 @@ Join our Pet & Deal Loving Community on <a target='_blank' href='https://faceboo
 								);
 						
 	
-		echo $this->my_database_model->update_table( 
+		$this->my_database_model->update_table( 
 			$table = 'users', 
 			$primary_key = $this->input->post('user_id'), 
 			$set_what_array );		
 		
-//		echo '1'; 
+		echo '1'; 
 		
 	}
 

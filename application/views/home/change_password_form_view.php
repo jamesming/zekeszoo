@@ -227,18 +227,18 @@ $(document).ready(function() {
 							new_password:$('.middle.left_middle #password').val(),
 							user_id: <?php  echo $user_id   ?>
 							},function(data) {
-//									if( data == '1'){
-//										
-//										$('.middle.left_middle #box_inside').html('Thank you.  You can now login to the site with your new password');
-//										
-//									}else{
-//										
-//										$('.error_message').show().text(data);
-//										
-//									};
+									if( data == '1'){
+										
+										$('.middle.left_middle #box_inside').html('Thank you.  You can now login to the site with your new password');
+										
+									}else{
+										
+										$('.error_message').show().text(data);
+										
+									};
 									
 									
-										$('.middle.left_middle #box_inside').html(data);
+									
 		
 							});	
 									
