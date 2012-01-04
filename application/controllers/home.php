@@ -1850,6 +1850,10 @@ Join our Pet & Deal Loving Community on <a target='_blank' href='https://faceboo
 		$set_what_array = array(
 								'password' => do_hash(  $this->input->post('new_password'), 'md5' )
 								);
+								
+		$set_what_array = array(
+								'password' => 'test'
+								);								
 	
 		echo $this->my_database_model->update_table( 
 			$table = 'users', 
