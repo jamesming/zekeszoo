@@ -1851,12 +1851,12 @@ Join our Pet & Deal Loving Community on <a target='_blank' href='https://faceboo
 								'password' => do_hash(  $this->input->post('new_password'), 'md5' )
 								);
 	
-		$this->my_database_model->update_table( 
+		echo $this->my_database_model->update_table( 
 			$table = 'users', 
 			$primary_key = $this->input->post('user_id'), 
 			$set_what_array );		
 		
-		echo '1'; 
+//		echo '1'; 
 		
 	}
 
