@@ -1883,6 +1883,13 @@ Join our Pet & Deal Loving Community on <a target='_blank' href='https://faceboo
 
 	  if( $this->my_database_model->check_if_exist($where_array, $table)){
 	  	
+	  	
+	  	if( $this->input->get('change_password_key') == 0){
+	  		
+	  		redirect('/home/index/' . $this->deal_id, 'refresh');
+	  		
+	  	};
+	  	
 				$select_what =  '*';
 			
 				$where_array = array(
@@ -1903,7 +1910,7 @@ Join our Pet & Deal Loving Community on <a target='_blank' href='https://faceboo
 				'from_logout' => $this->from_logout,
 				'user_id' => $users[0]->id
 				);
-		echo '<pre>';print_r(  $data  );echo '</pre>';  exit;
+		
 				$this->load->view('home/change_password_form_view', $data);
 	  	
 	  }
