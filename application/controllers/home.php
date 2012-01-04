@@ -1848,7 +1848,7 @@ Join our Pet & Deal Loving Community on <a target='_blank' href='https://faceboo
 		$this->input->post('new_password');
 	
 		$set_what_array = array(
-								'password' => do_hash(  $this->input->post('new_password'), 'md5' ).
+								'password' => do_hash(  $this->input->post('new_password'), 'md5' ),
 								'change_password_key' => ''
 								);
 						
