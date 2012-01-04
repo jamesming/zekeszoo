@@ -1903,7 +1903,7 @@ Join our Pet & Deal Loving Community on <a target='_blank' href='https://faceboo
 				'from_logout' => $this->from_logout,
 				'user_id' => $users[0]->id
 				);
-		
+		echo '<pre>';print_r(  $data  );echo '</pre>';  exit;
 				$this->load->view('home/change_password_form_view', $data);
 	  	
 	  }
