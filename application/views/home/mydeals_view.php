@@ -37,7 +37,7 @@
 															<div class="sub_top">&nbsp;</div>
 														</div>
 													  <div class="middle">
-													  	
+													  	<div    id='box_inside'  class="clearfix "    >
 													  	
 													  	
 																<div id='box_inside_header' class=' header_style' >
@@ -54,94 +54,91 @@
 													  				<li id='all' >All</li>
 													  			<ul>
 													  		</div>
-													  		
-													  		<div  class='clearfix ' id='transaction_header'>
-													  			<ul>
-													  				<li>Name</li>
-													  				<li>Purchase Date</li>
-													  				<li>Expiration Date</li>
-													  			<ul>
-													  		</div>													  		
 
-													  	
-																<div    id='box_inside'  class="clearfix "    >
-																	
+																<table  id='deal-grid'>
+																	<tr  class='table-header ' >
+																		<td>&nbsp;
+																		</td>
+																		<td>Name
+																		</td>
+																		<td>Purchase Date
+																		</td>
+																		<td>Expiration Date
+																		</td>
+																	</tr>
 
-											
+
 																<?php foreach($transactions  as $transaction){  ?>
 																
-																
-																
-																
 																		<?php if( $transaction['status'] == 'inactive'){?>
-
-																									<div>THIS DEAL IS PENDING MORE BUYERS TO BE VALID
-																									</div>
-							
-							
-																									<div  id='transaction_container' class=' clearfix'   >
-																										<div   id='transaction_image_div' class='float_left ' >
-																											<a href='<?php echo base_url()    ?>index.php/home/deal/<?php echo $transaction['deal_url']    ?>'>
-																												<img  class='deal_short_description ' src='<?php echo base_url()    ?>uploads/1/<?php echo $transaction['deal_id']   ?>/image_tiny.png?random=<?php echo rand(5,2122)    ?>'   calendar_id=<?php  echo $transaction['calendar_id']   ?>>
-																											</a>
-																										</div>
-																										<div class=' transaction_div float_left '>
-																											<div class='deal_short_description' calendar_id=<?php  echo $transaction['calendar_id']   ?>  calendar_id=<?php  echo $transaction['calendar_id']   ?>>
-																												<a href='<?php echo base_url()    ?>index.php/home/deal/<?php echo $transaction['deal_url']    ?>'>
-																													<?php  echo $transaction['deal_short_description'];   ?>	
-																												</a>
-																											</div>
-																											
-																											
-																											
-																											<ul>
-																											<?php foreach($transaction['user_deals']  as $one_user_deal  ){  ?>
-																											
-							
-																																			<li>
-																																						<?php echo $one_user_deal['id']   ?>
-																																			</li>																								
-								
-																											
-																											<?php } ?>
-																											</ul>																				
-																										</div>
-																										<div class='purchase_date float_left' >
-																											
-																											<?php echo  date("F j, Y", strtotime($transaction['created']) );  ?>
-																											
-																										</div>
-																										<div class='expiration_date float_left' >
-																											
-																											<?php  echo date("F j, Y", strtotime($transaction['deal_will_expire']) );   ?>
-																											
-																										</div>																			
+																		
+																			<tr>
+																				<td colspan='4'>( This Deal Is Pending More Buyers To Be Valid )
+																				</td>
+																			</tr>
+																			
+																			<tr  class='deal-rows ' >
+																				<td>
+																					
+																					<div  >
+																						<a href='<?php echo base_url()    ?>index.php/home/deal/<?php echo $transaction['deal_url']    ?>'>
+																							<img  class='deal_short_description ' src='<?php echo base_url()    ?>uploads/1/<?php echo $transaction['deal_id']   ?>/image_tiny.png?random=<?php echo rand(5,2122)    ?>'   calendar_id=<?php  echo $transaction['calendar_id']   ?>>
+																						</a>
+																					</div>																					
+																				</td>
+																				<td>
+																					<div class='deal_short_description' calendar_id=<?php  echo $transaction['calendar_id']   ?>  calendar_id=<?php  echo $transaction['calendar_id']   ?>>
+																						<a href='<?php echo base_url()    ?>index.php/home/deal/<?php echo $transaction['deal_url']    ?>'>
+																							<?php  echo $transaction['deal_short_description'];   ?>	
+																						</a>
+																					</div>
+																					<div class=' transaction_div float_left '>
+																						<ul>
+																						<?php foreach($transaction['user_deals']  as $one_user_deal  ){  ?>
+																														<li>
+																																	<?php echo $one_user_deal['id']   ?>
+																														</li>																								
+																						<?php } ?>
+																						</ul>																				
+																					</div>
+																				</td>
+																				<td>
+																								<div class='purchase_date float_left' >
+																									
+																									<?php echo  date("F j, Y", strtotime($transaction['created']) );  ?>
+																									
+																								</div>																					
+																				</td>																				
+																				<td>
+																					
+																								<div class='expiration_date float_left' >
 																										
+																										<?php  echo date("F j, Y", strtotime($transaction['deal_will_expire']) );   ?>
 																										
-																										
-																									</div>
+																									</div>		
+																					
+																					
+																				</td>
+																			</tr>																			
 
-
-																								
+				
 																		<?php }else{?>
 
 
-							
-							
-																									<div  id='transaction_container' class=' clearfix'   >
+																				<tr   class='deal-rows ' >
+																					<td>
 																										<div   id='transaction_image_div' class='float_left ' >
 																											<a href='<?php echo base_url()    ?>index.php/home/deal/<?php echo $transaction['deal_url']    ?>'>
 																												<img  class='deal_short_description ' src='<?php echo base_url()    ?>uploads/1/<?php echo $transaction['deal_id']   ?>/image_tiny.png?random=<?php echo rand(5,2122)    ?>'   calendar_id=<?php  echo $transaction['calendar_id']   ?>>
 																											</a>
-																										</div>
-																										<div class=' transaction_div float_left '>
+																										</div>																						
+																					</td>
+																					<td>
 																											<div class='deal_short_description'   calendar_id=<?php  echo $transaction['calendar_id']   ?>>
 																												<a href='<?php echo base_url()    ?>index.php/home/deal/<?php echo $transaction['deal_url']    ?>'>
 																													<?php  echo $transaction['deal_short_description'];   ?>	
 																												</a>
-																											</div>
-																											
-																											
+																											</div>		
 																											
 																											<ul>
 																											<?php foreach($transaction['user_deals']  as $one_user_deal  ){  ?>
@@ -169,22 +166,27 @@
 								
 																											
 																											<?php } ?>
-																											</ul>																				
-																										</div>
+																											</ul>			
+																																															
+																					</td>
+																					<td>
 																										<div class='purchase_date float_left' >
 																											
 																											<?php echo  date("F j, Y", strtotime($transaction['created']) );  ?>
 																											
 																										</div>
+																					</td>
+																					<td>
 																										<div class='expiration_date float_left' >
 																											
 																											<?php  echo date("F j, Y", strtotime($transaction['deal_will_expire']) );   ?>
 																											
-																										</div>																			
-																										
-																										
-																										
-																									</div>
+																										</div>																								
+																					</td>																					
+																				</tr>
+
+							
+							
 
 
 
@@ -197,7 +199,7 @@
 																
 																<?php } ?>
 
-		
+																</table>
 																	
 																</div>
 															
@@ -327,7 +329,7 @@ $(document).ready(function() {
 						document.location.href='<?php echo  base_url();   ?>index.php/home/mydeals?filter=' + $(this).attr('id');
 				});		
 				
-				$('.redeem').click(function(event) {
+				$('.redeem').css({cursor:'pointer'}).click(function(event) {
 
 						if(  $(this).attr('redeemed') == 1 ){
 							$(this).attr('redeemed', 0);

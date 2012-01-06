@@ -38,23 +38,8 @@ margin-top: 20px;
 																				}		  	
 																				
 																				
-															#box_section .middle div#transaction_header ul {
-																		    list-style: none outside none;
-																		    padding-left: 150px;
-																		    padding-top: 18px;
-																		    width: 434px;
-															}
-																				#box_section .middle div#transaction_header ul li {
-																			    color: #0404B4;
-																			    float: left;
-																			    font-size: 14px;
-																			    font-weight: bold;
-																			    text-align: left;
-																			    width: 121px;
-																			    padding-left: 21px;
-																				}
-																				
-																				
+
+														
 										  	
 								  	
 								#right_col_section  .middle div#box_inside_header {
@@ -80,76 +65,36 @@ margin-top: 20px;
 								 }
 								
 								
-								
-											#box_section .two_third_column .middle div#box_inside
-											div#transaction_container{
-													 width: 589px;
-													 margin-bottom: 27px;
-											}
-											
-											
-													#box_section .two_third_column .middle div#box_inside
-													div#transaction_container .deal_short_description{
+													.deal_short_description{
 															 cursor:pointer;
 													}											
 																
 								
-																	#box_section .two_third_column .middle div#box_inside
-																	div#transaction_container div#transaction_image_div{
-																			    border: 1px solid #D8D8D8;
-																			    padding: 2px 2px 0px;
-																			    height: 86px;
-																	}	
-																	
-																	#box_section .two_third_column .middle div#box_inside
-																	div#transaction_container div.transaction_div{
-																			    width: 150px;
-    																			margin-left: 30px;
-																	}																		
-																	
-											
-																				#box_section .two_third_column .middle div#box_inside 
-																				div#transaction_container div.transaction_div
-																				ul
-																				 {
-																						margin-left:10px;
-																				 }			
-																		
-																							#box_section .two_third_column .middle div#box_inside 
-																							div#transaction_container div.transaction_div
-																							ul li a
-																							 {
-																									color:blue;
-																							 }	
-																							 
-																							#box_section .two_third_column .middle div#box_inside 
-																							div#transaction_container div.transaction_div
-																							ul li span
-																							 {
-																									  font-size: 10px;
-																								    cursor: pointer;
-																								    padding-left: 35px;
-																								    color: blue;
-																							 }																								 
+			 
 																							 
 																							 
-																							 
-																							 
-																	#box_section .two_third_column .middle div#box_inside
-																	div#transaction_container div.purchase_date{
-																			    		text-align: center;
-																	}		
-																	 
-																	#box_section .two_third_column .middle div#box_inside
-																	div#transaction_container div.expiration_date{
-																			        text-align: center;
-    																					margin-left: 39px;
-																	}		 						 							
-								
 
 #right_col_section{
     margin-left: 10px
 }
 
-
+													  		table#deal-grid tr.deal-rows td{
+													  		padding-bottom:15px !important;
+													  		}
+													  		table#deal-grid tr.table-header td{
+													  			font-weight:bold;
+													  			padding-top:15px;
+													  			color:gray;
+													  		}
+													  		table#deal-grid span{
+																									  font-size: 10px;
+																								    cursor: pointer;
+																								    padding-left: 35px;
+																								    color: blue;
+													  		}			
+													  		table#deal-grid img{
+													  																					    border: 1px solid #D8D8D8;
+																			    padding: 2px 2px 0px;
+																			    height: 86px;										  		
+													  		}
 </style>
