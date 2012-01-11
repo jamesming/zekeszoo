@@ -702,6 +702,98 @@ Join our Pet & Deal Loving Community on <a target='_blank' href='https://faceboo
 
 	}
 
+
+
+
+	function email_welcome(){
+		
+		$this->load->library('email');
+		
+		
+		$body = <<<EOWELCOME
+
+<p>Launch in 5, 4, 3, 2...
+</p>
+
+<p>We are finally in the countdown stage of the official launch of
+ZekesZoo.com!
+</p>
+
+<p>In fact, it is just 2 days from today.
+</p>
+
+<p>You signed up some time ago, so... Thank you, for your patience!
+
+</p>
+<p>Because you were one of the earliest people to sign-up @ ZekesZoo.com we
+want you to be one of the first to know we will launch our very 1st online
+sales event next Friday, January 13th at 9am PST.
+</p>
+
+<p>
+Zeke's Zoo is a true labor of love for our entire team and we hope that with every Zeke's
+Zoo experience you sense that your pet's well being
+and saving you money is the key driver of everything we do... Our passion, our purpose!
+
+</p>
+
+<p>With each sales event you can be assured of the following:
+</p>
+
+<p>
+	<ol>
+		<li>The products & services we feature will always be of high quality and will aim to improve the quality of life for your pet.</li>
+		<li>We have negotiated the very best deal possible, as we know how expensive
+
+pet ownership can be.</li>
+		<li>As a valued customer we will do everything we can to service your issues,
+
+questions and comments to ensure your more than satisfied.</li>
+		<li>You will get exclusive advance notice of the limited edition deals every Friday
+
+morning.</li>
+	</ol>
+</p>
+<p>
+Thanks so much, once again, for your support.
+</p>
+<p>The Zeke's Zoo Team
+</p>
+
+
+
+EOWELCOME;
+
+		$message = $this->custom->generic_email( $body, $height = '770px' );
+
+		echo $message; exit;
+
+
+		$config['protocol'] = 'sendmail';
+		$config['mailtype'] = 'html';
+		$config['mailpath'] = '/usr/sbin/sendmail';
+		$config['charset'] = 'iso-8859-1';
+		$config['wordwrap'] = TRUE;
+
+		$this->email->initialize($config);
+
+		$this->email->from('jamesming@gmail.com', 'James Ming');
+		$this->email->to('
+		asian2see@gmail.com,
+		jamesming@gmail.com,
+		benbundy@gmail.com,
+		jflustyan@gmail.com'
+		);
+
+		$this->email->subject($deals['deal_headline']);
+		$this->email->message($message);
+
+		$this->email->send();	
+		
+	}
+
+
+
 	/**
 	 * email deal
 	 * {@source }
@@ -5410,7 +5502,6 @@ function forgot_password(){
 		echo $password_change_code;
 
 }
-
 
 
 

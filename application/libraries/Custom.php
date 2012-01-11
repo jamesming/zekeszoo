@@ -348,7 +348,7 @@ private $CI;
 		 */ 
  
  
-		public function generic_email( $body ){
+		public function generic_email( $body, $height = '704px' ){
 			
 		
 		return $message = "
@@ -373,7 +373,7 @@ private $CI;
 				background-repeat:no-repeat;
     		background-position: -300px -420px;
     		
-				height:704px'  >
+				height:".$height."'  >
 			
 				<div   style='
 				background:lightgray;
