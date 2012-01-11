@@ -755,6 +755,7 @@ morning.</li>
 	</ol>
 </p>
 <p>
+<br />
 Thanks so much, once again, for your support.
 </p>
 <p>The Zeke's Zoo Team
@@ -764,11 +765,20 @@ Thanks so much, once again, for your support.
 
 EOWELCOME;
 
-		$message = $this->custom->generic_email( $body, $height = '770px' );
+			$message = $this->custom->generic_email( $body, $height = '770px' );
 
-		echo $message; exit;
+			echo $message; 
 
+			$select_what =  '*';
 
+			$leads = $this->my_database_model->select_from_table(
+				$table = 'leads',
+				$select_what
+				);
+
+		echo '<pre>';print_r(  $leads  );echo '</pre>';  exit;
+
+		exit;
 		$config['protocol'] = 'sendmail';
 		$config['mailtype'] = 'html';
 		$config['mailpath'] = '/usr/sbin/sendmail';
@@ -778,12 +788,7 @@ EOWELCOME;
 		$this->email->initialize($config);
 
 		$this->email->from('jamesming@gmail.com', 'James Ming');
-		$this->email->to('
-		asian2see@gmail.com,
-		jamesming@gmail.com,
-		benbundy@gmail.com,
-		jflustyan@gmail.com'
-		);
+		$this->email->to($email);
 
 		$this->email->subject($deals['deal_headline']);
 		$this->email->message($message);

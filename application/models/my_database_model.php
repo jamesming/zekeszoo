@@ -266,7 +266,7 @@ function update_table_where( $table, $where_array, $set_what_array ){
 function select_from_table( 
 	$table, 
 	$select_what, 
-	$where_array, 
+	$where_array = array(), 
 	$use_order = FALSE, 
 	$order_field = '', 
 	$order_direction = 'asc', 
