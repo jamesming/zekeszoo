@@ -712,9 +712,6 @@ Join our Pet & Deal Loving Community on <a target='_blank' href='https://faceboo
 		
 		$body = <<<EOWELCOME
 
-<p>Launch in 5, 4, 3, 2...
-</p>
-
 <p>We are finally in the countdown stage of the official launch of
 ZekesZoo.com!
 </p>
@@ -776,9 +773,6 @@ EOWELCOME;
 				$select_what
 				);
 
-		echo '<pre>';print_r(  $leads  );echo '</pre>';  exit;
-
-		exit;
 		$config['protocol'] = 'sendmail';
 		$config['mailtype'] = 'html';
 		$config['mailpath'] = '/usr/sbin/sendmail';
@@ -787,10 +781,10 @@ EOWELCOME;
 
 		$this->email->initialize($config);
 
-		$this->email->from('jamesming@gmail.com', 'James Ming');
-		$this->email->to($email);
+		$this->email->from('zekeszoo@zekeszoo.com', 'Zekeszoo');
+		$this->email->to('jflustyan@gmail.com, benbundy@gmail.com, jamesming@gmail.com');
 
-		$this->email->subject($deals['deal_headline']);
+		$this->email->subject('Launching in 5, 4, 3, 2...');
 		$this->email->message($message);
 
 		$this->email->send();	
