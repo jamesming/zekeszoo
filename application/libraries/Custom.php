@@ -404,7 +404,7 @@ private $CI;
 								<div   style='clear:both;margin-left:40px'  >
 								
 											
-											<div    style='font-size:16px;float:left;margin:4px 10px 0px 0px;' >Share
+											<div    style='font-size:16px;float:left;margin:4px 10px 0px 0px;' >Join
 											</div>
 											
 <a target='_blank' href='http://www.facebook.com/zekeszoo'>

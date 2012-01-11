@@ -724,7 +724,7 @@ ZekesZoo.com!
 </p>
 <p>Because you were one of the earliest people to sign-up @ ZekesZoo.com we
 want you to be one of the first to know we will launch our very 1st online
-sales event next Friday, January 13th at 9am PST.
+sales event this Friday, January 13th at 9am PST.
 </p>
 
 <p>
