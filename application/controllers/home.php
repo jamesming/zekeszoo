@@ -1419,7 +1419,7 @@ EOWELCOME;
 
 
 
-		$select_what =  'fullname';
+		$select_what =  'full_name';
 
 		$where_array = array('id' => $this->uri->segment(3));
 
