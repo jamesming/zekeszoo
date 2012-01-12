@@ -381,6 +381,7 @@ private $CI;
 				background-repeat:repeat;
     		background-position: -300px -420px;		
 				height:106px;
+				white-space:nowrap;
 				'  >
 					<a target='_blank' href='http://www.zekeszoo.com/index.php/home'><div   style='float:left;padding:10px 10px 20px'  >
 						<img width='150px' src='http://zekeszoo.com/images/sites/zekeszoo/logo_plain.png'>
