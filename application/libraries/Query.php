@@ -483,6 +483,14 @@ Thanks so much, once again, for registering.
 					$message = $this->CI->custom->generic_email_no_social_icons($body );
 
 					$this->CI->load->library('email');
+					
+					$config['protocol'] = 'sendmail';
+					$config['mailtype'] = 'html';
+					$config['mailpath'] = '/usr/sbin/sendmail';
+					$config['charset'] = 'iso-8859-1';
+					$config['wordwrap'] = TRUE;
+			
+					$this->CI->email->initialize($config);		
 
 					$this->CI->email->from('zekeszoo@zekeszoo.com', 'zekeszoo');
 					$this->CI->email->to($post_array['email']);
