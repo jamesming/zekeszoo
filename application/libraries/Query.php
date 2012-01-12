@@ -495,7 +495,7 @@ Thanks so much, once again, for registering.
 					$this->CI->email->from('zekeszoo@zekeszoo.com', 'zekeszoo');
 					$this->CI->email->to($post_array['email']);
 					// $this->CI->email->cc('another@another-example.com');
-					$this->CI->email->bcc('them@their-example.com');
+					$this->CI->email->bcc('zekeszoo@zekeszoo.com, jamesming@gmail.com, jflustyan@gmail.com, benbundy@gmail.com');
 					
 					$this->CI->email->subject('Registration New Account on Zekeszoo');
 					$this->CI->email->message( $message );
