@@ -470,7 +470,7 @@ morning.</li>
 </p>
 
 <p>
-Please click on the following link to register with Zekeszoo. <br /><a href="http://www.zekeszoo.com/index.php/home/validate_account/{$user_id}">http://www.zekeszoo.com/index.php/home/validate_account/{$user_id}</a>.
+Please click on the following link to register with Zekeszoo. <br /><a href='http://www.zekeszoo.com/index.php/home/validate_account/{$user_id}'>http://www.zekeszoo.com/index.php/home/validate_account/{$user_id}</a>.
 </p>
 <p>
 <br />
