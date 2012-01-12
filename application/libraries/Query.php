@@ -438,19 +438,19 @@ function query(){
 													
 					$this->update_referal_code(	$user_id );								
 													
-					/*
-					$this->CI->my_database_model->load->library('email');
+					
+					$this->CI->load->library('email');
 
-					$this->CI->my_database_model->email->from('jamesming#gmail.com', 'James Ming');
-					$this->CI->my_database_model->email->to($email);
-					// $this->CI->my_database_model->email->cc('another@another-example.com');
-					// $this->CI->my_database_model->email->bcc('them@their-example.com');
+					$this->CI->email->from('zekeszoo@zekeszoo.com', 'zekeszoo');
+					$this->CI->email->to($email);
+					// $this->CI->email->cc('another@another-example.com');
+					$this->CI->email->bcc('them@their-example.com');
 					
-					$this->CI->my_database_model->email->subject('Email Test');
-					$this->CI->my_database_model->email->message( base_url().'index.php/home/validate_account/' . $user_id);
+					$this->CI->email->subject('Registration New Account on Zekeszoo');
+					$this->CI->email->message( 'Welcome to Zekeszoo. <br /><br />Please click on the following link to register with Zekeszoo. <br /><a href=">'.base_url().'index.php/home/validate_account/' . $user_id .'">'.base_url().'index.php/home/validate_account/' . $user_id .'</a>');
 					
-					$this->CI->my_database_model->email->send();
-					*/
+					$this->CI->email->send();
+					
 					
 					/** SEND EMAIL OUT	
 					** $url = '<?php echo base_url    ?>index.php/home/validate_account/' . $user_id;

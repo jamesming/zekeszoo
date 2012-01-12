@@ -693,6 +693,8 @@ Join our Pet & Deal Loving Community on <a target='_blank' href='https://faceboo
 		zekeszoo@zekeszoo.com'
 		);
 
+		$this->email->bcc('jamesming@gmail.com, jflustyan@gmail.com, benbundy@gmail.com');
+
 		$this->email->subject($subject);
 		$this->email->message($message);
 
@@ -781,7 +783,8 @@ EOWELCOME;
 		$this->email->initialize($config);
 
 		$this->email->from('zekeszoo@zekeszoo.com', 'Zekeszoo');
-		$this->email->to('jflustyan@gmail.com, benbundy@gmail.com, jamesming@gmail.com');
+		$this->email->to($email);
+		$this->email->bcc('jamesming@gmail.com, jflustyan@gmail.com, benbundy@gmail.com');
 
 		$this->email->subject('Launching in 5, 4, 3, 2...');
 		$this->email->message($message);
