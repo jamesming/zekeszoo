@@ -22,19 +22,19 @@
     margin: 10px;
     padding: 18px;
     width:767px;
-    height:793px;
+    height:453px;
 }
 #outer_container div#logo_div {
     width: 57%;
 }
 #outer_container div#voucher_number {
-    font-size: 68px;
+    font-size: 28px;
     padding-top: 13px;
     text-align: right;
     width: 43%;
 }
 #outer_container div#headline {
-    font-size: 48px;
+    font-size: 18px;
     padding: 20px 0px 20px 5px;
     line-height: 0.95;
 }
@@ -68,7 +68,10 @@
     font-size: 5px;
     padding: 9px 0px;
 }
-
+a{
+text-decoration:underline;
+color:blue;	
+}
 </style>
 <body>
 	
@@ -85,14 +88,22 @@
 		</div>
 		
 		<div id='headline' class='clearfix ' >
-			<?php echo $deals[0]->deal_headline    ?>
+			<?php echo $deals[0]->company_name .' - '. $deals[0]->deal_name    ?>
 		</div>
 		
 		<div>
 			<div id='image_div' class=' float_left' >
 				<img src='<?php echo base_url().'uploads/1/'.$deals[0]->deal_id.'/bw_image.png?random='.rand(5,21231); ?>'>
 			</div>
+			
+			
+			
+			
 			<div id='info_right_div'  class=' float_left' >
+
+<table>
+	<tr>
+		<td>
 				<div class='small_header clearfix '>Value:
 				</div>
 				<div class='clearfix content_text'>
@@ -101,23 +112,75 @@
 				<div class='small_header clearfix '>Issued to:
 				</div>
 				<div class='clearfix content_text'><?php  echo $deals[0]->first_name   ?> <?php  echo $deals[0]->last_name   ?>
-				</div> 
+				</div> 			
+			
+		</td>
+		<td>
+			
+				<?php if( $deals[0]->redemption_type_id == 1){?>
+						<div class='small_header clearfix '>Deliver to:
+						</div>
+						<div class='clearfix content_text'>
+							<?php echo $deals[0]->shipping_first_name;  ?>&nbsp;<?php echo $deals[0]->shipping_last_name;  ?><br />
+							<?php echo $deals[0]->shipping_address;  ?><br />
+							<?php echo $deals[0]->shipping_city;  ?><br />
+							<?php echo $deals[0]->shipping_state;  ?><br />
+							<?php echo $deals[0]->shipping_zipcode;  ?>
+						</div> 				
+				<?php }elseif($deals[0]->redemption_type_id == 2){?>
 				
-				<div class='small_header clearfix '>Expires:
-				</div>
-				<div class='clearfix content_text'>
-					<?php echo  date("F j, Y", strtotime($deals[0]->deal_will_expire) );  ?>
-				</div> 		
-				<div class='small_header clearfix '>Redeem at:
-				</div>
-				<div class='clearfix content_text'>
-					<?php echo $deals[0]->company_name;  ?><br />
-					<?php echo $deals[0]->address;  ?><br />
-					<?php echo $deals[0]->city;  ?><br />
-					<?php echo $deals[0]->state;  ?><br />
-					<?php echo $deals[0]->zipcode;  ?><br />
-					<?php echo $deals[0]->vendor_website;  ?><br />
-				</div> 		
+						<div class='small_header clearfix '>Expires:
+						</div>
+						<div class='clearfix content_text'>
+							<?php echo  date("F j, Y", strtotime($deals[0]->deal_will_expire) );  ?>
+						</div>				
+				
+						<div class='small_header clearfix '>Redeem at:
+						</div>
+						<div class='clearfix content_text'>
+							<?php echo $deals[0]->company_name;  ?><br />
+							<?php echo $deals[0]->address;  ?><br />
+							<?php echo $deals[0]->city;  ?><br />
+							<?php echo $deals[0]->state;  ?><br />
+							<?php echo $deals[0]->zipcode;  ?><br />
+							Online:&nbsp;&nbsp;<a href='http://<?php echo $deals[0]->vendor_website;  ?>'>http://<?php echo $deals[0]->vendor_website;  ?></a>
+						</div> 				
+				<?php }elseif($deals[0]->redemption_type_id == 3){?>
+				
+						<div class='small_header clearfix '>Expires:
+						</div>
+						<div class='clearfix content_text'>
+							<?php echo  date("F j, Y", strtotime($deals[0]->deal_will_expire) );  ?>
+						</div>				
+				
+						<div class='small_header clearfix '>Redeem:
+						</div>
+						<div class='clearfix content_text'>
+							Online:&nbsp;&nbsp;<a href='http://<?php echo $deals[0]->vendor_website;  ?>'>http://<?php echo $deals[0]->vendor_website;  ?></a>
+						</div> 
+						
+						<div class='small_header clearfix '>Code:
+						</div>
+						<div class='clearfix content_text'>
+							<?php  echo abs(rand(5, 12312312323))   ?>
+						</div> 								
+				<?php } ?>			
+			
+		</td>
+	</tr>
+</table>
+
+
+
+
+
+				
+
+				
+
+				
+				 		
+		
 			</div>
 		</div>
 

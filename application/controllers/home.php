@@ -795,8 +795,8 @@ EOWELCOME;
 //					echo "<br />";
 //					echo $lead->email."<br />";
 			
-					$this->email->to($lead->email.',zekeszoo@zekeszoo.com');
-					$this->email->send();				
+//					$this->email->to($lead->email.',zekeszoo@zekeszoo.com');
+//					$this->email->send();				
 			
 		}
 
@@ -1045,8 +1045,16 @@ EOWELCOME;
 										 users.id as user_id,
 										 users.first_name,
 										 users.last_name,
+										 users.shipping_first_name,										 
+										 users.shipping_last_name,										 
+										 users.shipping_address,										 
+										 users.shipping_city,										 
+										 users.shipping_state,										 
+										 users.shipping_zipcode,										 
 										 deal_short_description,
 										 deals.deal_price,
+										 deals.deal_name,
+										 deals.redemption_type_id,
 										 deals.deal_will_expire,
 										 deals.deal_finepoints,
 										 deals.id as deal_id,
@@ -3178,7 +3186,7 @@ EOWELCOME;
 
 
 					$insert_what = array(
-																	'activate' => 0,
+																	'activate' => 1,
 					                        'site_id' =>  $this->site_id,
 					                        'first_name' =>  $this->input->post('first_name'),
 					                        'last_name' =>  $this->input->post('last_name'),

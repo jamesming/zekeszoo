@@ -97,4 +97,12 @@ margin-top: 20px;
 																			    padding: 2px 2px 0px;
 																			    height: 86px;										  		
 													  		}
+													  		
+													  		
+													  		
+																			table#deal-grid .transaction_div li a{
+																					color:blue;
+																					text-decoration:underline;	
+																					}
+
 </style>

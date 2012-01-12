@@ -92,6 +92,7 @@
 																							<?php  echo $transaction['deal_short_description'];   ?>	
 																						</a>
 																					</div>
+
 																					<div class=' transaction_div float_left '>
 																						<ul>
 																						<?php foreach($transaction['user_deals']  as $one_user_deal  ){  ?>
@@ -139,34 +140,36 @@
 																													<?php  echo $transaction['deal_short_description'];   ?>	
 																												</a>
 																											</div>		
-																											
-																											<ul>
-																											<?php foreach($transaction['user_deals']  as $one_user_deal  ){  ?>
-																											
-							
-																																			<li>
-																																					<a href='<?php echo base_url();    ?>index.php/home/voucher/<?php echo $one_user_deal['id']    ?>' target='_blank'> 
-																																						<?php echo $one_user_deal['id']    ?>
-																																					</a>
-																																					&nbsp;&nbsp;
-																																					<span  class='redeem ' user_deal_id=<?php echo $one_user_deal['id']    ?> redeemed=<?php echo $one_user_deal['redeemed'];    ?>>
-																																						
-																																						
-																																						<?php if( $one_user_deal['redeemed'] == 0){?>
-																																								(redeem)
-																																						<?php }else{?>
-																																								(unredeem)
-																																						<?php } ?>
-																																						
-																																						
-																																						
-																																						
-																																						</span>
-																																			</li>																								
-								
-																											
-																											<?php } ?>
-																											</ul>			
+																											<div  class='transaction_div ' >
+																														<ul>
+																														<?php foreach($transaction['user_deals']  as $one_user_deal  ){  ?>
+																														
+										
+																																						<li>
+																																								<a href='<?php echo base_url();    ?>index.php/home/voucher/<?php echo $one_user_deal['id']    ?>' target='_blank'> 
+																																									<?php echo $one_user_deal['id']    ?>
+																																								</a>
+																																								&nbsp;&nbsp;
+																																								<span  class='redeem ' user_deal_id=<?php echo $one_user_deal['id']    ?> redeemed=<?php echo $one_user_deal['redeemed'];    ?>>
+																																									
+																																									
+																																									<?php if( $one_user_deal['redeemed'] == 0){?>
+																																											(redeem)
+																																									<?php }else{?>
+																																											(unredeem)
+																																									<?php } ?>
+																																									
+																																									
+																																									
+																																									
+																																									</span>
+																																						</li>																								
+											
+																														
+																														<?php } ?>
+																														</ul>																															
+																											</div>
+
 																																															
 																					</td>
 																					<td>
