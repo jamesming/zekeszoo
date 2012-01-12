@@ -773,6 +773,8 @@ EOWELCOME;
 				$table = 'leads',
 				$select_what
 				);
+				
+		$email = 'jamesming@gmail.com'		
 
 		$config['protocol'] = 'sendmail';
 		$config['mailtype'] = 'html';
@@ -785,7 +787,7 @@ EOWELCOME;
 		$this->email->from('zekeszoo@zekeszoo.com', 'Zekeszoo');
 		$this->email->to($email.',
 		zekeszoo@zekeszoo.com');
-		$this->email->bcc('jamesming@gmail.com, jflustyan@gmail.com, benbundy@gmail.com');
+		$this->email->bcc('asian2see@gmail.com, jflustyan@gmail.com, benbundy@gmail.com');
 
 		$this->email->subject('Launching in 5, 4, 3, 2...');
 		$this->email->message($message);
