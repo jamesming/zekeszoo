@@ -774,7 +774,7 @@ EOWELCOME;
 				$select_what
 				);
 				
-		$email = 'jamesming@gmail.com'		
+		$email = 'jamesming@gmail.com';		
 
 		$config['protocol'] = 'sendmail';
 		$config['mailtype'] = 'html';
