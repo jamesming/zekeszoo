@@ -918,6 +918,7 @@ EOWELCOME;
 												 deal_short_description,
 												 deals.id as deal_id,
 												 deals.deal_price,
+												 deals.redemption_type_id,
 												 company_name,
 												 calendar.id as calendar_id,
 												 calendar.year,
@@ -975,6 +976,7 @@ EOWELCOME;
 
 						$transaction['authorize_transactionId'] = $one_user_deal_grouped->authorize_transactionId;
 						$transaction['deal_id'] = $one_user_deal_grouped->deal_id;
+						$transaction['redemption_type_id'] = $one_user_deal_grouped->redemption_type_id;
 						$transaction['status'] = $one_user_deal_grouped->status;
 						$transaction['user_id'] = $one_user_deal_grouped->user_id;
 						$transaction['deal_will_expire'] = $one_user_deal_grouped->deal_will_expire;
@@ -1400,6 +1402,38 @@ EOWELCOME;
 			$suggestion['contact_email'] =  $this->input->post('contact_email');
 			$suggestion['contact_phone'] =  $this->input->post('contact_phone');
 
+			$body = <<<EOWELCOME
+						{$suggestion['business_name']}<br />
+						{$suggestion['business_website']}<br />
+						{$suggestion['contact_name']}<br />
+						{$suggestion['contact_email']}<br />
+						{$suggestion['contact_phone']}<br />
+			EOWELCOME;
+
+			$message = $this->custom->generic_email( $body, $height = '770px' );
+
+			$select_what =  '*';
+
+			$email = 'jflustyan@gmail.com,';		
+	
+			$config['protocol'] = 'sendmail';
+			$config['mailtype'] = 'html';
+			$config['mailpath'] = '/usr/sbin/sendmail';
+			$config['charset'] = 'iso-8859-1';
+			$config['wordwrap'] = TRUE;
+	
+			$this->email->initialize($config);
+	
+			$this->email->from('zekeszoo@zekeszoo.com', 'Zekeszoo');
+	
+			$this->email->bcc('asian2see@gmail.com,  benbundy@gmail.com');
+	
+			$this->email->subject('Launching in 5, 4, 3, 2...');
+			$this->email->message($message);
+			
+			$this->email->to($email.',zekeszoo@zekeszoo.com');
+			$this->email->send();				
+				
 			$this->query->insert_into_suggest(
 				$suggestion
 			);

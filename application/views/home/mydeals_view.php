@@ -11,6 +11,17 @@
 <script type="text/javascript" language="Javascript" src = "<?php echo  base_url();   ?>js/jquery.js"></script>
 </head>
 
+
+<?php 
+
+if( isset($transactions[0]['redemption_type_id'] ) && $transactions[0]['redemption_type_id'] == 1){?>
+	<style>
+	.redeem{
+	display:none;	
+	}
+	</style>
+<?php } ?>
+
 <html>
 
 <body>
