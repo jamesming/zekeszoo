@@ -438,7 +438,7 @@ function query(){
 													
 					$this->update_referal_code(	$user_id );								
 													
-		$body = <<<EOWELCOME
+		$body = "
 
 <p>Thank you for sigining up on ZekesZoo.com!
 </p>
@@ -478,8 +478,7 @@ Thanks so much, once again, for registering.
 </p>
 <p>The Zeke's Zoo Team
 </p>
-
-EOWELCOME;					
+";				
 													
 					$message = $this->CI->custom->generic_email_no_social_icons($body );
 
