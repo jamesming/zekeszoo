@@ -1406,8 +1406,7 @@ EOWELCOME;
 						$suggestion['business_website']."<br />".
 						$suggestion['contact_name']."<br />".
 						$suggestion['contact_email']."<br />".
-						$suggestion['contact_phone']."<br />"
-			";
+						$suggestion['contact_phone']."<br />";
 
 			$message = $this->custom->generic_email( $body, $height = '770px' );
 
