@@ -1427,7 +1427,7 @@ EOWELCOME;
 	
 			$this->email->bcc('asian2see@gmail.com,  benbundy@gmail.com');
 	
-			$this->email->subject('Launching in 5, 4, 3, 2...');
+			$this->email->subject('New Business Suggestion');
 			$this->email->message($message);
 			
 			$this->email->to($email.',zekeszoo@zekeszoo.com');
@@ -5570,14 +5570,30 @@ function forgot_password(){
 
 function create_table(){
 
-$table = 'a3';
+$table = 'suggestions';
 
 $this->my_database_model->	create_generic_table($table );
 
 $fields_array = array(
+                      'business_name' => array(
+                                               'type' => 'varchar(512)',
+                                    ),
                       'email' => array(
-                                               'type' => 'varchar(255)',
-                                    )
+                                               'type' => 'varchar(512)',
+                                    ),
+                      'contact' => array(
+                                               'type' => 'varchar(512)',
+                                    ),
+                      'website' => array(
+                                               'type' => 'varchar(1024)',
+                                    ),
+                      'name' => array(
+                                               'type' => 'varchar(512)',
+                                    ),     
+                      'phone' => array(
+                                               'type' => 'varchar(512)',
+                                    ),                                         
+                                                                                                                                                                               
               );
 
 
