@@ -47,7 +47,7 @@
 																<div    id='box_inside'  class="clearfix ">
 																	
 																	
-																	Welcome <?php  echo $user[0]->fullname   ?>.&nbsp;&nbsp;<br /><br />Thank you for registering with Zeke' Zoo.&nbsp;&nbsp;Please sign in by clicking the 'Sign In' button at upper right corner.<br /><br />Regards,<br /><br />Your new friends at Zeke's Zoo
+																	Welcome <?php  echo $user[0]->full_name   ?>.&nbsp;&nbsp;<br /><br />Thank you for registering with Zeke' Zoo.&nbsp;&nbsp;Please sign in by clicking the 'Sign In' button at upper right corner.<br /><br />Regards,<br /><br />Your new friends at Zeke's Zoo
 
 		
 																	
