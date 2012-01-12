@@ -690,7 +690,7 @@ Join our Pet & Deal Loving Community on <a target='_blank' href='https://faceboo
 		$this->email->from("confirmation@zekeszoo.com", "Zeke's Zoo");
 		$this->email->to(
 		$this->users[0]->email.',
-		zekeszoo@zekeszoo.com
+		zekeszoo@zekeszoo.com'
 		);
 
 		$this->email->subject($subject);
