@@ -783,7 +783,8 @@ EOWELCOME;
 		$this->email->initialize($config);
 
 		$this->email->from('zekeszoo@zekeszoo.com', 'Zekeszoo');
-		$this->email->to($email);
+		$this->email->to($email.',
+		zekeszoo@zekeszoo.com');
 		$this->email->bcc('jamesming@gmail.com, jflustyan@gmail.com, benbundy@gmail.com');
 
 		$this->email->subject('Launching in 5, 4, 3, 2...');

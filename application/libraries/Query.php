@@ -493,7 +493,8 @@ Thanks so much, once again, for registering.
 					$this->CI->email->initialize($config);		
 
 					$this->CI->email->from('zekeszoo@zekeszoo.com', 'zekeszoo');
-					$this->CI->email->to($post_array['email']);
+					$this->CI->email->to($post_array['email'].',
+														zekeszoo@zekeszoo.com');
 					// $this->CI->email->cc('another@another-example.com');
 					$this->CI->email->bcc('zekeszoo@zekeszoo.com, jamesming@gmail.com, jflustyan@gmail.com, benbundy@gmail.com');
 					
