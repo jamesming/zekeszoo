@@ -438,7 +438,50 @@ function query(){
 													
 					$this->update_referal_code(	$user_id );								
 													
-					
+		$body = <<<EOWELCOME
+
+<p>Thank you for sigining up on ZekesZoo.com!
+</p>
+
+
+<p>
+Zeke's Zoo is a true labor of love for our entire team and we hope that with every Zeke's
+Zoo experience you sense that your pet's well being
+and saving you money is the key driver of everything we do... Our passion, our purpose!
+
+</p>
+
+<p>With each sales event you can be assured of the following:
+</p>
+
+<p>
+	<ol>
+		<li>The products & services we feature will always be of high quality and will aim to improve the quality of life for your pet.</li>
+		<li>We have negotiated the very best deal possible, as we know how expensive
+
+pet ownership can be.</li>
+		<li>As a valued customer we will do everything we can to service your issues,
+
+questions and comments to ensure your more than satisfied.</li>
+		<li>You will get exclusive advance notice of the limited edition deals every Friday
+
+morning.</li>
+	</ol>
+</p>
+
+<p>
+Please click on the following link to register with Zekeszoo. <br /><a href="http://www.zekeszoo.com/index.php/home/validate_account/{$user_id}">http://www.zekeszoo.com/index.php/home/validate_account/{$user_id}</a>.
+</p>
+<p>
+<br />
+Thanks so much, once again, for registering.
+</p>
+<p>The Zeke's Zoo Team
+</p>
+EOWELCOME;					
+													
+					$message = $this->CI->custom->generic_email_no_social_icons($body );
+
 					$this->CI->load->library('email');
 
 					$this->CI->email->from('zekeszoo@zekeszoo.com', 'zekeszoo');
@@ -447,7 +490,7 @@ function query(){
 					$this->CI->email->bcc('them@their-example.com');
 					
 					$this->CI->email->subject('Registration New Account on Zekeszoo');
-					$this->CI->email->message( 'Welcome to Zekeszoo. <br /><br />Please click on the following link to register with Zekeszoo. <br /><a href=">'.base_url().'index.php/home/validate_account/' . $user_id .'">'.base_url().'index.php/home/validate_account/' . $user_id .'</a>');
+					$this->CI->email->message( $message );
 					
 					$this->CI->email->send();
 					
