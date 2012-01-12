@@ -1410,7 +1410,8 @@ EOWELCOME;
 
 			$message = $this->custom->generic_email( $body, $height = '770px' );
 
-			$select_what =  '*';
+			$this->load->library('email');
+		
 
 			$email = 'jflustyan@gmail.com,';		
 	
