@@ -785,14 +785,21 @@ EOWELCOME;
 		$this->email->initialize($config);
 
 		$this->email->from('zekeszoo@zekeszoo.com', 'Zekeszoo');
-		$this->email->to($email.',
-		zekeszoo@zekeszoo.com');
+
 		$this->email->bcc('asian2see@gmail.com, jflustyan@gmail.com, benbundy@gmail.com');
 
 		$this->email->subject('Launching in 5, 4, 3, 2...');
 		$this->email->message($message);
+		
+		foreach( $leads  as $lead){
+					echo "<br />";
+					echo $lead->email."<br />";
+			
+					// $this->email->to($lead->email.',zekeszoo@zekeszoo.com');
+					// $this->email->send();				
+			
+		}
 
-		$this->email->send();	
 		
 	}
 
