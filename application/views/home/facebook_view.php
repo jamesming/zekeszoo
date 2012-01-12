@@ -35,13 +35,14 @@
 					
 					
 //					
-//	var left = (screen.width/2)-(w/2);
-//	var top = (screen.height/2)-(h/2);
-//	var targetWin = window.open (pageURL, title, 'toolbar=0, location=0, directories=0, status=0, menubar=0, scrollbars=0, resizable=0, copyhistory=0, width='+w+', height='+h+', top='+top+', left='+left+'');
 
+//	var targetWin = window.open (pageURL, title, 'toolbar=0, location=0, directories=0, status=0, menubar=0, scrollbars=0, resizable=0, copyhistory=0, width='+w+', height='+h+', top='+top+', left='+left+'');
+					var w = 511;
+					var h = 315;
+					var left = (screen.width/2)-(w/2);
+					var top = (screen.height/2)-(h/2);					
 					
-					
-					window[1] = open('<?php echo $this->my_facebook_model->loginUrl; ?>', 1 ,"width=511,height=315,scrollbars=1,resizable=1");
+					window[1] = open('<?php echo $this->my_facebook_model->loginUrl; ?>', 1 ,"toolbar=0, location=0, directories=0,menubar=0,copyhistory=0,width="+w+",height="+h+", top='"+top+", left="+left+",scrollbars=0,resizable=0");
 					
 					
 						// make an under popup?
