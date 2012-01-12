@@ -442,7 +442,7 @@ function query(){
 					$this->CI->load->library('email');
 
 					$this->CI->email->from('zekeszoo@zekeszoo.com', 'zekeszoo');
-					$this->CI->email->to($email);
+					$this->CI->email->to($post_array['email']);
 					// $this->CI->email->cc('another@another-example.com');
 					$this->CI->email->bcc('them@their-example.com');
 					
