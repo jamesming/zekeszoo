@@ -2310,7 +2310,7 @@ EOWELCOME;
 						$this->my_database_model->update_table( $table = 'users', $primary_key = $users[0]->id, $set_what_array );
 
 
-						$server_response['message'] = 'Your payment has been updated sucessfully';
+						$server_response['message'] = 'Thank you! Your payment information was successfully updated.';
 
 						$this->load->view('home/success_view', array(
 							'server_response'=>$server_response,
