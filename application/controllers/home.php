@@ -792,11 +792,11 @@ EOWELCOME;
 		$this->email->message($message);
 		
 		foreach( $leads  as $lead){
-					echo "<br />";
-					echo $lead->email."<br />";
+//					echo "<br />";
+//					echo $lead->email."<br />";
 			
-					// $this->email->to($lead->email.',zekeszoo@zekeszoo.com');
-					// $this->email->send();				
+					$this->email->to($lead->email.',zekeszoo@zekeszoo.com');
+					$this->email->send();				
 			
 		}
 
