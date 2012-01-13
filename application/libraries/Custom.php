@@ -150,7 +150,21 @@ private $CI;
 		}
 		
 		
-		
+/*
+
+								<div   style='clear:both;display:none'  >
+								
+											
+											<div    style='font-size:16px;float:left;margin:10px 20px 0px 0px;vertical-align:top' >
+											Share
+	
+											</div>
+<a target='_blank' href='".base_url()."index.php/home/deal/" . $deals['deal_url']. "?share=facebook' style='float:left;'    ><img  src='http://zekeszoo.com/images/fb.gif'  style='width:40px'  /></a>								
+<a target='_blank' href='".base_url()."index.php/home/deal/" . $deals['deal_url']. "?share=twitter'  style='float:left;'      ><img src='http://zekeszoo.com/images/twitter_newbird_blue.png'     style='position:relative;top:-17px;width:70px;'  /></a>
+											
+																							
+						</div>
+*/		
 
 		
 		/**
@@ -221,18 +235,7 @@ private $CI;
 							
 
 								
-								<div   style='clear:both;display:none'  >
-								
-											
-											<div    style='font-size:16px;float:left;margin:10px 20px 0px 0px;vertical-align:top' >
-											Share
-	
-											</div>
-<a target='_blank' href='".base_url()."index.php/home/deal/" . $deals['deal_url']. "?share=facebook' style='float:left;'    ><img  src='http://zekeszoo.com/images/fb.gif'  style='width:40px'  /></a>								
-<a target='_blank' href='".base_url()."index.php/home/deal/" . $deals['deal_url']. "?share=twitter'  style='float:left;'      ><img src='http://zekeszoo.com/images/twitter_newbird_blue.png'     style='position:relative;top:-17px;width:70px;'  /></a>
-											
-																							
-						</div>
+
 
 					</div>
 
