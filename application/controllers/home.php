@@ -2940,7 +2940,7 @@ EOWELCOME;
 					}
 					elseif( $response->xml->messages->message->text == 'The transaction has been declined because of an AVS mismatch. The address provided does not match billing address of cardholder.'){
 						$server_response['type'] = 'The transaction has been declined because of an AVS mismatch. The address provided does not match billing address of cardholder.';
-						$server_response['message'] = 'The address provided does not match billing address of cardholder.&nbsp;&nbsp;Please check the information provided.';
+						$server_response['message'] = 'The address provided does not match billing address of cardholder.';
 						$server_response['payment_info_pairs'] = array();
 						$server_response['bad_fields'] = array(
 																							'cc_address',
