@@ -302,7 +302,7 @@ private $CI;
 					'  >
 					</div>	
 				</a>	
-				<div style='clear:both;padding:10px 15px 0px;'>".$deals['deal_short_description']."
+				<div style='clear:both;padding:10px 15px 0px;'>".$deals['deal_description_snippet_for_email']."
 				</div>
 				<a target='_blank' href='".base_url()."index.php/home/buy/".$deals['deal_id']."'>	
 					<div   style='
