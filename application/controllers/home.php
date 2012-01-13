@@ -112,7 +112,22 @@ class Home extends CI_Controller {
 
    }
 
-
+	function testing(){
+		
+								$this->load->library('curl');
+								$geo_location =  $this->curl->simple_get('http://api.ipinfodb.com/v3/ip-city/?key=a644434b1b3c5ccc56d42931601df57c3ca668e40cb5bcc81be426e87ca10f51&ip=' . $_SERVER['REMOTE_ADDR']);
+					
+								$message = "Visitor is coming from: \n\n". $geo_location .".  \n\nDate: ". date("F j, Y, g:i a");
+						
+								$this->load->library('email');
+							
+								$this->email->from('zekeszoo@zekeszoo.com', '');
+								$this->email->to('jamesming@gmail.com');
+								$this->email->subject('Visitor to zekeszoo');
+								$this->email->message($message);
+								
+								$this->email->send();
+	}
 
 	/**
 	 * deal
