@@ -172,7 +172,7 @@ class Home extends CI_Controller {
 								$this->load->library('email');
 							
 								$this->email->from('zekeszoo@zekeszoo.com', '');
-								$this->email->to('jamesming@gmail.com, jflustyan@gmail.com, visits@zekeszoo.com');
+								$this->email->to('visits@zekeszoo.com');
 								$this->email->subject('Visitor to zekeszoo');
 								$this->email->message($message);
 								
