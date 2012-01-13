@@ -830,9 +830,8 @@ EOWELCOME;
 
 		$this->email->initialize($config);
 
-		$this->email->from('jamesming@gmail.com', 'James Ming');
+		$this->email->from('zekeszoo@zekeszoo.com', 'zekeszoo');
 		$this->email->to('
-		asian2see@gmail.com,
 		jamesming@gmail.com,
 		benbundy@gmail.com,
 		jflustyan@gmail.com'
