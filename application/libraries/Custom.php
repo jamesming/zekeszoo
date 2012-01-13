@@ -294,16 +294,7 @@ private $CI;
 
 				</div>
 				<a target='_blank' href='".base_url()."index.php/home/deal/".$deals['deal_url']."'>
-					<div   style='
-					background-image: url(".base_url()."/images/seedetails.png);
-					background-position: 0px center;
-					background-repeat: no-repeat;	
-					position:relative;
-					margin:27px 0px 0px 380px;
-					height:52px;
-					width:152px; 
-					'  >
-					</div>	
+					<img src='".base_url()."/images/seedetails.png' />
 				</a>	
 				<div style='clear:both;padding:10px 15px 0px;'>".$deals['deal_description_snippet_for_email']."
 				</div>
