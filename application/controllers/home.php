@@ -831,16 +831,33 @@ EOWELCOME;
 		$this->email->initialize($config);
 
 		$this->email->from('zekeszoo@zekeszoo.com', 'zekeszoo');
+		
+		$this->email->subject('$10 for a Reflective, Velcro Dog Collar from Boett USA - a $20 value!');
+		$this->email->message($message);		
+
+		
 		$this->email->to('
-		jamesming@gmail.com,
-		benbundy@gmail.com,
-		jflustyan@gmail.com'
+		jamesming@gmail.com'
 		);
 
-		$this->email->subject('$10 for a Reflective, Velcro Dog Collar from Boett USA - a $20 value!');
-		$this->email->message($message);
-
 		$this->email->send();
+
+//			$select_what =  '*';
+//
+//			$leads = $this->my_database_model->select_from_table(
+//				$table = 'leads',
+//				$select_what
+//				);		
+//				
+//			foreach( $leads  as $lead){
+//						echo "<br />";
+//						echo $lead->email."<br />";
+//				
+//						$this->email->to($lead->email.',zekeszoo@zekeszoo.com');
+//						$this->email->send();				
+//				
+//			}
+
 
 		//echo $this->email->print_debugger();
 
