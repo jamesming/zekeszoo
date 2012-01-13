@@ -837,7 +837,7 @@ EOWELCOME;
 		jflustyan@gmail.com'
 		);
 
-		$this->email->subject($deals['deal_headline']);
+		$this->email->subject('$10 for a Reflective, Velcro Dog Collar from Boett USA - a $20 value!');
 		$this->email->message($message);
 
 		$this->email->send();
