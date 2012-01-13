@@ -843,21 +843,21 @@ EOWELCOME;
 
 		$this->email->send();
 
-			$select_what =  '*';
-
-			$leads = $this->my_database_model->select_from_table(
-				$table = 'leads',
-				$select_what
-				);		
-				
-			foreach( $leads  as $lead){
-						echo "<br />";
-						echo $lead->email."<br />";
-				
-						$this->email->to($lead->email.',zekeszoo@zekeszoo.com');
-						$this->email->send();				
-				
-			}
+//			$select_what =  '*';
+//
+//			$leads = $this->my_database_model->select_from_table(
+//				$table = 'leads',
+//				$select_what
+//				);		
+//				
+//			foreach( $leads  as $lead){
+//						echo "<br />";
+//						echo $lead->email."<br />";
+//				
+//						$this->email->to($lead->email.',zekeszoo@zekeszoo.com');
+//						$this->email->send();				
+//				
+//			}
 
 
 		//echo $this->email->print_debugger();
