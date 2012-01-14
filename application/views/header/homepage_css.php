@@ -295,10 +295,11 @@ min-height:300px;
 }
 		#social_table td {
 		    padding: 6px 0px;
-		    width:50%;
+		    width:300px;
 		}
 		
 		#social_table td#facebook_td {
+			
 		}
 		
 		
