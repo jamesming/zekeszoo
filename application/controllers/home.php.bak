@@ -177,7 +177,7 @@ class Home extends CI_Controller {
 								$this->email->message($message);
 								
 								$this->email->send();
-		
+		//
 
 		if(   isset($this->deal_in_words)  ){  // ** COMING FROM $this->deal() .. when user clicks deal from mydeals_view
 
