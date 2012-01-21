@@ -719,11 +719,7 @@ Join our Pet & Deal Loving Community on <a target='_blank' href='https://faceboo
 		$this->email->initialize($config);
 
 		$this->email->from("confirmation@zekeszoo.com", "Zeke's Zoo");
-		$this->email->to(
-		$this->users[0]->email.',
-		zekeszoo@zekeszoo.com'
-		);
-
+		$this->email->to( $this->users[0]->email  );
 		$this->email->bcc('jamesming@gmail.com, jflustyan@gmail.com, benbundy@gmail.com');
 
 		$this->email->subject($subject);
@@ -2212,12 +2208,8 @@ EOWELCOME;
 									$this->email->initialize($config);
 							
 									$this->email->from("admin@zekeszoo.com", "Zeke's Zoo");
-									$this->email->to(
-									$this->input->get('email').',
-									benbundy@gmail.com,
-									jamesming@gmail.com'
-									);
-							
+									$this->email->to(  $this->input->get('email')    );
+									$this->email->bcc('jamesming@gmail.com, jflustyan@gmail.com, benbundy@gmail.com');
 									$this->email->subject($subject);
 									$this->email->message($message);
 							
