@@ -1122,7 +1122,7 @@ Thanks so much, once again, for registering.
 		$where_array = array(
 		'deal_id' => $post_array['deal_id']
 		);
-		
+
 		return $this->CI->my_database_model->select_from_table( 
 			$table = 'vouchers', 
 			$select_what =  '*', 

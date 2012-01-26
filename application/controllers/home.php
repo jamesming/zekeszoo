@@ -1111,7 +1111,8 @@ EOWELCOME;
 										 vendors.state,
 										 vendors.zipcode,
 										 vendors.telephone,
-										 vendors.vendor_website
+										 vendors.vendor_website,
+										 vouchers.code as code
 										 ';
 
 				$where_array = array(
@@ -1123,7 +1124,8 @@ EOWELCOME;
 											'users' => 'users.id = users_deals.user_id',
 											'deals' => 'deals.id = users_deals.deal_id',
 											'vendors' => 'vendors.id = deals.vendor_id',
-											'calendar' => 'deals.id = calendar.deal_id'
+											'calendar' => 'deals.id = calendar.deal_id',
+											'vouchers' => 'users_deals.id = vouchers.user_deal_id'
 											);
 
 				$deals = $this->my_database_model->select_from_table(
@@ -1138,6 +1140,63 @@ EOWELCOME;
 					$join_array,
 					$group_by = array('users_deals.id')
 					);
+					
+				if( count($deals) == 0){
+
+				$select_what =  '
+										 users_deals.id as user_deal_id,
+										 users_deals.created,
+										 users_deals.authorize_transactionId,
+										 users_deals.status,
+										 users.id as user_id,
+										 users.first_name,
+										 users.last_name,
+										 users.shipping_first_name,										 
+										 users.shipping_last_name,										 
+										 users.shipping_address,										 
+										 users.shipping_city,										 
+										 users.shipping_state,										 
+										 users.shipping_zipcode,										 
+										 deal_short_description,
+										 deals.deal_price,
+										 deals.deal_name,
+										 deals.redemption_type_id,
+										 deals.deal_will_expire,
+										 deals.deal_finepoints,
+										 deals.id as deal_id,
+										 deal_headline,
+										 vendors.company_name,
+										 vendors.address,
+										 vendors.city,
+										 vendors.state,
+										 vendors.zipcode,
+										 vendors.telephone,
+										 vendors.vendor_website
+										 ';					
+					
+					$join_array = array(
+												'users' => 'users.id = users_deals.user_id',
+												'deals' => 'deals.id = users_deals.deal_id',
+												'vendors' => 'vendors.id = deals.vendor_id',
+												'calendar' => 'deals.id = calendar.deal_id'
+												);
+												
+					$deals = $this->my_database_model->select_from_table(
+						$table = 'users_deals',
+						$select_what,
+						$where_array,
+						$use_order = TRUE,
+						$order_field = 'authorize_transactionId, user_deal_id',
+						$order_direction = 'desc',
+						$limit = -1,
+						$use_join = TRUE,
+						$join_array,
+						$group_by = array('users_deals.id')
+						);												
+					
+				};
+					
+					
 
 		$this->load->view('home/voucher_view', array(
 			'deals' => $deals
@@ -5479,6 +5538,8 @@ function insert_email_subscriber(){
 function echo_vouchers_list(){
 
  	$vouchers = $this->tools->object_to_array(  $this->query->get_vouchers( $this->input->post() ) );
+
+ 	
 	$this->custom->echo_vouchers_list(  $vouchers  );
 
 }

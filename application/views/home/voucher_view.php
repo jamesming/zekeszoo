@@ -162,7 +162,7 @@ color:blue;
 						<div class='small_header clearfix '>Code:
 						</div>
 						<div class='clearfix content_text'>
-							<?php  echo abs(rand(5, 12312312323))   ?>
+							<?php  echo ( isset( $deals[0]->code) ? $deals[0]->code:'' );    ?>
 						</div> 								
 				<?php } ?>			
 			
