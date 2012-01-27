@@ -283,7 +283,7 @@ function query(){
   			$where_array = array(
 		  	'year' => date('Y')-1,
 				'day_of_year' . ' <= ' =>  '365',
-				'priority' => $priority				
+				'priority' => 1				
 				);
 				
 				$deals = $this->CI->my_database_model->select_from_table( 
