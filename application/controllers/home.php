@@ -870,7 +870,7 @@ $deals = $this->query->prepare_email_deal_array();
 		benbundy@gmail.com'
 		);
 		
-		$this->email->to('jamesming@gmail.com');		
+
 
 		$this->email->send();
 
