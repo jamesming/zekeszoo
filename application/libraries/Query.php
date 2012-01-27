@@ -221,6 +221,90 @@ function query(){
 	}
 
 
+
+	function get_the_deal(){
+		
+
+		$select_what =  'deals.deal_name, 
+										 deals.deal_headline, 
+										 deal_share_headline,
+										 deals.orig_price,
+										 deals.id as deal_id,
+										 deals.deal_price,
+										 deals.deal_description,
+										 deals.deal_description_snippet_for_email,
+										 deals.priority,
+										 minimum_quantity,
+										 maximum_quantity,
+										 deals.deal_short_description,
+										 deals.each_can_buy,
+										 calendar.id as calendar_id,
+										 calendar.day_of_year,
+										 calendar.day,
+										 calendar.month,
+										 calendar.year,
+										 calendar.tipped_time,
+										 calendar.id as calendar_id,
+										 calendar.deal_url,
+										 vendors.company_name as company_name,
+										 vendors.address,
+										 vendors.city,
+										 vendors.state,
+										 vendors.zipcode,
+										 vendors.vendor_website,
+										 vendor_short_description';
+		
+				$where_array = array(
+		  	'deals.id' => 21				
+				);
+				
+
+		 
+		$join_array = array(
+									'deals' => 'deals.id = calendar.deal_id',
+									'vendors' => 'vendors.id = deals.vendor_id'
+									);
+		
+		$deals = $this->CI->my_database_model->select_from_table( 
+			$table = 'calendar', 
+			$select_what, 
+			$where_array, 
+			$use_order = TRUE, 
+			$order_field = 'year, day_of_year', 
+			$order_direction = 'desc', 
+			$limit = 1, 
+			$use_join = TRUE, 
+			$join_array
+		);	
+			
+  
+  if( count($deals) == 0){  // TRY LAST YEAR
+  	
+  			$where_array = array(
+		  	'year' => date('Y')-1,
+				'day_of_year' . ' <= ' =>  '365',
+				'priority' => $priority				
+				);
+				
+				$deals = $this->CI->my_database_model->select_from_table( 
+					$table = 'calendar', 
+					$select_what, 
+					$where_array, 
+					$use_order = TRUE, 
+					$order_field = 'year, day_of_year', 
+					$order_direction = 'desc', 
+					$limit = 1, 
+					$use_join = TRUE, 
+					$join_array
+				);				
+					
+  	
+  };
+  
+  	
+		return $deals;
+	}
+
 	/**
 	 * get deal by id
 	 * {@source }
@@ -733,8 +817,8 @@ Thanks so much, once again, for registering.
 
 	function prepare_email_deal_array(){
 		
-		$cur_deals = $this->get_today_deal();
-		$cur_deals = $this->get_deal_by_id( $deal_id = 21 );
+		//$cur_deals = $this->get_today_deal();
+		$cur_deals = $this->get_the_deal( );
 		
 		$cur_deals = $this->CI->tools->object_to_array($cur_deals);
 
