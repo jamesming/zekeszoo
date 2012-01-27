@@ -295,7 +295,7 @@ private $CI;
 				
 				 >
 
-					<a target='_blank' href='".base_url()."index.php/home/deal/".$deals['deal_url']."'  style='margin-top:-400px;margin-left:385px'  >
+					<a target='_blank' href='".base_url()."index.php/home/deal/".$deals['deal_url']."'  style='margin-top:10px;margin-left:375px'  >
 						<img src='".base_url()."/images/seedetails.png'     />
 					</a>	
 				</div>
