@@ -277,31 +277,7 @@ function query(){
 			$join_array
 		);	
 			
-  
-  if( count($deals) == 0){  // TRY LAST YEAR
-  	
-  			$where_array = array(
-		  	'year' => date('Y')-1,
-				'day_of_year' . ' <= ' =>  '365',
-				'priority' => 1				
-				);
-				
-				$deals = $this->CI->my_database_model->select_from_table( 
-					$table = 'calendar', 
-					$select_what, 
-					$where_array, 
-					$use_order = TRUE, 
-					$order_field = 'year, day_of_year', 
-					$order_direction = 'desc', 
-					$limit = 1, 
-					$use_join = TRUE, 
-					$join_array
-				);				
-					
-  	
-  };
-  
-  	
+
 		return $deals;
 	}
 
