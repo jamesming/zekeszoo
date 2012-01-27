@@ -843,7 +843,8 @@ EOWELCOME;
 
 	public function  email_deal(){
 
-		$deals = $this->query->prepare_email_deal_array();
+//		$deals = $this->query->prepare_email_deal_array();
+		$deals = $this->query->get_deal_by_id( $deal_id = 21 );
 
 		$this->load->library('email');
 
@@ -864,8 +865,7 @@ EOWELCOME;
 
 		
 		$this->email->to('
-		jamesming@gmail.com,
-		jflustyan@gmail.com'
+		jamesming@gmail.com'
 		);
 
 		$this->email->send();
