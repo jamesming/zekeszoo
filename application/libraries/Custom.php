@@ -287,7 +287,9 @@ private $CI;
 				background-repeat:no-repeat;
     		background-position: center center;		
 				height:370px;
-				width:561px;
+				width:560px;
+			  -webkit-background-size:370px 560px;
+			  background-size:370px 560px;				
 				'  
 				
 				
