@@ -1096,10 +1096,18 @@ Thanks so much, once again, for registering.
 	 
 	public function insert_voucher(	$post_array	){
 
-			$insert_what = array(
-			                  'code' =>  $post_array['code'],
-			                  'deal_id' =>  $post_array['deal_id']
-			          );
+			if( $post_array['code'] == '' ){
+					$insert_what = array(
+					                  'code' =>  $post_array['deal_id'].'-'.rand(5,12343245).'-ZZ',
+					                  'deal_id' =>  $post_array['deal_id']
+					          );				
+			}else{
+					$insert_what = array(
+					                  'code' =>  $post_array['code'],
+					                  'deal_id' =>  $post_array['deal_id']
+					          );						
+			};
+
 			
 			return $this->CI->my_database_model->insert_table(
 								$table = 'vouchers', 

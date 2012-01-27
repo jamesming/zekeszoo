@@ -138,7 +138,7 @@ $(document).ready(function() {
 						
 				  	$('#add_voucher').click(function(event) {
 				  	
-							  	if( $('#code').val() !='' ){
+							  	//if( $('#code').val() !='' ){
 							  			
 							  			$.post("<?php echo base_url() ?>index.php/home/add_update_vouchers",{
 							  				code: $('#code').val(),
@@ -153,9 +153,9 @@ $(document).ready(function() {
 												});	
 							  	
 							  	
-							  	}else{
-							  				alert('Must not be empty!');
-							  	};
+							  	//}else{
+							  	//			alert('Must not be empty!');
+							  	//};
 
 						});
 						
