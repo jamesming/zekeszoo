@@ -196,7 +196,7 @@ private $CI;
 
 
 
-	<div   style='width:529px;
+	<div   style='width:526px;
 								border:4px solid #175C8D;
 								'  >
 	
@@ -287,9 +287,9 @@ private $CI;
 				background-repeat:no-repeat;
     		background-position: center center;		
 				height:402px;
-				width:529px;
-			  -webkit-background-size:370px 529px;
-			  background-size:370px 529px;				
+				width:526px;
+			  -webkit-background-size:370px 526px;
+			  background-size:370px 526px;				
 				'  
 				
 				
@@ -316,7 +316,7 @@ private $CI;
 		</div>
 
 	</div>
-	<div   style='font-size:10px;font-weight:bold;clear:both;text-align:center;width:529px'  >
+	<div   style='font-size:10px;font-weight:bold;clear:both;text-align:center;width:526px'  >
 			To unsubscribe, email <a href='mailto:unsubscribe@zekeszoo.com'>unsubscribe@zekeszoo.com</a>, and we will promptly remove your from our email list.
 	</div>
 
