@@ -151,7 +151,7 @@
 																	<img src='<?php  echo base_url()   ?>images/hourglass.png'  />
 																</div>
 																<div  >Time Left To Buy<br />
-																	<span id='defaultCountdown'></span>
+																	<span id='defaultCountdownZZZ'></span>
 																</div>
 															</div>
 																										
