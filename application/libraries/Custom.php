@@ -278,24 +278,25 @@ private $CI;
 					" . strip_tags($deals['deal_headline']). "</a>
 				</div>
 				
-				
-				<div    style='clear:both;'  >
-					<div style='float:left' >
-					<a target='_blank' href='".base_url()."index.php/home/deal/".$deals['deal_url']."'>
-						<img src='".base_url()."uploads/1/".$deals['deal_id']."/image.png'
-						  style='padding:5px;
-						  			 border:1px solid gray;
-						  			 margin-left:10px'  
-						>
-					</a>
-					
-				
-					</div>
 
+				<div    
+				
+   style='clear:both;
+				background:white;
+				background-image:url(".base_url()."uploads/1/".$deals['deal_id']."/image.png);
+				background-repeat:no-repeat;
+    		background-position: center center;		
+				height:300px;
+				'  
+				
+				
+				 >
+
+					<a target='_blank' href='".base_url()."index.php/home/deal/".$deals['deal_url']."'  style='margin-top:-400px;margin-left:385px'  >
+						<img src='".base_url()."/images/seedetails.png'     />
+					</a>	
 				</div>
-				<a target='_blank' href='".base_url()."index.php/home/deal/".$deals['deal_url']."'  style='margin-top:-400px;margin-left:385px'  >
-					<img src='".base_url()."/images/seedetails.png'     />
-				</a>	
+
 				<div style='clear:both;padding:10px 15px 0px;'>".$deals['deal_description_snippet_for_email']."
 				</div>
 				<a target='_blank' href='".base_url()."index.php/home/buy/".$deals['deal_id']."'>	
