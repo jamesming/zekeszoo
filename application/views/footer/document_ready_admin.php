@@ -6,9 +6,18 @@ $(document).ready(function() {
 
 						$('#deal_description_snippet_for_email, #deal_share_headline').show();
 
-						$('#submit').click(function(event) {  // THIS IS FOR SUBMITTING JCROP
-							document.getElementsByTagName('iframe')[7].contentWindow.submitCropForm();
-						});
+
+						
+						$('#submit').click(function(event) {
+							
+							$('iframe').each(function(index) { 
+								try { this.contentWindow.submitCropForm(); } 
+								catch (e) { } 
+							});
+						
+						});	
+						
+						
 					
 						$('#deal_image').css({cursor:'pointer'}).click(function(event) {
 							open_dialogue_upload_image();
