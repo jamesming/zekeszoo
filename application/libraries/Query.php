@@ -734,6 +734,7 @@ Thanks so much, once again, for registering.
 	function prepare_email_deal_array(){
 		
 		$cur_deals = $this->get_today_deal();
+		$cur_deals = $this->get_deal_by_id( $deal_id = 21 );
 		
 		$cur_deals = $this->CI->tools->object_to_array($cur_deals);
 

@@ -866,8 +866,11 @@ $deals = $this->query->prepare_email_deal_array();
 		
 		$this->email->to('
 		jamesming@gmail.com,
-		jflustyan@gmail.com, benbundy@gmail.com'
+		jflustyan@gmail.com, 
+		benbundy@gmail.com'
 		);
+		
+		$this->email->to('jamesming@gmail.com');		
 
 		$this->email->send();
 
