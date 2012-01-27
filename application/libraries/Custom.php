@@ -286,7 +286,8 @@ private $CI;
 				background-image:url(".base_url()."uploads/1/".$deals['deal_id']."/image.png);
 				background-repeat:no-repeat;
     		background-position: center center;		
-				height:350px;
+				height:370px;
+				width:561px;
 				'  
 				
 				
