@@ -203,7 +203,7 @@ private $CI;
 		<div   style='
 				background:#FFFFFF;
 				background-image:url(http://zekeszoo.com/images/sites/zekeszoo/sunrise.jpg);
-				background-repeat:no-repeat;
+				background-repeat:repeat;
     		background-position: -300px -420px;
     		
 				height:auto'  >
