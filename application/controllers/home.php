@@ -860,7 +860,7 @@ $deals = $this->query->prepare_email_deal_array();
 
 		$this->email->from('zekeszoo@zekeszoo.com', 'zekeszoo');
 		
-		$this->email->subject('$10 for a Reflective, Velcro Dog Collar from Boett USA - a $20 value!');
+		$this->email->subject('Lather, Rinse, Save 50% & Repeat');
 		$this->email->message($message);		
 
 		
