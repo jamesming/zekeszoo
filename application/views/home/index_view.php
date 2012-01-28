@@ -13,7 +13,7 @@
 
 <META NAME="KEYWORDS" CONTENT="zekeszoo, zekes zoo, pet deals, pet savings, pet discounts, cat deals, dog deals, cat discounts, dog discounts, dog toy deals, dog food deals, dog deal discounts, dog toy discounts, organic pet products, pet tips, best pet food deals, coupon codes for pet food, coupon codes for pet products">
 <META NAME="DESCRIPTION" CONTENT="<?php echo strip_tags(  ( isset( $deals[0]->deal_share_headline) ? $deals[0]->deal_share_headline:'' ))    ?>">
-<TITLE>www.zekeszoo.com</TITLE>
+<TITLE><?php echo strip_tags(  ( isset( $deals[0]->deal_share_headline) ? $deals[0]->deal_share_headline:'' ))    ?></TITLE>
 <META HTTP-EQUIV="CONTENT-LANGUAGE" CONTENT="EN">
 <META NAME="revisit-after" CONTENT="14 days">
 <META NAME="Generator" CONTENT="http://websitesubmit.hypermart.net/">
@@ -24,7 +24,7 @@
 <link rel="shortcut icon" href="<?php echo base_url()    ?>images/favicon.ico">
 
 
-<meta property="og:title"  content="<?php echo strip_tags(  ( isset( $deals[0]->deal_share_headline) ? $deals[0]->deal_share_headline:'' ))    ?>"/>
+<meta property="og:title"  content="<?php echo rtrim(strip_tags(  ( isset( $deals[0]->deal_share_headline) ? $deals[0]->deal_share_headline:'' )))    ?>"/>
 <meta property="og:type" content="website" />
 <meta property="og:url" content="<?php  echo base_url().'index.php/home/deal/'.$deal_url   ?>?v=2" />
 <meta property="og:image" content="<?php echo base_url(); ?>uploads/1/<?php echo  ( isset( $deals[0]->id) ? $deals[0]->id:'' )   ?>/image_tiny.png" />
@@ -241,7 +241,14 @@
 		</td>
 		<td  id='twitter_td'>
 			
-			<a id='twitter_share_link' href="http://twitter.com/share" class="twitter-share-button" data-count="vertical">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+			<a 
+				id='twitter_share_link' 
+				href="http://twitter.com/share" 
+				class="twitter-share-button" 
+				data-count="vertical"  
+				data-url="http//zekeszoo.com" 
+				data-text="<?php echo rtrim(strip_tags(  ( isset( $deals[0]->deal_share_headline) ? $deals[0]->deal_share_headline:'' ))).' -- http://zekeszoo.com/index.php/home/deal/'.$deal_url; ?>"
+				>Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
 			
 		</td>
 		
