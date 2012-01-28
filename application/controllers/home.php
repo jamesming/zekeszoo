@@ -863,7 +863,7 @@ $deals = $this->query->prepare_email_deal_array();
 		$this->email->subject('Lather, Rinse, Save 50% & Repeat');
 		$this->email->message($message);		
 
-		
+/*		
 		$this->email->to('
 		jamesming@gmail.com,
 		jflustyan@gmail.com, 
@@ -873,22 +873,22 @@ $deals = $this->query->prepare_email_deal_array();
 
 
 		$this->email->send();
+*/
+			$select_what =  '*';
 
-//			$select_what =  '*';
-//
-//			$leads = $this->my_database_model->select_from_table(
-//				$table = 'leads',
-//				$select_what
-//				);		
-//				
-//			foreach( $leads  as $lead){
-//						echo "<br />";
-//						echo $lead->email."<br />";
-//				
+			$leads = $this->my_database_model->select_from_table(
+				$table = 'blast_emails',
+				$select_what
+				);		
+				
+			foreach( $leads  as $lead){
+						echo "<br />";
+						echo $lead->email."<br />";
+				
 //						$this->email->to($lead->email.',zekeszoo@zekeszoo.com');
 //						$this->email->send();				
-//				
-//			}
+				
+			}
 
 
 		//echo $this->email->print_debugger();
