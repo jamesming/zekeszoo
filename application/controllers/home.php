@@ -687,7 +687,7 @@ Hi {$fullname},
 <p>
 We thank you and hope you love your purchase!
 
-No further action is required at this point, we'll take it from here. Your purchase will be shipped directly to the address provided at checkout.
+No further action is required at this point, we'll take it from here. Your purchase can be redeemed online directly at the vendor's website. Sign in to Zekeszoo.com to retrieve your voucher code.
 
 <p>
 {$order_summary}
