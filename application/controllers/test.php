@@ -22,7 +22,7 @@ class Test extends CI_Controller {
 
 	public function ie(){
 		
-	$height_bubble = 355;	
+	$height_bubble = 200;	
 		
 ?>		
 		
@@ -100,7 +100,7 @@ class Test extends CI_Controller {
 			anchoredClassName:'',
 			anchoredSelector:'',
 			borderColor:'#ccc',
-			borderSize:'2',
+			borderSize:'0',
 			draggable:0,
 			eventType:null, //click, blur, change, dblclick, error, focus, load, mousedown, mouseout, mouseup etc...
 			fixedWindowY:100,
@@ -432,7 +432,7 @@ class Test extends CI_Controller {
 					.halves{
 						margin:0px 0px 0px 0px;
 						float:left;
-						width:220px;
+						width:230px;
 						background:transparent;
 					}
 					.left-half{
@@ -449,7 +449,7 @@ class Test extends CI_Controller {
 								}
 					
 								.left-half .left-top-half{
-										height:34px;
+										height:33px;
 										background-position:0px 0px;
 								}
 								.left-half .left-middle-half{
@@ -458,12 +458,21 @@ class Test extends CI_Controller {
 										background-repeat: repeat;	
 										height:<?php echo  $height_bubble - 68;    ?>px;
 								}
+									.left-half .left-middle-half .bubble_content{		
+										padding:25px;
+									}						
+								
 								.left-half .left-bottom-half{
 								    background-position: 0 -305px;
-								    height: 34px
+								    height: 33px
 								}													
 					.right-half{
-							width:30px;			
+							background-image: url(<?php  echo base_url()   ?>images/bubble_right_triangle.png);
+							background-repeat: no-repeat;
+							background-position:left center;							
+							width: 47px;
+							margin-left: -4px;
+					    height: <?php echo $height_bubble    ?>px;
 					}					
 				</style>
 				<div id="inlineContent" style="display:none;overflow:none">
@@ -475,9 +484,11 @@ class Test extends CI_Controller {
 										&nbsp;
 								</div>
 								<div  class='left-middle-half bubble' >
+									<div  class='bubble_content ' >
 										Inline Content<br />
 										Click overlay to close window
-										<input onclick=$.closeDOMWindow() type="button" value="close">							
+										<input onclick=$.closeDOMWindow() type="button" value="close">		
+									</div>
 								</div>
 								<div class='left-bottom-half bubble' >
 										&nbsp;
@@ -487,7 +498,7 @@ class Test extends CI_Controller {
 
 				
 						<div  class='right-half halves bubble' >
-							test
+							&nbsp;
 						</div >
 
 				</div>
