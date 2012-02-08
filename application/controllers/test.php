@@ -22,7 +22,7 @@ class Test extends CI_Controller {
 
 	public function ie(){
 		
-	$height_bubble = 200;	
+	$height_bubble = 300;	
 		
 ?>		
 		
@@ -434,6 +434,7 @@ class Test extends CI_Controller {
 						float:left;
 						width:230px;
 						background:transparent;
+						overflow:hidden;
 					}
 					.left-half{
 						width:433px;	
@@ -449,7 +450,7 @@ class Test extends CI_Controller {
 								}
 					
 								.left-half .left-top-half{
-										height:33px;
+										height:32px;
 										background-position:0px 0px;
 								}
 								.left-half .left-middle-half{
@@ -460,11 +461,26 @@ class Test extends CI_Controller {
 								}
 									.left-half .left-middle-half .bubble_content{		
 										padding:25px;
-									}						
+									}	
+									
+									
+											.left-half .left-middle-half .bubble_content table{
+												border-top:1px solid gray;
+												border-left:1px solid gray;
+											}												
+									
+														.left-half .left-middle-half .bubble_content table td{
+															padding:0px 0px 0px 0px;
+															margin:0px 0px 0px 0px;
+															width:180px;
+															height:85px;		
+															border-right:1px solid gray;
+															border-bottom:1px solid gray;
+														}															
 								
 								.left-half .left-bottom-half{
 								    background-position: 0 -305px;
-								    height: 33px
+								    height: 32px
 								}													
 					.right-half{
 							background-image: url(<?php  echo base_url()   ?>images/bubble_right_triangle.png);
@@ -472,10 +488,10 @@ class Test extends CI_Controller {
 							background-position:left center;							
 							width: 47px;
 							margin-left: -4px;
-					    height: <?php echo $height_bubble    ?>px;
+					    height: <?php echo $height_bubble - 5   ?>px;
 					}					
 				</style>
-				<div id="inlineContent" style="display:none;overflow:none">
+				<div id="inlineContent" style="display:none">
 					
 					
 						<div  class='left-half halves  ' >
@@ -485,8 +501,20 @@ class Test extends CI_Controller {
 								</div>
 								<div  class='left-middle-half bubble' >
 									<div  class='bubble_content ' >
-										Inline Content<br />
-										Click overlay to close window
+										<table>
+											<tr>
+												<td>GOLD
+												</td>
+												<td>$200 for 2 Year of Dog Food
+												</td>
+											</tr>
+												<td>SILVER
+												</td>
+												<td>$100 for 1 Year of Dog Food
+												</td>
+											</tr>											
+											
+										</table>
 										<input onclick=$.closeDOMWindow() type="button" value="close">		
 									</div>
 								</div>
