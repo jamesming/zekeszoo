@@ -417,8 +417,8 @@ class Test extends CI_Controller {
 							width:477,
 							height:<?php echo $height_bubble    ?>, 
 							positionType:'absolute', 
-							positionTop:300, 
-							positionLeft:($(window).width() / 2) - 400
+							positionTop:100, 
+							positionLeft:($(window).width() / 2) - 300
 						});
 						
 						setTimeout("$('a.defaultDOMWindow').click()",500)
@@ -455,7 +455,7 @@ class Test extends CI_Controller {
 								}
 								.left-half .left-middle-half{
 										background-image: url(<?php  echo base_url()   ?>images/bubble_inside.png?random=1431);
-										background-position: <?php echo ( $this->tools->browserIsExplorer() ? '1':'0' )    ?>px 0px;
+										background-position: <?php echo ( $this->tools->browserIsExplorer() ? '0':'0' )    ?>px 0px;
 										background-repeat: repeat;	
 										height:<?php echo  $height_bubble - 68;    ?>px;
 								}
@@ -488,7 +488,7 @@ class Test extends CI_Controller {
 							background-position:left center;							
 							width: 47px;
 							margin-left: -4px;
-					    height: <?php echo $height_bubble - 5   ?>px;
+					    height: <?php echo $height_bubble - 6   ?>px;
 					}					
 				</style>
 				<div id="inlineContent" style="display:none">
