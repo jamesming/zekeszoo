@@ -5675,31 +5675,15 @@ function forgot_password(){
 
 function create_table(){
 
-$table = 'suggestions';
+$table = 'deals_parents';
 
 $this->my_database_model->	create_generic_table($table );
 
 $fields_array = array(
-                      'business_name' => array(
-                                               'type' => 'varchar(512)',
-                                    ),
-                      'email' => array(
-                                               'type' => 'varchar(512)',
-                                    ),
-                      'contact' => array(
-                                               'type' => 'varchar(512)',
-                                    ),
-                      'website' => array(
-                                               'type' => 'varchar(1024)',
-                                    ),
-                      'name' => array(
-                                               'type' => 'varchar(512)',
-                                    ),     
-                      'phone' => array(
-                                               'type' => 'varchar(512)',
-                                    ),                                         
+                      'deal_id' => array(
+                                               'type' => 'int(11)'
                                                                                                                                                                                
-              );
+              ));
 
 
 
