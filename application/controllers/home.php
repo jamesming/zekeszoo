@@ -299,7 +299,10 @@ class Home extends CI_Controller {
 		'deals' => $deals,
 		'site_id' => $this->site_id,
 		'deal_id' => $this->deal_id ,
-		'public_gallery' => $this->get_public_gallery($limit = 3));
+		'public_gallery' => $this->get_public_gallery($limit = 3),
+		'launch_pop_height' => '500',
+		'multi_deal_bubble_height' => '300'
+		);
 
 		$this->load->view('home/index_view',$data);
 
