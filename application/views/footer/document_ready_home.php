@@ -4,6 +4,8 @@
 	
 $(document).ready(function() {
 	
+				$('body').scrollTo( $('#very_top'), 1000);
+	
 	
 				<?php if( $this->input->get('share') == 'facebook'){?>
 					$('#facebook_share_link').click();	
