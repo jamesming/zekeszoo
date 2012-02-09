@@ -352,6 +352,7 @@ function query(){
 	function multi_deals($deals_parent_id){
 
 				$select_what =  'deals.id, 
+										 deals.priority,
 										 deals.vendor_id,
 										 deals.deals_parent_id,
 										 deals.deal_name,

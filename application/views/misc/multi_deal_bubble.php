@@ -105,7 +105,7 @@
 											<?php foreach( $multi_deals  as  $deal){?>
 												<tr>
 													<td>
-														<a href='<?php echo base_url()    ?>index.php/home/deal/<?php  echo $deal->deal_url   ?>'><?php echo  $deal->deal_name   ?></a>
+														<a href='<?php echo base_url()    ?>index.php/home/buy/<?php  echo $deal->id   ?>?priority=<?php echo $deal->priority    ?>'><?php echo  $deal->deal_name   ?></a>
 													</td>
 													<td>
 														<?php echo  $deal->deal_price   ?>

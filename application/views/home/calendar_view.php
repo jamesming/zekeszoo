@@ -99,7 +99,7 @@
 											
 													if( calendar_td.hasClass('booked_current_deal') ){
 														
-																	$.post("<?php echo base_url(). 'index.php/home/remove_from_calendar/'. $deal_id; ?>",{
+																	$.post("<?php echo base_url(). 'index.php/home/remove_from_calendar/'. $deal_id; ?>?random=<?php  echo rand(5,93294)   ?>",{
 																		month:$(this).attr('month'),
 																		day:$(this).attr('day'),
 																		year:$(this).attr('year')
@@ -112,7 +112,7 @@
 											
 													}else{
 			
-																	$.post("<?php echo base_url(). 'index.php/home/add_to_calendar/'. $deal_id; ?>",{
+																	$.post("<?php echo base_url(). 'index.php/home/add_to_calendar/'. $deal_id; ?>?random=<?php  echo rand(5,93294)   ?>",{
 																		month:$(this).attr('month'),
 																		day:$(this).attr('day'),
 																		year:$(this).attr('year')

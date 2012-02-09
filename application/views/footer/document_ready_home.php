@@ -46,6 +46,7 @@ $(document).ready(function() {
     			
 							$('#buynow_image').click(function(event) {
 								
+								// && 1==2
 								
 								<?php if( $deals[0]->deals_parent_id == 1){?>
 									
@@ -58,16 +59,15 @@ $(document).ready(function() {
 									
 								<?php }else{?>
 									
-									
-									
+
 									
 															<?php if( $_SERVER['HTTP_HOST'] == 'localhost' ){?>
 																
-																// document.location.href='<?php echo  base_url();   ?>index.php/home/buy/<?php echo $deal_id    ?>?priority=<?php echo $priority    ?>';
+																document.location.href='<?php echo  base_url();   ?>index.php/home/buy/<?php echo $deal_id    ?>?priority=<?php echo $priority    ?>';
 										
 															<?php }else{?>
 																
-																// document.location.href='https://zekeszoo.com/index.php/home/buy/<?php echo $deal_id    ?>?priority=<?php echo $priority    ?>';
+																document.location.href='https://zekeszoo.com/index.php/home/buy/<?php echo $deal_id    ?>?priority=<?php echo $priority    ?>';
 																
 															<?php } ?>									
 									
