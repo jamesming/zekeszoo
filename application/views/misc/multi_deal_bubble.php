@@ -100,7 +100,7 @@
 							background-repeat: no-repeat;
 							background-position:left center;							
 							width: 47px;
-							margin-left: <?php  echo ( $this->tools->browserIschrome() ? '-5':'-5' )   ?>px;
+							margin-left: <?php  echo ( $this->tools->browserIschrome() ? '-4':'-5' )   ?>px;
 					    height: <?php echo $multi_deal_bubble_height - 6   ?>px;
 					}					
 				</style>
