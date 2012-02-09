@@ -353,6 +353,7 @@ function query(){
 
 				$select_what =  'deals.id, 
 										 deals.priority,
+										 deals.multi_option_description,
 										 deals.vendor_id,
 										 deals.deals_parent_id,
 										 deals.deal_name,

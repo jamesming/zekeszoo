@@ -108,7 +108,7 @@
 														<a href='<?php echo base_url()    ?>index.php/home/buy/<?php  echo $deal->id   ?>?priority=<?php echo $deal->priority    ?>'><?php echo  $deal->deal_name   ?></a>
 													</td>
 													<td>
-														<?php echo  $deal->deal_price   ?>
+														<?php echo  $deal->multi_option_description   ?>
 													</td>
 												</tr>
 											<?php } ?>
