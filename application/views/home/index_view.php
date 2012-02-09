@@ -323,7 +323,7 @@
 														  		<div table='deals'  href='#wysiwyg_div' id='deal_highlights'  class="wysiwyg_div_link clearfix elements_to_hide_when_adding_deal" >
 																																<?php     
 																																
-																																		if( isset( $deals[0]->deal_highlights  ) ){
+																																		if( isset( $deals[0]->deal_highlights  ) &&  $deals[0]->deal_highlights!=''){
 																																			echo $deals[0]->deal_highlights;
 																																		}else{
 																																			echo '
@@ -346,7 +346,7 @@
 														  		<div  table='deals'    href='#wysiwyg_div' id='deal_finepoints'  class="wysiwyg_div_link clearfix elements_to_hide_when_adding_deal"   >
 																																<?php     
 																																
-																																		if( isset( $deals[0]->deal_finepoints  ) ){
+																																		if( isset( $deals[0]->deal_finepoints  ) && $deals[0]->deal_finepoints!='' ){
 																																			echo $deals[0]->deal_finepoints;
 																																		}else{
 																																			echo '

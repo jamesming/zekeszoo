@@ -948,51 +948,39 @@ function launchpage(){
 				</script>
 			
 				<style>
-					.halves{
-						margin:0px 0px 0px 0px;
-						float:left;
-						width:230px;
-						background:transparent;
-						overflow:hidden;
-					}
-					.left-half{
-						width:433px;	
-					}
-					
 					.bubble{
 							background-image: url(<?php  echo base_url()   ?>images/bubble.png);
 							background-repeat: no-repeat;	
 					}
 
-								.left-half .bubble{
+								#launch_pop.left-half .bubble{
 										width:433px;											
 								}
 					
-								.left-half .left-top-half{
+								#launch_pop.left-half .left-top-half{
 										height:32px;
 										background-position:0px 0px;
 								}
-								.left-half .left-middle-half{
+								#launch_pop.left-half .left-middle-half{
 										background-image: url(<?php  echo base_url()   ?>images/bubble_inside.png?random=1431);
 										background-position: <?php echo ( $this->tools->browserIsExplorer() ? '0':'0' )    ?>px 0px;
 										background-repeat: repeat;	
 										height:<?php echo  $height_bubble - 68;    ?>px;
 								}
-									.left-half .left-middle-half .bubble_content{		
+									#launch_pop.left-half .left-middle-half .bubble_content{		
 										padding:25px;
 									}	
 													
 								
-								.left-half .left-bottom-half{
+								#launch_pop.left-half .left-bottom-half{
 								    background-position: 0 -305px;
 								    height: 32px
 								}													
 				
 				</style>
 				<div id="launch_content" style="display:none">
-					
-					
-						<div  class='left-half halves  ' >
+
+						<div  id='launch_pop' class='left-half halves  ' >
 
 								<div	class='left-top-half bubble'    >
 										&nbsp;
