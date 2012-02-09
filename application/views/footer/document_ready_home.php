@@ -3,8 +3,7 @@
 
 	
 $(document).ready(function() {
-	
-				$('body').scrollTo( $('#very_top'), 1000);
+
 	
 	
 				<?php if( $this->input->get('share') == 'facebook'){?>
@@ -52,11 +51,10 @@ $(document).ready(function() {
 								
 								<?php if( $deals[0]->deals_parent_id == 1){?>
 									
-									
-									
-															$('a.open_multi_options_bubble').click()
-									
-									
+									$('body').scrollTo( $('#very_top'), 200, {
+														onAfter: function() { 
+														$('a.open_multi_options_bubble').click()
+									}} );
 									
 									
 								<?php }else{?>

@@ -7,12 +7,12 @@
 							loaderHeight:16,
 							loaderWidth:17,
 							overlayOpacity:'30',
-							width:477,
+							width:490,
 							height:<?php echo $multi_deal_bubble_height    ?>, 
 							positionType:'absolute', 
 							positionTop:<?php 
 							
-							echo ( $this->tools->browserIschrome() ? '344':'348' )
+							echo ( $this->tools->browserIschrome() ? '371':'375' )
 							
 							?>, 
 							positionLeft:($(window).width() / 2) - 380
@@ -59,23 +59,30 @@
 										height:<?php echo  $multi_deal_bubble_height - 68;    ?>px;
 								}
 									.multi-options-bubble-inside.left-half .left-middle-half .bubble_content{		
-										padding:25px;
+										padding-left:10px;
+										padding-right:15px;
 									}	
 									
 									
 											.multi-options-bubble-inside.left-half .left-middle-half .bubble_content table{
-												border-top:1px solid gray;
-												border-left:1px solid gray;
+												border-top:0px solid gray;
+												border-left:0px solid gray;
+												margin:0px 0px 0px 0px;
+												font-size:15px;
 											}												
 									
 														.multi-options-bubble-inside.left-half .left-middle-half .bubble_content table td{
-															padding:0px 0px 0px 0px;
+															padding:9px 3px 0px 5px;
 															margin:0px 0px 0px 0px;
-															width:180px;
-															height:85px;		
-															border-right:1px solid gray;
-															border-bottom:1px solid gray;
-														}															
+															height:45px;		
+															border-right:0px solid gray;
+															border-bottom:0px solid gray;
+														}			
+														
+																	.multi-options-bubble-inside.left-half .left-middle-half .bubble_content table td.first_col {
+																			width:70px;
+																	}															
+																										
 								
 								.multi-options-bubble-inside.left-half .left-bottom-half{
 								    background-position: 0 -305px;
@@ -86,7 +93,7 @@
 							background-repeat: no-repeat;
 							background-position:left center;							
 							width: 47px;
-							margin-left: -4px;
+							margin-left: <?php  echo ( $this->tools->browserIschrome() ? '-3':'-5' )   ?>px;
 					    height: <?php echo $multi_deal_bubble_height - 6   ?>px;
 					}					
 				</style>
@@ -104,7 +111,7 @@
 											
 											<?php foreach( $multi_deals  as  $deal){?>
 												<tr>
-													<td>
+													<td  class='first_col ' >
 														<a href='<?php echo base_url()    ?>index.php/home/buy/<?php  echo $deal->id   ?>?priority=<?php echo $deal->priority    ?>'><?php echo  $deal->deal_name   ?></a>
 													</td>
 													<td>
@@ -115,7 +122,6 @@
 											<tr>
 
 										</table>
-										<input onclick=$.closeDOMWindow() type="button" value="close">		
 									</div>
 								</div>
 								<div class='left-bottom-half bubble' >
