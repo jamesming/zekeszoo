@@ -114,7 +114,7 @@
 								</div>
 								<div  class='left-middle-half bubble' >
 									<div  class='bubble_content ' >
-										<div   style='font-size:19px'  >
+										<div   style='font-size:19px;text-align:left'  >
 											<b>Choose your deal:</b>
 										</div>
 										<table>
