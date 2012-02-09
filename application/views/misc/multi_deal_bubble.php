@@ -77,6 +77,7 @@
 															height:45px;		
 															border-right:0px solid gray;
 															border-bottom:0px solid gray;
+															text-align:left;
 														}			
 														
 																	.multi-options-bubble-inside.left-half .left-middle-half .bubble_content table td.first_col {
