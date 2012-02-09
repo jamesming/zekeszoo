@@ -12,7 +12,7 @@
 							positionType:'absolute', 
 							positionTop:<?php 
 							
-							echo ( $this->tools->browserIschrome() ? '371':'375' )
+							echo ( $this->tools->browserIschrome() ? '354':'360' )
 							
 							?>, 
 							positionLeft:($(window).width() / 2) - 380
@@ -59,7 +59,7 @@
 										height:<?php echo  $multi_deal_bubble_height - 68;    ?>px;
 								}
 									.multi-options-bubble-inside.left-half .left-middle-half .bubble_content{		
-										padding-left:10px;
+										padding-left:20px;
 										padding-right:15px;
 									}	
 									
@@ -81,7 +81,14 @@
 														
 																	.multi-options-bubble-inside.left-half .left-middle-half .bubble_content table td.first_col {
 																			width:70px;
-																	}															
+																	}		
+																	
+																			.multi-options-bubble-inside.left-half .left-middle-half .bubble_content table td.first_col a{
+																					font-weight:bold;
+																					color:#175C8D;
+																					font-size:15px;
+																			}																			
+																														
 																										
 								
 								.multi-options-bubble-inside.left-half .left-bottom-half{
@@ -107,6 +114,9 @@
 								</div>
 								<div  class='left-middle-half bubble' >
 									<div  class='bubble_content ' >
+										<div   style='font-size:19px'  >
+											<b>Choose your deal:</b>
+										</div>
 										<table>
 											
 											<?php foreach( $multi_deals  as  $deal){?>
@@ -115,7 +125,7 @@
 														<a href='<?php echo base_url()    ?>index.php/home/buy/<?php  echo $deal->id   ?>?priority=<?php echo $deal->priority    ?>'><?php echo  $deal->deal_name   ?></a>
 													</td>
 													<td>
-														<?php echo  $deal->multi_option_description   ?>
+														<a href='<?php echo base_url()    ?>index.php/home/buy/<?php  echo $deal->id   ?>?priority=<?php echo $deal->priority    ?>'><?php echo  $deal->multi_option_description   ?></a>
 													</td>
 												</tr>
 											<?php } ?>
@@ -130,7 +140,14 @@
 							
 						</div>
 
-				
+						<script>
+							$(document).ready(function() { 
+								$(".multi-options-bubble-inside.left-half .left-middle-half .bubble_content table tr:even")
+								.css("background-color", "#F5F5F3");
+							});
+
+						</script>
+						
 						<div  class='multi-options-bubble-inside right-half halves bubble' >
 							&nbsp;
 						</div >
