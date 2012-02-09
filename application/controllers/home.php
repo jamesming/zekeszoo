@@ -5247,6 +5247,7 @@ function add_to_calendar(){
 		$table = 'calendar';
 
 	  $where_array = array(
+	  	'deal_id' => $this->deal_id,
 	  	'month' => $this->input->post('month'),
 	  	'day' => $this->input->post('day'),
 	  	'year' => $this->input->post('year'),

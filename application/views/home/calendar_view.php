@@ -117,7 +117,7 @@
 																		day:$(this).attr('day'),
 																		year:$(this).attr('year')
 																		},function(data) {
-			alert(data);
+			
 																				calendar_td.addClass('booked_current_deal');
 																				calendar_td.append("<div  class=' deal_names' >" + data +  "</div>");
 			
