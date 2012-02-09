@@ -9,7 +9,7 @@
 							loaderImagePath:'<?php  echo base_url()   ?>images/animationProcessing.gif',
 							loaderHeight:16,
 							loaderWidth:17,
-							overlayOpacity:'55',
+							overlayOpacity:'35',
 							height:<?php echo $launch_pop_height    ?>, 
 							positionType:'absolute', 
 							positionTop:200, 

@@ -6,17 +6,19 @@
 							loaderImagePath:'<?php  echo base_url()   ?>images/animationProcessing.gif',
 							loaderHeight:16,
 							loaderWidth:17,
-							overlayOpacity:'55',
+							overlayOpacity:'30',
 							width:477,
 							height:<?php echo $multi_deal_bubble_height    ?>, 
 							positionType:'absolute', 
-							positionTop:330, 
+							positionTop:<?php 
+							
+							echo ( $this->tools->browserIschrome() ? '340':'348' )
+							
+							?>, 
 							positionLeft:($(window).width() / 2) - 380
 						});
 						
-						//setTimeout("$('a.open_multi_options_bubble').click()",500)
-						
-								
+			
 					});
 
 				</script>	
@@ -99,18 +101,19 @@
 								<div  class='left-middle-half bubble' >
 									<div  class='bubble_content ' >
 										<table>
-											<tr>
-												<td>GOLD
-												</td>
-												<td>$200 for 2 Year of Dog Food
-												</td>
-											</tr>
-												<td>SILVER
-												</td>
-												<td>$100 for 1 Year of Dog Food
-												</td>
-											</tr>											
 											
+											<?php foreach( $multi_deals  as  $deal){?>
+												<tr>
+													<td>
+														<a href='<?php echo base_url()    ?>index.php/home/deal/<?php  echo $deal->deal_url   ?>'><?php echo  $deal->deal_name   ?></a>
+													</td>
+													<td>
+														<?php echo  $deal->deal_price   ?>
+													</td>
+												</tr>
+											<?php } ?>
+											<tr>
+
 										</table>
 										<input onclick=$.closeDOMWindow() type="button" value="close">		
 									</div>

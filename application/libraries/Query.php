@@ -294,11 +294,12 @@ function query(){
 		
 				$select_what =  'deals.id, 
 										 deals.vendor_id,
+										 deals.deals_parent_id,
 										 deals.deal_name,
 										 deals.deal_price,
 										 deals.orig_price,
 										 deals.deal_headline, 
-										deal_share_headline,
+										 deal_share_headline,
 										 deal_description,,
 										 deals.deal_description_snippet_for_email,
 										 deals.deal_highlights,
@@ -340,7 +341,66 @@ function query(){
 		
 	}
 	
+	/*
+	 * multi_deals
+	 * {@source }
+	 * @package BackEnd
+	 * @author James Ming <jamesming@gmail.com>
+	 * @access public
+	*/
 	
+	function multi_deals($deals_parent_id){
+
+				$select_what =  'deals.id, 
+										 deals.vendor_id,
+										 deals.deals_parent_id,
+										 deals.deal_name,
+										 deals.deal_price,
+										 deals.orig_price,
+										 deals.deal_headline, 
+										 deal_share_headline,
+										 deal_description,,
+										 deals.deal_description_snippet_for_email,
+										 deals.deal_highlights,
+										 deals.deal_finepoints,
+										 deals.maximum_quantity,
+										 deals.minimum_quantity,
+										 deals.deal_will_expire,
+										 deals.deal_short_description,
+										 deals.each_can_buy,
+										 calendar.id as calendar_id,
+										 calendar.day,
+										 calendar.month,
+										 calendar.year,
+										 calendar.tipped_time,
+										 calendar.id as calendar_id,
+										 calendar.deal_url
+										 ';
+		
+				$where_array = array(
+									'deals.deals_parent_id' => $deals_parent_id,
+									'year' => date('Y'),
+									'day_of_year' . ' <= ' =>  date('z',time())
+//								'deals.id' => 23
+				);
+				 
+				$join_array = array(
+											'calendar' => 'deals.id = calendar.deal_id'
+											);
+		
+				return $this->CI->my_database_model->select_from_table( 
+					$table = 'deals', 
+					$select_what, 
+					$where_array, 
+					$use_order = TRUE, 
+					$order_field = 'deals.id', 
+					$order_direction = 'desc', 
+					$limit = -1, 
+					$use_join = TRUE, 
+					$join_array );
+	
+		
+	}
 
 	/**
 	 * get all deals

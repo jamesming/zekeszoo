@@ -207,6 +207,17 @@ class Home extends CI_Controller {
 		};
 
 		$deals = $this->query->get_deal_by_id( $this->deal_id );
+		
+		if( $deals[0]->deals_parent_id == 1){
+			
+			$multi_deals = $this->query->multi_deals($deals_parent_id = $deals[0]->deals_parent_id);
+			//echo '<pre>';print_r(  $multi_deals   );echo '</pre>';  exit;
+		}else{
+			
+			$multi_deals = array();
+			
+		};
+		
 
 		if( isset( $this->session->userdata['isAdmin'] ) && $this->session->userdata['isAdmin']== 1){
 
@@ -301,7 +312,8 @@ class Home extends CI_Controller {
 		'deal_id' => $this->deal_id ,
 		'public_gallery' => $this->get_public_gallery($limit = 3),
 		'launch_pop_height' => '500',
-		'multi_deal_bubble_height' => '300'
+		'multi_deal_bubble_height' => '300',
+		'multi_deals' => $multi_deals
 		);
 
 		$this->load->view('home/index_view',$data);

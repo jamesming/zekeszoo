@@ -427,7 +427,7 @@
 <body>
 <div id="very_top"><div>
 <?php
-     	$this->load->view('misc/launch_modal.php');  
+//     	$this->load->view('misc/launch_modal.php');  
      	$this->load->view('misc/multi_deal_bubble.php');  
 ?>
 
