@@ -940,7 +940,7 @@ function launchpage(){
 							positionLeft:($(window).width() / 2) - 230
 						});
 						
-						setTimeout("$('a.open_launch_window').click()",500)
+						setTimeout("$('a.open_launch_window').click()",1000)
 						
 								
 					});
@@ -981,21 +981,7 @@ function launchpage(){
 									.left-half .left-middle-half .bubble_content{		
 										padding:25px;
 									}	
-									
-									
-											.left-half .left-middle-half .bubble_content table{
-												border-top:1px solid gray;
-												border-left:1px solid gray;
-											}												
-									
-														.left-half .left-middle-half .bubble_content table td{
-															padding:0px 0px 0px 0px;
-															margin:0px 0px 0px 0px;
-															width:180px;
-															height:85px;		
-															border-right:1px solid gray;
-															border-bottom:1px solid gray;
-														}															
+													
 								
 								.left-half .left-bottom-half{
 								    background-position: 0 -305px;
@@ -1013,7 +999,55 @@ function launchpage(){
 								</div>
 								<div  class='left-middle-half bubble' >
 									<div  class='bubble_content ' >
-										JOIN	
+										<div   style='text-align:center'  >ZekesZoo
+										</div>
+										<hr />
+										<div  style='text-align:center' >
+											Great Savings for your Pet.  Be nice to them
+										</div>
+										<div  style='text-align:center' >
+											Join now. Its Free.<br /><br /><br />
+										</div>
+										<div>
+											<style>
+											#launch_content_table input{
+											 margin:5px 75px 5px;
+											 width:220px;	
+											}
+											</style>
+											<table  id='launch_content_table'>
+												<tr>
+													<td>
+														<input name="" id="" type="" value="">
+													</td>
+												</tr>
+												<tr>
+													<td>
+														<input name="" id="" type="" value="">
+													</td>
+												</tr>
+												<tr>
+													<td>
+														<input name="" id="" type="" value="">
+													</td>
+												</tr>
+												<tr>
+													<td>
+														<input name="" id="" type="" value="">
+													</td>
+												</tr>		
+													<td>
+														<input name="" id="" type="" value="">
+													</td>
+												</tr>																							
+											</table>
+											<div  style='text-align:center' >
+												<input name="" id="" type="submit" value="Join"><br /><br /><br />
+											</div>
+											<div  style='text-align:center' >
+												Questions?  Learn more about us.
+											</div>																				
+										</div>
 									</div>
 								</div>
 								<div class='left-bottom-half bubble' >
