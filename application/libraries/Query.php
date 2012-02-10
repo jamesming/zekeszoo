@@ -395,7 +395,7 @@ function query(){
 					$select_what, 
 					$where_array, 
 					$use_order = TRUE, 
-					$order_field = 'deals.id', 
+					$order_field = 'deals.deal_price', 
 					$order_direction = 'desc', 
 					$limit = -1, 
 					$use_join = TRUE, 
