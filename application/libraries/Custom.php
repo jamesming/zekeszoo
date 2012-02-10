@@ -300,7 +300,7 @@ private $CI;
 
 				<div style='clear:both;padding:10px 15px 0px;'>".$deals['deal_description_snippet_for_email']."
 				</div>
-				<a target='_blank' href='".base_url()."index.php/home/buy/".$deals['deal_id']."'>	
+				<a target='_blank' href='".base_url()."index.php/home/deal/".$deals['deal_url']."'>	
 					<div   style='
 						background-image: url(http://zekeszoo.com/images/buy_now_button_aqua_glass.gif);
 						background-position: 0px center;
