@@ -653,7 +653,7 @@ class Home extends CI_Controller {
 	 * {@source }
 	 * @package BackEnd
 	 * @author James Ming <jamesming@gmail.com>
-	 * @path /index.php/home/email_deal
+	 * @path /index.php/home/design_email
 	 * @access public
 	 */
 
@@ -858,8 +858,7 @@ EOWELCOME;
 
 	public function  email_deal(){
 
-//				$deals = $this->query->prepare_email_deal_array();
-$deals = $this->query->get_deal_by_id( $deal_id = 22 );
+		$deals = $this->query->prepare_email_deal_array();
 
 		$this->load->library('email');
 
