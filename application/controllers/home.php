@@ -874,7 +874,7 @@ EOWELCOME;
 
 		$this->email->from('zekeszoo@zekeszoo.com', 'zekeszoo');
 		
-		$this->email->subject('Lather, Rinse, Save 50% & Repeat');
+		$this->email->subject('Safety for your Pet. Piece of mind for you');
 		$this->email->message($message);		
 
 	
