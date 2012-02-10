@@ -5110,7 +5110,7 @@ EOWELCOME;
 
 					$validation = $this->query->validate_login($this->input->post());
 
-					if( $validation['is'] == 'true'){
+					if( $validation['is'] == 'true' ){
 								$newdata = array(
 							                   'email'  => $validation['email'],
 							                   'user_id'     => $validation['id'],
