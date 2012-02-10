@@ -12,7 +12,7 @@
 							positionType:'absolute', 
 							positionTop:<?php 
 							
-							echo ( $this->tools->browserIschrome() ? '354':'360' )
+							echo ( $this->tools->browserIschrome() ? '334':'340' )
 							
 							?>, 
 							positionLeft:($(window).width() / 2) - 380
@@ -82,6 +82,7 @@
 														
 																	.multi-options-bubble-inside.left-half .left-middle-half .bubble_content table td.first_col {
 																			width:60px;
+																			padding-top:25px;
 																	}		
 																	.multi-options-bubble-inside.left-half .left-middle-half .bubble_content table td.second_col {
 																			width:110px;
@@ -90,6 +91,10 @@
 																	.multi-options-bubble-inside.left-half .left-middle-half .bubble_content table td.third_col {
 																			width:40px;
 																			text-align:center;
+																			background-image: url(<?php  echo base_url()   ?>images/small_buy.png);
+																			background-repeat: no-repeat;
+																			background-position:center center;
+																			cursor:pointer;																				
 																	}																					
 																																
 																			.multi-options-bubble-inside.left-half .left-middle-half .bubble_content table td.first_col a{
@@ -136,8 +141,8 @@
 													<td  class='second_col ' >
 														<a href='<?php echo base_url()    ?>index.php/home/buy/<?php  echo $deal->id   ?>?priority=<?php echo $deal->priority    ?>'><?php echo  $deal->multi_option_description   ?></a>
 													</td>
-													<td  class='third_col ' >
-														buy
+													<td  class='third_col ' link='<?php echo base_url()    ?>index.php/home/buy/<?php  echo $deal->id   ?>?priority=<?php echo $deal->priority    ?>'>
+														&nbsp;
 													</td>
 												</tr>
 											<?php } ?>
@@ -154,8 +159,16 @@
 
 						<script>
 							$(document).ready(function() { 
+								
+								
 								$(".multi-options-bubble-inside.left-half .left-middle-half .bubble_content table tr:even")
 								.css("background-color", "#F5F5F3");
+								
+								$('.third_col').click(function(event) {
+									
+									document.location = $(this).attr('link');
+								
+								});	
 							});
 
 						</script>
