@@ -26,7 +26,7 @@
 
 <meta property="og:title"  content="<?php echo rtrim(strip_tags(  ( isset( $deals[0]->deal_share_headline) ? $deals[0]->deal_share_headline:'' )))    ?>"/>
 <meta property="og:type" content="website" />
-<meta property="og:url" content="<?php  echo base_url().'index.php/home/deal/'.$deal_url   ?>?v=2" />
+<meta property="og:url" content="<?php echo $url_shortener    ?>" />
 <meta property="og:image" content="<?php echo base_url(); ?>uploads/1/<?php echo  ( isset( $deals[0]->id) ? $deals[0]->id:'' )   ?>/image_tiny.png" />
 <meta property="og:site_name" content="Zekeszoo.com" />
 <meta property="fb:app_id" content="245890495426188" />
@@ -625,7 +625,7 @@
 				class="twitter-share-button" 
 				data-count="vertical"  
 				data-url="http//zekeszoo.com" 
-				data-text="<?php echo rtrim(strip_tags(  ( isset( $deals[0]->deal_share_headline) ? $deals[0]->deal_share_headline:'' ))).' -- http://zekeszoo.com/index.php/home/deal/'.$deal_url; ?>"
+				data-text="<?php echo rtrim(strip_tags(  ( isset( $deals[0]->deal_share_headline) ? $deals[0]->deal_share_headline:'' ))).' - '.$url_shortener; ?>"
 				>Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
 			
 		</td>

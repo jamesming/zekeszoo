@@ -189,7 +189,7 @@ class Home extends CI_Controller {
 				$tipped_time = $this->deal_in_words['calendars'][0]->tipped_time;
 				$this->deal_id = $this->deal_in_words['calendars'][0]->deal_id;
 				$deal_url =  $this->deal_in_words['calendars'][0]->deal_url;
-
+				$url_shortener = $this->deal_in_words['calendars'][0]->url_shortener;
 		}elseif(   $this->deal_id ==''  ){  // ** COMING FROM /home/index
 
 				$today_deal = (
@@ -203,7 +203,7 @@ class Home extends CI_Controller {
 				$tipped_time = ( isset( $today_deal[0]->tipped_time) ? $today_deal[0]->tipped_time:'' );
 				$this->deal_id = ( isset( $today_deal[0]->deal_id) ? $today_deal[0]->deal_id:'' );
 				$deal_url = ( isset( $today_deal[0]->deal_url) ? $today_deal[0]->deal_url:'' );
-
+				$url_shortener  = ( isset( $today_deal[0]->url_shortener) ? $today_deal[0]->url_shortener:'' );
 		}else{
 				$tipped_time = '';
 				$deal_url =  "";
@@ -295,6 +295,7 @@ class Home extends CI_Controller {
 		'priority' => $this->priority,
 		'website' => $this->my_database_model->select_from_table( $table = 'website', $select_what = '*', $where_array = array(), $use_order = TRUE, $order_field = 'id', $order_direction = 'desc', $limit = 1, $use_join = FALSE, $join_array= array() ),
 		'deal_url' => $deal_url,
+		'url_shortener' => $url_shortener,
 		'from_logout' => $this->from_logout,
 		'count_of_buyers_needed_to_tip_deal' => $count_of_buyers_needed_to_tip_deal,
 		'deal_is_on' => $deal_is_on,
