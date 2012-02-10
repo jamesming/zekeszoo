@@ -754,9 +754,9 @@
 																		echo ( isset( $deals[0]->address) && $deals[0]->address != '' ? $deals[0]->address."<br />":'' );
 																		echo ( isset( $deals[0]->address2) && $deals[0]->address2 != '' ? $deals[0]->address2."<br />":'' );
 																		echo ( isset( $deals[0]->city) && $deals[0]->city != '' ? $deals[0]->city.", ":'' );
-																		echo ( isset( $deals[0]->state) && $deals[0]->state != '' ? $deals[0]->state."&nbsp;&nbsp;":'' );
-																		echo ( isset( $deals[0]->zipcode) && $deals[0]->zipcode != '' ? $deals[0]->zipcode."<br />":'' );
-																		echo ( isset( $deals[0]->telephone) &&  $deals[0]->telephone!= '' ? $deals[0]->telephone."<br />":'' );
+//																		echo ( isset( $deals[0]->state) && $deals[0]->state != '' ? $deals[0]->state."&nbsp;&nbsp;":'' );
+//																		echo ( isset( $deals[0]->zipcode) && $deals[0]->zipcode != '' ? $deals[0]->zipcode."<br />":'' );
+//																		echo ( isset( $deals[0]->telephone) &&  $deals[0]->telephone!= '' ? $deals[0]->telephone."<br />":'' );
 																		echo "<a target='_blank' href='http://" . ( isset( $deals[0]->vendor_website) ? $deals[0]->vendor_website:'' ) .  "'>http://" . ( isset( $deals[0]->vendor_website) ? $deals[0]->vendor_website:'' ) ."</a><br />";
 																		?>			
 																																
