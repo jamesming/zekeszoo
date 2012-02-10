@@ -156,7 +156,7 @@ color:blue;
 						<div class='small_header clearfix '>Redeem:
 						</div>
 						<div class='clearfix content_text'>
-							Online:&nbsp;&nbsp;<a href='http://<?php echo $deals[0]->vendor_website;  ?>'>http://<?php echo $deals[0]->vendor_website;  ?></a>
+							<?php echo $deals[0]->redeption_instructions     ?>
 						</div> 
 						
 						<div class='small_header clearfix '>Code:

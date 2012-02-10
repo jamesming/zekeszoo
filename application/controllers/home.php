@@ -705,7 +705,7 @@ Hi {$fullname},
 <p>
 We thank you and hope you love your purchase!
 
-It can be redeemed online directly at the vendor's website. Sign in to Zekeszoo.com to retrieve your voucher code.
+It can be redeemed online directly at the PetHub's website.&nbsp;&nbsp;Sign in to zekeszoo.com to retrieve your voucher code and review redemption instructions.
 
 <p>
 {$order_summary}
@@ -1122,6 +1122,7 @@ EOWELCOME;
 										 deals.deal_price,
 										 deals.deal_name,
 										 deals.redemption_type_id,
+										 deals.redeption_instructions,
 										 deals.deal_will_expire,
 										 deals.deal_finepoints,
 										 deals.id as deal_id,
@@ -1182,6 +1183,7 @@ EOWELCOME;
 										 deals.deal_price,
 										 deals.deal_name,
 										 deals.redemption_type_id,
+										 deals.redeption_instructions,
 										 deals.deal_will_expire,
 										 deals.deal_finepoints,
 										 deals.id as deal_id,
