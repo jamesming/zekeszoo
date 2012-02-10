@@ -162,7 +162,7 @@
 								
 								
 								$(".multi-options-bubble-inside.left-half .left-middle-half .bubble_content table tr:even")
-								.css("background-color", "#F5F5F3");
+								.css("background-color", "#ECEFF3");
 								
 								$('.third_col').click(function(event) {
 									
