@@ -902,8 +902,8 @@ EOWELCOME;
 						echo "<br />";
 						echo $lead->email."<br />";
 				
-						$this->email->to($lead->email.',zekeszoo@zekeszoo.com');
-						$this->email->send();				
+//						$this->email->to($lead->email.',zekeszoo@zekeszoo.com');
+//						$this->email->send();				
 				
 			}
 
