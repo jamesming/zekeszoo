@@ -81,9 +81,17 @@
 														}			
 														
 																	.multi-options-bubble-inside.left-half .left-middle-half .bubble_content table td.first_col {
-																			width:70px;
+																			width:60px;
 																	}		
+																	.multi-options-bubble-inside.left-half .left-middle-half .bubble_content table td.second_col {
+																			width:110px;
+																	}	
 																	
+																	.multi-options-bubble-inside.left-half .left-middle-half .bubble_content table td.third_col {
+																			width:40px;
+																			text-align:center;
+																	}																					
+																																
 																			.multi-options-bubble-inside.left-half .left-middle-half .bubble_content table td.first_col a{
 																					font-weight:bold;
 																					color:#175C8D;
@@ -125,8 +133,11 @@
 													<td  class='first_col ' >
 														<a href='<?php echo base_url()    ?>index.php/home/buy/<?php  echo $deal->id   ?>?priority=<?php echo $deal->priority    ?>'><?php echo  $deal->deal_name   ?></a>
 													</td>
-													<td>
+													<td  class='second_col ' >
 														<a href='<?php echo base_url()    ?>index.php/home/buy/<?php  echo $deal->id   ?>?priority=<?php echo $deal->priority    ?>'><?php echo  $deal->multi_option_description   ?></a>
+													</td>
+													<td  class='third_col ' >
+														buy
 													</td>
 												</tr>
 											<?php } ?>
