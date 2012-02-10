@@ -136,12 +136,12 @@
 											<?php foreach( $multi_deals  as  $deal){?>
 												<tr>
 													<td  class='first_col ' >
-														<a href='<?php echo base_url()    ?>index.php/home/buy/<?php  echo $deal->id   ?>?priority=<?php echo $deal->priority    ?>'><?php echo  $deal->deal_name   ?></a>
+														<a href='https://zekeszoo.com/index.php/home/buy/<?php  echo $deal->id   ?>?priority=<?php echo $deal->priority    ?>'><?php echo  $deal->deal_name   ?></a>
 													</td>
 													<td  class='second_col ' >
-														<a href='<?php echo base_url()    ?>index.php/home/buy/<?php  echo $deal->id   ?>?priority=<?php echo $deal->priority    ?>'><?php echo  $deal->multi_option_description   ?></a>
+														<a href='https://zekeszoo.com/index.php/home/buy/<?php  echo $deal->id   ?>?priority=<?php echo $deal->priority    ?>'><?php echo  $deal->multi_option_description   ?></a>
 													</td>
-													<td  class='third_col ' link='<?php echo base_url()    ?>index.php/home/buy/<?php  echo $deal->id   ?>?priority=<?php echo $deal->priority    ?>'>
+													<td  class='third_col ' link='https://zekeszoo.com/index.php/home/buy/<?php  echo $deal->id   ?>?priority=<?php echo $deal->priority    ?>'>
 														&nbsp;
 													</td>
 												</tr>

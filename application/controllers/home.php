@@ -28,7 +28,7 @@ class Home extends CI_Controller {
 
         	$this->priority = 	$this->input->get('priority');
 
-				}elseif( defined ($this->input->post('priority')) ){
+				}elseif( $this->input->post('priority') ){
 
         	$this->priority = $this->input->post('priority');
 
@@ -37,6 +37,9 @@ class Home extends CI_Controller {
         	$this->priority = 1;
 
 				};
+				
+				
+				//echo $this->priority;exit;
 
 //echo  $_SERVER['REQUEST_URI'];  exit;
         if( $this->input->get('logout') ){
