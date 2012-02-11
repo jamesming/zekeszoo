@@ -12,7 +12,7 @@
 							positionType:'absolute', 
 							positionTop:<?php 
 							
-							echo ( $this->tools->browserIschrome() ? '334':'340' )
+							echo ( $this->tools->browserIschrome() ? '340':'340' )
 							
 							?>, 
 							positionLeft:($(window).width() / 2) - 380
