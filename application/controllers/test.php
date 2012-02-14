@@ -15,6 +15,7 @@ class Test extends CI_Controller {
 <head>
 
 <script type="text/javascript" language="Javascript" src = "<?php echo  base_url();   ?>js/jquery.js"></script>
+<script type="text/javascript" language="Javascript" src = "<?php echo  base_url();   ?>js/jquery.cookie.js"></script>
 
 
 
@@ -554,7 +555,7 @@ class Test extends CI_Controller {
 function launchpage(){
 
 		
-	$launch_pop_height = 500;	
+	$launch_pop_height = 560;	
 		
 ?>		
 
@@ -563,7 +564,54 @@ function launchpage(){
 	
 	
 				<script type="text/javascript">
+					
+					$.fn.setCursorPosition = function(pos) {
+					  this.each(function(index, elem) {
+					    if (elem.setSelectionRange) {
+					      elem.setSelectionRange(pos, pos);
+					    } else if (elem.createTextRange) {
+					      var range = elem.createTextRange();
+					      range.collapse(true);
+					      range.moveEnd('character', pos);
+					      range.moveStart('character', pos);
+					      range.select();
+					    }
+					  });
+					  return this;
+					};
+					
 					$(document).ready(function() { 
+						
+						$.cookie("NameOfPerson", 'James Ming');
+
+//						alert($.cookie("NameOfPerson"));
+//						
+//						$.cookie("NameOfPerson", null);
+//						
+//						alert($.cookie("NameOfPerson"));						
+
+						$('.input_style').click(function(event) {
+								$(this).css({color:'lightgray'}).setCursorPosition(0)
+								.bind('keypress', function(e) {
+										$(this).val('').css({color:'black','font-style':'normal'});
+										$(this).unbind('keypress');																						
+								})
+						}).focus(function(event) {
+								$(this).css({color:'lightgray'}).setCursorPosition(0)
+								.bind('keypress', function(e) {
+										$(this).val('').css({color:'black','font-style':'normal'});
+										$(this).unbind('keypress');																						
+								})
+						});
+						
+						$('#password').click(function(event) {
+								 $("<input type='password' />").addClass('input_style').attr({ value: '' }).insertBefore(this).focus();
+								 $(this).remove()
+						}).focus(function(event) {
+								 $("<input type='password' />").addClass('input_style').attr({ value: '' }).insertBefore(this).focus();
+								 $(this).remove()
+						})	
+						
 						$('.open_launch_window').openDOMWindow({
 							eventType:'click',
 							loader:1,
@@ -585,53 +633,76 @@ function launchpage(){
 				</script>
 			
 				<style>
+					body{
+					font-family:"Helvetica Neue", Arial, Helvetica, sans-serif;	
+					font-size:17px;
+					}
+					.input_style{
+						  border: 1px solid darkgray;
+						  height: 25px;
+							padding-left: 5px;
+							color:gray;
+							font-style:italic;	
+					}				
+							
 					.bubble{
 							background-image: url(<?php  echo base_url()   ?>images/bubble.png);
 							background-repeat: no-repeat;	
 					}
 
-								#launch_pop.left-half .bubble{
-										width:433px;											
+								#launch_pop.left-half{
+										overflow:hidden							
 								}
-					
-								#launch_pop.left-half .left-top-half{
-										height:32px;
-										background-position:0px 0px;
-								}
-								#launch_pop.left-half .left-middle-half{
-										background-image: url(<?php  echo base_url()   ?>images/bubble_inside.png?random=1431);
-										background-position: <?php echo ( $this->tools->browserIsExplorer() ? '0':'0' )    ?>px 0px;
-										background-repeat: repeat;	
-										height:<?php echo  $launch_pop_height - 68;    ?>px;
-								}
-									#launch_pop.left-half .left-middle-half .bubble_content{		
-										padding:25px;
-									}	
-													
+
+											#launch_pop.left-half .bubble{
+													width:433px;											
+											}
 								
-								#launch_pop.left-half .left-bottom-half{
-								    background-position: 0 -305px;
-								    height: 32px
-								}													
+											#launch_pop.left-half .left-top-half{
+													height:32px;
+													background-position:0px 0px;
+											}
+											#launch_pop.left-half .left-middle-half{
+													background-image: url(<?php  echo base_url()   ?>images/bubble_inside.png?random=1431);
+													background-position: <?php echo ( $this->tools->browserIsExplorer() ? '0':'0' )    ?>px 0px;
+													background-repeat: repeat;	
+													height:<?php echo  $launch_pop_height - 68;    ?>px;
+											}
+												#launch_pop.left-half .left-middle-half .bubble_content{		
+													padding:0 25px 25px 25px;
+												}	
+															#launch_pop.left-half .left-middle-half .bubble_content div#logo_div{		
+																	text-align:center;
+																	background-image: url(<?php echo base_url()    ?>images/sites/zekeszoo/logo.png);
+																	background-repeat: no-repeat;	
+																	background-position:center 0px;	
+																	height:80px;
+																	background-size:50%;
+															}														
+											
+											#launch_pop.left-half .left-bottom-half{
+											    background-position: 0 -306px;
+											    height: 32px
+											}													
 				
 				</style>
-				<div id="launch_content" style="display:none">
+				<div id="launch_content" style="display:none;">
 
-						<div  id='launch_pop' class='left-half halves  ' >
+						<div  id='launch_pop' class='left-half halves  '  >
 
 								<div	class='left-top-half bubble'    >
 										&nbsp;
 								</div>
 								<div  class='left-middle-half bubble' >
 									<div  class='bubble_content ' >
-										<div   style='text-align:center'  >ZekesZoo
+										<div id='logo_div'>
 										</div>
 										<hr />
-										<div  style='text-align:center' >
-											Great Savings for your Pet.  Be nice to them
+										<div  style='text-align:center' ><br />
+											Join Now for Great Pet Savings. 
 										</div>
 										<div  style='text-align:center' >
-											Join now. Its Free.<br /><br /><br />
+											Its Really Free.<br /><br />
 										</div>
 										<div>
 											<style>
@@ -643,26 +714,26 @@ function launchpage(){
 											<table  id='launch_content_table'>
 												<tr>
 													<td>
-														<input name="" id="" type="" value="">
+														<input  class='input_style ' name="first_name	" id="first_name	" type="" value="First Name">
 													</td>
 												</tr>
 												<tr>
 													<td>
-														<input name="" id="" type="" value="">
+														<input  class='input_style ' name="last_name	" id="last_name	" type="" value="Last Name">
 													</td>
 												</tr>
 												<tr>
 													<td>
-														<input name="" id="" type="" value="">
+														<input  class='input_style ' name="email" id="email" type="" value="Email">
 													</td>
 												</tr>
 												<tr>
 													<td>
-														<input name="" id="" type="" value="">
+														<input  class='input_style ' name="confirm_email" id="confirm_email" type="" value="Confirm Email">
 													</td>
 												</tr>		
 													<td>
-														<input name="" id="" type="" value="">
+														<input  class='input_style ' name="password" id="password" type="" value="Password">
 													</td>
 												</tr>																							
 											</table>
