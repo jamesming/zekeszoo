@@ -18,8 +18,16 @@
 					};
 					
 					$.fn.makeTypePassword = function() {
-						  $("<input type='password' />").addClass('input_style').attr({ value: '' }).css({color:'black','font-style':'normal'}).insertBefore(this).focus();
+						  $("<input id='join_password' type='password' value_check='Password (must be 6 characters)' name='join_password' errorChecked=0/>")
+						  .click(function(event) {
+								$(this).removeErrorMessage()
+						  })	
+						  .addClass('input_style')
+						  .attr({ value: '' })
+						  .css({color:'black','font-style':'normal'})
+						  .insertBefore(this).focus();
 							$(this).remove()
+
 					  return this;
 					};
 					
@@ -39,6 +47,7 @@
 							$(this).parent().children('div.error_div').remove()
 							$(this).attr('errorChecked', 0);
 							resizeLaunchWindowBy( (window.heightOfErrorMessageDiv * -1 + 10) );
+							window.ok = 1;
 						  return this;							
 							
 						};
@@ -55,19 +64,27 @@
 				
 						$('.input_style').click(function(event) {
 								$(this).removeErrorMessage()
-								$(this).css({color:'lightgray'}).setCursorPosition(0)
-								.bind('keypress', function(e) {
-										$(this).makeNormalInputStyle()																				
-								})
+								if( $(this).val() == $(this).attr('value_check') ){
+									$(this).val($(this).attr('value_check')).css({color:'lightgray'}).setCursorPosition(0)
+									.bind('keypress', function(e) {
+											$(this).makeNormalInputStyle()																				
+									})
+								};									
 						}).focus(function(event) {
 								$(this).removeErrorMessage()
-								$(this).css({color:'lightgray'}).setCursorPosition(0)
-								.bind('keypress', function(e) {
-										$(this).makeNormalInputStyle()																				
-								})
+								if( $(this).val() == $(this).attr('value_check') ){
+									$(this).val($(this).attr('value_check')).css({color:'lightgray'}).setCursorPosition(0)
+									.bind('keypress', function(e) {
+											$(this).makeNormalInputStyle()																				
+									})
+								};
+						}).blur(function(event) {
+							if( $(this).val() == $(this).attr('value_check') ){
+								$(this).css({color:'gray'})
+							};
 						});
 						
-						$('#password').click(function(event) {
+						$('#join_password').click(function(event) {
 								$(this).removeErrorMessage()
 								$(this).bind('keypress', function(e) {
 										$(this).makeNormalInputStyle()
@@ -116,27 +133,36 @@
 						window.heightOfErrorMessageDiv = 20;
 						
 						$('#join').click(function(event) {
+
 							
 								$('.input_style').each(function(count) {
 											
-											if( $(this).attr('errorChecked') == 0 && $(this).val() == $(this).attr('check')){
+											if( $(this).attr('errorChecked') == 0 && $(this).val() == $(this).attr('value_check')){
 												resizeLaunchWindowBy( window.heightOfErrorMessageDiv );
-												$(this).attr('errorChecked', 1).addErrorMessage('Field must filled in.');
+												$(this).attr('errorChecked', 1).addErrorMessage( $(this).attr('value_check') + ' required.');
 												window.ok = 0;
 											};
 								});	
-
-								if( window.ok == 1 && $('#email').val() != $('#confirm_email').val()){
+								
+								if( window.ok == 1 && $('#join_email').val() != $('#confirm_email').val()){
 									resizeLaunchWindowBy( window.heightOfErrorMessageDiv );
-									$('#confirm_email').attr('errorChecked', 1).addErrorMessage('Confirm Email does not match email.');
+									$('#confirm_email').attr('errorChecked', 1).addErrorMessage('Confirm Email does not match Email.');
 									window.ok = 0;
 								};
+												
+												
+												
+								if( window.ok == 1 && $('#join_password').val().length < 6 ){
+										window.ok = 0;
+										resizeLaunchWindowBy( window.heightOfErrorMessageDiv );
+										$('#join_password').attr('errorChecked', 1).addErrorMessage('Must be min 6 characters.');
+								};
+
 
 								if( window.ok == 1 ){
 									$.closeDOMWindow();
-									$.cookie("joined", '1');
-								};
-								
+									//$.cookie("joined", '1');
+								};						
 						
 						});	
 						
@@ -237,26 +263,26 @@
 											<table  id='launch_content_table'>
 												<tr>
 													<td>
-														<input  class='input_style ' name="first_name	" id="first_name	" type="" value="First Name" check='First Name' errorChecked=0>
+														<input  class='input_style ' name="first_name	" id="first_name	" type="" value="First Name" value_check='First Name' errorChecked=0>
 													</td>
 												</tr>
 												<tr>
 													<td>
-														<input  class='input_style ' name="last_name	" id="last_name	" type="" value="Last Name" check='Last Name' errorChecked=0>
+														<input  class='input_style ' name="last_name	" id="last_name	" type="" value="Last Name" value_check='Last Name' errorChecked=0>
 													</td>
 												</tr>
 												<tr>
 													<td>
-														<input  class='input_style ' name="email" id="email" type="" value="Email" check='Email' errorChecked=0>
+														<input  class='input_style ' name="join_email" id="join_email" type="" value="Email" value_check='Email' errorChecked=0>
 													</td>
 												</tr>
 												<tr>
 													<td>
-														<input  class='input_style ' name="confirm_email" id="confirm_email" type="" value="Confirm Email" check='Confirm Email' errorChecked=0>
+														<input  class='input_style ' name="confirm_email" id="confirm_email" type="" value="Confirm Email" value_check='Confirm Email' errorChecked=0>
 													</td>
 												</tr>		
 													<td>
-														<input  class='input_style ' name="password" id="password" type="" value="Password" check='Password' errorChecked=0>
+														<input  class='input_style ' name="join_password" id="join_password" type="" value="Password (must be 6 characters)" value_check='Password (must be 6 characters)' errorChecked=0>
 													</td>
 												</tr>
 												</tr>		
