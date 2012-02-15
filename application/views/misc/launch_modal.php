@@ -47,6 +47,8 @@
 										$.cookie("joined", null);
 							
 						}else{
+							
+							
 										$('.open_launch_window').openDOMWindow({
 											eventType:'click',
 											loader:1,
@@ -58,11 +60,22 @@
 											positionType:'absolute', 
 											positionTop:200, 
 											positionLeft:($(window).width() / 2) - 230
-										});							
+										});			
+										
+										// setTimeout("$('a.open_launch_window').click()",1000)				
+										
+						        window.setTimeout(function()
+						        {
+															$('body').scrollTo( $('#very_top'), 800, {
+																				onAfter: function() { 
+																				$('a.open_launch_window').click();
+															}} );
+						        },3000);
+										
 						};
 
 						
-						setTimeout("$('a.open_launch_window').click()",1000)
+						
 						
 						$('#join').click(function(event) {
 							$.closeDOMWindow();
