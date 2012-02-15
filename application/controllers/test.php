@@ -698,12 +698,15 @@ function launchpage(){
 										<div id='logo_div'>
 										</div>
 										<hr />
-										<div  style='text-align:center' ><br />
-											Join for Great Pet Savings. 
+										<div   style='margin:10px 0px'  >
+											<div  style='text-align:center' >
+												Join for Great Pet Savings. 
+											</div>
+											<div  style='text-align:center' >
+												Its Really Free.
+											</div>											
 										</div>
-										<div  style='text-align:center' >
-											Its Really Free.<br /><br />
-										</div>
+
 										<div>
 											<style>
 											#launch_content_table input{
