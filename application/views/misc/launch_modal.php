@@ -35,13 +35,18 @@
 					};		
 					
 					$.fn.removeErrorMessage = function() {
-						$(this).parent().children('div.error_div').remove()
-						resizeLaunchWindow( (window.heightOfErrorMessageDiv * -1 + 10) );
-					  return this;
+						if( $(this).attr('errorChecked') == 1){
+							$(this).parent().children('div.error_div').remove()
+							$(this).attr('errorChecked', 0);
+							resizeLaunchWindowBy( (window.heightOfErrorMessageDiv * -1 + 10) );
+						  return this;							
+							
+						};
+
 					};							
 										
 												
-					function resizeLaunchWindow( howmuch ){
+					function resizeLaunchWindowBy( howmuch ){
 								$('#DOMWindow').height($('#DOMWindow').height()+howmuch);
 								$('#launch_pop.left-half .left-middle-half').height($('#launch_pop.left-half .left-middle-half').height()+howmuch)
 					}	
@@ -108,23 +113,22 @@
 
 						
 						window.ok = 1;
-						window.countOfBadInputFields = 0;
 						window.heightOfErrorMessageDiv = 20;
 						
 						$('#join').click(function(event) {
 							
 								$('.input_style').each(function(count) {
-											window.countOfBadInputFields++;
-											if( $(this).val() == $(this).attr('check')){
-												$(this).addErrorMessage('Field must filled in.');
+											
+											if( $(this).attr('errorChecked') == 0 && $(this).val() == $(this).attr('check')){
+												resizeLaunchWindowBy( window.heightOfErrorMessageDiv );
+												$(this).attr('errorChecked', 1).addErrorMessage('Field must filled in.');
+												window.ok = 0;
 											};
 								});	
-								
-								
-								resizeLaunchWindow( window.countOfBadInputFields * window.heightOfErrorMessageDiv );
 
-								if( $('#email').val() != $('#confirm_email').val()){
-									$('#confirm_email').addErrorMessage('Confirm Email does not match email.');
+								if( window.ok == 1 && $('#email').val() != $('#confirm_email').val()){
+									resizeLaunchWindowBy( window.heightOfErrorMessageDiv );
+									$('#confirm_email').attr('errorChecked', 1).addErrorMessage('Confirm Email does not match email.');
 									window.ok = 0;
 								};
 
@@ -233,26 +237,26 @@
 											<table  id='launch_content_table'>
 												<tr>
 													<td>
-														<input  class='input_style ' name="first_name	" id="first_name	" type="" value="First Name" check='First Name'>
+														<input  class='input_style ' name="first_name	" id="first_name	" type="" value="First Name" check='First Name' errorChecked=0>
 													</td>
 												</tr>
 												<tr>
 													<td>
-														<input  class='input_style ' name="last_name	" id="last_name	" type="" value="Last Name" check='Last Name'>
+														<input  class='input_style ' name="last_name	" id="last_name	" type="" value="Last Name" check='Last Name' errorChecked=0>
 													</td>
 												</tr>
 												<tr>
 													<td>
-														<input  class='input_style ' name="email" id="email" type="" value="Email" check='Email'>
+														<input  class='input_style ' name="email" id="email" type="" value="Email" check='Email' errorChecked=0>
 													</td>
 												</tr>
 												<tr>
 													<td>
-														<input  class='input_style ' name="confirm_email" id="confirm_email" type="" value="Confirm Email" check='Confirm Email'>
+														<input  class='input_style ' name="confirm_email" id="confirm_email" type="" value="Confirm Email" check='Confirm Email' errorChecked=0>
 													</td>
 												</tr>		
 													<td>
-														<input  class='input_style ' name="password" id="password" type="" value="Password" check='Password'>
+														<input  class='input_style ' name="password" id="password" type="" value="Password" check='Password' errorChecked=0>
 													</td>
 												</tr>
 												</tr>		
