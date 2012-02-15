@@ -682,7 +682,7 @@ function launchpage(){
 											
 											#launch_pop.left-half .left-bottom-half{
 											    background-position: 0 -306px;
-											    height: 32px
+											    height: 30px
 											}													
 				
 				</style>
