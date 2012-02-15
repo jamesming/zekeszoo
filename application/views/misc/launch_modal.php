@@ -48,7 +48,6 @@
 							
 						}else{
 							
-							
 										$('.open_launch_window').openDOMWindow({
 											eventType:'click',
 											loader:1,
@@ -61,8 +60,6 @@
 											positionTop:200, 
 											positionLeft:($(window).width() / 2) - 230
 										});			
-										
-										// setTimeout("$('a.open_launch_window').click()",1000)				
 										
 						        window.setTimeout(function()
 						        {
