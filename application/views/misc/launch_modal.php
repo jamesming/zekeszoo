@@ -104,9 +104,7 @@
 						})	
 						
 						if( $.cookie("joined") == 1){
-							
-										$.cookie("joined", null);
-							
+										//$.cookie("joined", null);
 						}else{
 							
 										$('.open_launch_window').openDOMWindow({
@@ -180,7 +178,8 @@
 								
 								if( window.ok == 1 ){
 									$.closeDOMWindow();
-									//$.cookie("joined", '1');
+									$.cookie("joined", '1');
+									$('#form0').submit();
 								};						
 						
 						});	
@@ -279,15 +278,22 @@
 										    font-style: italic;
 											}
 											</style>
+											<form
+											id='form0'
+											name='form0'
+											enctype='multipart/form-data'
+											action='<?php  echo base_url()  ?>index.php/home/enroll/'	
+											method='post'
+											>
 											<table  id='launch_content_table'>
 												<tr>
 													<td>
-														<input  class='input_style ' name="first_name	" id="first_name	" type="" value="First Name" value_check='First Name' errorChecked=0>
+														<input  class='input_style ' name="first_name" id="first_name	" type="" value="First Name" value_check='First Name' errorChecked=0>
 													</td>
 												</tr>
 												<tr>
 													<td>
-														<input  class='input_style ' name="last_name	" id="last_name	" type="" value="Last Name" value_check='Last Name' errorChecked=0>
+														<input  class='input_style ' name="last_name" id="last_name	" type="" value="Last Name" value_check='Last Name' errorChecked=0>
 													</td>
 												</tr>
 												<tr>
@@ -299,7 +305,8 @@
 													<td>
 														<input  class='input_style ' name="confirm_email" id="confirm_email" type="" value="Confirm Email" value_check='Confirm Email' errorChecked=0>
 													</td>
-												</tr>		
+												</tr>
+												<tr>		
 													<td>
 														<input  class='input_style ' name="join_password" id="join_password" type="" value="Password (must be 6 characters)" value_check='Password (must be 6 characters)' errorChecked=0>
 													</td>
@@ -316,6 +323,7 @@
 													</td>
 												</tr>																																					
 											</table>
+											</form>
 											<style>
 											#join{
 												cursor:pointer;

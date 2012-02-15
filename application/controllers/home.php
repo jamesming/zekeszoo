@@ -93,7 +93,6 @@ class Home extends CI_Controller {
 
 				};
 
-
 				if(  isset( $this->session->userdata['user_id'] )  ){
 
 					$this->users = $this->get_user_information($this->session->userdata['user_id']);
@@ -5678,6 +5677,58 @@ function forgot_password(){
 		);
 		
 		echo $password_change_code;
+
+}
+
+
+function enroll(){
+	
+		$post_array = $this->input->post();
+	
+		$table = 'users';
+		
+	  $where_array = array('email' => $post_array['join_email']);
+
+	  if( !$this->my_database_model->my_database_model->check_if_exist($where_array, $table)){
+	  	
+	  			$this->my_database_model->load->helper('security');
+	  	
+					$insert_what = array(
+					                        'first_name' =>  $post_array['first_name'],
+					                        'last_name' => $post_array['last_name'],
+					                        'full_name' => $post_array['first_name'] . ' ' . $post_array['last_name'],
+					                        'email' =>  $post_array['join_email'],
+					                        'password' =>   do_hash(  $post_array['join_password'], 'md5' )
+					                );
+					
+					$this->my_database_model->my_database_model->insert_table(
+													$table, 
+													$insert_what
+													); 
+		}
+		
+		
+		$users = $this->my_database_model->select_from_table(
+			$table = 'users',
+			$select_what = '*',
+			$where_array =  array('email' => $post_array['join_email']),
+			$use_order = FALSE,
+			$order_field = '',
+			$order_direction = 'asc',
+			$limit = 1);
+			
+
+		$newuser = array(
+	                   'full_name'  => $users[0]->full_name,
+	                   'user_id'     => $users[0]->id,
+	                   'email'     =>  $users[0]->email,
+	                   'logged_in' => TRUE
+	               );
+	
+		$this->session->set_userdata($newuser);
+		
+
+		redirect('/home/index');
 
 }
 
