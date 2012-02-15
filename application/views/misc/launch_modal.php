@@ -38,7 +38,11 @@
 					};		
 					
 					$.fn.addErrorMessage = function(message) {
-						$(this).parent().append("<div  class='error_div ' >"+message+"</div>");
+						if( $(this).attr('id') == 'agree'){
+							$(this).parent().parent().append("<div  class='error_div '   style='clear:both'  >"+message+"</div>");
+						}else{
+							$(this).parent().append("<div  class='error_div ' >"+message+"</div>");
+						};
 					  return this;
 					};		
 					
@@ -64,7 +68,7 @@
 				
 						$('.input_style').click(function(event) {
 								$(this).removeErrorMessage()
-								if( $(this).val() == $(this).attr('value_check') ){
+								if( $(this).val() == $(this).attr('value_check') || $(this).val()==''){
 									$(this).val($(this).attr('value_check')).css({color:'lightgray'}).setCursorPosition(0)
 									.bind('keypress', function(e) {
 											$(this).makeNormalInputStyle()																				
@@ -72,14 +76,14 @@
 								};									
 						}).focus(function(event) {
 								$(this).removeErrorMessage()
-								if( $(this).val() == $(this).attr('value_check') ){
+								if( $(this).val() == $(this).attr('value_check') || $(this).val()=='' ){
 									$(this).val($(this).attr('value_check')).css({color:'lightgray'}).setCursorPosition(0)
 									.bind('keypress', function(e) {
 											$(this).makeNormalInputStyle()																				
 									})
 								};
 						}).blur(function(event) {
-							if( $(this).val() == $(this).attr('value_check') ){
+							if( $(this).val() == $(this).attr('value_check')  || $(this).val()==''){
 								$(this).css({color:'gray'})
 							};
 						});
@@ -127,6 +131,13 @@
 						        },500);
 										
 						};
+						
+						$('#agree').click(function(event) {
+								if( $(this).is(":checked") ){
+									window.ok = 1;
+									$('#agree').attr('errorChecked', 0);
+								};
+						});	
 
 						
 						window.ok = 1;
@@ -142,6 +153,7 @@
 												$(this).attr('errorChecked', 1).addErrorMessage( $(this).attr('value_check') + ' required.');
 												window.ok = 0;
 											};
+											
 								});	
 								
 								if( window.ok == 1 && $('#join_email').val() != $('#confirm_email').val()){
@@ -153,12 +165,19 @@
 												
 												
 								if( window.ok == 1 && $('#join_password').val().length < 6 ){
-										window.ok = 0;
 										resizeLaunchWindowBy( window.heightOfErrorMessageDiv );
 										$('#join_password').attr('errorChecked', 1).addErrorMessage('Must be min 6 characters.');
+										window.ok = 0;
 								};
 
-
+												
+												
+								if( window.ok == 1 && !$('#agree').is(":checked") ){
+										resizeLaunchWindowBy( window.heightOfErrorMessageDiv );
+										$('#agree').attr('errorChecked', 1).addErrorMessage('Must agree to Terms and Conditions.');
+										window.ok = 0;
+								};
+								
 								if( window.ok == 1 ){
 									$.closeDOMWindow();
 									//$.cookie("joined", '1');
@@ -285,14 +304,15 @@
 														<input  class='input_style ' name="join_password" id="join_password" type="" value="Password (must be 6 characters)" value_check='Password (must be 6 characters)' errorChecked=0>
 													</td>
 												</tr>
-												</tr>		
+												<tr>		
 													<td >
-														<div   style='float:left;width:95px;'  >
-															<input name="agree" id="agree" type="checkbox" value=""   style='width:10px'  >
+														<div>
+															<div   style='float:left;width:95px;'  >
+																<input name="agree" id="agree" type="checkbox" value=""   style='width:10px'  >
+															</div>
+															<div  style='padding-top:6px;float:left;width:200px;font-size:10px'  >I agree to the Terms and Conditions
+															</div>															
 														</div>
-														<div  style='padding-top:6px;float:left;width:200px;font-size:10px'  >I agree to the Terms and Conditions
-														</div>
-														
 													</td>
 												</tr>																																					
 											</table>
