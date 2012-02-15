@@ -34,6 +34,7 @@
       />
 
 <script type="text/javascript" language="Javascript" src = "<?php echo  base_url();   ?>js/jquery.js"></script>
+<script type="text/javascript" language="Javascript" src = "<?php echo  base_url();   ?>js/jquery.cookie.js"></script>
 <script type="text/javascript" src="<?php echo  base_url();   ?>js/jquery.scrollTo-min.js"></script>
 <script type="text/javascript" language="Javascript" src = "<?php echo  base_url();   ?>js/jquery_countdown.js"></script>
 	<script type="text/javascript" language="Javascript">
@@ -427,7 +428,7 @@
 <body>
 <div id="very_top"><div>
 <?php
-//     	$this->load->view('misc/launch_modal.php');  
+     	$this->load->view('misc/launch_modal.php');  
      	$this->load->view('misc/multi_deal_bubble.php');  
 ?>
 

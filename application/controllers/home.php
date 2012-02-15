@@ -315,7 +315,7 @@ class Home extends CI_Controller {
 		'site_id' => $this->site_id,
 		'deal_id' => $this->deal_id ,
 		'public_gallery' => $this->get_public_gallery($limit = 3),
-		'launch_pop_height' => '500',
+		'launch_pop_height' => '560',
 		'multi_deal_bubble_height' => '320',
 		'multi_deals' => $multi_deals
 		);
