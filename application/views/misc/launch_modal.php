@@ -17,29 +17,64 @@
 					  return this;
 					};
 					
+					$.fn.makeTypePassword = function() {
+						  $("<input type='password' />").addClass('input_style').attr({ value: '' }).css({color:'black','font-style':'normal'}).insertBefore(this).focus();
+							$(this).remove()
+					  return this;
+					};
+					
+					$.fn.makeNormalInputStyle = function() {
+						$(this).val('').css({color:'black','font-style':'normal'});
+						$(this).unbind('keypress');	
+					  return this;
+					};		
+					
+					$.fn.addErrorMessage = function(message) {
+						$(this).parent().append("<div  class='error_div ' >"+message+"</div>");
+					  return this;
+					};		
+					
+					$.fn.removeErrorMessage = function() {
+						$(this).parent().children('div.error_div').remove()
+						resizeLaunchWindow( (window.heightOfErrorMessageDiv * -1 + 10) );
+					  return this;
+					};							
+										
+												
+					function resizeLaunchWindow( howmuch ){
+								$('#DOMWindow').height($('#DOMWindow').height()+howmuch);
+								$('#launch_pop.left-half .left-middle-half').height($('#launch_pop.left-half .left-middle-half').height()+howmuch)
+					}	
+					
 					$(document).ready(function() { 
 				
-
 						$('.input_style').click(function(event) {
+								$(this).removeErrorMessage()
 								$(this).css({color:'lightgray'}).setCursorPosition(0)
 								.bind('keypress', function(e) {
-										$(this).val('').css({color:'black','font-style':'normal'});
-										$(this).unbind('keypress');																						
+										$(this).makeNormalInputStyle()																				
 								})
 						}).focus(function(event) {
+								$(this).removeErrorMessage()
 								$(this).css({color:'lightgray'}).setCursorPosition(0)
 								.bind('keypress', function(e) {
-										$(this).val('').css({color:'black','font-style':'normal'});
-										$(this).unbind('keypress');																						
+										$(this).makeNormalInputStyle()																				
 								})
 						});
 						
 						$('#password').click(function(event) {
-								 $("<input type='password' />").addClass('input_style').attr({ value: '' }).css({color:'black','font-style':'normal'}).insertBefore(this).focus();
-								 $(this).remove()
+								$(this).removeErrorMessage()
+								$(this).bind('keypress', function(e) {
+										$(this).makeNormalInputStyle()
+										$(this).makeTypePassword();																						
+								})
+								 
 						}).focus(function(event) {
-								 $("<input type='password' />").addClass('input_style').attr({ value: '' }).css({color:'black','font-style':'normal'}).insertBefore(this).focus();
-								 $(this).remove()
+								 $(this).removeErrorMessage()
+								 $(this).bind('keypress', function(e) {
+										$(this).makeNormalInputStyle()
+										$(this).makeTypePassword();																						
+								})
 						})	
 						
 						if( $.cookie("joined") == 1){
@@ -67,16 +102,37 @@
 																				onAfter: function() { 
 																				$('a.open_launch_window').click();
 															}} );
-						        },3000);
+						        },500);
 										
 						};
 
 						
-						
+						window.ok = 1;
+						window.countOfBadInputFields = 0;
+						window.heightOfErrorMessageDiv = 20;
 						
 						$('#join').click(function(event) {
-							$.closeDOMWindow();
-							$.cookie("joined", '1');
+							
+								$('.input_style').each(function(count) {
+											window.countOfBadInputFields++;
+											if( $(this).val() == $(this).attr('check')){
+												$(this).addErrorMessage('Field must filled in.');
+											};
+								});	
+								
+								
+								resizeLaunchWindow( window.countOfBadInputFields * window.heightOfErrorMessageDiv );
+
+								if( $('#email').val() != $('#confirm_email').val()){
+									$('#confirm_email').addErrorMessage('Confirm Email does not match email.');
+									window.ok = 0;
+								};
+
+								if( window.ok == 1 ){
+									$.closeDOMWindow();
+									$.cookie("joined", '1');
+								};
+								
 						
 						});	
 						
@@ -91,7 +147,7 @@
 					font-size:17px;
 					}
 					.input_style{
-						  border: 1px solid darkgray;
+						  border: 1px solid gray;
 						  height: 25px;
 							padding-left: 5px;
 							color:gray;
@@ -150,7 +206,6 @@
 									<div  class='bubble_content ' >
 										<div id='logo_div'>
 										</div>
-										<hr />
 										<div   style='margin:10px 0px;font-weight:bold;color:gray'  >
 											<div  style='text-align:center' >
 												Join for Great Pet Savings. 
@@ -166,30 +221,38 @@
 											 margin:5px 75px 5px;
 											 width:220px;	
 											}
+											.error_div{
+										    color: darkRed;
+										    font-size: 12px;
+										    height: 19px;
+										    margin: 0;
+										    padding-left: 80px;
+										    font-style: italic;
+											}
 											</style>
 											<table  id='launch_content_table'>
 												<tr>
 													<td>
-														<input  class='input_style ' name="first_name	" id="first_name	" type="" value="First Name">
+														<input  class='input_style ' name="first_name	" id="first_name	" type="" value="First Name" check='First Name'>
 													</td>
 												</tr>
 												<tr>
 													<td>
-														<input  class='input_style ' name="last_name	" id="last_name	" type="" value="Last Name">
+														<input  class='input_style ' name="last_name	" id="last_name	" type="" value="Last Name" check='Last Name'>
 													</td>
 												</tr>
 												<tr>
 													<td>
-														<input  class='input_style ' name="email" id="email" type="" value="Email">
+														<input  class='input_style ' name="email" id="email" type="" value="Email" check='Email'>
 													</td>
 												</tr>
 												<tr>
 													<td>
-														<input  class='input_style ' name="confirm_email" id="confirm_email" type="" value="Confirm Email">
+														<input  class='input_style ' name="confirm_email" id="confirm_email" type="" value="Confirm Email" check='Confirm Email'>
 													</td>
 												</tr>		
 													<td>
-														<input  class='input_style ' name="password" id="password" type="" value="Password">
+														<input  class='input_style ' name="password" id="password" type="" value="Password" check='Password'>
 													</td>
 												</tr>
 												</tr>		
@@ -208,11 +271,11 @@
 												cursor:pointer;
 												color:white;
 												font-weight:bold;
-												font-size:22px;
+												font-size:17px;
 												margin:13px auto;
 												text-align:center;
-												padding-top:10px;
-												height:40px;
+												padding-top:4px;
+												height:32px;
 												background-image: url(<?php  echo base_url()   ?>images/buynow2.png?random=1431);
 												background-position: center 0px;
 												background-repeat: no-repeat;
