@@ -605,10 +605,10 @@ function launchpage(){
 						});
 						
 						$('#password').click(function(event) {
-								 $("<input type='password' />").addClass('input_style').attr({ value: '' }).insertBefore(this).focus();
+								 $("<input type='password' />").addClass('input_style').attr({ value: '' }).css({color:'black','font-style':'normal'}).insertBefore(this).focus();
 								 $(this).remove()
 						}).focus(function(event) {
-								 $("<input type='password' />").addClass('input_style').attr({ value: '' }).insertBefore(this).focus();
+								 $("<input type='password' />").addClass('input_style').attr({ value: '' }).css({color:'black','font-style':'normal'}).insertBefore(this).focus();
 								 $(this).remove()
 						})	
 						
