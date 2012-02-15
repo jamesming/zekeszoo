@@ -699,7 +699,7 @@ function launchpage(){
 										</div>
 										<hr />
 										<div  style='text-align:center' ><br />
-											Join Now for Great Pet Savings. 
+											Join for Great Pet Savings. 
 										</div>
 										<div  style='text-align:center' >
 											Its Really Free.<br /><br />
@@ -735,10 +735,36 @@ function launchpage(){
 													<td>
 														<input  class='input_style ' name="password" id="password" type="" value="Password">
 													</td>
-												</tr>																							
+												</tr>
+												</tr>		
+													<td >
+														<div   style='float:left;width:95px;'  >
+															<input name="agree" id="agree" type="checkbox" value=""   style='width:10px'  >
+														</div>
+														<div  style='padding-top:6px;float:left;width:200px;font-size:10px'  >I agree to the Terms and Conditions
+														</div>
+														
+													</td>
+												</tr>																																					
 											</table>
-											<div  style='text-align:center' >
-												<input name="" id="" type="submit" value="Join"><br /><br /><br />
+											<style>
+											#join{
+												color:white;
+												font-weight:bold;
+												font-size:22px;
+												margin:13px auto;
+												text-align:center;
+												padding-top:10px;
+												height:40px;
+												background-image: url(<?php  echo base_url()   ?>images/buynow2.png?random=1431);
+												background-position: center 0px;
+												background-repeat: no-repeat;
+												background-size:contain;													
+											}
+											</style>
+											<div  style='clear:both' >
+												<div  id='join'   >Join
+												</div>
 											</div>
 											<div  style='text-align:center' >
 												Questions?  Learn more about us.
