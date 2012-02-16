@@ -87,6 +87,11 @@ a.myaccount.menu-open span {
 }		
 
 </style>
+<script type="text/javascript" language="Javascript">
+	$(document).ready(function() { 
+		$.cookie("joined", '1');
+	});
+</script>
 <div id='myaccount_container'  >
 	
  <div id="topnav" class="topnav">

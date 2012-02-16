@@ -206,6 +206,7 @@ class Home extends CI_Controller {
 		}else{
 				$tipped_time = '';
 				$deal_url =  "";
+				$url_shortener='';
 		};
 
 		$deals = $this->query->get_deal_by_id( $this->deal_id );
@@ -5728,7 +5729,7 @@ function enroll(){
 		$this->session->set_userdata($newuser);
 		
 
-		redirect('/home/index');
+		redirect('/');
 
 }
 

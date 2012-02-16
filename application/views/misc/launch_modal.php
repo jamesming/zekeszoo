@@ -48,9 +48,13 @@
 					
 					$.fn.removeErrorMessage = function() {
 						if( $(this).attr('errorChecked') == 1){
-							$(this).parent().children('div.error_div').remove()
+							if( $(this).attr('id') == 'agree'){
+								$(this).parent().parent().children('div.error_div').remove()
+							}else{
+								$(this).parent().children('div.error_div').remove()
+							};
 							$(this).attr('errorChecked', 0);
-							resizeLaunchWindowBy( (window.heightOfErrorMessageDiv * -1 + 10) );
+							resizeLaunchWindowBy( (window.heightOfErrorMessageDiv + 5) * -1 );
 							window.ok = 1;
 						  return this;							
 							
@@ -104,7 +108,7 @@
 						})	
 						
 						if( $.cookie("joined") == 1){
-										//$.cookie("joined", null);
+										$.cookie("joined", null);
 						}else{
 							
 										$('.open_launch_window').openDOMWindow({
@@ -132,8 +136,7 @@
 						
 						$('#agree').click(function(event) {
 								if( $(this).is(":checked") ){
-									window.ok = 1;
-									$('#agree').attr('errorChecked', 0);
+									$(this).removeErrorMessage();
 								};
 						});	
 
@@ -178,7 +181,6 @@
 								
 								if( window.ok == 1 ){
 									$.closeDOMWindow();
-									$.cookie("joined", '1');
 									$('#form0').submit();
 								};						
 						
@@ -276,6 +278,7 @@
 										    margin: 0;
 										    padding-left: 80px;
 										    font-style: italic;
+										    text-align:left;
 											}
 											</style>
 											<form
@@ -317,7 +320,7 @@
 															<div   style='float:left;width:95px;'  >
 																<input name="agree" id="agree" type="checkbox" value=""   style='width:10px'  >
 															</div>
-															<div  style='padding-top:6px;float:left;width:200px;font-size:10px'  >I agree to the Terms and Conditions
+															<div  style='text-align:left;padding-top:6px;float:left;width:200px;font-size:10px'  >I agree to the Terms and Conditions
 															</div>															
 														</div>
 													</td>

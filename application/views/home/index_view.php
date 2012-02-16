@@ -427,10 +427,7 @@
 
 <body>
 <div id="very_top"><div>
-<?php
-     	$this->load->view('misc/launch_modal.php');  
-     	$this->load->view('misc/multi_deal_bubble.php');  
-?>
+
 
 	
 <?php     	$this->load->view('header/email_subscribe.php');  ?>
@@ -440,7 +437,10 @@
 	<div id='sunrise'  class=' container' >
 
 <?php     	$this->load->view('header/top_header.php');  ?>
-							
+<?php
+//     	$this->load->view('misc/launch_modal.php');  
+     	$this->load->view('misc/multi_deal_bubble.php');  
+?>					
 							<div  class='clearfix container' id='main_section_container'   >
 								
 								<div   id='main_section'    class='container_inside'   >
