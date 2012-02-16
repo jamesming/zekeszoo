@@ -151,7 +151,7 @@ if( isset($transactions[0]['redemption_type_id'] ) && $transactions[0]['redempti
 																													<?php  echo $transaction['deal_short_description'];   ?>	
 																												</a>
 																											</div>		
-																											<div  class='transaction_div ' >
+																											<div  class='transaction_div '   style='display:none'  >
 																														<ul>
 																														<?php foreach($transaction['user_deals']  as $one_user_deal  ){  ?>
 																														
