@@ -880,7 +880,7 @@ EOWELCOME;
 		$this->email->subject('Safety for your Pet. Piece of mind for you');
 		$this->email->message($message);		
 
-/*		
+		
 		$this->email->to('
 		jamesming@gmail.com,
 		jflustyan@gmail.com, 
@@ -890,7 +890,7 @@ EOWELCOME;
 
 
 		$this->email->send();
-*/
+/*
 			$select_what =  '*';
 
 			$leads = $this->my_database_model->select_from_table(
@@ -902,12 +902,12 @@ EOWELCOME;
 						echo "<br />";
 						echo $lead->email."<br />";
 				
-//						$this->email->to($lead->email.',zekeszoo@zekeszoo.com');
-//						$this->email->send();				
+						$this->email->to($lead->email.',zekeszoo@zekeszoo.com');
+						$this->email->send();				
 				
 			}
 
-
+*/
 		//echo $this->email->print_debugger();
 
 	}
