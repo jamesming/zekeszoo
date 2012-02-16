@@ -970,7 +970,7 @@ function launchpage(){
 function coupon(){
 
 		
-	$launch_pop_height = 360;	
+	$launch_pop_height = 400;	
 		
 ?>		
 <div id="very_top"><div>
@@ -1252,12 +1252,13 @@ function coupon(){
 									<div  class='bubble_content ' >
 										<div id='logo_div'>
 										</div>
+										<hr/   style='margin:10px 0px'  >
 										<div   style='margin:10px 0px;font-weight:bold;color:gray'  >
 											<div  style='text-align:center' >
-												This week only...&nbsp;&nbsp;Free $5 to spend at 
+												<big   style='color:gray'  >Member Appreciation Week!</big>
 											</div>
-											<div  style='text-align:center' >
-												DogSupplies.com for Zeke's Zoo Members
+											<div  style='text-align:center;color:darkgray' >
+												 Free $5 to spend on any order at DogSupplies.com
 											</div>											
 										</div>
 
