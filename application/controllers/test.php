@@ -830,7 +830,7 @@ function launchpage(){
 																	text-align:center;
 																	background-image: url(<?php echo base_url()    ?>images/sites/zekeszoo/logo.png);
 																	background-repeat: no-repeat;	
-																	background-position:center 0px;	
+																	background-position:107px 0px;	
 																	height:80px;
 																	background-size:50%;
 															}														
@@ -1254,10 +1254,10 @@ function coupon(){
 										</div>
 										<div   style='margin:10px 0px;font-weight:bold;color:gray'  >
 											<div  style='text-align:center' >
-												Enter your email
+												This week only...&nbsp;&nbsp;Free $5 to spend at 
 											</div>
 											<div  style='text-align:center' >
-												to get the $5 Off Coupon.
+												DogSupplies.com for Zeke's Zoo Members
 											</div>											
 										</div>
 
@@ -1315,7 +1315,7 @@ function coupon(){
 											}
 											</style>
 											<div  style='clear:both' >
-												<div  id='join'   >Submit
+												<div  id='join'   >Redeem
 												</div>
 											</div>
 																				
