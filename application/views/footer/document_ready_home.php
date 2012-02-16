@@ -42,53 +42,42 @@ $(document).ready(function() {
     			layout: '{dn} {dl} {hnn}{sep}{mnn}{sep}{snn}'});
     			
     			
-    		<?php if( $howmany_left > 0){?>
+    						<?php if( $howmany_left > 0){?>
     			
     			
-							$('#buynow_image').click(function(event) {
-								
-								// && 1==2
-								
-								<?php if( $deals[0]->deals_parent_id == 1){?>
-									
-									$('body').scrollTo( $('#very_top'), 200, {
-														onAfter: function() { 
-														$('a.open_multi_options_bubble').click()
-									}} );
-									
-									
-								<?php }else{?>
-									
+												$('#buynow_image').click(function(event) {
+													
+													
+														<?php if( $deals[0]->redemption_type_id == 4 ){?>
+															
+																		$('body').scrollTo( $('#very_top'), 800, {
+																			onAfter: function() { 
+																			$('a.open_launch_window').click();
+																		}} );
+																																	
+														<?php }else{?>
+															
+																	<?php if( $deals[0]->deals_parent_id == 1){?>
+																		$('body').scrollTo( $('#very_top'), 10, {
+																							onAfter: function() { 
+																							$('a.open_multi_options_bubble').click()
+																		}} );
+																	<?php }else{?>
+																								<?php if( $_SERVER['HTTP_HOST'] == 'localhost' ){?>
+																									document.location.href='<?php echo  base_url();   ?>index.php/home/buy/<?php echo $deal_id    ?>?priority=<?php echo $priority    ?>';
+																								<?php }else{?>
+																									document.location.href='https://zekeszoo.com/index.php/home/buy/<?php echo $deal_id    ?>?priority=<?php echo $priority    ?>';
+																								<?php } ?>									
+																	<?php } ?>																
+																	
+																	
+														<?php } ?>
+													
 
-									
-															<?php if( $_SERVER['HTTP_HOST'] == 'localhost' ){?>
-																
-																document.location.href='<?php echo  base_url();   ?>index.php/home/buy/<?php echo $deal_id    ?>?priority=<?php echo $priority    ?>';
-										
-															<?php }else{?>
-																
-																document.location.href='https://zekeszoo.com/index.php/home/buy/<?php echo $deal_id    ?>?priority=<?php echo $priority    ?>';
-																
-															<?php } ?>									
-									
-									
-									
-									
-									
-									
-									
-										
-								<?php } ?>
-								
-
-								
-
-								
-								
-							});	
-
-    			
-    		<?php } ?>
+												});	
+					
+					    			
+					    <?php } ?>
 
     			
 

@@ -290,7 +290,6 @@ class Home extends CI_Controller {
 			$count_of_buyers_needed_to_tip_deal = 	$deals[0]->minimum_quantity - $bought_so_far;
 		};
 
-
 		$data = 		array(
 		'priority' => $this->priority,
 		'website' => $this->my_database_model->select_from_table( $table = 'website', $select_what = '*', $where_array = array(), $use_order = TRUE, $order_field = 'id', $order_direction = 'desc', $limit = 1, $use_join = FALSE, $join_array= array() ),
@@ -315,7 +314,7 @@ class Home extends CI_Controller {
 		'site_id' => $this->site_id,
 		'deal_id' => $this->deal_id ,
 		'public_gallery' => $this->get_public_gallery($limit = 3),
-		'launch_pop_height' => '560',
+		'launch_pop_height' => '400',
 		'multi_deal_bubble_height' => '320',
 		'multi_deals' => $multi_deals
 		);
@@ -5733,6 +5732,31 @@ function enroll(){
 
 }
 
+function coupon_subscribe(){
+	
+		$post_array = $this->input->post();
+		
+		$table = 'email_subscribers';
+		
+	  $where_array = array('email' => $post_array['join_email']);
+
+	  if( !$this->my_database_model->my_database_model->check_if_exist($where_array, $table)){
+	  	
+					$insert_what = array(
+					                        'full_name' =>  $post_array['join_full_name'],
+					                        'email' =>  $post_array['join_email'],
+					                        'deal_id' =>   $post_array['deal_id']
+					                );
+					
+					$results = $this->my_database_model->my_database_model->insert_table(
+													$table, 
+													$insert_what
+													); 
+		}
+		
+
+
+}
 /**
  * create_table
  *

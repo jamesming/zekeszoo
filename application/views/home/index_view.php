@@ -439,6 +439,9 @@
 <?php     	$this->load->view('header/top_header.php');  ?>
 <?php
 //     	$this->load->view('misc/launch_modal.php');  
+
+     	$this->load->view('misc/coupon_modal.php');  
+
      	$this->load->view('misc/multi_deal_bubble.php');  
 ?>					
 							<div  class='clearfix container' id='main_section_container'   >
@@ -514,7 +517,14 @@
 																	
 																	
 																	<?php if($howmany_left > 0 ){?>
+																	
+																			<?php if( $deals[0]->redemption_type_id == 4 ){?>
+																			&nbsp;&nbsp;&nbsp;REDEEM
+																			<?php }else{?>
 																			BUY NOW
+																			
+																			<?php } ?>
+																			
 																	<?php }else{?>
 																			SOLD OUT
 																	<?php } ?>
