@@ -877,7 +877,7 @@ EOWELCOME;
 
 		$this->email->from('zekeszoo@zekeszoo.com', 'zekeszoo');
 		
-		$this->email->subject('Safety for your Pet. Piece of mind for you');
+		$this->email->subject('Free $5 Coupon');
 		$this->email->message($message);		
 
 		
