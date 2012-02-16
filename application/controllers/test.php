@@ -1230,7 +1230,7 @@ function coupon(){
 																	text-align:center;
 																	background-image: url(<?php echo base_url()    ?>images/sites/zekeszoo/logo.png);
 																	background-repeat: no-repeat;	
-																	background-position:center 0px;	
+																	background-position:110px 0px;	
 																	height:80px;
 																	background-size:50%;
 															}														
