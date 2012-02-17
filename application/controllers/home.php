@@ -877,7 +877,7 @@ EOWELCOME;
 
 		$this->email->from('zekeszoo@zekeszoo.com', 'zekeszoo');
 		
-		$this->email->subject('Membership Appreciation Week!  Free $5 to spend on any order at DogSupplies.com');
+		$this->email->subject('Celebrating our 1 month, with a gift just for you');
 		$this->email->message($message);		
 
 		
