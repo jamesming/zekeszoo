@@ -882,7 +882,9 @@ EOWELCOME;
 
 		
 		$this->email->to('
-		jamesming@gmail.com
+		jamesming@gmail.com,
+		jflustyan@gmail.com, 
+		benbundy@gmail.com'
 		);
 		
 
