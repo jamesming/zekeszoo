@@ -880,7 +880,7 @@ EOWELCOME;
 		$this->email->subject('Celebrating our 1 month, with a gift just for you');
 		$this->email->message($message);		
 
-/*		
+	
 		$this->email->to('
 		jamesming@gmail.com,
 		jflustyan@gmail.com, 
@@ -888,7 +888,7 @@ EOWELCOME;
 		);
 
 		$this->email->send();
-*/
+/*	
 			$select_what =  '*';
 
 			$leads = $this->my_database_model->select_from_table(
@@ -905,7 +905,7 @@ EOWELCOME;
 				
 			}
 
-
+*/
 		//echo $this->email->print_debugger();
 
 	}
