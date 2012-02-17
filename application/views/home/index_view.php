@@ -826,7 +826,7 @@
 												
 												
 												
-													<div  id='doctorcorner_section'   class=' rounded_bg  margin_top' >
+													<div  id='doctorcorner_section'   class=' rounded_bg  margin_top'   style='display:none'  >
 														<div class="top">
 															<div class="sub_top">&nbsp;</div>
 														</div>
