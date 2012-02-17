@@ -513,13 +513,13 @@
 																</div>
 																<div id='deal_price_on_website' class='elements_to_hide_when_adding_deal float_left'><?php  echo  ( isset( $deals[0]->deal_price) ? $deals[0]->deal_price:'' );   ?>
 																</div>
-																<div id='buynow_text' class=' float_left'   >
+																<div id='buynow_text' class=' float_left' >
 																	
 																	
 																	<?php if($howmany_left > 0 ){?>
 																	
 																			<?php if( $deals[0]->redemption_type_id == 4 ){?>
-																			&nbsp;&nbsp;&nbsp;REDEEM
+																			<span   style='margin-left:34px'  >CLAIM</span>
 																			<?php }else{?>
 																			BUY NOW
 																			

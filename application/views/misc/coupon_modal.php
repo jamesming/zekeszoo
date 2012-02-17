@@ -308,7 +308,7 @@
 											}
 											</style>
 											<div  style='clear:both' >
-												<div  id='join'   >Redeem
+												<div  id='join'   >CLAIM
 												</div>
 											</div>
 																				
