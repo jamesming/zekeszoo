@@ -144,7 +144,7 @@
 									},function(data) {
 										
 										
-										$('#coupon_content').html("<div  id='coupon_content_inside' ><p>Your Code: zekes</p><p>Click <a href='http://dogsupplies.com/'>here</a> to shop now.</p></div>")															
+										$('#coupon_content').html("<div  id='coupon_content_inside' ><p>Here's your code: zekes</p><p>Click <a target='_blank' href='http://dogsupplies.com/'>here</a> to shop now.</p></div>")															
 											
 									});
 									
