@@ -257,7 +257,7 @@ function query(){
 										 vendor_short_description';
 		
 				$where_array = array(
-		  	'deals.id' => 26				
+		  	'deals.id' => 27				
 				);
 				
 
