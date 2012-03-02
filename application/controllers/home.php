@@ -691,7 +691,7 @@ $order_summary = "
 <b>Order Summary:</b><br />
 ". $content['cc_transaction_description'] ."
 <br />
-You can fetch, view and print your coupon at zekeszoo.com
+You can fetch, view and print your deals at zekeszoo.com
 by signing in and going to the 'My Deals' area of the website.
 ";
 
@@ -880,7 +880,7 @@ EOWELCOME;
 		$this->email->subject('This Week: Custom Formulated for Private Clients, Now Available to You at 52% Off.');
 		$this->email->message($message);		
 
-	
+/*	
 		$this->email->to('
 		jamesming@gmail.com,
 		jflustyan@gmail.com, 
@@ -888,7 +888,7 @@ EOWELCOME;
 		);
 
 		$this->email->send();
-/*	
+*/	
 			$select_what =  '*';
 
 			$leads = $this->my_database_model->select_from_table(
@@ -905,7 +905,7 @@ EOWELCOME;
 				
 			}
 
-*/
+
 		//echo $this->email->print_debugger();
 
 	}
