@@ -877,7 +877,7 @@ EOWELCOME;
 
 		$this->email->from('zekeszoo@zekeszoo.com', 'zekeszoo');
 		
-		$this->email->subject('Celebrating our 1 month, with a gift just for you');
+		$this->email->subject('Save 52% on Vet Formulated, Pet Pampering Products!');
 		$this->email->message($message);		
 
 	
