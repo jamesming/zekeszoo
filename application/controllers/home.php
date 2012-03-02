@@ -691,8 +691,7 @@ $order_summary = "
 <b>Order Summary:</b><br />
 ". $content['cc_transaction_description'] ."
 <br />
-You can fetch, view and print your deals at zekeszoo.com
-by signing in and going to the 'My Deals' area of the website.
+At any time, you can view this and all previous orders at zekeszoo.com by signing in and going to the 'My Deals' area of the website.
 ";
 
 //We thank you and hope you love your purchase! It can be redeemed online directly at the PetHub's website.&nbsp;&nbsp;Sign in to zekeszoo.com to retrieve your voucher code and review redemption instructions.
