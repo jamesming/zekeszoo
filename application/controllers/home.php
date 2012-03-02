@@ -1864,7 +1864,6 @@ EOWELCOME;
 												 );
 
 
-
 												 if( $response->isOk() ){
 
 																$users['authorize_customerProfileId'] = $response->getCustomerProfileId();
@@ -2991,7 +2990,7 @@ EOWELCOME;
 													$total_transaction_value,
 													$user_deal_processed,
 													$unit_price = $deals[0]->deal_price,
-													$title_of_purchase = 'Zekeszoo Deal for '. $deals[0]->company_name,
+													$title_of_purchase = 'Zekeszoo Deal for '. substr($deals[0]->company_name, 0, 5),
 													$deal_short_description = $deals[0]->deal_short_description,
 											   	$authorize_customerProfileId,
 											   	$authorize_paymentProfileId,
