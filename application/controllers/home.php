@@ -695,6 +695,8 @@ You can fetch, view and print your coupon at zekeszoo.com
 by signing in and going to the 'My Deals' area of the website.
 ";
 
+//We thank you and hope you love your purchase! It can be redeemed online directly at the PetHub's website.&nbsp;&nbsp;Sign in to zekeszoo.com to retrieve your voucher code and review redemption instructions.
+
 
 $body = "
 <br />
@@ -703,9 +705,7 @@ Hi {$fullname},
 </p>
 
 <p>
-We thank you and hope you love your purchase!
-
-It can be redeemed online directly at the PetHub's website.&nbsp;&nbsp;Sign in to zekeszoo.com to retrieve your voucher code and review redemption instructions.
+We thank you and hope you love your purchase! There is no more you need to do at this point. Just sit back and relax. As soon as the deal event is done, we will promptly ship you your purchase.
 
 <p>
 {$order_summary}
@@ -877,7 +877,7 @@ EOWELCOME;
 
 		$this->email->from('zekeszoo@zekeszoo.com', 'zekeszoo');
 		
-		$this->email->subject('Save 52% on Vet Formulated, Pet Pampering Products!');
+		$this->email->subject('This Week: Custom Formulated for Private Clients, Now Available to You at 52% Off.');
 		$this->email->message($message);		
 
 	
