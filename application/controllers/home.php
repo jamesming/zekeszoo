@@ -890,6 +890,7 @@ EOWELCOME;
 		);
 
 		$this->email->send();
+		echo "sent";
 	
 /*			$select_what =  '*';
 
