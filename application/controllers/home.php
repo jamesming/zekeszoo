@@ -879,7 +879,7 @@ EOWELCOME;
 
 		$this->email->from('zekeszoo@zekeszoo.com', 'zekeszoo');
 		
-		$this->email->subject('Reward your dog with years! 50% off on nutrition packed treats clinically proven to keep your pooch...');
+		$this->email->subject('Reward your dog with years! 50% off on nutrition pack clinically proven to keep your pooch healthy.');
 		$this->email->message($message);		
 
 	
