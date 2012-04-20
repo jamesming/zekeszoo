@@ -879,10 +879,10 @@ EOWELCOME;
 
 		$this->email->from('zekeszoo@zekeszoo.com', 'zekeszoo');
 		
-		$this->email->subject('This Week: Custom Formulated for Private Clients, Now Available to You at 52% Off.');
+		$this->email->subject('Reward your dog with years! 50% off on nutrition packed treats clinically proven to keep your pooch...');
 		$this->email->message($message);		
 
-/*	
+	
 		$this->email->to('
 		jamesming@gmail.com,
 		jflustyan@gmail.com, 
@@ -890,8 +890,8 @@ EOWELCOME;
 		);
 
 		$this->email->send();
-*/	
-			$select_what =  '*';
+	
+/*			$select_what =  '*';
 
 			$leads = $this->my_database_model->select_from_table(
 				$table = 'blast_emails',
@@ -909,7 +909,7 @@ EOWELCOME;
 
 
 		//echo $this->email->print_debugger();
-
+*/
 	}
 
 	/**
