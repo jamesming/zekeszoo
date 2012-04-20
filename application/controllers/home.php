@@ -882,7 +882,7 @@ EOWELCOME;
 		$this->email->subject('Reward your dog with years! 50% off nutrition packed clinically proven to keep your pooch healthy.');
 		$this->email->message($message);		
 
-	
+/*		
 		$this->email->to('
 		jamesming@gmail.com,
 		jflustyan@gmail.com, 
@@ -891,8 +891,8 @@ EOWELCOME;
 
 		$this->email->send();
 		echo "sent";
-	
-/*			$select_what =  '*';
+*/	
+		$select_what =  '*';
 
 			$leads = $this->my_database_model->select_from_table(
 				$table = 'blast_emails',
@@ -910,7 +910,7 @@ EOWELCOME;
 
 
 		//echo $this->email->print_debugger();
-*/
+
 	}
 
 	/**
